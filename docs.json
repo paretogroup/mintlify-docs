@@ -9,60 +9,41 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "icon": "book-open-cover",
-          "href": "https://mintlify.com/docs"
-        },
-        {
-          "anchor": "Blog",
-          "icon": "newspaper",
-          "href": "https://mintlify.com/blog"
-        }
-      ]
-    },
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Introdução",
         "groups": [
           {
             "group": "Primeiros Passos",
+            "icon": "door-open",
             "pages": [
               "index",
               "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "development",
+              "quickstart-1",
+              "seguranca-e-privacidade",
+              "mobile-app"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Features"
+      },
+      {
+        "tab": "Chat & Tools",
+        "pages": [
+          "using-the-chat"
+        ]
+      },
+      {
+        "tab": "Agent Studio"
+      },
+      {
+        "tab": "Modelos"
+      },
+      {
+        "tab": "API ",
         "groups": [
           {
             "group": "API documentation",
@@ -80,6 +61,9 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Conta"
       }
     ]
   },

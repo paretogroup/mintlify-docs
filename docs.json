@@ -36,11 +36,22 @@
       },
       {
         "tab": "Chat & Tools",
-        "pages": [
-          "using-the-chat",
-          "base-de-conhecimentos",
-          "historico",
-          "tools"
+        "groups": [
+          {
+            "group": "Chat",
+            "pages": [
+              "using-the-chat",
+              "base-de-conhecimentos",
+              "historico",
+              "temperatura"
+            ]
+          },
+          {
+            "group": "Tools",
+            "pages": [
+              "tools"
+            ]
+          }
         ]
       },
       {

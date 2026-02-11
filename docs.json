@@ -38,7 +38,8 @@
         "tab": "Chat & Tools",
         "pages": [
           "using-the-chat",
-          "tools"
+          "tools",
+          "base-de-conhecimentos"
         ]
       },
       {
@@ -85,6 +86,7 @@
         "pages": [
           "conta-compartilhada",
           "bi",
+          "untitled-page",
           "untitled-page",
           "painel-da-equipe",
           "sso",

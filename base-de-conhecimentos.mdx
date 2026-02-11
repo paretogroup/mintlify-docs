@@ -1,0 +1,72 @@
+---
+title: "Base de Conhecimentos"
+---
+
+No chat da Tess, você pode anexar arquivos para dar contexto e “treinar” a conversa (ou seja, permitir que a Tess use aquele conteúdo para responder melhor). Existem duas formas de enviar arquivos no chat: o envio rápido (arrastar/colar) e o envio avançado (pelo botão “+”), que libera configurações importantes de processamento.
+
+Quando você anexa um arquivo ao chat, a Tess pode processar e usar esse conteúdo como base para:
+
+- responder perguntas sobre o conteúdo do arquivo
+- resumir, extrair dados e criar outputs a partir do material
+- manter o contexto do atendimento (especialmente útil em suporte, onboarding e projetos)
+
+Além disso, todo o histórico de uploads e uso desses arquivos pode ser consultado na Base de Conhecimento dentro das Configurações.
+
+<Note>
+  Lembre-se que, ao adicionar um documento à Base de Conhecimento de uma conversa, apenas aquela conversa será treinada com o referido documento. Caso você inicie um novo chat, precisará anexar novamente o arquivo. \
+  \
+  Para evitar retrabalho, caso seja uma tarefa repetitiva, recomendamos criar um agente e anexar o arquivo à Base de Conhecimento do agente (não do chat), assim toda conversa iniciada naquele agente já estará treinada com o documento que integra a sua Base de Conhecimento.
+</Note>
+
+## **Duas formas de enviar arquivos (e a diferença entre elas)**
+
+<Card title="Envio Rápido (arrastar ou Ctrl+V)" icon="1">
+  Você arrasta o arquivo para dentro do chat, ou cola (Ctrl+V) quando aplicável. É o jeito mais rápido de anexar algo e seguir a conversa.
+
+  ![Tessdocs Dragdrop Chat](/images/tessdocs-dragdrop-chat.png)
+
+  Depois de enviado, ele aparecerá no topo do chat, treinando definitivamente quando a mensagem for enviada junto ao arquivo:
+
+  ![Tessdocs Kbchat](/images/tessdocs-kbchat-1.png)
+
+  ![Tessdocs Chatfile](/images/tessdocs-chatfile.png)
+
+  - Limitação: Normalmente não permite escolher opções avançadas de processamento. Ou seja, você anexa, mas não controla o processamento do arquivo (RAG ou Deep Learning).
+  - Quando usar: Quando você só precisa anexar rapidamente e não precisa de configurações (ex.: uma imagem simples, um CSV, um PDF com texto, um link).
+</Card>
+
+<Card title="Envio avançado (pelo botão “+”) " icon="2">
+  No chat, clique no botão “+” (ferramentas/anexos) ao lado da caixa de mensagem. Depois, selecione o upload/anexo de arquivo por esse caminho.
+
+  ![Tessdocs Addfile](/images/tessdocs-addfile.png)
+
+  Dessa forma, você poderá escolher o tipo de processamento antes de enviar (dependendo do arquivo) e habilita configurações específicas por tipo de arquivo.
+
+  ![Tessdocs Chatkb File](/images/tessdocs-chatkb-file.png)
+
+  - Nessa tela também é possível arrastar o arquivo ou selecionar do computador. Ao anexar um arquivo, ele aparecerá ao lado direito e, na setinha é possível estender as configurações disponíveis (quando aplicável):
+
+  Você pode configurar, por exemplo:
+
+  **A) Tipo de processamento entre RAG e Deep Learning**
+
+  - RAG (retrieval): foca em buscar trechos relevantes do arquivo para responder perguntas com base no conteúdo. Consome menos créditos.
+  - Deep Learning: foca em um processamento mais profundo do conteúdo, dependendo do tipo de arquivo e do recurso disponível. Consome mais créditos.
+
+  **B) Configurações específicas por tipo de arquivo, por exemplo:**
+
+  - **PDF:** Você pode escolher como o PDF será interpretado, por exemplo:
+    - Processamento de texto: ideal quando o PDF é composto por texto selecionável.
+    - OCR: ideal quando o PDF possui alguma imagem, ou é escaneado e a IA precisa “ler” o texto de texto e imagens.
+  - **MP3 e MP4: **Você pode configurar parâmetros de transcrição, por exemplo:
+    - Idioma: ajuda a transcrição a ficar mais correta (principalmente em PT-BR, EN, ES etc.).
+    - IA/modelo de transcrição: optar entre Deepgram, Assembly, Open AI, e Rev AI.
+</Card>
+
+<Info>
+  É possível acompanhar tudo o que foi enviado para a Tess (incluindo uploads feitos no chat) na Base de Conhecimento das Configurações.
+</Info>
+
+Cada documento adicionado à Base de Conhecimento implica no consumo de um volume baixo de créditos para a realização dessa tarefa. 
+
+Qualquer dúvida, pode acionar nosso time no e-mail: [suporte@tess.im](mailto:suporte@tessai.io).

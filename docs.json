@@ -70,8 +70,22 @@
         "tab": "Conta",
         "pages": [
           "untitled-page",
-          "untitled-page",
-          "bi"
+          "bi",
+          {
+            "group": "Programas",
+            "pages": []
+          },
+          {
+            "group": "Suporte",
+            "pages": [
+              "contato-de-suporte",
+              "suporte-remoto"
+            ]
+          },
+          {
+            "group": "Plano Teams",
+            "pages": []
+          }
         ]
       }
     ]

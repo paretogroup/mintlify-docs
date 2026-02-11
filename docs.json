@@ -38,8 +38,9 @@
         "tab": "Chat & Tools",
         "pages": [
           "using-the-chat",
-          "tools",
-          "base-de-conhecimentos"
+          "base-de-conhecimentos",
+          "historico",
+          "tools"
         ]
       },
       {

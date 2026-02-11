@@ -28,7 +28,10 @@
         ]
       },
       {
-        "tab": "Features"
+        "tab": "Features",
+        "pages": [
+          "memorias"
+        ]
       },
       {
         "tab": "Chat & Tools",
@@ -67,13 +70,14 @@
         "tab": "Conta",
         "pages": [
           "untitled-page",
+          "untitled-page",
           "bi"
         ]
       }
     ]
   },
   "logo": {
-    "light": "/images/Tess_LogoColorido.png",
+    "light": "/images/tess-logo-dark.png",
     "dark": "/images/Tess_LogoBranco.png",
     "href": "https://tess.im/"
   },

@@ -31,7 +31,8 @@
         "tab": "Features",
         "pages": [
           "memorias",
-          "modo-max"
+          "modo-max",
+          "modo-auto"
         ]
       },
       {
@@ -43,13 +44,16 @@
               "using-the-chat",
               "base-de-conhecimentos",
               "historico",
-              "temperatura"
+              "temperatura",
+              "links-compartilhaveis",
+              "carteira-de-creditos"
             ]
           },
           {
             "group": "Tools",
             "pages": [
-              "tools"
+              "tools",
+              "tool-internet"
             ]
           }
         ]
@@ -96,10 +100,9 @@
       {
         "tab": "Conta",
         "pages": [
+          "assinatura-e-pagamento",
           "conta-compartilhada",
           "bi",
-          "untitled-page",
-          "untitled-page",
           "painel-da-equipe",
           "sso",
           {

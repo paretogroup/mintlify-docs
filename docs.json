@@ -77,7 +77,7 @@
     ]
   },
   "logo": {
-    "light": "/images/tess-logo-dark.png",
+    "light": "/images/tess-logo-dark.svg",
     "dark": "/images/Tess_LogoBranco.png",
     "href": "https://tess.im/"
   },

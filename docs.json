@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "sequoia",
+  "name": "Tess AI Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#272727",
+    "light": "#ffffff",
+    "dark": "#272727"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/13433b83-08d5-4eff-b2c2-baf954f258f8.png",
   "navigation": {
     "tabs": [
       {
@@ -63,13 +63,17 @@
         ]
       },
       {
-        "tab": "Conta"
+        "tab": "Conta",
+        "pages": [
+          "untitled-page",
+          "bi"
+        ]
       }
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/Tess_LogoColorido.png",
+    "dark": "/images/tess-logo-dark.svg"
   },
   "navbar": {
     "links": [
@@ -98,9 +102,12 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "linkedin": "https://www.linkedin.com/company/tess-ai/",
+      "instagram": "https://www.instagram.com/tessai.br",
+      "youtube": "https://www.youtube.com/@tessai_br"
     }
+  },
+  "appearance": {
+    "strict": false
   }
 }

@@ -46,7 +46,8 @@
           {
             "group": "Agentes",
             "pages": [
-              "tipos-de-agentes"
+              "tipos-de-agentes",
+              "treino-estatico"
             ]
           },
           {
@@ -114,8 +115,8 @@
     ]
   },
   "logo": {
-    "light": "/images/tess-logo-dark.svg",
-    "dark": "/images/Tess_LogoBranco.png",
+    "light": "/images/tess-dark-logo.svg",
+    "dark": "/images/tess-white-logo.svg",
     "href": "https://tess.im/"
   },
   "navbar": {

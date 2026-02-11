@@ -41,7 +41,19 @@
         ]
       },
       {
-        "tab": "Agent Studio"
+        "tab": "Agent Studio",
+        "groups": [
+          {
+            "group": "Agentes",
+            "pages": [
+              "tipos-de-agentes"
+            ]
+          },
+          {
+            "group": "Geradores",
+            "pages": []
+          }
+        ]
       },
       {
         "tab": "Modelos"
@@ -69,11 +81,26 @@
       {
         "tab": "Conta",
         "pages": [
-          "untitled-page",
+          "conta-compartilhada",
           "bi",
+          "untitled-page",
+          "painel-da-equipe",
+          "sso",
           {
             "group": "Programas",
-            "pages": []
+            "pages": [
+              "recompensas",
+              "monetizacao",
+              "reembolso",
+              "afiliados"
+            ]
+          },
+          {
+            "group": "Configurações",
+            "pages": [
+              "sua-conta",
+              "preferencias"
+            ]
           },
           {
             "group": "Suporte",
@@ -81,10 +108,6 @@
               "contato-de-suporte",
               "suporte-remoto"
             ]
-          },
-          {
-            "group": "Plano Teams",
-            "pages": []
           }
         ]
       }

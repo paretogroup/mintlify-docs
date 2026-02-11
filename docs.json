@@ -73,13 +73,13 @@
   },
   "logo": {
     "light": "/images/Tess_LogoColorido.png",
-    "dark": "/images/tess-logo-dark.svg"
+    "dark": "/images/Tess_LogoBranco.png"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@tess.im"
       }
     ],
     "primary": {

@@ -4,34 +4,65 @@ title: "Carteira de Créditos"
 
 A Carteira de Créditos (AI Wallet) é o centro de controle dos seus créditos na Tess AI. Ela mostra quanto você ainda tem disponível no Workspace.
 
-**Onde fica a Carteira de Créditos**
+### **Onde fica a Carteira de Créditos**
 
-A Carteira fica visível no canto superior direito da Tess AI na tela do chat, ou geradores de imagens/vídeos, ao lado de uma moedinha amarela
+A Carteira fica visível no canto superior direito da Tess AI na tela do chat, ou geradores de imagens/vídeos, ao lado de uma moedinha amarela.
 
-Ali você vê, em tempo real, o saldo disponível de créditos do workspace (não é por usuário, mas sim no nível geral do Workspace).
+<Frame>
+  ![Tessdocs Aiwallet](/images/tessdocs-aiwallet.png)
+</Frame>
+
+Aqui você vê, em tempo real, o saldo disponível de créditos do workspace (não é por usuário, mas sim no nível geral do Workspace).
 
 Os créditos que possuem refil mensal (e expiram) entram no Monthly Credits. Os créditos adquiridos de forma avulsa caem na opção “Purchased Credits”.
 
+<Frame>
+  <img
+    src="/images/tessdocs-aiwallet2.png"
+    alt="Tessdocs Aiwallet2"
+    title="Tessdocs Aiwallet2"
+    className="mx-auto"
+    style={{ width:"57%" }}
+  />
+</Frame>
+
+### \
 **O que são créditos e como funcionam**
 
 Os créditos são a “moeda” da Tess AI. Dependendo da ação que você realiza na Tess, ela pode conter um custo e o consumo sai dessa carteira de créditos, por exemplo:
 
-- enviar mensagens no chat 
-- usar o Max Mode
-- processar documentos (cobrança única por documento, ou seja, se usar o mesmo posteriormente ele não será cobrado)
-- anexar arquivos à Base de Conhecimento
-- gerar imagens, vídeos, músicas, narrações
-- usar ferramentas (Tools) como Deep Analysis, etc.
+<Columns cols={2}>
+  <Card title="Mensagens" icon="microphone">
+    \
+    Envio de mensagens é uma forma de consumo e depende do tamanho da conversa e também do modelo escolhido. Os mais robustos costumam consumir mais créditos nas trocas quando comparado aos mais antigos, porém, desempenham melhor tarefas mais complexas.
+  </Card>
+  <Card title="Max Mode" icon="arrows-maximize">
+    \
+    A ativação do Modo Max por expandir o alcançe da Janela de contexto trabalhada, acaba por enviar ao modelo muito mais conteúdo antigo, de modo à comportar todo o histórico até o máximo da janela de cada modelo. Mais memória, mais custo e por isso é uma função que deve ser ativada sob demanda.
+  </Card>
+  <Card title="Documentos" icon="file-doc">
+    \
+    Ao anexar arquivos à Base de Conhecimento esses precisam ser também processados e disponibilizados na biblioteca da sua conta. Esse procedimento de processar documentos desconta dos seus créditos e é uma cobrança única por documento. Ou seja, se você envia o mesmo arquivo em outro chat, esse novo upload não tem custo (quando o arquivo está ainda disponível na base do seu Workspace).
+  </Card>
+  <Card title="Gerações e Tools" icon="sparkles">
+    \
+    A processo de geração de imagens, vídeos, avatares, músicas, narrações, podcasts pelo chat da Tess são todos feitos com IA e, para cada uma delas existe um custo específico atrelado ao processo.
 
-**Por trás disso estão os tokens:**
+    Além disso, a aplicação das ferramentas (Tools) como Deep Analysis e Manage Files também pode gerar custo em sua carteira de créditos.
+  </Card>
+</Columns>
 
-- Tokens de entrada (input): tudo o que você envia para a IA e depois o que é enviado de contexto do chat
-- Tokens de saída (output): tudo o que a IA gera como resposta
+### **Por trás disso estão os tokens:**
 
-O custo em créditos é calculado com base na quantidade de tokens processados e no tipo de recurso usado.
+- **Tokens de entrada (input):** tudo o que você envia para a IA e depois o que é enviado de contexto do chat
+- **Tokens de saída (output): **tudo o que a IA gera como resposta
+
+<Info>
+  O custo em créditos é calculado com base na quantidade de tokens processados e no tipo de recurso usado.
+</Info>
 
 A Carteira de Créditos, junto com o Histórico de Execuções, dá transparência total sobre como a IA está sendo usada no seu workspace. 
 
 Você paga pelos créditos consumidos, com transparência e previsibilidade — e tem liberdade para escolher o modelo e a configuração que fazem mais sentido para cada tarefa. Para entender exatamente onde seus créditos estão sendo usados, a Tess oferece o Histórico de Execuções.
 
-Qualquer necessidade, acione nosso time no e-mail: [suporte@tessai.io](mailto:suporte@tessai.io).
+Qualquer necessidade, acione nosso time no e-mail: [suporte@tess.im](mailto:suporte@tess.im).

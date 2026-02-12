@@ -111,10 +111,10 @@
           {
             "group": "Programas",
             "pages": [
+              "afiliados",
               "recompensas",
               "monetizacao",
-              "reembolso",
-              "afiliados"
+              "reembolso"
             ]
           },
           {

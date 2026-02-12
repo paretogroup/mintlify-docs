@@ -82,7 +82,8 @@
       },
       {
         "tab": "API ",
-        "groups": [
+        "pages": [
+          "tokens-de-api",
           {
             "group": "API documentation",
             "pages": [
@@ -121,7 +122,15 @@
             "group": "Configurações",
             "pages": [
               "sua-conta",
-              "preferencias"
+              "preferencias",
+              "assinatura",
+              "upgrade-e-downgrade",
+              "workspace",
+              "monitoramento-do-uso",
+              "membros-e-permissoes",
+              "base-de-conhecimentos-1",
+              "monetizacao-1",
+              "controle-de-dados"
             ]
           },
           {

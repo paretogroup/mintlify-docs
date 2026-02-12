@@ -53,7 +53,10 @@
             "group": "Tools",
             "pages": [
               "tools",
-              "tool-internet"
+              "tool-internet",
+              "tool-imagens",
+              "tool-video",
+              "tool-edicao-de-videos"
             ]
           }
         ]

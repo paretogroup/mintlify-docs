@@ -6,22 +6,26 @@ Os LLMs são excelentes para interpretar texto, escrever, resumir e gerar conte�
 
 É exatamente para isso que existe o Deep Analysis: uma ferramenta que combina a conversa em linguagem do LLM com a exatidão da computação tradicional.
 
-**O que é o Deep Analysis?**
+### **O que é o Deep Analysis?**
 
 O Deep Analysis é um ambiente seguro e isolado (um “sandbox”) onde, em vez de a IA tentar fazer as contas “de cabeça”, ela:
 
-- entende o que você quer fazer com os dados
-- escreve um código em Python para executar essa tarefa
-- roda esse código no sandbox
-- devolve o resultado com cálculos matemáticos 100% corretos
+1. entende o que você quer fazer com os dados
+2. escreve um código em Python para executar essa tarefa
+3. roda esse código no sandbox
+4. devolve o resultado com cálculos matemáticos 100% corretos
 
 Em outras palavras: você conversa em português; a Tess cria uma máquina virtual (virtual machine), traduz isso para código, executa e te entrega o resultado pronto (tabelas, métricas, gráficos, segmentações, etc.).
 
-**Como usar o Deep Analysis no chat**
+### **Como usar o Deep Analysis no chat**
 
 Quando precisar de alguma análise quantitativa, ou quali/quanti, um report, relatório, HTML ou tratamentos similares, ative a ferramenta do Deep Analysis no chat!
 
 Caso possua um documento base, lembre-se de enviar seu arquivo, faça o pedido em linguagem natural e faça menção ao arquivo e o que será necessário fazer com ele.
+
+<Frame>
+  ![Tessdocs Deepan](/images/tessdocs-deepan.png)
+</Frame>
 
 Use sempre que a exatidão dos dados for prioridade máxima, por exemplo:
 
@@ -47,11 +51,13 @@ Use sempre que a exatidão dos dados for prioridade máxima, por exemplo:
 - Arquivos CSV
 - Outros formatos estruturados que possam ser lidos via Python (quando aplicável)
 
-<u>Exemplos de prompts:</u>
+<Info>
+  <u>Exemplos de prompts:</u>
 
-1. “Analise este arquivo vendas_trimestre.xlsx, calcule o total de vendas para cada categoria de produto e crie um gráfico de pizza com a participação de cada uma.”
-2. “Neste CSV de clientes, calcule o ticket médio por região e mostre em uma tabela ordenada do maior para o menor.”
-3. “Gere um gráfico de linha mostrando a evolução mensal do faturamento nos últimos 12 meses.”
+  1. “Analise este arquivo vendas_trimestre.xlsx, calcule o total de vendas para cada categoria de produto e crie um gráfico de pizza com a participação de cada uma.”
+  2. “Neste CSV de clientes, calcule o ticket médio por região e mostre em uma tabela ordenada do maior para o menor.”
+  3. “Gere um gráfico de linha mostrando a evolução mensal do faturamento nos últimos 12 meses.”
+</Info>
 
 Mais do que isso, quanto mais literal e detalhado for o seu prompt, melhor será o entendimento e a performance da IA neste caso. As ferramentas desse tipo tendem a responder bem a comandos bem objetivos e precisos.
 

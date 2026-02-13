@@ -1,0 +1,49 @@
+---
+title: "Base de Conhecimentos"
+---
+
+Conecte o seu agente a uma biblioteca própria de conteúdos para que ele seja treinado e responda com base em materiais específicos – FAQs, políticas, tutoriais e documentos. 
+
+**O que é?**
+
+A Base de Conhecimento (Knowledge Base) do agente é o conjunto de documentos, arquivos e textos que a Tess adiciona à memória sistemática (system prompt) daquele agente específico, sendo aplicada e considerada em toda execução do agente.
+
+Você pode adicionar até 30 conteúdos por agente, como, por exemplo: artigos, PDFs e manuais, políticas internas, tutoriais, playbooks e planilhas. Com tamanhos até 200Mb por arquivo.
+
+Esses conteúdos são usados pelo agente para auxiliar na análise das perguntas e geração das respostas, em conjunto com o prompt e as demais configurações.
+
+**Por que é importante?**
+
+- Consistência: o agente responde sempre alinhado à documentação oficial.
+- Menos “achismo”: reduz alucinações e respostas descontextualizadas.
+- Personalização por agente: cada agente pode ter uma base diferente (Suporte, Financeiro, Onboarding, etc.).
+- Atualização simples: basta trocar um arquivo ou texto na Knowledge Base para o agente se atualizar.
+- Recurso essencial quando se pretende que o agente se inspire em templates existentes para a geração do seu output.
+
+**Como funciona na prática?**
+
+Quando o usuário faz uma pergunta, a Tess:
+
+- Analisa a pergunta.
+- Busca nos conteúdos da Knowledge Base do agente trechos relevantes.
+- Usa esses trechos como contexto para gerar a resposta.
+- Se a pergunta não tiver relação com o que está na base, o agente pode seguir o prompt geral ou as políticas que você definiu.
+
+**Como adicionar uma base em um agente?**
+
+1) Abra o Agent Studio
+
+2) Vá para a área de Agentes e escolha o agente desejado.
+
+3) Clique no botão de Knowledge Base e escolha os arquivos
+
+4) Ou arraste direto do computador para o agente.
+
+5) Salve e teste
+
+**Boas práticas**
+
+- Comece pelas dúvidas mais frequentes (FAQ de suporte, financeiro, onboarding).
+- Prefira conteúdos claros, objetivos e bem organizados.
+- Atualize a Knowledge Base sempre que houver mudança de política ou processo.
+- Use bases diferentes para agentes com funções diferentes (ex.: um agente só para financeiro, outro só para suporte técnico).

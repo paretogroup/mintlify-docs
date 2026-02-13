@@ -77,8 +77,27 @@
             "group": "Agentes",
             "pages": [
               "tipos-de-agentes",
-              "treino-estatico"
+              "treino-estatico",
+              "treino-dinamico",
+              "base-de-conhecimentos-2",
+              "configruacoes-avancadas",
+              "visibilidade",
+              "embeding",
+              "untitled-page",
+              "marketplace"
             ]
+          },
+          {
+            "group": "Entradas do Usuário",
+            "pages": [
+              "texto-curto-e-longo",
+              "selecao-unica-e-multipla",
+              "upload-de-arquivo"
+            ]
+          },
+          {
+            "group": "AI Steps",
+            "pages": []
           },
           {
             "group": "Geradores",

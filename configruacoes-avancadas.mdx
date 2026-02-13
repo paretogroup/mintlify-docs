@@ -1,3 +1,78 @@
 ---
 title: "Configurações Avançadas"
 ---
+
+Este é o controle avançado do comportamento do agente. Aqui nas configurações avançadas é onde você pode pré-definir modelo de IA, ferramentas, temperatura e outros parâmetros para garantir respostas previsíveis e alinhadas ao seu caso de uso.
+
+### **Onde encontrar?**
+
+A seção Advanced Settings fica na tela de configurações do agente e reúne as configurações avançadas, onde você deixa pré-definido:
+
+- qual LLM ele deve usar (ou se pode usar mais de um)
+- quais ferramentas (Tools) ele deve acionar como regra
+- qual faixa de temperatura/estilo de resposta será usada
+
+<Frame>
+  ![Image](/images/image-71.png)
+</Frame>
+
+Em vez de depender apenas das escolhas feitas no chat e pelo usuário, você define esses parâmetros direto no agente, dentro do Agent Studio. Eles só serão alterados caso o agente seja alterado:
+
+<Frame>
+  ![Image](/images/image-72.png)
+</Frame>
+
+### **Por que é importante**
+
+<AccordionGroup>
+  <Accordion title="Controle">
+    Agentes menos criativos e mais analíticos, por exemplo, para áreas financeiras, jurídicas ou compliance, precisam de menos “criatividade” e mais controle.
+  </Accordion>
+  <Accordion title="Segurança">
+    Você limita quais ferramentas o agente pode chamar (ex.: permitir ou bloquear Internet, integrações, etc.).
+  </Accordion>
+  <Accordion title="Padronização">
+    Todos que usarem aquele agente terão o mesmo comportamento, independentemente de quem está no chat. Recurso perfeito para criação de agentes que serão usados por muitas pessoas.
+  </Accordion>
+</AccordionGroup>
+
+### **O que influencia?**
+
+<Card icon="1" title="Padronizando um modelo">
+  Caso escolha um modelo específico para o funcionamento do agente, o usuário final não poderá trocar, e toda a interação será feita com esse modelo definido. Por isso, desabilitamos a decisão do usuário e escolhemos esse modelo. 
+
+  Esse processo pode ser feito quando for identificado que um determinado modelo foi o melhor no desempenho da atividade do agente e, para evitar trocas e entregas diferentes, você pode deixar definido e todos os que usarem o agente também estarão conversando com o mesmo modelo.
+
+  <Frame>
+    ![Image](/images/image-73.png)
+  </Frame>
+</Card>
+
+<Card icon="2" title="Padronizando a temperatura">
+  Em geral, a temperatura pode influenciar na criatividade do LLM. Logo, se seu agente for mais para financeiro ou jurídico, por exemplo, você pode optar por usar temperatura mais baixa, deixando a criatividade controlada. 
+
+  Já se o seu agente caminhar por um viés mais criativo, como em áreas de marketing, brainstorming ou conteúdo, você pode optar por usar temperatura mais alta, permitindo mais liberdade criativa dos LLMs.
+
+  <Frame>
+    ![Image](/images/image-74.png)
+  </Frame>
+</Card>
+
+<Card icon="3" title="Padronizando ferramentas (tools)">
+  Caso o seu agente seja específico e exclusivo para análises, você pode deixar ativo o Deep Analysis, por exemplo. Mas lembre, ao definir uma ferramenta, não será ativada outra na hora da conversa. 
+
+  <Frame>
+    ![Image](/images/image-75.png)
+  </Frame>
+  Se o agente é para gerar imagens e você percebeu que o Nano Banana é o melhor nessa função (com base nos testes e especificações do prompt), ao deixá-lo configurado, sempre que for gerar imagem será com o Nano Banana.
+
+  <Frame>
+    ![Image](/images/image-76.png)
+  </Frame>
+</Card>
+
+<Info>
+  Você pode combinar as três configurações, ou escolher apenas uma para padronizar! 
+</Info>
+
+Caso seja um agente para o seu time, lembre de documentar internamente as explicações dessas configurações para o time entender o motivo.

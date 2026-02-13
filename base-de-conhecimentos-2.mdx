@@ -12,34 +12,54 @@ Você pode adicionar até 30 conteúdos por agente, como, por exemplo: artigos, 
 
 Esses conteúdos são usados pelo agente para auxiliar na análise das perguntas e geração das respostas, em conjunto com o prompt e as demais configurações.
 
-**Por que é importante?**
+### **Por que é importante?**
 
-- Consistência: o agente responde sempre alinhado à documentação oficial.
-- Menos “achismo”: reduz alucinações e respostas descontextualizadas.
-- Personalização por agente: cada agente pode ter uma base diferente (Suporte, Financeiro, Onboarding, etc.).
-- Atualização simples: basta trocar um arquivo ou texto na Knowledge Base para o agente se atualizar.
-- Recurso essencial quando se pretende que o agente se inspire em templates existentes para a geração do seu output.
+<Columns cols={2}>
+  <Card title="Consistência">
+    O agente responde sempre alinhado à documentação oficial. Com isso, teremos menos “achismo”, o que reduz alucinações e respostas descontextualizadas. É essencial também para o agente se inspirar em templates existentes para a geração do seu output.
+  </Card>
+  <Card title="Personalização">
+    Cada agente pode ter uma base diferente adicionada (Suporte, Financeiro, Onboarding, etc.), fazendo jus ao conteúdo do treinamento. Além de ser simples de atualizar, uma vez que basta trocar um arquivo ou texto na Knowledge Base para o agente se atualizar.
+  </Card>
+</Columns>
 
-**Como funciona na prática?**
+### **Como funciona na prática?**
 
-Quando o usuário faz uma pergunta, a Tess:
+Quando o usuário faz uma pergunta, o agente:
 
 - Analisa a pergunta.
 - Busca nos conteúdos da Knowledge Base do agente trechos relevantes.
 - Usa esses trechos como contexto para gerar a resposta.
 - Se a pergunta não tiver relação com o que está na base, o agente pode seguir o prompt geral ou as políticas que você definiu.
 
-**Como adicionar uma base em um agente?**
+### **Como adicionar uma base em um agente?**
 
-1. Abra o Agent Studio
-2. Vá para a área de Agentes e escolha o agente desejado.
-3. Clique no botão de Knowledge Base e escolha os arquivos
-4. Ou arraste direto do computador para o agente.
-5. Salve e teste
+<Steps>
+  <Step title="Acesse o Agent Studio">
+    Vá para a área de Agentes e escolha o agente desejado (seja um novo ou um existente)
+  </Step>
+  <Step title="Abra as configurações e Adicione os arquivos">
+    Clique no botão de Knowledge Base e escolha os arquivos
 
-**Boas práticas**
+    <Frame>
+      ![Captura De Tela 2026 02 13 Às 18 13 47](/images/CapturadeTela2026-02-13às18.13.47-1.png)
+    </Frame>
+    Ou arraste direto do computador
 
-- Comece pelas dúvidas mais frequentes (FAQ de suporte, financeiro, onboarding).
-- Prefira conteúdos claros, objetivos e bem organizados.
-- Atualize a Knowledge Base sempre que houver mudança de política ou processo.
-- Use bases diferentes para agentes com funções diferentes (ex.: um agente só para financeiro, outro só para suporte técnico).
+    <Frame>
+      ![Image](/images/image-70.png)
+    </Frame>
+  </Step>
+  <Step title="Salve e Teste">
+    
+  </Step>
+</Steps>
+
+<Tip>
+  **Boas práticas**
+
+  - Comece pelas dúvidas mais frequentes (FAQ de suporte, financeiro, onboarding).
+  - Prefira conteúdos claros, objetivos e bem organizados.
+  - Atualize a Knowledge Base sempre que houver mudança de política ou processo.
+  - Use bases diferentes para agentes com funções diferentes (ex.: um agente só para financeiro, outro só para suporte técnico).
+</Tip>

@@ -13,19 +13,18 @@ Aqui você acompanha quem subiu o quê, quando, quanto consome de créditos e on
 </Step>
 
 <Step title="Acesse as preferências">
-  Na seção "Workspace", clique em "Uso".
+  Na seção "Workspace", clique em Base de Conhecimento, você será redirecionado para a página da Base, com a lista completa de arquivos.
 </Step>
 
-1. Clique no ícone de usuário no canto inferior esquerdo
-2. Vá em Configurações
-3. Clique em Base de Conhecimento
-4. Você será redirecionado para a página da Base, com a lista completa de arquivos.
-
-**De que se trata essa Base?**
+### **De que se trata essa Base?**
 
 É o repositório global de arquivos do workspace (imagens, PDFs, docs, etc.) enviados para a Tess. Não é a mesma coisa que a Knowledge Base do Agent Studio (que é a base de conteúdos ligada a um agente específico) ou do Chat (ligada àquela janela de contexto).
 
 Aqui você enxerga todos os uploads, independentemente de qual agente ou chat usou o arquivo.
+
+<Frame>
+  ![Image](/images/image-32.png)
+</Frame>
 
 No painel, vemos uma estrutura de tabela com:
 
@@ -40,31 +39,48 @@ No painel, vemos uma estrutura de tabela com:
 
 Na parte superior, você pode:
 
-Filtrar por tipo de anexo (Attachment Type):
+1. Filtrar por tipo de anexo (Attachment Type):
 
-Filtrar por criador (Criado Por):
+<Frame>
+  ![Image](/images/image-33.png)
+</Frame>
 
-Buscar por nome do arquivo ou usuário, ideal para localizar arquivos específicos rapidamente.
+2. Filtrar por criador (Criado Por):
 
-**Permissões (quem vê o que)**
+<Frame>
+  ![Image](/images/image-34.png)
+</Frame>
 
-- <u>Managers e Owners:</u> Conseguem ver os arquivos de todo o time no workspace. Enxergam créditos associados e em quais chats/agentes os arquivos foram usados. É ideal para governança, custo e segurança de informação.
-- <u>Demais usuários:</u> Podem ver apenas os próprios arquivos, os créditos e chats associados.
+3. Buscar por nome do arquivo ou usuário, ideal para localizar arquivos específicos rapidamente.
 
-**Para que serve na prática**
+<Frame>
+  ![Image](/images/image-35.png)
+</Frame>
 
-1. Governança de dados:
+### **Permissões (quem vê o que)**
 
-Saber quais arquivos estão circulando na Tess, quem subiu e onde estão sendo usados.
+<Columns cols={2}>
+  <Card title="Managers e Owners">
+    Conseguem ver os arquivos de todo o time no workspace. Enxergam créditos associados e em quais chats/agentes os arquivos foram usados. É ideal para governança, custo e segurança de informação.
+  </Card>
+  <Card title="Demais usuários:">
+    Na visão individual de usuários, é possível apenas conferir os próprios arquivos que foram utilizados nas suas conversas, os créditos consumidos em cada upload e processamento e os chats associados.
+  </Card>
+</Columns>
 
-2. Gestão de custos:
+### **Para que serve na prática**
 
-Entender quais tipos de arquivos e fluxos mais consomem créditos.
-
-3. Segurança e compliance:
-
-Permite revisar se não há documentos sensíveis indevidos sendo usados em agentes ou chats.
-
-4. Organização:
-
-Facilita encontrar e reutilizar materiais já enviados (manuais, apresentações, imagens, etc.).
+<AccordionGroup>
+  <Accordion title="Governança de dados">
+    Saber quais arquivos estão circulando na Tess, quem subiu e onde estão sendo usados.
+  </Accordion>
+  <Accordion title="Gestão de custos">
+    Entender quais tipos de arquivos e fluxos mais consomem créditos.
+  </Accordion>
+  <Accordion title="Segurança e compliance">
+    Permite revisar se não há documentos sensíveis indevidos sendo usados em agentes ou chats.
+  </Accordion>
+  <Accordion title="Organização">
+    Facilita encontrar e reutilizar materiais já enviados (manuais, apresentações, imagens, etc.).
+  </Accordion>
+</AccordionGroup>

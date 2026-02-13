@@ -31,13 +31,23 @@ A configuração de uma integração segue um fluxo lógico simples no AI Studio
 - Escolher o App e a Ação: Selecione o aplicativo que deseja conectar (ex: Google Agenda) e a ação específica que o agente deve realizar (ex: "Criar Evento").
 - Mapear as Informações: Configure os campos da ação (como "Título do Evento" ou "E-mail do Convidado"), preenchendo-os com as variáveis correspondentes das suas Entradas de Usuário.
 
-O ponto crucial é que o agente não executa essa ação aleatoriamente. O seu prompt serve como o cérebro da operação, definindo as regras para que esses steps aconteçam no início do chat (agente de chat) ou antes do resultado final (agente de texto).
+<Frame>
+  ![Image](/images/image-113.png)
+</Frame>
+
+<Info>
+  O ponto crucial é que o agente não executa essa ação aleatoriamente. O seu **prompt** serve como o cérebro da operação, definindo as regras para que esses steps aconteçam no início do chat (agente de chat) ou antes do resultado final (agente de texto).
+</Info>
 
 ### **Exemplo Rápido: Qualificação e Agendamento**
 
 Imagine um processo de ganho e agendamento automatizado, onde um cliente cai em sua plataforma de comunicação interna, avisando ao time de atendimento a nova venda. Isso será um gatilho para acionar a Tess e preencher as informações  do step do google agenda, com nome, email e detalhamentos da demonstração através do Step de Integração. 
 
 O agente então pega as variáveis coletadas no slack e as usa para preencher e executar a ação "Criar Evento" no Google Agenda, enviando o convite automaticamente.
+
+<Frame>
+  ![Image](/images/image-114.png)
+</Frame>
 
 Neste caso, a mensagem no Slack foi o gatilho, e o Step de Integração foi a ferramenta de ação.
 
@@ -56,7 +66,7 @@ As aplicações são vastas e permitem automatizar inúmeros processos:
 - Fazer upload de um arquivo no Drive ou Box 
 
 <Info>
-  Os Steps de Integração de Apps são o que transforma seu agente de um assistente informativo em um membro proativo e funcional da sua equipe. 
+  Os Steps de Integração de Apps são o que transforma seu agente de um assistente informativo em um membro proativo e funcional da sua equipe.
 </Info>
 
 Ao dominar a lógica de conectar a inteligência do seu agente com as ferramentas que impulsionam seu negócio, você pode automatizar processos, aumentar a eficiência e criar soluções verdadeiramente integradas.

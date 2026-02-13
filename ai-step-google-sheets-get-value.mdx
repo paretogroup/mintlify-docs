@@ -13,7 +13,7 @@ Esta função permite extrair dados e informações de planilhas do Google Sheet
 > - Insira a URL da Planilha: Forneça a URL do Google Sheets que você deseja acessar. Outra opção é já deixar configurado uma URL fixa na etapa avançada. 
 > - Especifique o Intervalo de Dados: Indique o nome da página e o intervalo de células que deseja extrair, por exemplo, "dados_abril!A1:C10".
 >
-> **Resultado de Output: **Os dados extraídos serão apresentados em um formato estruturado, como link de arquivo ou string, a depender do output format configurado. O output type do tipo link é recomendado para casos em que usará steps seguintes que possuem análise a partir de arquivos e para transferência de informações com grande volume de dados.
+> **Resultado de Output:** Os dados extraídos serão apresentados em um formato estruturado, como link de arquivo ou string, a depender do output format configurado. O output type do tipo link é recomendado para casos em que usará steps seguintes que possuem análise a partir de arquivos e para transferência de informações com grande volume de dados.
 
 ### **Casos de Uso**
 
@@ -34,5 +34,12 @@ Esta função permite extrair dados e informações de planilhas do Google Sheet
 
   - O volume de dados da extração depende da correta especificação do intervalo de células, e é adaptado ao contexto do LLM. 
 </Info>
+
+### O formato de saída
+
+- Output format Text: retorna uma lista de objetos, usando a primeira linha como nomes de colunas. Default: retorna uma lista de linhas semelhante a uma matriz.
+
+
+- Output format downloadable: retorna os dados como uma string. Link: retorna os dados como um Link do tipo JSON, para download.
 
 A função "Google Sheets Get Values" é uma ferramenta poderosa que transforma a maneira como as empresas analisam os dados das planilhas. Ao extrair essas informações, você pode treinar um modelo de IA que realize análises mais profundas e gere insights, convertendo simples conjuntos de dados em informações estratégicas valiosas.

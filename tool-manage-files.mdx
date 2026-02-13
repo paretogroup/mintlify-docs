@@ -4,7 +4,7 @@ title: "Tool: Manage Files"
 
 Quantas vezes você já pediu para a IA analisar um texto e depois teve que copiar, colar e ajustar tudo no arquivo original? O Manage Files foi criado para eliminar esse retrabalho. Em vez de apenas sugerir mudanças, a Tess pode editar o arquivo diretamente e gerar uma nova versão pronta para download.
 
-**O que é o Manage Files**
+### **O que é o Manage Files**
 
 O Manage Files é uma ferramenta que permite à IA:
 
@@ -14,35 +14,50 @@ O Manage Files é uma ferramenta que permite à IA:
 
 Ele funciona de forma parecida com o Deep Analysis no “modo de execução”: você pede em linguagem natural e a IA cria uma máquina virtual, executa a tarefa (geralmente via processamento estruturado do documento), entregando o arquivo editado no final.
 
+<Frame>
+  ![Image](/images/image-7.png)
+</Frame>
+
 Use sempre que você quiser que a Tess “faça no arquivo”, e não apenas “te diga como fazer”.
 
-Exemplos práticos por tipo de arquivo
+<Note>
+  **Formato do arquivo**
 
-- “Traduza todos os textos desta apresentação para espanhol, mantendo a formatação original.”
-- “Substitua o logo antigo pelo novo em todos os slides.”
-- “Padronize todos os títulos para fonte Arial, tamanho 24, em negrito.”
-- “Encontre todas as ocorrências de ‘Empresa A’ e substitua por ‘Empresa B’.”
-- “Adicione um cabeçalho com ‘Relatório Confidencial – Rascunho’ em todas as páginas.”
-- “Crie uma nova coluna chamada ‘Status’ e preencha todas as linhas com ‘A Processar’.”
+  Se você quiser usar um arquivo como base, lembre de usar uma versão editável, ou seja: DOCX, PPTX. Afinal, um PDF não é possível editar, mas sim consumir o conteúdo existente.
+</Note>
 
-**Manage Files vs. Deep Analysis (diferença essencial)**
+Exemplos práticos:
 
-Manage Files
+> - “Traduza todos os textos desta apresentação para espanhol, mantendo a formatação original.”
+> - “Substitua o logo antigo pelo novo em todos os slides.”
+> - “Padronize todos os títulos para fonte Arial, tamanho 24, em negrito.”
+> - “Encontre todas as ocorrências de ‘Empresa A’ e substitua por ‘Empresa B’.”
+> - “Adicione um cabeçalho com ‘Relatório Confidencial – Rascunho’ em todas as páginas.”
+> - “Crie uma nova coluna chamada ‘Status’ e preencha todas as linhas com ‘A Processar’.”
 
-- Objetivo: modificar ou gerar um arquivo.
-- Resultado: um novo arquivo para download.
+### **Manage Files vs. Deep Analysis (diferença essencial)**
 
-Deep Analysis
+<Columns cols={2}>
+  <Card icon="file" title="Manage Files">
+    - Objetivo: analisar documentos compartilhados, modificar com base neles ou até mesmo gerar um novo arquivo do zero, apenas com o comando do prompt no chat.
+    - Resultado: um novo arquivo disponibilizado para download dentro do próprio chat.
+  </Card>
+  <Card icon="computer-speaker" title="Deep Analysis">
+    - Objetivo: analisar/calcular/entender dados com precisão (principalmente planilhas/CSVs).
+    - Resultado: uma análise em texto, tabelas e/ou gráficos (não necessariamente um arquivo final editado, mas pode também gerar um novo arquivo).
+  </Card>
+</Columns>
 
-- Objetivo: analisar/calcular/entender dados com precisão (principalmente planilhas/CSVs).
-- Resultado: uma análise em texto, tabelas e/ou gráficos (não necessariamente um arquivo final editado, mas pode também gerar um novo arquivo).
+### **Como usar (passo a passo)**
 
-**Como usar (passo a passo)**
+1. No chat, clique no botão de Tools (ícone ao lado da caixa de mensagem)
+2. Selecione “Manage Files”
+3. Anexe o arquivo que você deseja editar
+4. Diga a instrução de forma clara e direta
+5. Aguarde o processamento e baixe a nova versão do arquivo
 
-- No chat, clique no botão de Tools (ícone ao lado da caixa de mensagem)
-- Selecione “Manage Files”
-- Anexe o arquivo que você deseja editar
-- Diga a instrução de forma clara e direta
-- Aguarde o processamento e baixe a nova versão do arquivo
+<Frame>
+  ![Image](/images/image-8.png)
+</Frame>
 
 O Manage Files é um multiplicador de produtividade e te entrega o arquivo pronto, reduzindo drasticamente tarefas manuais. Em vez de receber só recomendações, você recebe o resultado final editado e pronto para usar.

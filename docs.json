@@ -99,7 +99,8 @@
             "group": "AI Steps",
             "pages": [
               "funcionamento-ai-steps",
-              "ai-step-web-data-extraction"
+              "ai-step-web-data-extraction",
+              "ai-step-integrations"
             ]
           },
           {

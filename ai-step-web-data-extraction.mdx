@@ -1,0 +1,82 @@
+---
+title: "AI Step | Web Data Extraction"
+---
+
+Na Tess AI, seus agentes podem ir muito além do conhecimento estático. Com os Steps Avançados de Extração de Dados da Web, você pode transformá-los em pesquisadores inteligentes, capazes de buscar informações atualizadas diretamente da internet.
+
+Este guia mostrará como configurar seus agentes para encontrar vagas de emprego, comparar preços de produtos, buscar notícias e muito mais, de forma totalmente automatizada.
+
+### **O que são os Steps de Extração de Dados da Web?**
+
+Os Steps Avançados são blocos de construção que você adiciona à lógica do seu agente no AI Studio. A categoria Web Data Extraction agrupa uma série de steps projetados para realizar pesquisas em diferentes plataformas online.
+
+<Frame>
+  ![Image](/images/image-111.png)
+</Frame>
+
+Em vez de uma pesquisa genérica, esses steps permitem criar buscas altamente personalizadas e direcionadas, aprimorando o treinamento do agente com informações atualizadas e pertinentes. As opções incluem:
+
+- Google Organic Search: Para pesquisas gerais, notícias e informações.
+- Google Shopping Search: Para buscar produtos e comparar preços.
+- Google Jobs Search: Para encontrar vagas de emprego.
+- Amazon Product Search: Para pesquisar produtos diretamente na Amazon.
+- E muitas outras.
+
+<Frame>
+  ![Image](/images/image-112.png)
+</Frame>
+
+### **Como Configurar um Agente com Pesquisa na Web **
+
+1. Acesse o Agent Studio e comece a criar ou editar um agente.
+2. Adicione um Step Avançado: Na tela de criação, localize a seção "AI Steps" e adicione uma nova etapa.
+3. Selecione o Tipo de Etapa: Escolha a categoria Web Data Extraction e, em seguida, o tipo de pesquisa desejado (ex: Google Shopping Search).
+4. Configure a Pesquisa: Preencha os campos específicos da busca. Por exemplo, o nome do produto que você quer pesquisar. Nessa etapa, você pode optar por deixar pré-configurado algum dos requisitos de forma padrão, ou usar a definição do usuário para criar entradas e deixar esse campo variável. 
+
+Exemplo, se o domínio sempre precisar ser Brasil, já pode configurar. Ou se o produto tiver que ser de um nome específico, já pode preencher. Caso contrário, ou ative a decisão do usuário, ou crie entradas e referencie no campos específicos.
+
+5. Defina o Nome da etapa: Este é um passo crucial. Dê um nome para o resultado da sua pesquisa (ex: busca do produto). Este nome se tornará a variável que você usará no seu prompt para acessar os dados coletados.
+
+Com isso, a etapa de pesquisa está pronta. Agora, o segredo é conectar essa etapa a um bom prompt.
+
+**Exemplo Prático: Agente de Busca de Promoções**
+
+Vamos criar um agente que encontre as melhores ofertas no Google Shopping.
+
+1. Configuração do Step:
+
+Tipo de Etapa: Google Shopping Search
+
+Product Search: Aqui pode ser usado variável
+
+Domínio e Idioma: Brasil e Português
+
+Nome da etapa: busca do produto
+
+2. O Prompt de Comando (O Cérebro da Operação)
+
+O Step Avançado obtém a informação bruta. O seu prompt é o que transforma essa informação em uma resposta útil e inteligente.
+
+Prompt Sugerido:
+
+> Assuma a persona de um especialista em análise de promoções de eletrônicos. Sua tarefa é analisar os dados da pesquisa de produtos, disponíveis em: **busca-do-produto**.
+>
+> Com base nesses dados, faça o seguinte:
+>
+> 1.  Identifique as três melhores ofertas, considerando o preço e a reputação da loja.\
+> 2.  Apresente um resumo claro de cada oferta em formato de lista.\
+> 3.  Para cada item da lista, inclua o nome do produto, o preço, o nome da loja e o link direto.\
+> 4.  Ao final, escreva um parágrafo explicando por que essas três ofertas são as mais vantajosas no momento.
+
+Ao executar o agente, ele primeiro realizará a busca no Google Shopping (o Step) e, em seguida, usará os dados coletados para executar as instruções do seu prompt.
+
+<Tip>
+  Dicas:
+
+  - O Prompt é o Cérebro: Seja detalhado em suas instruções. O Step coleta os dados; o prompt os analisa. Quanto mais claro o prompt, melhor a análise.
+  - Seja Específico na Busca: Quanto mais específica for a sua consulta no Step (ex: "iPhone 15 128GB Preto" em vez de "iPhone"), mais relevantes serão os resultados.
+</Tip>
+
+Integrar os Steps de extração de dados da web transforma seus agentes de repositórios estáticos em assistentes dinâmicos. 
+
+Ao dominar a combinação de steps de pesquisa com prompts detalhados, você pode criar ferramentas poderosas para automatizar pesquisas de mercado, monitorar notícias e economizar um tempo valioso.

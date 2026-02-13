@@ -76,6 +76,7 @@
           {
             "group": "Agentes",
             "pages": [
+              "monetizacao-2",
               "tipos-de-agentes",
               "treino-estatico",
               "treino-dinamico",
@@ -83,7 +84,6 @@
               "configruacoes-avancadas",
               "visibilidade",
               "embeding",
-              "untitled-page",
               "marketplace"
             ]
           },
@@ -97,7 +97,10 @@
           },
           {
             "group": "AI Steps",
-            "pages": []
+            "pages": [
+              "funcionamento-ai-steps",
+              "ai-step-web-data-extraction"
+            ]
           },
           {
             "group": "Geradores",

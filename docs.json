@@ -83,7 +83,11 @@
           {
             "group": "Geradores",
             "pages": [
-              "gerador-de-imagem"
+              "gerador-de-imagem",
+              "gerador-de-video",
+              "gerador",
+              "gerador-de-narracoes",
+              "gerador-de-transcricoes"
             ]
           }
         ]

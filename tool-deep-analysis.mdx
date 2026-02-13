@@ -24,43 +24,79 @@ Quando precisar de alguma análise quantitativa, ou quali/quanti, um report, rel
 Caso possua um documento base, lembre-se de enviar seu arquivo, faça o pedido em linguagem natural e faça menção ao arquivo e o que será necessário fazer com ele.
 
 <Frame>
-  ![Tessdocs Deepan](/images/tessdocs-deepan.png)
+  ![Tessdocs Deepa](/images/tessdocs-deepa.png)
 </Frame>
 
+Você também pode usar o Deep Analysis para trabalhar reports ou dashboards interativos em formato de HTML:
+
+<Frame>
+  ![Image](/images/image-2.png)
+</Frame>
+
+<Frame>
+  ![Image](/images/image-3.png)
+</Frame>
+
+<Icon icon="link-horizontal" /> **Acessar o Relatório HTML** ([link](https://tess-workflows-files.storage.googleapis.com/6ca511cbbab87f2226b638f5d69a04e7316b6e8d/auditoria_despesas_q3_completa.html))
+
+Para Dashboard a mesma coisa:
+
+<Frame>
+  ![Captura De Tela 2026 02 13 Às 13 40 23](/images/CapturadeTela2026-02-13às13.40.23.png)
+
+  ![Image](/images/image-5.png)
+</Frame>
+
+ <Icon icon="link-horizontal" /> **Acessar o Dashboard HTML** ([link](https://tess-workflows-files.storage.googleapis.com/a3edcb57bbe013d17e362703fa6b65b70c3cdfca/dashboard_auditoria_despesas_q3_interativo.html))
+
+<Note>
+  Para Dashboards, como a visão é feita com dados estáticos, não há atualização automática do HTML, loco, qualquer mudança esse HTML é refeito. 
+</Note>
+
+### \
 Use sempre que a exatidão dos dados for prioridade máxima, por exemplo:
 
-- Análises financeiras
-- Calcular EBITDA, margem de lucro, ticket médio
-- Comparar períodos (mês contra mês, ano contra ano)
-- Projetar cenários (simulações e projeções com base em dados históricos)
-- Visualização de dados
-- Criar gráficos de barras, linhas, pizza, scatter etc.
-- Visualizar tendências de vendas, churn, engajamento, custos
-- Análise de vendas e clientes
-- Identificar produtos mais vendidos
-- Segmentar clientes por faixa de valor ou frequência de compra
-- Avaliar performance de campanhas ou canais
-- Engenharia, ciência e experimentos
-- Executar fórmulas complexas
-- Processar dados de experimentos
-- Fazer análises estatísticas (médias, medianas, desvio padrão, correlações)
+<Columns cols={2}>
+  <Card icon="database" title="Análises">
+    Sejam análises financeiras, de vendas e clientes, comparações de períodos (mês contra mês, ano contra ano), etc.
+  </Card>
+  <Card icon="calculator-simple" title="Cálculos">
+    Calcular EBITDA, margem de lucro, ticket médio; fazer análises estatísticas (médias, medianas, desvio padrão, etc).
+  </Card>
+  <Card icon="eye" title="Visualizações">
+    Visualização de dados, gráficos de barras, linhas, pizza, scatter etc; visualizar tendências de vendas, churn, engajamento, custos
+  </Card>
+  <Card icon="diagram-project" title="Projetos complexos">
+    Processar dados de experimentos; executar fórmulas complexas; engenharia, ciência e experimentos, etc.
+  </Card>
+  <Card icon="chart-mixed-up-circle-dollar" title="Segmentações">
+    Identificar produtos mais vendidos; segmentar clientes por faixa de valor ou frequência de compra, etc.
+  </Card>
+  <Card icon="share-nodes" title="Campanhas">
+    Avaliar performance de campanhas ou canais; projetar cenários e estratégias com base em dados históricos, etc.
+  </Card>
+</Columns>
 
-**Formatos comuns suportados**
+### **Formatos comuns suportados**
 
 - Planilhas (XLSX)
 - Arquivos CSV
 - Outros formatos estruturados que possam ser lidos via Python (quando aplicável)
 
 <Info>
-  <u>Exemplos de prompts:</u>
-
-  1. “Analise este arquivo vendas_trimestre.xlsx, calcule o total de vendas para cada categoria de produto e crie um gráfico de pizza com a participação de cada uma.”
+  Exemplos de prompts:1. “Analise este arquivo vendas_trimestre.xlsx, calcule o total de vendas para cada categoria de produto e crie um gráfico de pizza com a participação de cada uma.”
   2. “Neste CSV de clientes, calcule o ticket médio por região e mostre em uma tabela ordenada do maior para o menor.”
   3. “Gere um gráfico de linha mostrando a evolução mensal do faturamento nos últimos 12 meses.”
 </Info>
 
 Mais do que isso, quanto mais literal e detalhado for o seu prompt, melhor será o entendimento e a performance da IA neste caso. As ferramentas desse tipo tendem a responder bem a comandos bem objetivos e precisos.
 
-Nesse processo, a Tess vai escrever o código, executar no sandbox, retornar os resultados (tabelas, explicações e, quando pedido, gráficos gerados a partir dos dados). 
+<Info>
+  Nesse processo, a Tess vai escrever o código, executar no sandbox, retornar os resultados (tabelas, explicações e, quando pedido, gráficos gerados a partir dos dados). 
+</Info>
+
+<Frame>
+  ![Image](/images/image-6.png)
+</Frame>
 
 O Deep Analysis é a ponte entre a conversa em linguagem natural e o rigor da ciência de dados. Ele garante que relatórios, análises e gráficos gerados pela Tess AI não sejam apenas inteligentes — mas matematicamente corretos.

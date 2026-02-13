@@ -1,4 +1,100 @@
 ---
-title: 'Texto Curto e Longo'
+title: "Texto Curto e Longo"
 ---
 
+Sabemos que as Entradas de Usuário são a chave para criar agentes flexíveis, além de serem fáceis de usar. Neste tutorial, vamos dar um passo prático e construir um agente do zero, explorando os dois tipos de entrada de texto.
+
+**Entendendo os Tipos de Entrada de Texto**
+
+No AI Studio, ao configurar uma Entrada de Usuário do tipo "Texto", você terá duas opções principais:
+
+<Columns cols={2}>
+  <Card title="Campo de Texto Curto">
+    Ideal para quando você precisa que o usuário forneça informações curtas e objetivas, como um nome, um número, uma palavra-chave, uma URL ou um título.
+  </Card>
+  <Card title="Campo de Texto Longo">
+    Perfeito para situações onde o usuário precisa fornecer um volume maior de informações, como um parágrafo de instruções, um bloco de texto para ser analisado ou uma descrição detalhada. 
+  </Card>
+</Columns>
+
+<Frame>
+  <img
+    src="/images/image-90.png"
+    alt="Image"
+    title="Image"
+  />
+</Frame>
+
+### **Nosso Projeto Exemplo: O Agente Roteirista**
+
+Vamos criar um agente exemplo capaz de desenvolver um roteiro para narração sobre um tema central, com uma duração específica.
+
+Lembre-se que a criação de um agente passa pela elaboração da ideia, o desenvolvimento, teste e refinamento do prompt até a sua efetiva criação.
+
+<Card icon="1" title="Configuração Inicial">
+  No AI Studio, crie um novo agente. Para este exemplo, um Agente de Chat ou Texto é o ideal. Manter a seleção padrão de "All LLM" também funcionará perfeitamente e, vou permitir que o usuário final possa escolher:
+
+  <Frame>
+    ![Image](/images/image-91.png)
+  </Frame>
+</Card>
+
+<Card icon="2" title="Desenvolvendo o Prompt (versão mais simples)">
+  Vamos usar um prompt mais enxuto, mas que nos atenderá agora e ele preencherá o campo de prompt:
+
+  > _Assuma a persona de um roteirista e storyteller sênior, especialista em criar narrativas envolventes para vídeos documentais e institucionais. Sua missão é desenvolver um roteiro original e impactante para uma locução (voiceover) profissional, abordando o seguinte tema: [Aqui vai entrar a variável]_
+  >
+  > _O roteiro deve ser estruturado com uma introdução que desperte a curiosidade, um desenvolvimento que explique o tema de forma clara e fluida, e uma conclusão memorável. Utilize uma linguagem que seja ao mesmo tempo elegante e acessível, focando em criar imagens mentais fortes para o ouvinte._
+  >
+  > _O resultado final deve ser apenas o texto a ser narrado, puro e limpo, sem qualquer tipo de formatação especial, nome de personagem (como 'Narrador:'), títulos ou instruções de cena. Entregue um texto pronto para ser gravado._
+
+  <Frame>
+    ![Image](/images/image-92.png)
+  </Frame>
+</Card>
+
+<Card icon="3" title="Configurando a Entrada de Usuário">
+  Agora, vamos criar o campo que o usuário final irá preencher com o tema. Como só vamos usar uma variável, precisaremos de apenas de um campo.
+
+  - Clique em "Adicionar Entrada de Usuário" e vamos em texto curto
+  - No campo "Nome da Variável", digitaremos exatamente tema.
+  - No campo "Rótulo" (o que o usuário verá), digite algo amigável, como "Qual é o tema do roteiro?".
+
+  <Frame>
+    ![Image](/images/image-93.png)
+  </Frame>
+  Lembre-se da Conexão Essencial: O sucesso do agente depende da correspondência exata entre o Nome da Variável (tema) e onde ela ficará no prompt. É assim que a IA sabe onde encaixar a informação do usuário.
+
+  <Frame>
+    ![Image](/images/image-94.png)
+  </Frame>
+</Card>
+
+<Card icon="4" title="Salvando e Testando">
+  Com o prompt e a única entrada configurados, nomeie o seu agente, clique em "Salvar" e, em seguida, em "Visualizar".
+
+  <Frame>
+    ![Image](/images/image-95.png)
+  </Frame>
+  Você verá uma interface extremamente limpa: apenas um campo para "Qual é o tema do roteiro?". Preencha-o, clique em executar e veja a mágica acontecer:
+
+  <Frame>
+    ![Captura De Tela 2026 02 13 Às 18 57 14](/images/CapturadeTela2026-02-13às18.57.14.png)
+  </Frame>
+  <Frame>
+    ![Captura De Tela 2026 02 13 Às 18 57 37](/images/CapturadeTela2026-02-13às18.57.37.png)
+  </Frame>
+  <Frame>
+    ![Image](/images/image-98.png)
+  </Frame>
+</Card>
+
+Este agente simplificado demonstra a essência das Entradas de Usuário: criar uma ferramenta reutilizável e fácil de usar.
+
+<Check>
+  A beleza do AI Studio é que você pode começar com um agente assim, simples e funcional, e depois, se necessário, adicionar mais complexidade. Você poderia, por exemplo, criar uma nova versão deste agente e adicionar uma segunda Entrada de Usuário para o "Tom de Voz" (ex: "Sério", "Descontraído", "Inspirador"), tornando sua ferramenta ainda mais poderosa.
+</Check>
+
+Dominar o básico é o primeiro passo para construir agentes cada vez mais incríveis. Quando estiver satisfeito, você pode alterar a visibilidade do seu agente no AI Studio para publicá-lo e disponibilizá-lo para outros usuários do seu workspace.
+
+Continue explorando e combinando diferentes tipos de entrada para criar ferramentas de IA cada vez mais sofisticadas e úteis

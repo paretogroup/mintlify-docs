@@ -8,14 +8,31 @@ Edite, aprimore e transforme vídeos diretamente do chat da Tess usando ferramen
 
 A ferramenta de Edição de Vídeos no Chat da Tess oferece 7 recursos especializados para pós-produção:
 
-- Runway Aleph – Retexturização, alteração de ângulos e efeitos visuais
-- Chroma Key Background – Remoção automática de fundo e substituição por tela verde
-- Video Upscale 4x – Aumento de resolução até 4x (para HD ou 4K)
-- Film Maker – Mesclagem de clipes com transições suaves para gerar um filme
-- Sound to Video – Geração e combinação de áudio a partir de prompts ou vídeo
-- Extract Last Frame – Captura o último quadro como imagem estática
-- Wan Animate – Substituição e animação de personagens mantendo movimento original
+<AccordionGroup>
+  <Accordion title="Runway Aleph">
+    Retexturização, alteração de ângulos e efeitos visuais
+  </Accordion>
+  <Accordion title="Chroma Key Background">
+    Remoção automática de fundo e substituição por tela verde
+  </Accordion>
+  <Accordion title="Video Upscale 4x">
+    Aumento de resolução até 4x (para HD ou 4K)
+  </Accordion>
+  <Accordion title="Film Maker">
+    Mesclagem de clipes com transições sinalizadas para gerar um filme
+  </Accordion>
+  <Accordion title="Sound to Video">
+    Geração e combinação de áudio a partir de prompts ou vídeo
+  </Accordion>
+  <Accordion title="Extract Last Frame">
+    Captura o último quadro do vídeo enviado como imagem estática
+  </Accordion>
+  <Accordion title="Wan Animate">
+    Substituição e animação de personagens mantendo movimento original
+  </Accordion>
+</AccordionGroup>
 
+### \
 **Por que é importante**
 
 Com as Tools de Edição de Vídeo, você pode realizar edição profissional sem ferramentas complexas. Afinal, você pode:
@@ -32,112 +49,102 @@ Escolha o recurso desejado das ferramentas acima, faça upload do vídeo (ou dos
 
 ### **Entendendo as Ferramentas disponíveis**
 
-1. <u>Runway Aleph</u>
+<Card icon="1" title="Runway Aleph">
+  Funciona para edição avançada com retexturização e efeitos visuais. Ou seja, retexturiza objetos no vídeo (ex.: trocar cor de uma parede, textura de roupa), altera ângulos de câmera computacionalmente e adiciona efeitos visuais criativos.
 
-Funciona para edição avançada com retexturização e efeitos visuais. Ou seja, retexturiza objetos no vídeo (ex.: trocar cor de uma parede, textura de roupa), altera ângulos de câmera computacionalmente e adiciona efeitos visuais criativos.
+  Use-a quando precisar ajustar cores/texturas sem regravar, para experimentar ângulos de câmera alternativos ou para adicionar efeitos visuais estilizados. 
 
-Use-a quando precisar ajustar cores/texturas sem regravar, para experimentar ângulos de câmera alternativos ou para adicionar efeitos visuais estilizados. 
+  Exemplo de uso: "Alterar a cor do carro de azul para vermelho, manter o resto da cena intacta". Resultado esperado é o mesmo vídeo com o carro retexturizado em vermelho, sem afetar outros elementos.
+</Card>
 
-Exemplo de uso: "Alterar a cor do carro de azul para vermelho, manter o resto da cena intacta". Resultado esperado é o mesmo vídeo com o carro retexturizado em vermelho, sem afetar outros elementos.
+<Card icon="2" title="Chroma Key Background">
+  Perfeito para remoção automática de fundo e substituição por tela verde (chroma key). Facilita aplicação posterior de fundos personalizados em qualquer editor. 
 
-2. <u>Chroma Key Background</u>
+  Use para preparar vídeos para composição em editores profissionais, ou quando precisa isolar sujeito/personagem do fundo ou até para criar conteúdo com fundos virtuais ou cenários dinâmicos.
 
-Perfeito para remoção automática de fundo e substituição por tela verde (chroma key). Facilita aplicação posterior de fundos personalizados em qualquer editor. 
+  Fluxo recomendado
 
-Use para preparar vídeos para composição em editores profissionais, ou quando precisa isolar sujeito/personagem do fundo ou até para criar conteúdo com fundos virtuais ou cenários dinâmicos.
+  - Upload do vídeo com fundo que deseja remover
+  - Processamento automático – a IA remove o fundo
+  - Download do vídeo com tela verde
+  - Importar em editor (Premiere, After Effects, etc.) e adicionar novo fundo
+</Card>
 
-Fluxo recomendado
+<Card icon="3" title="Video Upscale 4x">
+  Aumento de resolução até 4x com IA. É a ferramenta ideal para melhorar nitidez do vídeo, reduzir distorções e ruído, além de facilitar visualização de detalhes perdidos por baixa qualidade.
 
-- Upload do vídeo com fundo que deseja remover
-- Processamento automático – a IA remove o fundo
-- Download do vídeo com tela verde
-- Importar em editor (Premiere, After Effects, etc.) e adicionar novo fundo
+  Se tiver vídeos antigos ou de baixa resolução que precisam de upgrade na qualidade, essa ferramenta vai te ajudar. Ou ainda, caso deseje melhorar qualidade de vídeos gerados por IA.
 
-<u>3. Video Upscale 4x</u>
+  Limitações:
 
-Aumento de resolução até 4x com IA. É a ferramenta ideal para melhorar nitidez do vídeo, reduzir distorções e ruído, além de facilitar visualização de detalhes perdidos por baixa qualidade.
+  - Não cria detalhes inexistentes – apenas aprimora o que já existe
+  - Processamento pode demorar dependendo da duração do vídeo
+</Card>
 
-Se tiver vídeos antigos ou de baixa resolução que precisam de upgrade na qualidade, essa ferramenta vai te ajudar. Ou ainda, caso deseje melhorar qualidade de vídeos gerados por IA.
+<Card icon="4" title="Film Maker">
+  Mesclagem de clipes com transições profissionais, ou seja, é capaz de unir múltiplos clipes de vídeo em uma sequência única, com transições suaves entre eles (ou sem transição, quando sinalizado).
 
-Limitações:
+  Use para criar narrativas visuais a partir de vários clipes, montar vídeos promocionais, showreels ou storytelling ou para unir cenas geradas separadamente em um único vídeo fluido.
 
-- Não cria detalhes inexistentes – apenas aprimora o que já existe
-- Processamento pode demorar dependendo da duração do vídeo
+  Fluxo recomendado:
 
-<u>4. Film Maker</u>
+  - Faça upload dos clipes na ordem desejada
+  - Escolha o estilo de transição (fade, corte seco, dissolve, etc.)
+  - Processamento – a IA une os clipes com transições naturais
 
-Mesclagem de clipes com transições profissionais, ou seja, é capaz de unir múltiplos clipes de vídeo em uma sequência única, com transições suaves entre eles (ou sem transição, quando sinalizado).
+  Tipos de transição:
 
-Use para criar narrativas visuais a partir de vários clipes, montar vídeos promocionais, showreels ou storytelling ou para unir cenas geradas separadamente em um único vídeo fluido.
+  - Fade: Efeito de escurecimento gradual, ideal para mudança de cena dramática
+  - Dissolve: Efeito de sobreposição gradual, aplicado em passagem de tempo
+  - Cut: Efeito é como um corte direto, utilizado para um ritmo acelerado, ação
+  - Slide: Efeito de um deslizamento lateral, para conexão espacial entre cenas
+</Card>
 
-Fluxo recomendado:
+<Card icon="5" title="Sound to Video">
+  Ferramenta de geração e combinação de áudio com vídeo. Pode gerar áudio a partir de prompts de texto ou conteúdo visual do vídeo, combina múltiplas faixas de áudio em um único vídeo e também consegue sobrepor camadas sonoras (música, narração, efeitos, ambiente).
 
-- Faça upload dos clipes na ordem desejada
-- Escolha o estilo de transição (fade, corte seco, dissolve, etc.)
-- Processamento – a IA une os clipes com transições naturais
+  Use para adicionar trilha sonora a vídeos mudos, criar soundscapes personalizados, sobrepor narração, música de fundo e efeitos sonoros, etc.
+</Card>
 
-Tipos de transição:
+<Card icon="6" title="Extract Last Frame">
+  Essa ferramenta é perfeita para capturar o último quadro como imagem estática (JPEG/PNG).
 
-- Fade: Efeito de escurecimento gradual, ideal para mudança de cena dramática
-- Dissolve: Efeito de sobreposição gradual, aplicado em passagem de tempo
-- Cut: Efeito é como um corte direto, utilizado para um ritmo acelerado, ação
-- Slide: Efeito de um deslizamento lateral, para conexão espacial entre cenas
+  Seu uso é recomendado para dar continuidade entre vídeos gerados por IA usando a imagem estática extraída. Nesse caso, use o último frame do Vídeo A como primeiro frame do Vídeo B para transições perfeitas e fluidas naturalmente, ou também aproveite para criar thumbnails personalizados, etc.
+</Card>
 
-Exemplo de uso
+<Card icon="7" title="Wan Animate">
+  Os modelos Wan 2.2 Animate permitem substituir personagens em vídeos de referência mantendo o movimento original ou transferir movimento de um vídeo para nova cena com personagem e fundo diferentes.
 
-Input:
+  Modos de operação
 
-Clipe 1: Nascer do sol na praia
+  1. Modo Animate Replace (Substituir Personagem)
 
-Clipe 2: Pessoa caminhando na areia
+  - Input: Vídeo original + imagem do novo personagem
+  - Output: Vídeo com novo personagem executando os mesmos movimentos
+  - Preserva: Movimento, cenário original
 
-Clipe 3: Close-up de pegadas
+  2. Modo Animate Animation (Copiar Movimento)
 
-Transições: Fade entre 1→2, Dissolve entre 2→3
+  - Input: Vídeo de referência (movimento) + imagem de personagem + nova cena
+  - Output: Novo vídeo com personagem animado executando movimento do vídeo original
+  - Preserva: Movimento
+  - Substitui: Personagem e fundo
+</Card>
 
-Output:  Vídeo único de 30s com narrativa visual fluida.
+<Tip>
+  **Dicas**
 
-<u>5. Sound to Video</u>
-
-Ferramenta de geração e combinação de áudio com vídeo. Pode gerar áudio a partir de prompts de texto ou conteúdo visual do vídeo, combina múltiplas faixas de áudio em um único vídeo e também consegue sobrepor camadas sonoras (música, narração, efeitos, ambiente).
-
-Use para adicionar trilha sonora a vídeos mudos, criar soundscapes personalizados, sobrepor narração, música de fundo e efeitos sonoros, etc.
-
-<u>6. Extract Last Frame</u>
-
-Essa ferramenta é perfeita para capturar o último quadro como imagem estática (JPEG/PNG).
-
-Seu uso é recomendado para dar continuidade entre vídeos gerados por IA usando a imagem estática extraída. Nesse caso, use o último frame do Vídeo A como primeiro frame do Vídeo B para transições perfeitas e fluidas naturalmente, ou também aproveite para criar thumbnails personalizados, etc.
-
-<u>7. Wan Animate</u>
-
-Os modelos Wan 2.2 Animate permitem substituir personagens em vídeos de referência mantendo o movimento original ou transferir movimento de um vídeo para nova cena com personagem e fundo diferentes.
-
-Modos de operação
-
-1. Modo Animate Replace (Substituir Personagem)
-
-- Input: Vídeo original + imagem do novo personagem
-- Output: Vídeo com novo personagem executando os mesmos movimentos
-- Preserva: Movimento, cenário original
-
-2. Modo Animate Animation (Copiar Movimento)
-
-- Input: Vídeo de referência (movimento) + imagem de personagem + nova cena
-- Output: Novo vídeo com personagem animado executando movimento do vídeo original
-- Preserva: Movimento
-- Substitui: Personagem e fundo
-
-Boas práticas gerais
-
-- Use vídeos com boa iluminação e resolução adequada
-- Evite vídeos muito comprimidos ou com ruído excessivo
-- Comece com trechos curtos antes de processar vídeos longos
-- Upscale 4x → Chroma Key → Film Maker → Sound to Video
-- Crie pipelines de pós-produção completos dentro da Tess
+  - Use vídeos com boa iluminação e resolução adequada
+  - Evite vídeos muito comprimidos ou com ruído excessivo
+  - Comece com trechos curtos antes de processar vídeos longos
+  - Upscale 4x → Chroma Key → Film Maker → Sound to Video
+  - Crie pipelines de pós-produção completos dentro da Tess
+</Tip>
 
 Veja mais na demo abaixo:
 
-[<u>https://app.supademo.com/demo/cmgjr5bw42049krn9j5qnktju?utm_source=link</u>](https://app.supademo.com/demo/cmgjr5bw42049krn9j5qnktju?utm_source=link)
+<iframe src="https://app.supademo.com/embed/cmgjr5bw42049krn9j5qnktju?embed_v=2&utm_source=embed" title="Tess AI | Tool de Edição de Vídeos" loading="lazy" allow="clipboard-write" frameBorder="0" allowFullScreen className="w-full h-[80vh] min-h-[650px] rounded-xl" />
 
-As ferramentas de Edição de Vídeos da Tess democratizam a pós-produção profissional. Combine essas 7 ferramentas para criar fluxos completos — da geração à finalização — sem sair da plataforma.
+As ferramentas de Edição de Vídeos da Tess democratizam a pós-produção profissional. 
+
+Combine essas 7 ferramentas para criar fluxos completos — da geração à finalização — sem sair da plataforma.

@@ -6,72 +6,99 @@ As "Entradas de Usuário" são um recurso essencial no Agent Studio para criar a
 
 Neste guia, vamos explorar os cinco tipos de entrada de usuário disponíveis na plataforma Tess AI, mostrando como e quando utilizar cada um deles para potencializar suas criações.
 
-Como Configurar uma Entrada de Usuário
+### Como Configurar uma Entrada de Usuário
 
-Antes de explorarmos os tipos de entrada, o processo para adicioná-las é sempre o mesmo e acontece no painel de configuração do seu agente:
+Antes de explorarmos os tipos de entrada, o processo para adicioná-las é sempre o mesmo e acontece no painel de configuração do seu agente.
 
-No Agent Studio, há a opção "Entrada do Usuário".
+Lá você verá a opção "Entrada do Usuário", clique nela para criar um novo campo de entrada.
 
-Clique nela para criar um novo campo de entrada.
+<Frame>
+  ![Captura De Tela 2026 02 13 Às 17 48 18](/images/CapturadeTela2026-02-13às17.48.18-1.png)
+</Frame>
+
+<Frame>
+  ![Image](/images/image-65.png)
+</Frame>
 
 Para cada variável, você irá configurar (pelo menos) três campos principais:
 
-TIPO: O formato da entrada que o usuário irá preencher (texto, lista, arquivo, etc.).
+<Card title="Tipo">
+  O formato da entrada que o usuário irá preencher (texto, lista, arquivo, etc.).
+</Card>
 
-NOME: O nome interno da variável, que será usado na instrução (prompt). Use nomes curtos, sem acentos e caracteres especiais.
+<Card title="Nome">
+  O nome interno da variável, que será usado na instrução (prompt). Use nomes curtos, sem acentos e caracteres especiais.
+</Card>
 
-DESCRIÇÃO: O texto que será exibido ao usuário final, orientando o preenchimento.
+<Card title="Descrição">
+  O texto que será exibido ao usuário final, orientando o preenchimento.
+</Card>
 
+### \
 Explorando os Tipos de Entrada
 
 Agora, vamos detalhar cada um dos tipos de entradas que você pode configurar.
 
-1. Campo de Texto Curto
+<Tabs>
+  <Tab title="Texto Curto">
+    Ideal para coletar informações breves e diretas. Use este campo quando o usuário precisar preencher uma palavra, uma frase ou um dado específico.
 
-Ideal para coletar informações breves e diretas. Use este campo quando o usuário precisar preencher uma palavra, uma frase ou um dado específico.
+    Para que serve: Coletar nomes, e-mails, números de pedido, termos de busca, títulos de documentos, etc.
 
-Para que serve: Coletar nomes, e-mails, números de pedido, termos de busca, títulos de documentos, etc.
+    <Frame>
+      ![Image](/images/image-66.png)
+    </Frame>
+    > Exemplo de uso: Você pode criar um agente que gera saudações personalizadas. A variável Nome do Cliente (Texto Curto) pediria o nome do cliente:
+    >
+    > E a instrução seria: "Crie uma saudação amigável para **nome-do-cliente**"
 
-Exemplo de uso: Você pode criar um agente que gera saudações personalizadas. A variável Nome do Cliente (Texto Curto) pediria o nome do cliente:
+    <Frame>
+      ![Image](/images/image-67.png)
+    </Frame>
+  </Tab>
+  <Tab title="Texto Longo">
+    Perfeito para situações em que o usuário precisa fornecer um grande volume de informações, como um texto completo, um parágrafo detalhado ou um bloco de código.
 
-E a instrução seria: "Crie uma saudação amigável para **nome-do-cliente**"
+    <Frame>
+      ![Image](/images/image-68.png)
+    </Frame>
+    Para que serve: Permitir que o usuário cole um e-mail para ser resumido, um artigo para ser analisado, uma descrição de problema para ser diagnosticada, ou um código para ser depurado.
 
-2. Campo de Texto Longo
+    > Exemplo de uso: Um agente revisor de textos. A variável Texto Completo (Texto Longo) solicitaria ao usuário que colasse o texto.
+    >
+    > E a instrução seria: "Revise o seguinte texto e corrija os erros gramaticais: **texto-completo**"
+  </Tab>
+  <Tab title="Dropdown">
+    Utilize o dropdown para garantir que a resposta do usuário seja padronizada. Ele apresenta uma lista de opções predefinidas, da qual o usuário pode escolher apenas uma.
 
-Perfeito para situações em que o usuário precisa fornecer um grande volume de informações, como um texto completo, um parágrafo detalhado ou um bloco de código.
+    Para que serve: Limitar a escolha a um conjunto de opções, como selecionar um idioma (Português, Inglês), um departamento (Vendas, Suporte), um tom de voz (Formal, Informal) ou uma ação específica (Traduzir, Resumir).
 
-Para que serve: Permitir que o usuário cole um e-mail para ser resumido, um artigo para ser analisado, uma descrição de problema para ser diagnosticada, ou um código para ser depurado.
+    > Exemplo de uso: 
+    >
+    > Um agente tradutor. A variável idioma_alvo (Dropdown) ofereceria opções como "Inglês", "Espanhol" e "Francês". 
+    >
+    > A instrução seria: "Traduza o texto a seguir para o idioma **idioma_alvo**."
+  </Tab>
+  <Tab title="Múltipla Escolha">
+    Similar ao dropdown, mas com a flexibilidade de permitir que o usuário selecione várias opções de uma lista predefinida.
 
-Exemplo de uso: Um agente revisor de textos. A variável Texto Completo (Texto Longo) solicitaria ao usuário que colasse o texto.
+    Para que serve: Quando o usuário pode escolher mais de uma alternativa válida, como selecionar os tópicos de interesse para um relatório, as redes sociais para publicar um post ou os recursos de um produto a serem incluídos em uma descrição.
 
-E a instrução seria: "Revise o seguinte texto e corrija os erros gramaticais: **texto-completo**"
+    > Exemplo de uso: 
+    >
+    > Um agente de criação de campanhas. A variável redes_sociais (Múltipla Escolha) listaria "Facebook", "Instagram" e "LinkedIn". 
+    >
+    > A instrução seria: "Crie um post sobre IA para as seguintes redes: **redes_sociais**."
+  </Tab>
+  <Tab title="Upload de Arquivo">
+    Este tipo de entrada transforma seu agente em um poderoso analista de documentos, permitindo que o usuário anexe arquivos para processamento.
 
-https://app.supademo.com/demo/cmjdaz2k402lmo7eo1orolj85?utm_source=link
+    Para que serve: Analisar contratos em PDF, extrair dados de planilhas em XLSX ou CSV, resumir relatórios em DOCX, ou interpretar o conteúdo de qualquer arquivo de texto.
 
-3. Dropdown (Seleção Única)
-
-Utilize o dropdown para garantir que a resposta do usuário seja padronizada. Ele apresenta uma lista de opções predefinidas, da qual o usuário pode escolher apenas uma.
-
-Para que serve: Limitar a escolha a um conjunto de opções, como selecionar um idioma (Português, Inglês), um departamento (Vendas, Suporte), um tom de voz (Formal, Informal) ou uma ação específica (Traduzir, Resumir).
-
-Exemplo de uso: Um agente tradutor. A variável idioma_alvo (Dropdown) ofereceria opções como "Inglês", "Espanhol" e "Francês". A instrução seria: "Traduza o texto a seguir para o idioma **idioma_alvo**."
-
-4. Múltipla Escolha
-
-Similar ao dropdown, mas com a flexibilidade de permitir que o usuário selecione várias opções de uma lista predefinida.
-
-Para que serve: Quando o usuário pode escolher mais de uma alternativa válida, como selecionar os tópicos de interesse para um relatório, as redes sociais para publicar um post ou os recursos de um produto a serem incluídos em uma descrição.
-
-Exemplo de uso: Um agente de criação de campanhas. A variável redes_sociais (Múltipla Escolha) listaria "Facebook", "Instagram" e "LinkedIn". A instrução seria: "Crie um post sobre IA para as seguintes redes: **redes_sociais**."
-
-https://app.supademo.com/demo/cmjdb485x02r6o7eo65luxqhw?utm_source=link
-
-5. Upload de Arquivo
-
-Este tipo de entrada transforma seu agente em um poderoso analista de documentos, permitindo que o usuário anexe arquivos para processamento.
-
-Para que serve: Analisar contratos em PDF, extrair dados de planilhas em XLSX ou CSV, resumir relatórios em DOCX, ou interpretar o conteúdo de qualquer arquivo de texto.
-
-Exemplo de uso: Um agente que analisa planilhas. A variável planilha_vendas (Arquivo) pediria o upload do arquivo, e a instrução seria: "Com base na planilha **planilha_vendas**, calcule o total de vendas do último trimestre."
-
-https://app.supademo.com/demo/cmjdb77ei02wro7eophn5elbd?utm_source=link
+    > Exemplo de uso: 
+    >
+    > Um agente que analisa planilhas. A variável planilha_vendas (Arquivo) pediria o upload do arquivo. 
+    >
+    > A instrução seria: "Com base na planilha **planilha_vendas**, calcule o total de vendas do último trimestre."
+  </Tab>
+</Tabs>

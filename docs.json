@@ -90,6 +90,7 @@
           {
             "group": "Entradas do Usuário",
             "pages": [
+              "funcionamento-entradas-do-usua",
               "texto-curto-e-longo",
               "selecao-unica-e-multipla",
               "upload-de-arquivo"

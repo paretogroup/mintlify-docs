@@ -98,11 +98,12 @@
           {
             "group": "AI Steps",
             "pages": [
-              "ai-step-extract-text-from-entire-pdf",
+              "ai-step-read-pdf-selected-pages",
               "funcionamento-ai-steps",
               "ai-step-web-data-extraction",
               "ai-step-integrations",
-              "ai-step-conversao-ocr-to-pdf-e-imagens"
+              "ai-step-conversao-ocr-to-pdf-e-imagens",
+              "ai-step-extract-text-from-entire-pdf"
             ]
           },
           {

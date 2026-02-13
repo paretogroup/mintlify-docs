@@ -98,6 +98,7 @@
           {
             "group": "AI Steps",
             "pages": [
+              "ai-step-extract-text-from-entire-pdf",
               "funcionamento-ai-steps",
               "ai-step-web-data-extraction",
               "ai-step-integrations",

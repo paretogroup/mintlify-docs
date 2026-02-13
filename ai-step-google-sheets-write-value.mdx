@@ -1,4 +1,133 @@
 ---
-title: 'AI Step | Google Sheets - Write Value'
+title: "AI Step | Google Sheets - Write Value"
 ---
 
+Esta função  permite adicionar dados e informações em planilhas do Google Sheets de forma inteligente e adaptativa.
+
+Os usuários podem especificar a URL da planilha, o intervalo de dados e escolher entre sobrescrever dados existentes ou adicionar como nova linha/coluna. Você pode utilizar modelos de IA para fornecer análises e insights e ter todos os resultados integrados no Google Sheets, permitindo uma fácil integração e atualização de dados, tornando o processo mais eficiente e menos propenso a erros.
+
+### **Definindo os Campos de Preenchimento para configurar o Agente**
+
+<Card icon="1" title="Planilha para Análise">
+  A primeira coisa a fazer, é selecionar sua planilha para análise e tratamento de dados.
+
+  Como primeiro passo, dentro do Agent Studio, vamos criar um step avançado de "App Integration" com a URL da planilha de referência e o raio de leitura de dados. Como no print, vamos chamar a etapa de Leitor e selecionar "Get Values", pois queremos obter os dados.
+
+  <Frame>
+    ![Image](/images/image-124.png)
+  </Frame>
+  Outra opção é não deixar configurado uma URL fixa na etapa avançada. Para tal, basta selecionar a opção "Decisão do Usuário" e, nesse caso, o recomendado seria adicionar um campo de input de dados e também de raio de leitura, como no print.
+
+  <Frame>
+    ![Image](/images/image-125.png)
+  </Frame>
+  Levando à seleção como apresentado abaixo:
+
+  <Frame>
+    ![Image](/images/image-126.png)
+  </Frame>
+</Card>
+
+<Card icon="2" title="Tratamento do que será inserido">
+  Antes de modificar a planilha, **precisamos tratar e analisar aquilo que vem da planilha e o raio de dados selecionado**, ou seja, temos de utilizar um assistente que irá avaliar e recomendar as ações que você como usuário deseja, certo?
+
+  > Vamos trazer aqui um exemplo de uma pesquisa na qual desejamos analisar os comentários feitos pelos clientes e resumir com uma palavra esse comentário, como no exemplo abaixo
+
+  | Comentário                                  | Resumo    |
+  | :------------------------------------------ | :-------- |
+  | Não gostei, achei muito difícil de usar     | Difícil   |
+  | Tecnologia Excelente                        | Excelente |
+  | As etapas do onboarding são muito complexas | Complexas |
+
+  Trazendo o exemplo acima que havíamos mencionado, vamos selecionar o Step <u>AI Assistant</u> e escolher o <u>Chat GPT Text Assistant,</u> como no print abaixo.
+
+  <Frame>
+    ![Captura De Tela 2026 02 13 Às 20 43 53](/images/CapturadeTela2026-02-13às20.43.53.png)
+  </Frame>
+  Note que dentro do assistente, nós já temos um prompt pronto com o que desejamos executar, ou seja, já estou direcionando ao assistente do chatgpt o que desejo que ele faça.
+
+  > Abaixo, você encontra uma tabela, cada célula com uma mensagem. Preciso que você crie uma nova tabela, sem markdown, trazendo uma palavra que resuma cada mensagem. Ou seja, cada nova linha terá uma palavra. \
+  > \
+  > Por favor, traga apenas a tabela, sem markdown, e nada mais. Respeite a formatação: [["Col1", "Col2"], ["Data1", "Data2"]]\
+  > \
+  > #mensagens\
+  > \*\*leitor\*\*
+
+  Claro, **eu preciso referenciar a planilha que inseri**. Por isso tenho em destaque a referência ao **Leitor**, primeira etapa que adicionei e que possui a planilha e seu raio de dados, **assim como vou trazer exatamente o formato de dados que quero que a planilha me traga.**
+
+  Em resumo, o que fizemos até agora?
+
+  1. Inserimos a planilha de análise (Criação do **Leitor** usando o Step App Integration e selecionando Get Values, para obter os valores)
+  2. Escolhemos o raio de dados para análise (Criação do **Leitor** usando o Step App Integration)
+  3. Decidimos que queremos tratar os dados (Criação do Step de **Tratamento** usando o AI Assistant)
+  4. Decidimos como será feito o tratamento por meio de um prompt que fará referência à planilha de análise (Definição do Step de **Tratamento** usando o AI Assistant)
+
+  Até aqui tudo certo!
+
+  O que falta então? Já temos a leitura, o tratamento... falta alterar a planilha, certo?
+</Card>
+
+<Card icon="3" title="Escrever o que desejamos na planilha">
+  Agora, vem a parte mais fácil. Já lemos e tratamos, só precisamos escrever.
+
+  Vamos então criar um novo step avançado de "App Integration" com a URL da planilha de referência e o raio de leitura de dados. Porém, diferente do campo 1, vamos chamar a etapa de Escritor e selecionar "Write Values", pois queremos escrever os dados, não mais obter!
+
+  <Frame>
+    ![Image](/images/image-127.png)
+  </Frame>
+  Além disso, preciso fazer outras seleções:
+
+  - **Raio de escrita**: preciso selecionar em qual coluna ou espaço será escrito o tratamento que desejo. Como na leitura tenho os dados na coluna "E" e são eles que vou tratar, vou fazer a escrita na coluna "F", bem ao lado;
+  - **Método de Inserção de dados:** posso escolher entre sobrescrever os dados do raio selecionado (que é como está a seleção do print acima) ou então criar novas linhas para não sobrescrever.
+
+    <Frame>
+      ![Image](/images/image-128.png)
+    </Frame>
+
+
+  - **Incluir cabeçalhos ou não: a**lém disso, posso também escolher se desejo que os cabeçalhos sejam considerados ou não.
+
+  <Frame>
+    ![Image](/images/image-129.png)
+  </Frame>
+  - **Valores dos dados a serem inseridos: **como última decisão, eu preciso selecionar o que será inserido na colunas F (que foi minha seleção). Claro, eu quero que o dado tratado seja isso. E como eu já tenho esse "Step" pronto, pois foi exatamente meu tratamento, eu só coloco a referência a ele.
+
+  <Frame>
+    ![Image](/images/image-129.png)
+  </Frame>
+  <Note>
+    Tudo pode também ser uma decisão do usuário, ok? No caso, como estamos fazendo baseado na planilha, deixamos tudo pronto, mas fique à vontade para criar!
+  </Note>
+</Card>
+
+### **Finalizando o Agente**
+
+Para finalizar o Agente, basta que eu finalize com um prompt desejado. No caso, como eu já tenho tudo que quero, vou deixar como um Agente de texto e sem a necessidade de IA aplicada, só me trazendo como retorno os comentários resumidos em uma palavra.
+
+**_Afinal, tudo já está pronto nos AI Steps_**
+
+<Frame>
+  ![Image](/images/image-130.png)
+</Frame>
+
+### **Resultados**
+
+De forma simples, aqui está o resultado após pedir para gerar.
+
+**Antes**
+
+<Frame>
+  ![Image](/images/image-131.png)
+</Frame>
+
+**Usando o modelo**
+
+<Frame>
+  ![Image](/images/image-132.png)
+</Frame>
+
+**Após o uso**
+
+<Frame>
+  ![Image](/images/image-133.png)
+</Frame>

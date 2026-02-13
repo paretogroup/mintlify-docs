@@ -1,3 +1,94 @@
 ---
 title: "Upload de Arquivo"
 ---
+
+Leve seus agentes a um novo nível de capacidade permitindo que eles processem arquivos. A Entrada de Usuário do tipo Upload de Arquivo é a porta de entrada para criar agentes que podem ler documentos, transcrever áudios, analisar vídeos e muito mais.
+
+Este tutorial, de nível intermediário, assume que você já tem familiaridade com a criação básica de agentes e irá focar na poderosa combinação da entrada de arquivos com os Steps Avançados.
+
+### **O Ponto-Chave: A Conexão entre Upload de Arquivo + Step Avançado**
+
+Diferente de uma entrada de texto, que pode ser usada diretamente no prompt (ou no step), o "Upload de Arquivo" precisa se conectar a um Step Avançado. O fluxo de trabalho é uma sequência lógica de duas etapas:
+
+- O usuário faz o upload de um arquivo (através da Entrada de Usuário).
+- Um Step Avançado (como "Transcrição de Áudio" ou "Extração de Texto de PDF") processa esse arquivo e gera um resultado (um texto, por exemplo).
+- O resultado do Step Avançado é, então, usado pela IA no prompt principal para gerar a resposta final.
+
+<Frame>
+  ![Image](/images/image-99.png)
+</Frame>
+
+**Nosso Projeto Exemplo: O Agente Tradutor de Mídia**
+
+Para ilustrar essa poderosa combinação, vamos construir um agente que funciona como um tradutor. Ele será capaz de receber um arquivo de áudio ou vídeo, transcrever o conteúdo e traduzi-lo para o português, ou outro idioma.
+
+<Card icon="1" title="Configuração Inicial do Agente">
+  No AI Studio, comece criando um novo Agente de Chat ou Texto. A seleção padrão de "All LLM" é perfeitamente adequada para este exemplo.
+
+  <Frame>
+    ![Image](/images/image-100.png)
+  </Frame>
+</Card>
+
+<Card icon="2" title="Configurando a Entrada e o Step Avançado">
+  Esta é a etapa mais importante. Vamos configurar as duas partes que trabalharão em conjunto.
+
+  Em "Entradas de Usuário", adicione uma nova entrada de "Upload de Arquivo", com a variável: arquivo original. No rótulo, use: "Envie seu arquivo de áudio ou vídeo"
+
+  <Frame>
+    ![Image](/images/image-101.png)
+  </Frame>
+  Em "AI Steps", busque a etapa de AI-Audio Transcription, selecione o Modelo de IA desejado e nomeie o step como texto transcrito. 
+
+  No campo do arquivo, escolha a variável _arquivo-original_ para ficar dinâmico. Com isso, você criou um fluxo onde o usuário envia o arquivo e ele é processado e transcrito pelo step. Agora, é hora de usar o resultado do step no prompt do agente!
+
+  <Frame>
+    ![Image](/images/image-102.png)
+  </Frame>
+</Card>
+
+<Card icon="3" title="Desenvolvendo o Prompt Principal">
+  Agora, vamos dizer à IA o que fazer com o texto que foi extraído pelo Step Avançado. No campo de prompt, temos:
+
+  > _Assuma a persona de um especialista em transcrição e localização de conteúdo da Tess AI. Sua missão é processar o texto extraído de um arquivo de mídia e entregar um resultado claro, profissional e em duas partes._
+  >
+  > _Parte 1: Transcrição Fiel_
+  >
+  > _Crie uma seção com o título "## Transcrição Original"._\
+  > _Nesta seção, apresente o texto exato do áudio. O objetivo é a fidelidade máxima:_\
+  > _- Mantenha a estrutura e a pontuação originais._\
+  > _- Se um trecho do áudio for ininteligível ou incerto, utilize a tag [inaudível] no local correspondente._\
+  > _- Não adicione, omita ou corrija palavras._
+  >
+  > _Parte 2: Tradução Natural_
+  >
+  > _Abaixo da transcrição, crie uma segunda seção com o título "## Tradução para Português (BR)"._\
+  > _Nesta seção, faça a tradução do texto para o português do Brasil. O foco aqui é a naturalidade e a fluência:_\
+  > _- Evite traduções literais que soem robóticas._\
+  > _- Adapte o significado e a intenção da mensagem para o idioma de destino, mantendo o tom original (seja ele formal, casual, técnico, etc.)._
+  >
+  > _O resultado final deve conter apenas essas duas seções, claramente separadas pelos títulos. Não inclua nenhuma introdução, comentário ou conclusão adicional._
+  >
+  > _Isso será feito com base no conteúdo a seguir: texto-transcrito_
+
+  <Frame>
+    ![Image](/images/image-103.png)
+  </Frame>
+  <Warning>
+    **IMPORTANTE**\
+    \
+    Observe que o prompt utiliza a variável que é o resultado do Step Avançado, e não a variável do upload inicial. É essa conexão que faz todo o fluxo funcionar com arquivos!
+  </Warning>
+</Card>
+
+<Card icon="4" title="Salvando e Testando">
+  Clique em "Salvar" e depois em "Visualizar". Você verá uma interface com um botão para upload de arquivo. Envie um áudio ou vídeo curto (limite de 200mb o tamanho do arquivo) em outro idioma e deixe o resto com o agente!
+
+  <Frame>
+    ![Captura De Tela 2026 02 13 Às 19 51 14](/images/CapturadeTela2026-02-13às19.51.14.png)
+  </Frame>
+</Card>
+
+Dominar a conexão entre uma Entrada de "Upload de Arquivo" e um Step Avançado é a chave para criar agentes que interagem com o mundo além do texto. 
+
+O exemplo do tradutor é apenas uma das infinitas possibilidades. Você pode usar o mesmo princípio para criar agentes que leem PDFs, analisam relatórios e muito mais, automatizando tarefas complexas de forma inteligente.

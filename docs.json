@@ -82,7 +82,9 @@
           },
           {
             "group": "Geradores",
-            "pages": []
+            "pages": [
+              "gerador-de-imagem"
+            ]
           }
         ]
       },

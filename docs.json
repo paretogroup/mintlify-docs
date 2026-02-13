@@ -32,7 +32,8 @@
         "pages": [
           "memorias",
           "modo-max",
-          "modo-auto"
+          "modo-auto",
+          "tess-pages"
         ]
       },
       {
@@ -56,7 +57,14 @@
               "tool-internet",
               "tool-imagens",
               "tool-video",
-              "tool-edicao-de-videos"
+              "tool-edicao-de-videos",
+              "tool-narracao",
+              "tool-podcast",
+              "tool-music",
+              "tool-deep-analysis",
+              "tool-manage-files",
+              "tools-integrations",
+              "tools-avatar"
             ]
           }
         ]

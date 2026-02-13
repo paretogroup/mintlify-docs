@@ -100,7 +100,8 @@
             "pages": [
               "funcionamento-ai-steps",
               "ai-step-web-data-extraction",
-              "ai-step-integrations"
+              "ai-step-integrations",
+              "ai-step-conversao-ocr-to-pdf-e-imagens"
             ]
           },
           {

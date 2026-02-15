@@ -99,13 +99,28 @@
             "group": "AI Steps",
             "pages": [
               "funcionamento-ai-steps",
-              "ai-step-web-data-extraction",
-              "ai-step-integrations",
-              "ai-step-conversao-ocr-to-pdf-e-imagens",
-              "ai-step-extract-text-from-entire-pdf",
-              "ai-step-read-pdf-selected-pages",
-              "ai-step-google-sheets-get-value",
-              "ai-step-google-sheets-write-value"
+              {
+                "group": "Web Data Extraction",
+                "pages": [
+                  "ai-step-web-data-extraction"
+                ]
+              },
+              {
+                "group": "Integrations",
+                "pages": [
+                  "ai-step-integrations",
+                  "ai-step-google-sheets-get-value",
+                  "ai-step-google-sheets-write-value"
+                ]
+              },
+              {
+                "group": "Document Processing",
+                "pages": [
+                  "ai-step-conversao-ocr-to-pdf-e-imagens",
+                  "ai-step-extract-text-from-entire-pdf",
+                  "ai-step-read-pdf-selected-pages"
+                ]
+              }
             ]
           },
           {

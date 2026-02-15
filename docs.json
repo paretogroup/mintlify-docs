@@ -129,9 +129,19 @@
         "pages": [
           "tokens-de-api",
           {
-            "group": "API documentation",
+            "group": "Guia da API",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/inicio-rapido",
+              "api-reference/modo-max",
+              "api-reference/limites-de-taxa",
+              "api-reference/erros"
+            ]
+          },
+          {
+            "group": "Referência da API",
+            "pages": [
+              "untitled-page"
             ]
           },
           {

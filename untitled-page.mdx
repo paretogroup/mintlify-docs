@@ -1,0 +1,170 @@
+---
+title: "Listar Agentes"
+---
+
+`GET /agents`
+
+Lista todos os agentes com suporte para busca, filtragem e paginação.
+
+### **Exemplos de Código**
+
+- **cURL**
+- **Node.js**
+- **Python**
+- **PHP**
+- **Java**
+- **Go**
+- **.NET**
+- **Ruby**
+
+```
+curl --request GET \
+  --url 'https://api.tess.im/agents' \
+  --header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+### **Cabeçalhos**
+
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                       |
+| :------------- | :------- | :-------------- | :---------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será usado. |
+
+> **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendado defini-lo agora para garantir compatibilidade com atualizações futuras.
+
+### **Parâmetros de Consulta**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                                          |
+| :------------ | :------- | :-------------- | :----------------------------------------------------- |
+| q             | string   | Não             | Buscar agentes por título, descrição e descrição longa |
+| type          | string   | Não             | Filtrar por tipo de agente (chat, image, text, video)  |
+| page          | integer  | Não             | Página atual (padrão: 1)                               |
+| per_page      | integer  | Não             | Número de itens por página (padrão: 15)                |
+
+### **Resposta**
+
+```
+{
+"current_page": 1,
+"data": [
+  {
+    "id": 8794,
+    "title": "Tess AI - API Docs Helper",
+    "description": null,
+    "long_description": null,
+    "workspace_id": 11,
+    "visibility": "public",
+    "slug": "tess-ai-docs-helper-pB9ujA",
+    "active": 1,
+    "type": "chat",
+    "questions": [
+      {
+        "type": "select",
+        "name": "temperature",
+        "description": "Informe à Tess se você quer que ela seja mais objetiva ou mais criativa em suas respostas.",
+        "required": true,
+        "options": [
+          "0",
+          "0.25",
+          "0.5",
+          "0.75",
+          "1"
+        ]
+      },
+      {
+        "type": "select",
+        "name": "model",
+        "description": "Escolha a versão do Modelo",
+        "required": true,
+        "options": [
+          "gpt-4o-mini",
+          "gpt-4o",
+          "tess-5",
+          "tess-ai-3",
+          "gpt-o1-preview",
+          "gpt-o1-mini",
+          "gemini-2.0-flash",
+          "gemini-1.5-flash",
+          "gemini-1.5-pro",
+          "claude-3-5-haiku-latest",
+          "claude-3-5-sonnet-20240620",
+          "claude-3-5-sonnet-latest",
+          "claude-3-opus-20240229",
+          "meta-llama-3.1-405b-instruct",
+          "meta-llama-3-70b-instruct",
+          "meta-llama-3-8b-instruct",
+          "cohere-command-r",
+          "cohere-command-r-plus",
+          "gpt-3.5-turbo",
+          "gpt-4-turbo",
+          "claude-3-haiku-20240307",
+          "claude-3-sonnet-20240229",
+          "gemini-1.0-pro",
+          "llama-2-13b-chat",
+          "llama-2-70b-chat"
+        ]
+      },
+      {
+        "type": "select",
+        "name": "tools",
+        "description": "Escolha a versão do Modelo",
+        "required": true,
+        "options": [
+          "no-tools",
+          "internet",
+          "twitter",
+          "wikipedia",
+          "quora",
+          "reddit",
+          "medium",
+          "linkedin",
+          "instagram",
+          "facebook"
+        ]
+      },
+      {
+        "type": "number",
+        "name": "root_id",
+        "description": "O ID da sessão armazenada para continuar a conversa.",
+        "required": false
+      },
+      {
+        "type": "array",
+        "name": "messages",
+        "description": "A lista de mensagens no histórico do chat. Use uma lista de objetos com role e content, igual à API OpenAI.",
+        "required": true
+      }
+    ],
+    "created_at": "2025-01-05T18:09:18.000000Z",
+    "updated_at": "2025-01-05T18:45:31.000000Z",
+    "created_by": 13
+  }
+],
+"first_page_url": "https://api.tess.im/agents?page=1",
+"from": 1,
+"last_page": 1,
+"last_page_url": "https://api.tess.im/agents?page=1",
+"links": [
+  {
+    "url": null,
+    "label": "pagination.previous",
+    "active": false
+  },
+  {
+    "url": "https://api.tess.im/agents?page=1",
+    "label": "1",
+    "active": true
+  },
+  {
+    "url": null,
+    "label": "pagination.next",
+    "active": false
+  }
+],
+"next_page_url": null,
+"path": "https://api.tess.im/agents",
+"per_page": 15,
+"prev_page_url": null,
+"to": 1,
+"total": 1
+}
+```

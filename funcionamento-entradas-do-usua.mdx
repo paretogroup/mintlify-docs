@@ -16,11 +16,11 @@ Em outras palavras, essas entradas são variáveis que complementam o treino do 
 
 Você pode solicitar informações ao usuário de várias formas estruturadas:
 
-- Texto Curto: Para solicitar informações breves e diretas. Ideal para nomes, títulos, números ou palavras-chave.
-- Texto Longo: Permite que o usuário insira grandes blocos de texto. Perfeito para descrições, artigos a serem resumidos ou instruções detalhadas.
-- Seleção Única (Dropdown): Apresenta uma lista de opções onde o usuário só pode escolher uma. Ótimo para limitar a resposta a um cenário específico.
-- Seleção Múltipla (Checkboxes): Oferece uma lista de opções onde o usuário pode marcar várias. Excelente para capturar preferências ou múltiplos interesses.
-- Upload de Arquivo: Permite que o usuário anexe um arquivo (como áudio, vídeo ou documento). Este tipo de entrada é especialmente poderoso quando conectado a um Step Avançado (como transcrição de áudio ou extração de texto de PDF) para processar o arquivo antes da IA utilizar a informação.
+- <u>Texto Curto:</u> Para solicitar informações breves e diretas. Ideal para nomes, títulos, números ou palavras-chave.
+- <u>Texto Longo:</u> Permite que o usuário insira grandes blocos de texto. Perfeito para descrições, artigos a serem resumidos ou instruções detalhadas.
+- **Seleção Única (Dropdown):** Apresenta uma lista de opções onde o usuário só pode escolher uma. Ótimo para limitar a resposta a um cenário específico.
+- <u>Seleção Múltipla (Checkboxes):</u> Oferece uma lista de opções onde o usuário pode marcar várias. Excelente para capturar preferências ou múltiplos interesses.
+- <u>Upload de Arquivo:</u> Permite que o usuário anexe um arquivo (como áudio, vídeo ou documento). Este tipo de entrada é especialmente poderoso quando conectado a um Step Avançado (como transcrição de áudio ou extração de texto de PDF) para processar o arquivo antes da IA utilizar a informação.
 
 ### **Exemplo: O Agente "Mad Libs"**
 
@@ -40,13 +40,13 @@ Quando um usuário for usar seu agente, ele não verá um chat vazio, mas sim do
 
 ### **Como Funciona na Prática**
 
-Ao construir o agente, você definirá as Entradas de Usuário que seu agente precisa (ex: nome_da_empresa, publico_alvo, idioma_de_saida). 
+Ao construir o agente, você definirá as Entradas de Usuário que seu agente precisa (ex: nome_da_empresa, publico_alvo, idioma_de_saida).
 
 Depois disso, precisa inserir essas entradas como variáveis, afinal, caso não referencie essa entrada no prompt, ela não será considerada em nenhum lugar.
 
-A parte variável do seu prompt poderia ser: 
+A parte variável do seu prompt poderia ser:
 
-> "Com essas diretrizes apresentadas, crie agora uma postagem para o Instagram para a empresa {nome_da_empresa}, focada no público {publico_alvo}. O texto deve ser em {idioma_de_saida}."
+> "Com essas diretrizes apresentadas, crie agora uma postagem para o Instagram para a empresa nome_da_empresa, focada no público publico_alvo. O texto deve ser em idioma_de_saida."
 
 **Para quem usa o agente:**
 

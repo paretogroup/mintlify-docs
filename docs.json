@@ -36,7 +36,6 @@
           "links-compartilhaveis",
           "tess-pages",
           "embeding",
-          "monetizacao",
           "marketplace",
           "carteira-de-creditos"
         ]
@@ -173,28 +172,27 @@
       {
         "tab": "Conta",
         "pages": [
+          "painel-da-equipe",
           "assinatura-e-pagamento",
           "conta-compartilhada",
           "bi",
-          "painel-da-equipe",
           "sso",
+          "reembolso",
           {
             "group": "Programas",
             "pages": [
-              "recompensas",
-              "monetizacao",
-              "reembolso",
-              "afiliados"
+              "afiliados",
+              "recompensas"
             ]
           },
           {
             "group": "Configurações",
             "pages": [
               "sua-conta",
+              "workspace",
               "preferencias",
               "assinatura",
               "upgrade-e-downgrade",
-              "workspace",
               "monitoramento-do-uso",
               "membros-e-permissoes",
               "base-de-conhecimentos-1",

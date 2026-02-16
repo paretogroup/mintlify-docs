@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Tess AI Docs",
+  "name": "Mint Starter Kit",
   "colors": {
-    "primary": "#272727",
-    "light": "#ffffff",
-    "dark": "#272727"
+    "primary": "#16A34A",
+    "light": "#07C983",
+    "dark": "#15803D"
   },
-  "favicon": "/logo/tess-black-icon.png",
+  "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
@@ -17,7 +17,7 @@
             "group": "Primeiros Passos",
             "icon": "door-open",
             "pages": [
-              "Boas-Vindas",
+              "index",
               "quickstart",
               "development",
               "quickstart-1",
@@ -31,10 +31,14 @@
         "tab": "Features",
         "pages": [
           "memorias",
+          "tess-6-1",
           "modo-max",
-          "modo-auto",
+          "links-compartilhaveis",
           "tess-pages",
-          "tess-6-1"
+          "embeding",
+          "monetizacao",
+          "marketplace",
+          "carteira-de-creditos"
         ]
       },
       {
@@ -43,12 +47,9 @@
           {
             "group": "Chat",
             "pages": [
-              "using-the-chat",
+              "modo-auto",
               "base-de-conhecimentos",
-              "historico",
-              "temperatura",
-              "links-compartilhaveis",
-              "carteira-de-creditos"
+              "historico"
             ]
           },
           {
@@ -64,8 +65,9 @@
               "tool-music",
               "tool-deep-analysis",
               "tool-manage-files",
-              "tool-integracoes",
-              "tool-avatar"
+              "tools-integrations",
+              "tools-avatar",
+              "tool-integracoes"
             ]
           }
         ]
@@ -79,11 +81,20 @@
               "tipos-de-agentes",
               "treino-estatico",
               "treino-dinamico",
+              "monetizacao-2",
               "base-de-conhecimentos-2",
               "configruacoes-avancadas",
-              "visibilidade",
-              "embeding",
-              "marketplace"
+              "visibilidade"
+            ]
+          },
+          {
+            "group": "Geradores",
+            "pages": [
+              "gerador-de-imagem",
+              "gerador-de-video",
+              "gerador",
+              "gerador-de-narracoes",
+              "gerador-de-transcricoes"
             ]
           },
           {
@@ -122,16 +133,6 @@
                 ]
               }
             ]
-          },
-          {
-            "group": "Geradores",
-            "pages": [
-              "gerador-de-imagem",
-              "gerador-de-video",
-              "gerador",
-              "gerador-de-narracoes",
-              "gerador-de-transcricoes"
-            ]
           }
         ]
       },
@@ -141,7 +142,6 @@
       {
         "tab": "API ",
         "pages": [
-          "tokens-de-api",
           {
             "group": "Guia da API",
             "pages": [
@@ -166,7 +166,8 @@
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
             ]
-          }
+          },
+          "tokens-de-api"
         ]
       },
       {
@@ -180,10 +181,10 @@
           {
             "group": "Programas",
             "pages": [
-              "afiliados",
               "recompensas",
               "monetizacao",
-              "reembolso"
+              "reembolso",
+              "afiliados"
             ]
           },
           {
@@ -213,15 +214,15 @@
     ]
   },
   "logo": {
-    "light": "/images/tess-dark-logo.svg",
-    "dark": "/images/tess-white-logo.svg",
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
     "href": "https://tess.im/"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:support@tess.im"
+        "href": "mailto:hi@mintlify.com"
       }
     ],
     "primary": {
@@ -232,18 +233,20 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
       "linkedin": "https://www.linkedin.com/company/tess-ai/",
       "instagram": "https://www.instagram.com/tessai.br",
       "youtube": "https://www.youtube.com/@tessai_br"

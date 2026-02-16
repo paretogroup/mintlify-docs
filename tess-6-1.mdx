@@ -2,25 +2,25 @@
 title: "Tess 6.1"
 ---
 
-O Tess 6.1 é o modelo “premium de colaboração” do chat da Tess AI. Em vez de usar apenas um LLM (modelo de linguagem) para responder sua mensagem, ele aciona uma arquitetura Multi LLM em uma única requisição: vários modelos trabalham em cadeia, se complementam e se corrigem, antes de você receber a resposta final.
+O Tess 6.1 oferece uma experiência de orquestração agêntica de diferentes modelos para a execução de uma mesma tarefa complexa. Vocë dá o seu prompt e, em vez de usar apenas um LLM para responder o seu pedido, este modelo aciona uma arquitetura Multi-LLM em uma única requisição: vários modelos trabalham em cadeia, de forma colaborativa, revisando e refinando o trabalho um do outro, antes de você receber a resposta final.
 
-Na prática: você faz uma pergunta como sempre. Nos bastidores, diferentes modelos de IA discutem, refinam e consolidam uma resposta conjunta — e você recebe o resultado pronto, em uma única mensagem.
+Na prática: você faz uma pergunta como sempre. Nos bastidores, diferentes modelos de IA discutem, refinam e consolidam uma resposta conjunta - e você recebe o resultado pronto, em uma única mensagem.
 
 ### **O que é o Tess 6.1**
 
-O Tess 6.1 é o que há de melhor da nossa inteligência e arquitetura, é um modelo orquestrado de colaboração robusta entre LLMs, projetado para:
+O Tess 6.1 é um modelo orquestrado de colaboração robusta entre LLMs, projetado para:
 
 - combinar pontos fortes de modelos diferentes
 - reduzir erros e contradições em tarefas complexas
-- entregar respostas mais consistentes, estruturadas e “pensadas”
+- entregar respostas mais consistentes, estruturadas e “pensadas” com um único prompt
 
-Quando você o seleciona no seletor de modelo do chat, a Tess:
+Quando você o seleciona no chat, a Tess:
 
-- ativa o mecanismo Multi LLM para aquela mensagem
+- ativa o mecanismo Multi-LLM para aquela mensagem
 - coordena a colaboração entre múltiplos modelos de ponta
-- retorna uma resposta única, já consolidada
+- retorna uma resposta única, já consolidada, apresentando também toda a cadeia de raciocínio de cada modelo ao longo do fluxo de entrega
 
-### Quando usar o Tess 6.1 (e quando não precisa)
+Quando usar o Tess 6.1 (e quando não precisa)
 
 <Columns cols={2}>
   <Card title="Use Tess 6.1 quando">
@@ -35,16 +35,11 @@ Quando você o seleciona no seletor de modelo do chat, a Tess:
   </Card>
 </Columns>
 
-### **Custo e tempo do modelo**
-
-Usar um modelo como o Tess 6.1 possui um custo em créditos maior do que um único modelo, afinal, vários LLMs trabalham por trás de uma única resposta. Nesse caminho o tempo de resposta também acaba sendo ligeiramente maior, principalmente em prompts muito longos ou complexos.
-
 <Note>
   **Importante**
 
   - Mesmo que seja Multi Modelo isso não substitui validação humana em temas críticos (jurídico, financeiro, médico, decisões de alto impacto).
+  - Naturalmente levará alguns segundos a mais para a geração da resposta final, pela natureza do modelo.
   - Não é a melhor opção para tarefas rápidas e baratas (respostas pequenas, ajustes pontuais).
   - Por usar múltiplos modelos, eventuais diferenças de “estilo” entre eles são harmonizadas, mas podem aparecer em pedidos muito extremos de tom/estilo; se isso ocorrer, seja bem específico no tom desejado.
 </Note>
-
-**O Tess 6.1 é o modelo colaborativo da Tess AI:** ao escolher essa opção no chat, você aciona um fluxo Multi LLM em uma única requisição, permitindo que vários modelos de ponta trabalhem juntos — entendendo, criticando e refinando — para entregar uma resposta final mais robusta, estruturada e confiável.

@@ -4,11 +4,13 @@ title: "Funcionamento: AI Steps"
 
 Ao construir um agente no AI Studio da Tess AI, você pode ir muito além de um simples treinamento. Com os Steps Avançados, você pode criar agentes que executam tarefas prévias, processam informações de múltiplas fontes antes de iniciar a conversa (agente de chat) ou entregar o resultado final (agente de texto).
 
+Os AI Steps funcionam como etapas de execução obrigatória a cada vez que o agente é acionado. Apesar de opcionais, os AI Steps podem, quando necessário, sofisticar a arquitetura do seu agente e aumentar o seu poder de funcionamento. Mas tenha em mente que nem sempre os AI Steps serão necessários.
+
 ### **Quando apenas Prompt não é suficiente no agente?**
 
 Imagine que você quer criar um agente e automatizar a geração de uma descrição de um produto. Todas as informações sobre esse produto estão em um catálogo em PDF.
 
-Se você apenas der o arquivo PDF ao agente na entrada do usuário, ele não saberá o que fazer. A IA precisa de uma instrução para, primeiro, ler e interpretar o conteúdo daquele arquivo. É exatamente para isso que servem os Steps Avançados: eles dão ao seu agente a capacidade de executar ações preliminares para complementar o contexto necessário do seu treinamento.
+Se você apenas der o arquivo PDF ao agente na entrada do usuário, ele não saberá o que fazer. A IA precisa de uma instrução para, primeiro, ler e interpretar o conteúdo daquele arquivo. Uma etapa prévia e obrigatória na estrutura do agente como um todo. É exatamente para isso que servem os Steps Avançados: eles dão ao seu agente a capacidade de executar ações preliminares para complementar o contexto necessário do seu treinamento.
 
 ### **Exemplos de Steps Avançados Disponíveis**
 
@@ -37,8 +39,8 @@ Você pode equipar seu agente com uma variedade de "sentidos" e habilidades, inc
 Quando você configura um Step Avançado, você está definindo uma linha de montagem para o seu agente:
 
 <Columns cols={2}>
-  <Card icon="1" title="Entrada do Usuário">
-    O usuário fornece o material inicial (ex: arquivo PDF, uma URL de um site). Isso a depender da configuração prevista.
+  <Card icon="1" title="Entrada do Usuário (Opcional)">
+    Quando necessário, o usuário fornece o material inicial (ex: arquivo PDF, uma URL de um site). 
   </Card>
   <Card icon="2" title="Execução do Step Avançado">
     O agente executa a ação que você configurou (ex: extrai o texto do PDF, faz o web scraping da URL).
@@ -47,22 +49,22 @@ Quando você configura um Step Avançado, você está definindo uma linha de mon
     O resultado do step (o texto extraído, o conteúdo do site, nesse caso específico) é automaticamente fornecido como informação de contexto para o prompt da IA no espaço da variável.
   </Card>
   <Card icon="4" title="Geração da Resposta Final">
-    A IA, agora com as informações necessárias, executa o seu prompt principal (ex: "Crie uma descrição de produto com base no texto extraído") e entrega o resultado.
+    A IA, agora com as informações recebidas, executa o seu prompt principal (ex: "Crie uma descrição de produto com base no texto extraído") e entrega o resultado.
   </Card>
 </Columns>
 
 ### **Pontos de Atenção para o Uso Eficaz**
 
 <Card icon="1" title="Impacto no Tempo de Processamento">
-  Lembre-se que cada Step Avançado é uma tarefa adicional no fluxo inicial de trabalho do seu agente. Isso pode aumentar um pouco o tempo de processamento para iniciar a conversa (agente de chat), ou para entregar o resultado final (agente de texto). Portanto, use-os de forma estratégica, apenas quando forem realmente necessários.
+  Lembre-se que cada Step é uma tarefa adicional no fluxo de trabalho do seu agente. Isso pode aumentar um pouco o tempo de processamento para iniciar a conversa (agente de chat), ou para entregar o resultado final (agente de texto). Portanto, use-os de forma estratégica, apenas quando forem realmente necessários.
 </Card>
 
 <Card icon="2" title="Eles não rodam ao longo de um chat">
-  Como o principal objetivo de um step é complementar o treino com tarefas e recursos avançados, ele rodará no início de um chat ou processamento do agente de Texto. 
+  Como o principal objetivo de um step é complementar o treino com tarefas e recursos avançados, ele rodará no início de um chat ou processamento do agente de texto, de forma preliminar. 
 
   > Exemplo:
   >
-  > Sabemos que há um agente que cria eventos na agenda do Google Calendar. Esse step não é acionado ao longo de uma conversa no chat, por exemplo, ele roda no início, logo depois do usuário completar os inputs necessários. 
+  > Sabemos que há um agente que cria eventos na agenda do Google Calendar. Esse step não é acionado ao longo de uma conversa no chat, por exemplo, ele roda no início, logo depois de o usuário completar os inputs necessários. 
   >
   > Então, se eu precisasse criar um agente que criasse eventos na minha agenda eu precisaria:
   >
@@ -75,7 +77,7 @@ Quando você configura um Step Avançado, você está definindo uma linha de mon
 </Card>
 
 <Card icon="3" title="A Conexão Crucial com o Prompt">
-  Não basta apenas adicionar um Step Avançado; você precisa instruir a IA no seu prompt sobre como usar a informação que ele fornece.
+  Não basta apenas adicionar um Step Avançado; você precisa instruir a IA no seu prompt sobre como usar a informação que ele fornece. Em outras palavras: trazer o parâmetro criado para o Step para o seu prompt e encaixá-lo no local adequado da estrutura do prompt.
 
   Exemplo: Se você adicionou um step de "Extração de texto de PDF", seu prompt principal deve conter algo como:
 

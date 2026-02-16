@@ -46,6 +46,7 @@
           {
             "group": "Chat",
             "pages": [
+              "usando-o-chat",
               "modo-auto",
               "base-de-conhecimentos",
               "historico"

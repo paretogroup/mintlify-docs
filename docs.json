@@ -17,7 +17,6 @@
             "group": "Primeiros Passos",
             "icon": "door-open",
             "pages": [
-              "index",
               "boas-vindas",
               "quickstart",
               "development",

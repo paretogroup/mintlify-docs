@@ -18,6 +18,7 @@
             "icon": "door-open",
             "pages": [
               "index",
+              "boas-vindas",
               "quickstart",
               "development",
               "quickstart-1",

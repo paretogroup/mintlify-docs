@@ -15,6 +15,7 @@
         "groups": [
           {
             "group": "Introdution",
+            "icon": "door-open",
             "pages": [
               {
                 "group": "First Steps",
@@ -231,7 +232,19 @@
         ]
       },
       {
-        "language": "es"
+        "language": "es",
+        "groups": [
+          {
+            "group": "Introducción",
+            "pages": [
+              {
+                "group": "Primeros pasos",
+                "icon": "door-open",
+                "pages": []
+              }
+            ]
+          }
+        ]
       }
     ]
   },

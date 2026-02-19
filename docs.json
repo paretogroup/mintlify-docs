@@ -240,7 +240,9 @@
               {
                 "group": "Primeros pasos",
                 "icon": "door-open",
-                "pages": []
+                "pages": [
+                  "bienvenido-a-tess-ai"
+                ]
               }
             ]
           }

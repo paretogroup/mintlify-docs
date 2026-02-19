@@ -11,6 +11,22 @@
   "navigation": {
     "languages": [
       {
+        "language": "en",
+        "groups": [
+          {
+            "group": "Introdution",
+            "pages": [
+              {
+                "group": "First Steps",
+                "pages": [
+                  "welcome-to-tess-ai"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "language": "pt-BR",
         "tabs": [
           {
@@ -211,15 +227,6 @@
                 ]
               }
             ]
-          }
-        ]
-      },
-      {
-        "language": "en",
-        "groups": [
-          {
-            "group": "Introdution",
-            "pages": []
           }
         ]
       },

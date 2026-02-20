@@ -1,0 +1,87 @@
+---
+title: "How It Works: AI Steps"
+---
+
+When building an agent in Tess AI’s AI Studio, you can go far beyond simple training. With Advanced Steps, you can create agents that run preliminary tasks, process information from multiple sources before starting the conversation (chat agent) or delivering the final result (text agent).
+
+AI Steps work as mandatory execution stages every time the agent is triggered. Although optional, AI Steps can, when needed, make your agent’s architecture more sophisticated and increase its operational power. But keep in mind that AI Steps won’t always be necessary.
+
+### **When is a Prompt alone not enough in the agent?**
+
+Imagine you want to create an agent and automate generating a product description. All information about that product is in a PDF catalog.
+
+If you only provide the PDF file to the agent as user input, it won’t know what to do. The AI needs an instruction to first read and interpret the contents of that file. A preliminary and mandatory stage in the overall agent structure. That’s exactly what Advanced Steps are for: they give your agent the ability to perform preliminary actions to complement the context your training needs.
+
+### **Examples of Available Advanced Steps**
+
+You can equip your agent with a variety of “senses” and abilities, including:
+
+<AccordionGroup>
+  <Accordion title="PDF text extraction">
+    Allows the agent to read and extract all text from a PDF document.
+  </Accordion>
+  <Accordion title="Image reading with OCR">
+    A powerful ability to extract text that is inside images (like in a scanned flyer or a screenshot).
+  </Accordion>
+  <Accordion title="Reading selected pages from a PDF">
+    Optimizes the process by allowing you to instruct the agent to focus only on the relevant pages of a long document.
+  </Accordion>
+  <Accordion title="Web Scraping">
+    Turns your agent into an “internet reader,” capable of extracting information from web pages, such as the content of an article or data from an e-commerce site.
+  </Accordion>
+  <Accordion title="Google Search">
+    Allows the agent to run a Google search and use the results as the basis for its response.
+  </Accordion>
+</AccordionGroup>
+
+### **How It Works in Practice: The Sequence of Actions**
+
+When you configure an Advanced Step, you are defining an assembly line for your agent:
+
+<Columns cols={2}>
+  <Card icon="1" title="User Input (Optional)">
+    When needed, the user provides the initial material (e.g., a PDF file, a website URL). 
+  </Card>
+  <Card icon="2" title="Advanced Step Execution">
+    The agent performs the action you configured (e.g., extracts text from the PDF, runs web scraping on the URL).
+  </Card>
+  <Card icon="3" title="Contextualization for the AI">
+    The step result (the extracted text, the website content, in this specific case) is automatically provided as context information to the AI prompt in the variable space.
+  </Card>
+  <Card icon="4" title="Final Response Generation">
+    The AI, now with the received information, runs your main prompt (e.g., "Create a product description based on the extracted text") and delivers the result.
+  </Card>
+</Columns>
+
+### **Key Points for Effective Use**
+
+<Card icon="1" title="Impact on Processing Time">
+  Remember that each Step is an additional task in your agent’s workflow. This can increase processing time a bit to start the conversation (chat agent) or to deliver the final result (text agent). So use them strategically, only when they are truly necessary.
+</Card>
+
+<Card icon="2" title="They don’t run throughout a chat">
+  Since a step’s main goal is to complement training with advanced tasks and resources, it will run at the start of a chat or text-agent processing, as a preliminary stage.
+
+  > Example:
+  >
+  > We know there is an agent that creates events in the Google Calendar schedule. This step is not triggered throughout a conversation in the chat, for example; it runs at the beginning, right after the user completes the required inputs.
+  >
+  > So if I needed to create an agent that created events on my calendar, I would need to:
+  >
+  > - Include a step to fetch calendar information (App Integration)
+  > - Run an AI assistant that checks available slots and sets the new time
+  > - Collect the required information via inputs to create an event
+  > - Use the event creation step
+  >
+  > In other words, before chatting, all of this would need to happen.
+</Card>
+
+<Card icon="3" title="The Crucial Connection to the Prompt">
+  It’s not enough to just add an Advanced Step; you need to instruct the AI in your prompt on how to use the information it provides. In other words: bring the parameter created for the Step into your prompt and place it in the appropriate location within the prompt structure.
+
+  Example: If you added a "PDF text extraction" step, your main prompt should include something like:
+
+  “Based on the text extracted from the document, identify the product’s main benefits and write three paragraphs about them: _pdf-text_”
+
+  This instruction connects the step action with the LLM’s reasoning, ensuring the collected information is used effectively.
+</Card>

@@ -1,0 +1,75 @@
+---
+title: "How It Works: User Inputs"
+---
+
+When building an agent in Agent Studio, you may also want it to perform the same task but with different information each time. That is what User Inputs are designed to support you with.
+
+Unlike a fluid conversation in a chat agent with static training, User Inputs are pre-defined configuration fields that need to be filled in to start using the agent.
+
+### **What are User Inputs?**
+
+Think of them as the fields of a form that you create for your agent. Instead of writing a long and detailed prompt with multiple scenarios, you guide the user and ask them to provide essential and specific information that the agent needs to complete its training and start working.
+
+In other words, these inputs are variables that complement the agent's training. But keep in mind — they do not appear throughout the use of the agent, since they are the initial condition for it to begin.
+
+### **The Available Input Types**
+
+You can request information from the user in several structured ways:
+
+- <u>Short Text:</u> For requesting brief and direct information. Ideal for names, titles, numbers, or keywords.
+- <u>Long Text:</u> Allows the user to enter large blocks of text. Perfect for descriptions, articles to be summarized, or detailed instructions.
+- **Single Selection (Dropdown):** Presents a list of options where the user can only choose one. Great for limiting the response to a specific scenario.
+- <u>Multiple Selection (Checkboxes):</u> Offers a list of options where the user can check several. Excellent for capturing preferences or multiple interests.
+- <u>File Upload:</u> Allows the user to attach a file (such as audio, video, or a document). This input type is especially powerful when connected to an Advanced Step (such as audio transcription or PDF text extraction) to process the file before the AI uses the information.
+
+### **Example: The "Mad Libs" Agent**
+
+Imagine you created an agent to write thank-you emails. The body of the email will always be similar, but the customer's name and the product they purchased change each time.
+
+> Instead of teaching the agent to write: "Write a thank-you email to the customer [NAME] who purchased the product [PRODUCT]", you can create two User Inputs: customer_name and purchased_product.
+
+<Frame>
+  ![Image](/images/image-134.png)
+</Frame>
+
+When a user goes to use your agent, they will not see an empty chat, but rather two fields to fill in. Only after filling them in and clicking "Run" will the agent start its task, already equipped with that information and replacing the variables in the training.
+
+<Frame>
+  ![Image](/images/image-134.png)
+</Frame>
+
+### **How It Works in Practice**
+
+When building the agent, you will define the User Inputs your agent needs (e.g.: company_name, target_audience, output_language).
+
+After that, you need to insert these inputs as variables — because if you don't reference the input in the prompt, it won't be taken into account anywhere.
+
+The variable part of your prompt could be:
+
+> "With these guidelines in mind, now create an Instagram post for the company company_name, focused on the target_audience. The text must be in output_language."
+
+**For the agent user:**
+
+When selecting the agent, an interface with the fields "Company Name", "Target Audience", and "Output Language" appears. The user then fills in these fields and submits.
+
+The agent, behind the scenes, inserts the filled-in information into the prompt and finalizes the training with that new context.
+
+### **Main Advantages**
+
+<Card title="Reusability">
+  Makes a generic agent applicable to infinitely specific scenarios.
+</Card>
+
+<Card title="Ease of Use">
+  The end user does not need to learn how to write complex prompts. They simply fill in a straightforward form.
+</Card>
+
+<Card title="Standardization">
+  Ensures the AI always receives crucial information in the format you defined, avoiding errors and ambiguities.
+</Card>
+
+<Info>
+  User Inputs are the best way to turn a powerful prompt into a user-friendly and reusable tool. In addition, they can also be used as input in advanced steps!
+
+  They are the bridge between the complexity of your AI training and the simplicity your end user needs to be productive.
+</Info>

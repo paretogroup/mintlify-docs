@@ -298,11 +298,18 @@
               },
               {
                 "group": "User Inputs",
-                "pages": []
+                "pages": [
+                  "how-it-works",
+                  "short-and-long-text",
+                  "single-and-multiple-selection",
+                  "untitled-page"
+                ]
               },
               {
                 "group": "AI Steps",
-                "pages": []
+                "pages": [
+                  "how-it-works-ai-steps"
+                ]
               }
             ]
           },

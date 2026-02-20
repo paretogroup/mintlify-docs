@@ -1,0 +1,96 @@
+---
+title: "File Upload"
+---
+
+Take your agents to a new level of capability by allowing them to process files. The File Upload User Input is the gateway to creating agents that can read documents, transcribe audio, analyze videos, and much more.
+
+<Note>
+  This intermediate-level tutorial assumes you’re already familiar with basic agent creation and will focus on the powerful combination of file inputs with Advanced Steps.
+</Note>
+
+### **The Key Point: The Connection Between File Upload + Advanced Step**
+
+Unlike a text input, which can be used directly in the prompt (or in the step), "File Upload" needs to connect to an Advanced Step. The workflow is a logical two-step sequence:
+
+- The user uploads a file (through the User Input).
+- An Advanced Step (such as "Audio Transcription" or "PDF Text Extraction") processes that file and generates a result (text, for example).
+- The result of the Advanced Step is then used by the AI in the main prompt to generate the final response.
+
+<Frame>
+  ![Image](/images/image-99.png)
+</Frame>
+
+**Our Example Project: The Media Translator Agent**
+
+To illustrate this powerful combination, we’ll build an agent that works as a translator. It will be able to receive an audio or video file, transcribe the content, and translate it to Portuguese, or another language.
+
+<Card icon="1" title="Initial Agent Setup">
+  In AI Studio, start by creating a new Chat or Text Agent. The default "All LLM" selection is perfectly suitable for this example.
+
+  <Frame>
+    ![Image](/images/image-100.png)
+  </Frame>
+</Card>
+
+<Card icon="2" title="Configuring the Input and the Advanced Step">
+  This is the most important stage. We’ll configure the two parts that will work together.
+
+  In "User Inputs", add a new "File Upload" input with the variable: arquivo original. For the label, use: "Send your audio or video file"
+
+  <Frame>
+    ![Image](/images/image-101.png)
+  </Frame>
+  In "AI Steps", search for the AI-Audio Transcription step, select the desired AI Model, and name the step transcribed text. 
+
+  In the file field, choose the _arquivo-original_ variable to make it dynamic. With that, you created a flow where the user uploads the file and it is processed and transcribed by the step. Now it’s time to use the step result in the agent prompt!
+
+  <Frame>
+    ![Image](/images/image-102.png)
+  </Frame>
+</Card>
+
+<Card icon="3" title="Developing the Main Prompt">
+  Now, we’ll tell the AI what to do with the text extracted by the Advanced Step. In the prompt field, we have:
+
+  > _Assume the persona of a Tess AI expert in transcription and content localization. Your mission is to process the text extracted from a media file and deliver a clear, professional result in two parts._
+  >
+  > _Part 1: Faithful Transcription_
+  >
+  > _Create a section titled "## Original Transcription"._\
+  > _In this section, present the exact text from the audio. The goal is maximum fidelity:_\
+  > _- Keep the original structure and punctuation._\
+  > _- If a segment of the audio is unintelligible or uncertain, use the [inaudible] tag in the corresponding spot._\
+  > _- Do not add, omit, or correct words._
+  >
+  > _Part 2: Natural Translation_
+  >
+  > _Below the transcription, create a second section titled "## Translation to Portuguese (BR)"._\
+  > _In this section, translate the text into Brazilian Portuguese. The focus here is naturalness and fluency:_\
+  > _- Avoid literal translations that sound robotic._\
+  > _- Adapt the meaning and intent of the message to the target language, keeping the original tone (whether formal, casual, technical, etc.)._
+  >
+  > _The final result must contain only these two sections, clearly separated by the titles. Do not include any introduction, commentary, or additional conclusion._
+  >
+  > _This will be done based on the following content: transcribed-text_
+
+  <Frame>
+    ![Image](/images/image-103.png)
+  </Frame>
+  <Warning>
+    **IMPORTANT**\
+    \
+    Note that the prompt uses the variable that is the result of the Advanced Step, not the initial upload variable. This connection is what makes the entire flow work with files!
+  </Warning>
+</Card>
+
+<Card icon="4" title="Saving and Testing">
+  Click "Save" and then "Preview". You’ll see an interface with a file upload button. Upload a short audio or video (200mb file size limit) in another language and let the agent handle the rest!
+
+  <Frame>
+    ![Captura De Tela 2026 02 13 Às 19 51 14](/images/CapturadeTela2026-02-13às19.51.14.png)
+  </Frame>
+</Card>
+
+Mastering the connection between a "File Upload" input and an Advanced Step is the key to building agents that interact with the world beyond text.
+
+The translator example is just one of infinite possibilities. You can use the same principle to create agents that read PDFs, analyze reports, and much more, automating complex tasks intelligently.

@@ -1,0 +1,109 @@
+---
+title: "Miembros y Permisos"
+---
+
+Piensa en el área de "Miembros" como la sala de control de tu equipo en Tess AI. Aquí es donde tienes la visibilidad y el poder para gestionar quién forma parte de tu workspace, cómo usan la plataforma y qué permisos tienen.
+
+Esta guía completa te mostrará cómo agregar, gestionar y definir los permisos de los miembros de tu equipo.
+
+Pero antes de comenzar — y para una mejor experiencia — asegúrate de que tu workspace ya esté personalizado. Si aún no lo has hecho, consulta nuestro artículo sobre cómo configurar tu workspace.
+
+### **Tipos de Usuarios y Niveles de Permiso**
+
+En Tess AI, existen diferentes roles que puedes asignar a los miembros, cada uno con un conjunto específico de permisos. Comprender estos roles es fundamental para una gestión eficaz y segura.
+
+<u>Planes Actuales - Planes Basic, PRO, Team y Enterprise</u>
+
+| Tipo de Usuario | Acceso y Permisos                                                                                                                                                                                     | Observaciones                                                                                                                                    |
+| :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Owner           | Acceso absoluto a todas las funcionalidades: gestión de miembros, <br />historial de uso, datos y control total sobre la suscripción y facturación.                                                   | Generalmente es el creador del workspace. <br />Tiene la mayor responsabilidad y control.                                                        |
+| Manager         | Puede invitar/gestionar miembros y acceder al historial de ejecuciones <br />y consumo de créditos de todos. No puede cambiar ni visualizar información <br />de suscripción/facturación.             | Ideal para líderes de equipo que necesitan <br />gestionar el equipo y el uso, pero no los aspectos <br />financieros. **(Plan Legado Business)** |
+| Invitado        | Acceso gratuito para usar todos los modelos de IA, acceder a todas las áreas <br />de la plataforma, crear agentes y acceder a los agentes ya creados en el workspace. <br /><br />No tiene permisos de gestión. | Para escalar el uso de IA en la empresa sin costo <br />de licencia (seat). <br />**(Planes Nuevos: Basic, PRO, Team y Enterprise)**              |
+
+<u>Planes Legados - Planes Beginner, Individual y Business</u>
+
+| Tipo de Usuario              | Acceso y Permisos                                                                                                                                                                                                                                                                                                          | Observaciones                                                                                                                                    |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Owner                        | Acceso absoluto a todas las funcionalidades: gestión de miembros, <br />historial de uso, datos y control total sobre la suscripción <br />y facturación.                                                                                                                                                                  | Generalmente es el creador del workspace. <br />Tiene la mayor responsabilidad y control.                                                        |
+| Manager (Full o Lite)        | Puede invitar/gestionar miembros y acceder al historial de <br />ejecuciones y consumo de créditos de todos. No puede cambiar ni <br />visualizar información de suscripción/facturación.                                                                                                                                  | Ideal para líderes de equipo que necesitan gestionar <br />el equipo y el uso, pero no los aspectos financieros. **(Plan Legado Business)**       |
+| User (Full)                  | Acceso estándar para usar la plataforma y crear agentes. No tiene <br />permisos para monitorear historiales, gestionar otros miembros <br />ni ver datos de uso del equipo.                                                                                                                                               | Destinado a los colaboradores que usarán Tess AI <br />para crear y ejecutar tareas diarias. **(Plan Legado Business)**                          |
+| User Lite                    | Acceso gratuito para usar todos los modelos de IA, acceder al Chat <br />y usar los agentes ya creados en el workspace. No puede crear sus <br />propios agentes y no tiene permisos de gestión.                                                                                                                           | Rol equivalente al "Invitado" para planes antiguos. **(Planes Legado, ej.: Business)**                                                           |
+| User Lite (Text Only)        | Una subcategoría del User Lite. En este caso, los usuarios tienen <br />acceso solo a las IAs de texto (pero no a imágenes, videos, etc.).                                                                                                                                                                                 | Rol equivalente al "Invitado" para planes antiguos. **(Planes Legado, ej.: Business)**                                                           |
+| User Lite (Team Agents Only) | Otra subcategoría del User Lite. Esta función permite que <br />empresas con agentes en el workspace ofrezcan acceso controlado <br />a usuarios terceros específicos. Este usuario tendrá acceso <br />exclusivamente al team board del workspace con los agentes <br />que tengan visibilidad pública o de workspace.     | Rol equivalente al "Invitado" para planes antiguos. **(Planes Legado, ej.: Business)**                                                           |
+
+### **Cómo Invitar Nuevos Miembros**
+
+<Step title="Accede a la configuración de la cuenta">
+  Inicia sesión en tu cuenta de Tess AI y luego haz clic en el ícono de tu perfil, ubicado en la esquina inferior izquierda de la pantalla. En el menú que se abre, selecciona la opción "Configuración".
+</Step>
+
+<Step title="Accede a Miembros">
+  En la sección "Workspace", haz clic en "Miembros".
+
+  <Frame>
+    <img
+      src="/images/image-31.png"
+      alt="Image"
+      title="Image"
+      style={{ width:"62%" }}
+    />
+  </Frame>
+</Step>
+
+Serás redirigido a la pantalla de gestión, donde tendrás dos opciones para invitar personas:
+
+<Card icon="1" title="Invitación vía Enlace Secreto">
+  \
+  Es el camino más simple y rápido para invitar a varias personas a la vez, especialmente para el rol de Invitado.
+
+  1. En la pantalla de Miembros, haz clic en el ícono para generar un Enlace Secreto.
+  2. Elige el nivel de acceso que tendrán los usuarios invitados a través de este enlace. Las opciones para Invitados son:
+  3. Invitado: Acceso para usar todos los agentes y copilotos del workspace.
+  4. Activa y copia el enlace generado para compartirlo con tu equipo.
+
+  <Frame>
+    ![Image](/images/image-32.png)
+  </Frame>
+  <Tip>
+    Consejo de Seguridad: Comparte este enlace solo a través de canales privados de tu empresa (como Slack o correo electrónico interno). Evita publicarlo en lugares abiertos para prevenir accesos no autorizados.
+  </Tip>
+</Card>
+
+<Card icon="2" title="Invitación vía Correo Electrónico">
+  \
+  Ideal para invitar a personas específicas, principalmente para roles de mayor permiso como Manager o User.
+
+  1. Haz clic en "Agregar nuevo miembro".
+  2. Ingresa el correo electrónico de la persona (o una lista de correos separados por comas).
+  3. Define el rol del miembro.
+  4. Envía la invitación.
+
+  <Frame>
+    ![Image](/images/image-32.png)
+  </Frame>
+  <Warning>
+    **Importante:** La invitación enviada por correo electrónico tiene una validez de 3 días (72 horas). Después de ese plazo, será necesario revocar la invitación vencida y enviar una nueva.
+  </Warning>
+</Card>
+
+Mira más en la demostración a continuación:
+
+<iframe src="https://app.supademo.com/embed/cmggtteyd7mys2nomsdtu0z22?embed_v=2&utm_source=embed" title="Gestão de Membros e Permissionamento" loading="lazy" allow="clipboard-write" frameBorder="0" allowFullScreen className="w-full h-[80vh] min-h-[700px] rounded-xl" />
+
+### **Gestionando Miembros en el Día a Día**
+
+La pantalla de "Miembros" es tu centro para la gestión continua del equipo:
+
+<AccordionGroup>
+  <Accordion title="Eliminación de Miembros">
+    Si un colaborador sale del equipo, puedes revocar su acceso de inmediato haciendo clic en el ícono "X" junto a su nombre.
+  </Accordion>
+  <Accordion title="Monitoreo de Consumo">
+    Realiza un seguimiento del consumo de créditos de cada miembro para entender cómo se están utilizando los recursos. Para ello, accede a la pestaña "Uso" en el menú de configuración de tu workspace, donde puedes filtrar las ejecuciones por usuario y obtener una vista detallada del consumo.
+  </Accordion>
+  <Accordion title="Gestión de Asientos (Seats)">
+    Mantén un control claro sobre los asientos pagos (User) y gratuitos (Invitado / User Lite) para garantizar que tu equipo esté dimensionado de forma inteligente y económica.
+  </Accordion>
+</AccordionGroup>
+
+Si tienes alguna duda, nuestro equipo está disponible en: [<u>support@tess.im</u>](mailto:support@tess.im).

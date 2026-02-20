@@ -1,0 +1,86 @@
+---
+title: "Base de Conocimiento"
+---
+
+La Base de Conocimiento en Configuraciones es el "banco central" de todos los archivos enviados a Tess AI: uploads realizados en chats, agentes, flows y otras áreas del workspace.
+
+Acá podés ver quién subió qué, cuándo, cuántos créditos consume y dónde se está usando cada archivo.
+
+**¿Por dónde acceder?**
+
+<Step title='Iniciá sesión en tu cuenta de Tess AI y después hacé clic en el ícono de tu perfil, ubicado en la esquina inferior izquierda de la pantalla. En el menú que se abre, seleccioná la opción "Configuraciones".'>
+  Iniciá sesión en tu cuenta de Tess AI y después hacé clic en el ícono de tu perfil, ubicado en la esquina inferior izquierda de la pantalla. En el menú que se abre, seleccioná la opción "Configuraciones".
+</Step>
+
+<Step stepNumber={2} title='En la sección "Workspace", hacé clic en Base de Conocimiento. Vas a ser redirigido a la página de la Base, con la lista completa de archivos.'>
+  En la sección "Workspace", hacé clic en Base de Conocimiento. Vas a ser redirigido a la página de la Base, con la lista completa de archivos.
+</Step>
+
+### **¿De qué se trata esta Base?**
+
+Es el repositorio global de archivos del workspace (imágenes, PDFs, docs, etc.) enviados a Tess. No es lo mismo que la Knowledge Base del Agent Studio (que es la base de contenidos vinculada a un agente específico) ni la del Chat (vinculada a esa ventana de contexto).
+
+Acá podés ver todos los uploads, independientemente de qué agente o chat usó el archivo.
+
+<Frame>
+  ![Image](/images/image-32.png)
+</Frame>
+
+En el panel, vemos una estructura de tabla con:
+
+- Nombre del archivo
+- Tipo (ej.: Image, PDF, Document)
+- Creado por (quién hizo el upload)
+- Creado en (fecha y horario)
+- Tamaño del archivo
+- Créditos (cuando haya consumo asociado)
+- Links (dónde fue incluido el archivo – por ejemplo: "Tess 6", nombre del agente o del chat)
+- Filtros y búsqueda
+
+En la parte superior, podés:
+
+1. Filtrar por tipo de adjunto (Attachment Type):
+
+<Frame>
+  ![Image](/images/image-33.png)
+</Frame>
+
+2. Filtrar por creador (Creado Por):
+
+<Frame>
+  ![Image](/images/image-34.png)
+</Frame>
+
+3. Buscar por nombre de archivo o usuario, ideal para localizar archivos específicos rápidamente.
+
+<Frame>
+  ![Image](/images/image-35.png)
+</Frame>
+
+### **Permisos (quién ve qué)**
+
+<Columns cols={2}>
+  <Card title="Managers y Owners">
+    Pueden ver los archivos de todo el equipo en el workspace. Ven los créditos asociados y en qué chats/agentes se usaron los archivos. Es ideal para gobernanza, costos y seguridad de la información.
+  </Card>
+  <Card title="Otros usuarios:">
+    En la vista individual de usuarios, solo es posible ver los propios archivos que se usaron en sus conversaciones, los créditos consumidos en cada upload y procesamiento, y los chats asociados.
+  </Card>
+</Columns>
+
+### **Para qué sirve en la práctica**
+
+<AccordionGroup>
+  <Accordion title="Gobernanza de datos">
+    Saber qué archivos están circulando en Tess, quién los subió y dónde se están usando.
+  </Accordion>
+  <Accordion title="Gestión de costos">
+    Entender qué tipos de archivos y flujos consumen más créditos.
+  </Accordion>
+  <Accordion title="Seguridad y compliance">
+    Permite revisar si no hay documentos sensibles indebidos siendo usados en agentes o chats.
+  </Accordion>
+  <Accordion title="Organización">
+    Facilita encontrar y reutilizar materiales ya enviados (manuales, presentaciones, imágenes, etc.).
+  </Accordion>
+</AccordionGroup>

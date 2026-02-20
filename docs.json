@@ -361,11 +361,23 @@
               },
               {
                 "group": "Settings",
-                "pages": []
+                "pages": [
+                  "your-account",
+                  "workspace-1",
+                  "preferences",
+                  "subscription",
+                  "upgrade-and-downgrade",
+                  "members-and-permissions",
+                  "knowledge-base-2",
+                  "monetization",
+                  "data-controls"
+                ]
               },
               {
                 "group": "Support",
-                "pages": []
+                "pages": [
+                  "support-contact"
+                ]
               }
             ]
           }
@@ -524,11 +536,23 @@
               },
               {
                 "group": "Configuración",
-                "pages": []
+                "pages": [
+                  "tu-cuenta",
+                  "workspace-2",
+                  "preferencias-1",
+                  "subscripcion",
+                  "upgrade-and-downgrade-1",
+                  "miembros-y-permisos",
+                  "base-de-conocimiento-2",
+                  "monetizacion",
+                  "control-de-datos"
+                ]
               },
               {
                 "group": "Soporte",
-                "pages": []
+                "pages": [
+                  "contacto-de-soporte"
+                ]
               }
             ]
           }

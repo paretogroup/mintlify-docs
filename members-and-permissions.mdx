@@ -1,0 +1,109 @@
+---
+title: "Members and Permissions"
+---
+
+Think of the "Members" area as the control room for your team on Tess AI. This is where you have the visibility and power to manage who is part of your workspace, how they use the platform, and what permissions they have.
+
+This complete guide will show you how to add, manage, and define permissions for your team members.
+
+But before you begin — and for a better experience — make sure your workspace is already set up. If you haven't done so yet, check out our article on how to configure your workspace.
+
+### **User Types and Permission Levels**
+
+In Tess AI, there are different roles that you can assign to members, each with a specific set of permissions. Understanding these roles is essential for effective and secure management.
+
+<u>Current Plans - Basic, PRO, Team, and Enterprise Plans</u>
+
+| User Type | Access and Permissions                                                                                                                                                                          | Notes                                                                                                                              |
+| :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| Owner     | Absolute access to all features: member management, <br />usage history, data, and full control over the subscription and billing.                                                              | Generally the workspace creator. <br />Has the highest level of responsibility and control.                                        |
+| Manager   | Can invite/manage members and access the execution history <br />and credit consumption of all members. Cannot change or view <br />subscription/billing information.                           | Ideal for team leaders who need to manage <br />the team and usage, but not the financial aspects. **(Legacy Business Plan)**      |
+| Guest     | Free access to use all AI models, access all areas of the <br />platform, create agents, and access agents already created in the workspace. <br /><br />Does not have management permissions. | For scaling AI use in the company without <br />a license (seat) cost. <br />**(New Plans: Basic, PRO, Team, and Enterprise)**     |
+
+<u>Legacy Plans - Beginner, Individual, and Business Plans</u>
+
+| User Type                    | Access and Permissions                                                                                                                                                                                                                                                                                          | Notes                                                                                                                              |
+| :--------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| Owner                        | Absolute access to all features: member management, <br />usage history, data, and full control over the subscription <br />and billing.                                                                                                                                                                        | Generally the workspace creator. <br />Has the highest level of responsibility and control.                                        |
+| Manager (Full or Lite)       | Can invite/manage members and access the execution <br />history and credit consumption of all members. Cannot change or <br />view subscription/billing information.                                                                                                                                           | Ideal for team leaders who need to manage <br />the team and usage, but not the financial aspects. **(Legacy Business Plan)**      |
+| User (Full)                  | Standard access to use the platform and create agents. Does not have <br />permissions to monitor histories, manage other members, <br />or view team usage data.                                                                                                                                               | Intended for collaborators who will use Tess AI <br />to create and execute daily tasks. **(Legacy Business Plan)**                |
+| User Lite                    | Free access to use all AI models, access the Chat, <br />and use agents already created in the workspace. Cannot create their <br />own agents and does not have management permissions.                                                                                                                        | Equivalent role to "Guest" for legacy plans. **(Legacy Plans, e.g.: Business)**                                                   |
+| User Lite (Text Only)        | A sub-category of User Lite. In this case, users have <br />access only to text AIs (but not images, videos, etc.).                                                                                                                                                                                            | Equivalent role to "Guest" for legacy plans. **(Legacy Plans, e.g.: Business)**                                                   |
+| User Lite (Team Agents Only) | Another sub-category of User Lite. This role allows <br />companies with agents in the workspace to offer controlled access <br />to specific third-party users. This user will have access <br />exclusively to the workspace's team board with agents <br />that have public or workspace visibility.          | Equivalent role to "Guest" for legacy plans. **(Legacy Plans, e.g.: Business)**                                                   |
+
+### **How to Invite New Members**
+
+<Step title="Access the account settings">
+  Log in to your Tess AI account and then click on your profile icon, located in the lower left corner of the screen. In the menu that opens, select the "Settings" option.
+</Step>
+
+<Step title="Access Members">
+  In the "Workspace" section, click on "Members".
+
+  <Frame>
+    <img
+      src="/images/image-31.png"
+      alt="Image"
+      title="Image"
+      style={{ width:"62%" }}
+    />
+  </Frame>
+</Step>
+
+You will be redirected to the management screen, where you will have two options to invite people:
+
+<Card icon="1" title="Invite via Secret Link">
+  \
+  This is the simplest and fastest way to invite multiple people at once, especially for the Guest role.
+
+  1. On the Members screen, click the icon to generate a Secret Link.
+  2. Choose the access level that users invited through this link will have. The options for Guests are:
+  3. Guest: Access to use all agents and copilots in the workspace.
+  4. Activate and copy the generated link to share with your team.
+
+  <Frame>
+    ![Image](/images/image-32.png)
+  </Frame>
+  <Tip>
+    Security Tip: Share this link only through private channels within your company (such as Slack or internal email). Avoid publishing it in open places to prevent unauthorized access.
+  </Tip>
+</Card>
+
+<Card icon="2" title="Invite via Email">
+  \
+  Ideal for inviting specific people, especially for higher-permission roles such as Manager or User.
+
+  1. Click on "Add new member".
+  2. Enter the person's email (or a list of emails separated by commas).
+  3. Set the member's role.
+  4. Send the invitation.
+
+  <Frame>
+    ![Image](/images/image-32.png)
+  </Frame>
+  <Warning>
+    **Important:** The invitation sent by email is valid for 3 days (72 hours). After this period, you will need to revoke the expired invitation and send a new one.
+  </Warning>
+</Card>
+
+See more in the demonstration below:
+
+<iframe src="https://app.supademo.com/embed/cmggtteyd7mys2nomsdtu0z22?embed_v=2&utm_source=embed" title="Gestão de Membros e Permissionamento" loading="lazy" allow="clipboard-write" frameBorder="0" allowFullScreen className="w-full h-[80vh] min-h-[700px] rounded-xl" />
+
+### **Managing Members on a Daily Basis**
+
+The "Members" screen is your hub for ongoing team management:
+
+<AccordionGroup>
+  <Accordion title="Member Removal">
+    If a team member leaves, you can immediately revoke their access by clicking the "X" icon next to their name.
+  </Accordion>
+  <Accordion title="Consumption Monitoring">
+    Track the credit consumption of each member to understand how resources are being used. To do this, access the "Usage" tab in your workspace settings menu, where you can filter executions by user and get a detailed view of consumption.
+  </Accordion>
+  <Accordion title="Seat Management">
+    Maintain clear control over paid seats (User) and free seats (Guest / User Lite) to ensure your team is sized in a smart and cost-effective way.
+  </Accordion>
+</AccordionGroup>
+
+If you have any questions, our team is available at: [<u>support@tess.im</u>](mailto:support@tess.im).

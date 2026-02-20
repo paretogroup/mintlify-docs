@@ -348,7 +348,25 @@
             "pages": [
               "teamboard",
               "subscription-and-payment",
-              "shared-wallet"
+              "shared-wallet",
+              "system-status",
+              "sso-1",
+              "refund",
+              {
+                "group": "Programs",
+                "pages": [
+                  "referral",
+                  "rewards"
+                ]
+              },
+              {
+                "group": "Settings",
+                "pages": []
+              },
+              {
+                "group": "Support",
+                "pages": []
+              }
             ]
           }
         ]

@@ -1,4 +1,67 @@
 ---
-title: 'AI Wallet'
+title: "AI Wallet"
 ---
 
+La Billetera de Créditos (AI Wallet) es el centro de control de tus créditos en Tess AI. Muestra cuánto tienes disponible en tu Workspace.
+
+### **Dónde encontrar la Billetera de Créditos**
+
+La Billetera es visible en la esquina superior derecha de Tess AI en la pantalla del chat, o en los generadores de imágenes/videos, junto a una pequeña moneda amarilla.
+
+<Frame>
+  ![Tessdocs Aiwallet](/images/tessdocs-aiwallet.png)
+</Frame>
+
+Aquí puedes ver, en tiempo real, el saldo de créditos disponible del workspace (no es por usuario, sino a nivel general del Workspace).
+
+Los créditos que tienen recarga mensual (y vencen) se muestran en Monthly Credits. Los créditos adquiridos de forma individual se reflejan en la opción "Purchased Credits".
+
+<Frame>
+  <img
+    src="/images/tessdocs-aiwallet2.png"
+    alt="Tessdocs Aiwallet2"
+    title="Tessdocs Aiwallet2"
+    className="mx-auto"
+    style={{ width:"57%" }}
+  />
+</Frame>
+
+### **Qué son los créditos y cómo funcionan**
+
+Los créditos son la "moneda" de Tess AI. Dependiendo de la acción que realices en Tess, puede tener un costo y el consumo sale de esta billetera de créditos, por ejemplo:
+
+<Columns cols={2}>
+  <Card icon="microphone" title="Mensajes">
+    \
+    El envío de mensajes es una forma de consumo y depende del tamaño de la conversación y también del modelo elegido. Los más robustos suelen consumir más créditos por intercambio en comparación con los más antiguos, pero realizan mejor las tareas más complejas.
+  </Card>
+  <Card icon="arrows-maximize" title="Max Mode">
+    \
+    La activación del Max Mode, al expandir el alcance de la ventana de contexto trabajada, termina enviando al modelo mucho más contenido anterior, para acomodar todo el historial hasta el máximo de la ventana de cada modelo. Más memoria, más costo — por eso es una función que debe activarse bajo demanda.
+  </Card>
+  <Card icon="file-doc" title="Documentos">
+    \
+    Al adjuntar archivos a la Base de Conocimiento, estos también necesitan ser procesados y puestos a disposición en la biblioteca de tu cuenta. Este procedimiento de procesamiento de documentos descuenta de tus créditos y es un cobro único por documento. Es decir, si envías el mismo archivo en otro chat, esa nueva carga no tiene costo (siempre que el archivo siga disponible en la base de tu Workspace).
+  </Card>
+  <Card icon="sparkles" title="Generaciones y Tools">
+    \
+    El proceso de generación de imágenes, videos, avatares, música, narraciones y podcasts a través del chat de Tess se realiza con IA y, para cada uno de ellos, existe un costo específico asociado al proceso.
+
+    Además, el uso de herramientas (Tools) como Deep Analysis y Manage Files también puede generar costos en tu billetera de créditos.
+  </Card>
+</Columns>
+
+### **Detrás de esto están los tokens:**
+
+- **Tokens de entrada (input):** todo lo que envías a la IA y luego lo que se envía como contexto del chat
+- **Tokens de salida (output):** todo lo que la IA genera como respuesta
+
+<Info>
+  El costo en créditos se calcula en función de la cantidad de tokens procesados y el tipo de recurso utilizado.
+</Info>
+
+La Billetera de Créditos, junto con el Historial de Ejecuciones, proporciona total transparencia sobre cómo se está usando la IA en tu workspace.
+
+Pagas por los créditos consumidos, con transparencia y previsibilidad — y tienes libertad para elegir el modelo y la configuración que mejor se adapten a cada tarea. Para entender exactamente dónde se están usando tus créditos, Tess ofrece el Historial de Ejecuciones.
+
+Para cualquier consulta, contacta a nuestro equipo en: [support@tess.im](mailto:support@tess.im).

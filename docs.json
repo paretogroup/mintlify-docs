@@ -15,10 +15,10 @@
         "groups": [
           {
             "group": "Introdution",
-            "icon": "door-open",
             "pages": [
               {
                 "group": "First Steps",
+                "icon": "door-open",
                 "pages": [
                   "welcome-to-tess-ai",
                   "concepts",
@@ -42,6 +42,26 @@
               "marketplace-1",
               "ai-wallet"
             ]
+          },
+          {
+            "group": "Chat & Tools",
+            "pages": []
+          },
+          {
+            "group": "Agent Studio",
+            "pages": []
+          },
+          {
+            "group": "Models",
+            "pages": []
+          },
+          {
+            "group": "API",
+            "pages": []
+          },
+          {
+            "group": "Account",
+            "pages": []
           }
         ]
       },
@@ -275,6 +295,26 @@
               "marketplace-2",
               "ai-wallet-1"
             ]
+          },
+          {
+            "group": "Chat & Tools",
+            "pages": []
+          },
+          {
+            "group": "Agent Studio",
+            "pages": []
+          },
+          {
+            "group": "Modelos",
+            "pages": []
+          },
+          {
+            "group": "API",
+            "pages": []
+          },
+          {
+            "group": "Cuenta",
+            "pages": []
           }
         ]
       }

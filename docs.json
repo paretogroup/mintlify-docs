@@ -311,15 +311,23 @@
                   "how-it-works-ai-steps",
                   {
                     "group": "Web Data Extraction",
-                    "pages": []
+                    "pages": [
+                      "ai-step-web-data-extraction-1"
+                    ]
                   },
                   {
                     "group": "Integrations",
-                    "pages": []
+                    "pages": [
+                      "ai-step-app-integration",
+                      "ai-step-google-sheets-get-value-1",
+                      "ai-step-google-sheets-write-values"
+                    ]
                   },
                   {
                     "group": "Document Processing",
-                    "pages": []
+                    "pages": [
+                      "ai-step-google-ocr-pdf-and-image"
+                    ]
                   }
                 ]
               }

@@ -1,0 +1,99 @@
+---
+title: "AI Step | Web Data Extraction"
+---
+
+In Tess AI, your agents can go far beyond static knowledge. With Web Data Extraction Steps, you can turn them into intelligent researchers, capable of fetching up-to-date information directly from the internet.
+
+This guide will show you how to configure your agents to find job openings, compare product prices, search for news, and much more — in a fully automated way.
+
+### **What are Web Data Extraction Steps?**
+
+Steps are building blocks that you add to your agent's logic in Agent Studio. The Web Data Extraction category groups a series of steps designed to perform searches across different online platforms.
+
+<Frame>
+  ![Image](/images/image-111.png)
+</Frame>
+
+Instead of a generic search, these steps allow you to create highly personalized and targeted searches, enhancing the agent's training with up-to-date and relevant information. The options include:
+
+- Google Organic Search: For general searches, news, and information.
+- Google Shopping Search: For searching products and comparing prices.
+- Google Jobs Search: For finding job openings.
+- Amazon Product Search: For searching products directly on Amazon.
+- And many more.
+
+<Frame>
+  ![Image](/images/image-112.png)
+</Frame>
+
+### How to Configure an Agent with Web Search
+
+1. Access Agent Studio and start creating or editing an agent.
+2. Add a Step: On the creation screen, locate the "AI Steps" section and add a new step.
+3. Select the Step Type: Choose the Web Data Extraction category and then the desired search type (e.g.: Google Shopping Search).
+4. Configure the Search: Fill in the search-specific fields. For example, the name of the product you want to search for. At this stage, you can choose to pre-configure some of the requirements as defaults, or use the user definition to create inputs and leave that field variable.
+
+> For example, if the domain always needs to be a specific country, you can configure it in advance. Or if the product must have a specific name, you can fill it in already. Otherwise, either activate the user decision or create inputs and reference them in the specific fields.
+>
+> <Frame>
+>   ![Image](/images/image-115.png)
+> </Frame>
+
+5. Define the Step Name: This is a crucial step. Give a name to the result of your search (e.g.: product search). This name will become the variable you will use in your prompt to access the collected data.
+
+<Info>
+  With that, the search step is ready. Now, the secret is to connect this step to a good prompt.
+</Info>
+
+### **Practical Example: Deals Search Agent**
+
+Let's create an agent that finds the best deals on Google Shopping.
+
+<Card icon="1" title="Step Configuration:">
+  - Step Type: Google Shopping Search
+  - Product Search: A variable can be used here
+  - Domain and Language: Based on your target market and language
+  - Step Name: product search
+
+  <Frame>
+    ![Image](/images/image-116.png)
+  </Frame>
+</Card>
+
+<Card icon="2" title="The Command Prompt (The Brain of the Operation)">
+  The Step retrieves the raw information. Your prompt is what transforms that information into a useful and intelligent response.
+
+  Suggested Prompt:
+
+  > Assume the persona of an expert in electronics deals analysis. Your task is to analyze the product search data, available at: **product-search**.
+  >
+  > Based on that data, do the following:
+  >
+  > 1.  Identify the three best deals, considering the price and the store's reputation.\
+  > 2.  Present a clear summary of each deal in list format.\
+  > 3.  For each item on the list, include the product name, the price, the store name, and the direct link.\
+  > 4.  At the end, write a paragraph explaining why these three deals are the most advantageous at this time.
+
+  <Frame>
+    ![Image](/images/image-117.png)
+  </Frame>
+  When running the agent, it will first perform the search on Google Shopping (the Step) and then use the collected data to execute your prompt's instructions.
+
+  <Frame>
+    ![Image](/images/image-118.png)
+  </Frame>
+  <Frame>
+    ![Image](/images/image-119.png)
+  </Frame>
+</Card>
+
+<Tip>
+  Tips:
+
+  - The Prompt is the Brain: Be detailed in your instructions. The Step collects the data; the prompt analyzes it. The clearer the prompt, the better the analysis. Always remember to add the parameter created for the Step into your prompt.
+  - Be Specific in Your Search: The more specific your query in the Step (e.g.: "iPhone 15 128GB Black" instead of "iPhone"), the more relevant the results will be.
+</Tip>
+
+Integrating web data extraction Steps transforms your agents from static repositories into dynamic assistants.
+
+By mastering the combination of search steps with detailed prompts, you can create powerful tools to automate market research, monitor news, and save valuable time.

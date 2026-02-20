@@ -1,0 +1,132 @@
+---
+title: "AI Step | Google Sheets - Write Value"
+---
+
+This function allows you to add data and information to Google Sheets spreadsheets in an intelligent and adaptive way.
+
+Users can specify the spreadsheet URL, the data range, and choose between overwriting existing data or adding it as a new row/column. You can use AI models to provide analysis and insights and have all the results integrated into Google Sheets, enabling easy data integration and updates, making the process more efficient and less error-prone.
+
+### **Defining the Fields to Configure the Agent**
+
+<Card icon="1" title="Spreadsheet for Analysis">
+  The first thing to do is select your spreadsheet for data analysis and processing.
+
+  As a first step, inside Agent Studio, we'll create an advanced "App Integration" step with the reference spreadsheet URL and the data reading range. As shown in the screenshot, we'll name the step Reader and select "Get Values", since we want to retrieve the data.
+
+  <Frame>
+    ![Image](/images/image-124.png)
+  </Frame>
+  Another option is to not set a fixed URL in the advanced step. To do that, simply select the "Decisão do Usuário" option, and in that case, the recommendation would be to add a data input field and a reading range field as well, as shown in the screenshot.
+
+  <Frame>
+    ![Image](/images/image-125.png)
+  </Frame>
+  Leading to the selection shown below:
+
+  <Frame>
+    ![Image](/images/image-126.png)
+  </Frame>
+</Card>
+
+<Card icon="2" title="Processing what will be inserted">
+  Before modifying the spreadsheet, **we need to process and analyze what comes from the spreadsheet and the selected data range** — meaning we need to use an assistant that will evaluate and recommend the actions you as a user want, right?
+
+  > Here's an example of a survey where we want to analyze customer comments and summarize each comment in one word, as in the example below
+
+  | Comment                                          | Summary   |
+  | :----------------------------------------------- | :-------- |
+  | I didn't like it, I found it very difficult to use | Difficult |
+  | Excellent technology                             | Excellent |
+  | The onboarding steps are very complex            | Complex   |
+
+  Based on the example above, we'll select the <u>AI Assistant</u> Step and choose the <u>Chat GPT Text Assistant</u>, as shown in the screenshot below.
+
+  <Frame>
+    ![Captura De Tela 2026 02 13 Às 20 43 53](/images/CapturadeTela2026-02-13às20.43.53.png)
+  </Frame>
+  Note that inside the assistant, we already have a ready-made prompt with what we want to execute — meaning I'm already directing the ChatGPT assistant on what I want it to do.
+
+  > Below you'll find a table, each cell containing a message. I need you to create a new table, without markdown, bringing one word that summarizes each message. That is, each new row will have one word. \
+  > \
+  > Please bring only the table, without markdown, and nothing else. Respect the formatting: [["Col1", "Col2"], ["Data1", "Data2"]]\
+  > \
+  > #messages\
+  > \*\*leitor\*\*
+
+  Of course, **I need to reference the spreadsheet I added**. That's why I highlight the reference to **Leitor**, the first step I added which holds the spreadsheet and its data range, **and I'll also bring exactly the data format I want the spreadsheet to return.**
+
+  In summary, what have we done so far?
+
+  1. We added the analysis spreadsheet (Creating the **Reader** using the App Integration Step and selecting Get Values, to retrieve the values)
+  2. We chose the data range for analysis (Creating the **Reader** using the App Integration Step)
+  3. We decided we want to process the data (Creating the **Processing** Step using the AI Assistant)
+  4. We decided how the processing will be done through a prompt that references the analysis spreadsheet (Defining the **Processing** Step using the AI Assistant)
+
+  So far so good!
+
+  What's left then? We already have the reading and the processing… we just need to write to the spreadsheet, right?
+</Card>
+
+<Card icon="3" title="Writing what we want to the spreadsheet">
+  Now comes the easiest part. We've already read and processed the data — we just need to write it.
+
+  So let's create a new advanced "App Integration" step with the reference spreadsheet URL and the data range. But unlike field 1, we'll name this step Writer and select "Write Values", since we want to write the data, not retrieve it!
+
+  <Frame>
+    ![Image](/images/image-127.png)
+  </Frame>
+  In addition, I need to make a few more selections:
+
+  - **Write range**: I need to select which column or space the processed data will be written to. Since in the reading I have the data in column "E" and those are the ones I'll process, I'll write to column "F", right next to it;
+  - **Data insertion method:** I can choose between overwriting the data in the selected range (as shown in the screenshot above) or creating new rows to avoid overwriting.
+
+    <Frame>
+      ![Image](/images/image-128.png)
+    </Frame>
+
+  - **Include headers or not:** I can also choose whether or not headers should be taken into account.
+
+  <Frame>
+    ![Image](/images/image-129.png)
+  </Frame>
+  - **Data values to be inserted:** as a final decision, I need to select what will be inserted in column F (my selection). Of course, I want the processed data to be that. And since I already have this Step ready — it was exactly my processing step — I just reference it.
+
+  <Frame>
+    ![Image](/images/image-129.png)
+  </Frame>
+  <Note>
+    Everything can also be a user decision, ok? In this case, since we're working based on the spreadsheet, we set everything up in advance, but feel free to customize it!
+  </Note>
+</Card>
+
+### **Finalizing the Agent**
+
+To finalize the Agent, I just need to finish it with a desired prompt. In this case, since I already have everything I need, I'll set it up as a text Agent without the need for applied AI, simply returning the comments summarized in one word.
+
+**_After all, everything is already ready in the AI Steps_**
+
+<Frame>
+  ![Image](/images/image-130.png)
+</Frame>
+
+### **Results**
+
+Simply put, here is the result after requesting a generation.
+
+**Before**
+
+<Frame>
+  ![Image](/images/image-131.png)
+</Frame>
+
+**Using the model**
+
+<Frame>
+  ![Image](/images/image-132.png)
+</Frame>
+
+**After use**
+
+<Frame>
+  ![Image](/images/image-133.png)
+</Frame>

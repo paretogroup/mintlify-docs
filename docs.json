@@ -79,7 +79,11 @@
             "pages": [
               {
                 "group": "Agents",
-                "pages": []
+                "pages": [
+                  "agent-types",
+                  "static-training",
+                  "dynamic-training"
+                ]
               },
               {
                 "group": "Generators",
@@ -373,7 +377,28 @@
           },
           {
             "group": "Agent Studio",
-            "pages": []
+            "pages": [
+              {
+                "group": "Agentes",
+                "pages": [
+                  "tipos-de-agentes-1",
+                  "entrenamiento-estatico",
+                  "entrenamiento-dinamico"
+                ]
+              },
+              {
+                "group": "Generadores",
+                "pages": []
+              },
+              {
+                "group": "Entradas del usuario",
+                "pages": []
+              },
+              {
+                "group": "AI Steps",
+                "pages": []
+              }
+            ]
           },
           {
             "group": "Modelos",

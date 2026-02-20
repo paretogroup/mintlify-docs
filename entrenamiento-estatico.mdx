@@ -1,0 +1,55 @@
+---
+title: "Entrenamiento Estático"
+---
+
+En Tess, podés crear varios Agentes de IA. El secreto para un agente realmente eficaz y alineado a tus objetivos está en las Instrucciones Estáticas, también conocidas como prompt del sistema (System Prompt).
+
+### **¿Qué son las Instrucciones Estáticas?**
+
+Pensá en ellas como el "cerebro" o el ADN de tu Agente de IA Generativa. Es un conjunto de directrices, reglas y contexto que vos le das para definir cómo se va a comportar la IA, qué necesita hacer y cómo entregarte el resultado. La persona, el objetivo, la tarea a realizar, las condiciones de contorno, el formato de salida, etc. Son la base sobre la cual el agente va a operar en todas las interacciones, garantizando consistencia y precisión.
+
+A diferencia de las preguntas que hacés en una conversación (que son dinámicas), las instrucciones estáticas son fijas y sirven como la principal fuente de verdad para el agente.
+
+### **Construyendo el Prompt Perfecto: La Anatomía de la Instrucción**
+
+Invertir tiempo en crear un buen prompt es fundamental para el éxito de tu agente. Crear un prompt eficaz es más simple de lo que parece. La clave es ser claro, estructurado y objetivo. Para obtener los mejores resultados, seguí la estructura que llamamos "Anatomía IIdeal del Prompt":
+
+<Steps>
+  <Step title="Definí la Persona (¿Quién es tu Agente?)">
+    Empezá dándole una identidad al agente. ¿Es un especialista en marketing? ¿Un consultor financiero? Describí su cargo, nivel de seniority y tono de voz. Ponerle un nombre también ayuda a consolidar la persona.
+
+    - Ejemplo (Formal): "Vos sos el 'Analista Pro', un especialista en soporte técnico senior de la empresa TechSolutions, con 20 años de experiencia. Tu comunicación debe ser formal, clara y objetiva, siempre tratando al usuario de 'señor(a)'."
+    - Ejemplo (Creativo): "Vos sos el 'Maestro de las Ideas', un especialista en brainstorming para campañas de marketing. Tu tono es inspirador y creativo, pero siempre enfocado en generar conceptos innovadores para el equipo."
+  </Step>
+  <Step title="Establecé el Objetivo y las Acciones">
+    ¿Cuál es la tarea principal que este agente debe realizar? Sé específico sobre sus funciones y lo que debe hacer.
+
+    - Ejemplo: "Tu objetivo principal es analizar planillas de ventas para identificar los cinco productos más vendidos del último trimestre. Tus acciones son: solicitar el archivo, confirmar la recepción, analizar los datos y presentar los resultados."
+  </Step>
+  <Step title="Proporcioná el Contexto Necesario">
+    ¿El agente necesita información sobre tu empresa, productos o políticas para trabajar? Incluí acá todo conocimiento relevante para la tarea.
+
+    - Ejemplo: "Trabajás para 'Solaria', una empresa que vende soluciones de energía solar. Nuestros principales productos son los paneles 'SunPower-X' y el inversor 'Volt-Master'. Nuestra política de garantía es de 5 años para todos los componentes."
+    - Ejemplo 2: "Los reportes que produzcas siempre van a ser analizados por inversores experimentados, así que el formato debe ser ejecutivo, en tono profesional y sobrio."
+  </Step>
+  <Step title="Indicá el Formato de la Respuesta">
+    Describí cómo el agente debe estructurar sus entregas. El uso de ejemplos claros acá es fundamental para guiar a la IA.
+
+    - Ejemplo: "Presentá tu análisis en formato de lista numerada, del más vendido al menos vendido. Empezá siempre con un resumen ejecutivo de dos frases antes de presentar la lista."
+  </Step>
+  <Step title="Definí Reglas y Limitaciones">
+    Hacé los avisos (positivos o negativos) necesarios del agente, aquello que debe siempre hacer o evitar. Hacelo de manera clara. Tan importante como decir qué hacer es definir qué debe evitar. Eso ayuda a mantener el foco, la seguridad y el alineamiento.
+
+    - Ejemplo: "No debés, bajo ninguna circunstancia, dar opiniones personales ni crear información que no haya sido proporcionada. Si no sabés la respuesta, informá que vas a consultar a un especialista humano. Nunca ofrezcas descuentos en los productos."
+  </Step>
+</Steps>
+
+<Tip>
+  Tips:
+
+  - Sé Directo: Usá lenguaje claro y evitá ambigüedades.
+  - Usá la Primera Persona: Escribí las instrucciones como si estuvieras hablando directamente con el agente (ej: "Vos sos...", "Tu tarea es...").
+  - Probá y Refiná: Creá una primera versión, probá con diferentes preguntas y ajustá las instrucciones y la base de conocimiento según sea necesario para mejorar el comportamiento del agente.
+</Tip>
+
+Al seguir estas orientaciones, vas a estar listo para crear Agentes de IA en Tess AI que no solo son inteligentes, sino también perfectamente alineados a tu visión y a tus necesidades.

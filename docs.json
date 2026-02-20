@@ -280,7 +280,10 @@
                 "pages": [
                   "agent-types",
                   "static-training",
-                  "dynamic-training"
+                  "dynamic-training",
+                  "knowledge-base-1",
+                  "advanced-settings",
+                  "visibility"
                 ]
               },
               {
@@ -383,7 +386,10 @@
                 "pages": [
                   "tipos-de-agentes-1",
                   "entrenamiento-estatico",
-                  "entrenamiento-dinamico"
+                  "entrenamiento-dinamico",
+                  "base-de-conocimiento-1",
+                  "configuraciones-avanzadas",
+                  "visibilidad"
                 ]
               },
               {

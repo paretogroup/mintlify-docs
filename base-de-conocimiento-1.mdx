@@ -1,0 +1,65 @@
+---
+title: "Base de Conocimiento"
+---
+
+Conecta tu agente a una biblioteca propia de contenidos para que sea entrenado y responda con base en materiales específicos — FAQs, políticas, tutoriales y documentos.
+
+### **¿Qué es?**
+
+La Base de Conocimiento (Knowledge Base) del agente es el conjunto de documentos, archivos y textos que Tess agrega a la memoria sistemática (system prompt) de ese agente específico, siendo aplicada y considerada en cada ejecución del agente.
+
+Puedes agregar hasta 30 contenidos por agente, como: artículos, PDFs y manuales, políticas internas, tutoriales, playbooks y planillas. Con tamaños de hasta 200MB por archivo.
+
+Estos contenidos son utilizados por el agente para ayudar en el análisis de las preguntas y la generación de las respuestas, en conjunto con el prompt y las demás configuraciones.
+
+### **¿Por qué es importante?**
+
+<Columns cols={2}>
+  <Card title="Consistencia">
+    El agente responde siempre alineado con la documentación oficial. Con eso, habrá menos "suposiciones", lo que reduce alucinaciones y respuestas fuera de contexto. También es esencial para que el agente se inspire en plantillas existentes al generar su output.
+  </Card>
+  <Card title="Personalización">
+    Cada agente puede tener una base diferente agregada (Soporte, Finanzas, Onboarding, etc.), acorde con el contenido de su entrenamiento. Además, es simple de actualizar — basta con reemplazar un archivo o texto en la Knowledge Base para que el agente se actualice.
+  </Card>
+</Columns>
+
+### **¿Cómo funciona en la práctica?**
+
+Cuando el usuario hace una pregunta, el agente:
+
+- Analiza la pregunta.
+- Busca en los contenidos de la Knowledge Base del agente fragmentos relevantes.
+- Usa esos fragmentos como contexto para generar la respuesta.
+- Si la pregunta no tiene relación con lo que está en la base, el agente puede seguir el prompt general o las políticas que definiste.
+
+### **¿Cómo agregar una base a un agente?**
+
+<Steps>
+  <Step title="Accede al Agent Studio">
+    Ve al área de Agentes y elige el agente deseado (ya sea uno nuevo o uno existente)
+  </Step>
+  <Step title="Abre la configuración y Agrega los archivos">
+    Haz clic en el botón de Knowledge Base y elige los archivos
+
+    <Frame>
+      ![Captura De Tela 2026 02 13 Às 18 13 47](/images/CapturadeTela2026-02-13às18.13.47-1.png)
+    </Frame>
+    O arrástralos directamente desde tu computadora
+
+    <Frame>
+      ![Image](/images/image-70.png)
+    </Frame>
+  </Step>
+  <Step title="Guarda y Prueba">
+    
+  </Step>
+</Steps>
+
+<Tip>
+  **Buenas prácticas**
+
+  - Comienza con las preguntas más frecuentes (FAQ de soporte, finanzas, onboarding).
+  - Prefiere contenidos claros, objetivos y bien organizados.
+  - Actualiza la Knowledge Base siempre que haya un cambio de política o proceso.
+  - Usa bases diferentes para agentes con funciones distintas (ej.: un agente solo para finanzas, otro solo para soporte técnico).
+</Tip>

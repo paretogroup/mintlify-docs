@@ -1,0 +1,65 @@
+---
+title: "Knowledge Base"
+---
+
+Connect your agent to its own content library so that it is trained and responds based on specific materials — FAQs, policies, tutorials, and documents.
+
+### **What is it?**
+
+The agent's Knowledge Base is the set of documents, files, and texts that Tess adds to the systematic memory (system prompt) of that specific agent, being applied and considered in every execution of the agent.
+
+You can add up to 30 items per agent, such as: articles, PDFs and manuals, internal policies, tutorials, playbooks, and spreadsheets. With file sizes up to 200MB each.
+
+These contents are used by the agent to help analyze questions and generate responses, together with the prompt and other settings.
+
+### **Why is it important?**
+
+<Columns cols={2}>
+  <Card title="Consistency">
+    The agent always responds in line with the official documentation. This means less "guesswork", which reduces hallucinations and out-of-context responses. It is also essential for the agent to draw inspiration from existing templates when generating its output.
+  </Card>
+  <Card title="Personalization">
+    Each agent can have a different base added (Support, Finance, Onboarding, etc.), reflecting the content of its training. It is also simple to update — just replace a file or text in the Knowledge Base and the agent is updated.
+  </Card>
+</Columns>
+
+### **How does it work in practice?**
+
+When the user asks a question, the agent:
+
+- Analyzes the question.
+- Searches the agent's Knowledge Base for relevant excerpts.
+- Uses those excerpts as context to generate the response.
+- If the question is not related to what is in the base, the agent can follow the general prompt or the policies you defined.
+
+### **How to add a base to an agent?**
+
+<Steps>
+  <Step title="Access Agent Studio">
+    Go to the Agents area and choose the desired agent (either a new one or an existing one)
+  </Step>
+  <Step title="Open the settings and Add the files">
+    Click on the Knowledge Base button and choose the files
+
+    <Frame>
+      ![Captura De Tela 2026 02 13 Às 18 13 47](/images/CapturadeTela2026-02-13às18.13.47-1.png)
+    </Frame>
+    Or drag directly from your computer
+
+    <Frame>
+      ![Image](/images/image-70.png)
+    </Frame>
+  </Step>
+  <Step title="Save and Test">
+    
+  </Step>
+</Steps>
+
+<Tip>
+  **Best practices**
+
+  - Start with the most frequently asked questions (support FAQ, finance, onboarding).
+  - Prefer content that is clear, objective, and well organized.
+  - Update the Knowledge Base whenever there is a policy or process change.
+  - Use different bases for agents with different functions (e.g.: one agent just for finance, another just for technical support).
+</Tip>

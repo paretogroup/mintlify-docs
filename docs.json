@@ -511,7 +511,25 @@
             "pages": [
               "painel-del-equipo",
               "subscripcion-y-pago",
-              "cartera-commpartida"
+              "cartera-commpartida",
+              "estado-del-sistema",
+              "sso-2",
+              "reembolso-1",
+              {
+                "group": "Programas",
+                "pages": [
+                  "afiliados-1",
+                  "recompensas-1"
+                ]
+              },
+              {
+                "group": "Configuración",
+                "pages": []
+              },
+              {
+                "group": "Soporte",
+                "pages": []
+              }
             ]
           }
         ]

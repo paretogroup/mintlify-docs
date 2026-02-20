@@ -20,7 +20,10 @@
               {
                 "group": "First Steps",
                 "pages": [
-                  "welcome-to-tess-ai"
+                  "welcome-to-tess-ai",
+                  "concepts",
+                  "inicial-setup",
+                  "quickstart-2"
                 ]
               }
             ]
@@ -172,12 +175,6 @@
                 ]
               },
               {
-                "group": "Referência da API",
-                "pages": [
-                  "untitled-page"
-                ]
-              },
-              {
                 "group": "Endpoint examples",
                 "pages": [
                   "api-reference/endpoint/get",
@@ -241,7 +238,10 @@
                 "group": "Primeros pasos",
                 "icon": "door-open",
                 "pages": [
-                  "bienvenido-a-tess-ai"
+                  "bienvenido-a-tess-ai",
+                  "conceptos",
+                  "configuracion-inicial",
+                  "quickstart-3"
                 ]
               }
             ]

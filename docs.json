@@ -11,109 +11,6 @@
   "navigation": {
     "languages": [
       {
-        "language": "en",
-        "groups": [
-          {
-            "group": "Introdution",
-            "pages": [
-              {
-                "group": "First Steps",
-                "icon": "door-open",
-                "pages": [
-                  "welcome-to-tess-ai",
-                  "concepts",
-                  "inicial-setup",
-                  "quickstart-2",
-                  "security-and-privacy",
-                  "mobile-app-1"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Features",
-            "pages": [
-              "memories",
-              "tess-6-1-1",
-              "max-mode",
-              "shareable-links",
-              "tess-pages-1",
-              "embedding",
-              "marketplace-1",
-              "ai-wallet"
-            ]
-          },
-          {
-            "group": "Chat & Tools",
-            "pages": [
-              {
-                "group": "Chat",
-                "pages": [
-                  "using-the-chat",
-                  "auto-mode",
-                  "knowledge-base",
-                  "history"
-                ]
-              },
-              {
-                "group": "Tools",
-                "pages": [
-                  "chat-tools",
-                  "internet-1",
-                  "image-generation",
-                  "video-generation",
-                  "video-editing",
-                  "voiceover",
-                  "podcast",
-                  "music",
-                  "deep-analysis",
-                  "manage-files",
-                  "avatar-1",
-                  "integrations"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Agent Studio",
-            "pages": [
-              {
-                "group": "Agents",
-                "pages": [
-                  "agent-types",
-                  "static-training",
-                  "dynamic-training"
-                ]
-              },
-              {
-                "group": "Generators",
-                "pages": []
-              },
-              {
-                "group": "User Inputs",
-                "pages": []
-              },
-              {
-                "group": "AI Steps",
-                "pages": []
-              }
-            ]
-          },
-          {
-            "group": "Models",
-            "pages": []
-          },
-          {
-            "group": "API",
-            "pages": []
-          },
-          {
-            "group": "Account",
-            "pages": []
-          }
-        ]
-      },
-      {
         "language": "pt-BR",
         "tabs": [
           {
@@ -308,6 +205,109 @@
                 ]
               }
             ]
+          }
+        ]
+      },
+      {
+        "language": "en",
+        "groups": [
+          {
+            "group": "Introdution",
+            "pages": [
+              {
+                "group": "First Steps",
+                "icon": "door-open",
+                "pages": [
+                  "welcome-to-tess-ai",
+                  "concepts",
+                  "inicial-setup",
+                  "quickstart-2",
+                  "security-and-privacy",
+                  "mobile-app-1"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "memories",
+              "tess-6-1-1",
+              "max-mode",
+              "shareable-links",
+              "tess-pages-1",
+              "embedding",
+              "marketplace-1",
+              "ai-wallet"
+            ]
+          },
+          {
+            "group": "Chat & Tools",
+            "pages": [
+              {
+                "group": "Chat",
+                "pages": [
+                  "using-the-chat",
+                  "auto-mode",
+                  "knowledge-base",
+                  "history"
+                ]
+              },
+              {
+                "group": "Tools",
+                "pages": [
+                  "chat-tools",
+                  "internet-1",
+                  "image-generation",
+                  "video-generation",
+                  "video-editing",
+                  "voiceover",
+                  "podcast",
+                  "music",
+                  "deep-analysis",
+                  "manage-files",
+                  "avatar-1",
+                  "integrations"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Agent Studio",
+            "pages": [
+              {
+                "group": "Agents",
+                "pages": [
+                  "agent-types",
+                  "static-training",
+                  "dynamic-training"
+                ]
+              },
+              {
+                "group": "Generators",
+                "pages": []
+              },
+              {
+                "group": "User Inputs",
+                "pages": []
+              },
+              {
+                "group": "AI Steps",
+                "pages": []
+              }
+            ]
+          },
+          {
+            "group": "Models",
+            "pages": []
+          },
+          {
+            "group": "API",
+            "pages": []
+          },
+          {
+            "group": "Account",
+            "pages": []
           }
         ]
       },

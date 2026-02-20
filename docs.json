@@ -376,7 +376,8 @@
               {
                 "group": "Support",
                 "pages": [
-                  "support-contact"
+                  "support-contact",
+                  "remote-support"
                 ]
               }
             ]
@@ -551,7 +552,8 @@
               {
                 "group": "Soporte",
                 "pages": [
-                  "contacto-de-soporte"
+                  "contacto-de-soporte",
+                  "soporte-remoto"
                 ]
               }
             ]

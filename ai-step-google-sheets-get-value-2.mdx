@@ -1,0 +1,44 @@
+---
+title: "AI Step | Google Sheets - Get Value"
+---
+
+Esta función permite extraer datos e información de hojas de cálculo de Google Sheets, bastando con especificar la URL de la hoja y el rango de celdas deseado. Con los datos extraídos, puedes entrenar un modelo de IA capaz de interpretar y analizar la información. Esta capacidad transforma datos brutos en insights accionables, ofreciendo resultados que sustentan la toma de decisiones en diversos contextos empresariales.
+
+<Frame>
+  ![Image](/images/image-123.png)
+</Frame>
+
+> **Campos de llenado:**
+>
+> - Ingresa la URL de la hoja de cálculo: Proporciona la URL del Google Sheets al que quieres acceder. Otra opción es dejar configurada una URL fija en la etapa avanzada.
+> - Especifica el rango de datos: Indica el nombre de la hoja y el rango de celdas que quieres extraer, por ejemplo, "dados_abril!A1:C10".
+>
+> **Resultado de Output:** Los datos extraídos se presentarán en un formato estructurado, como link de archivo o string, dependiendo del output format configurado. El output type del tipo Link se recomienda para casos en los que vayas a usar steps siguientes que analizan a partir de archivos y para la transferencia de información con gran volumen de datos.
+
+### **Casos de uso**
+
+<Card title="Gestión de Recursos Humanos">
+  Usa este step para extraer datos de desempeño de las personas del equipo directamente desde hojas de cálculo en Google Sheets y, con esos datos, entrenar un modelo de IA para aplicar análisis e identificar potenciales líderes, necesidades de capacitación o riesgos de rotación del equipo. Este enfoque permite una gestión de talento más proactiva y basada en datos, contribuyendo al desarrollo de una fuerza de trabajo más comprometida y productiva.
+</Card>
+
+<Card title="Análisis financiero y presupuestario">
+  Extrae datos financieros de múltiples hojas de cálculo para realizar consolidaciones automáticas y análisis de variación presupuestaria. Con esos datos, se puede aplicar un modelo de IA para detectar anomalías, prever flujos de caja futuros y optimizar la asignación de recursos, facilitando la toma de decisiones financieras estratégicas y la preparación de reportes fiscales más precisos.
+</Card>
+
+<Card title="Investigación de mercado y análisis de sentimiento">
+  Configura la extracción de datos de encuestas de satisfacción de clientes almacenadas en Google Sheets y utiliza IA para realizar análisis de sentimiento y de texto. Esto te permite entender mejor las percepciones de las personas clientas, identificar áreas de mejora y ajustar productos o servicios según las expectativas del mercado.
+</Card>
+
+<Info>
+  **Limitaciones:**
+
+  - El volumen de datos de la extracción depende de la correcta especificación del rango de celdas y se adapta al contexto del LLM.
+</Info>
+
+### El formato de salida
+
+- Output format Text: devuelve una lista de objetos, usando la primera fila como nombres de columnas. Default: devuelve una lista de filas similar a una matriz.
+
+- Output format downloadable: devuelve los datos como una string. Link: devuelve los datos como un Link de tipo JSON, para descarga.
+
+La función "Google Sheets Get Values" es una herramienta poderosa que transforma la manera en que las empresas analizan los datos de sus hojas de cálculo. Al extraer esta información, puedes entrenar un modelo de IA que realice análisis más profundos y genere insights, convirtiendo simples conjuntos de datos en información estratégica valiosa.

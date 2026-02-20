@@ -450,15 +450,23 @@
                   "funcionamento-ai-steps-1",
                   {
                     "group": "Web Data Extraction",
-                    "pages": []
+                    "pages": [
+                      "ai-step-web-data-extraction-2"
+                    ]
                   },
                   {
                     "group": "Integrations",
-                    "pages": []
+                    "pages": [
+                      "ai-step-integracion-de-apps",
+                      "ai-step-google-sheets-get-value-2",
+                      "ai-step-google-sheets-write-value-1"
+                    ]
                   },
                   {
                     "group": "Document Processing",
-                    "pages": []
+                    "pages": [
+                      "ai-step-google-ocr-pdf-and-image-1"
+                    ]
                   }
                 ]
               }

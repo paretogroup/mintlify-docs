@@ -1,0 +1,99 @@
+---
+title: "AI Step | Web Data Extraction"
+---
+
+En Tess AI, tus agentes pueden ir mucho más allá del conocimiento estático. Con los Steps de Extracción de Datos de la Web, puedes convertirlos en investigadores inteligentes, capaces de buscar información actualizada directamente de internet.
+
+Esta guía te mostrará cómo configurar tus agentes para encontrar ofertas de empleo, comparar precios de productos, buscar noticias y mucho más, de forma totalmente automatizada.
+
+### **¿Qué son los Steps de Extracción de Datos de la Web?**
+
+Los Steps son bloques de construcción que agregas a la lógica de tu agente en Agent Studio. La categoría Web Data Extraction agrupa una serie de steps diseñados para realizar búsquedas en diferentes plataformas online.
+
+<Frame>
+  ![Image](/images/image-111.png)
+</Frame>
+
+En lugar de una búsqueda genérica, estos steps permiten crear búsquedas altamente personalizadas y dirigidas, mejorando el entrenamiento del agente con información actualizada y pertinente. Las opciones incluyen:
+
+- Google Organic Search: Para búsquedas generales, noticias e información.
+- Google Shopping Search: Para buscar productos y comparar precios.
+- Google Jobs Search: Para encontrar ofertas de empleo.
+- Amazon Product Search: Para buscar productos directamente en Amazon.
+- Y muchas más.
+
+<Frame>
+  ![Image](/images/image-112.png)
+</Frame>
+
+### Cómo Configurar un Agente con Búsqueda en la Web
+
+1. Accede al Agent Studio y comienza a crear o editar un agente.
+2. Agrega un Step: En la pantalla de creación, localiza la sección "AI Steps" y agrega una nueva etapa.
+3. Selecciona el Tipo de Etapa: Elige la categoría Web Data Extraction y, a continuación, el tipo de búsqueda deseado (ej.: Google Shopping Search).
+4. Configura la Búsqueda: Completa los campos específicos de la búsqueda. Por ejemplo, el nombre del producto que quieres buscar. En esta etapa, puedes optar por preconfigurar algunos de los requisitos de forma estándar, o usar la definición del usuario para crear entradas y dejar ese campo variable.
+
+> Por ejemplo, si el dominio siempre debe ser un país específico, puedes configurarlo de antemano. O si el producto debe tener un nombre específico, puedes completarlo ya. De lo contrario, activa la decisión del usuario o crea entradas y referencíalas en los campos específicos.
+>
+> <Frame>
+>   ![Image](/images/image-115.png)
+> </Frame>
+
+5. Define el Nombre de la etapa: Este es un paso crucial. Dale un nombre al resultado de tu búsqueda (ej.: busqueda-del-producto). Este nombre se convertirá en la variable que usarás en tu prompt para acceder a los datos recopilados.
+
+<Info>
+  Con eso, la etapa de búsqueda está lista. Ahora, el secreto es conectar esta etapa a un buen prompt.
+</Info>
+
+### **Ejemplo Práctico: Agente de Búsqueda de Promociones**
+
+Vamos a crear un agente que encuentre las mejores ofertas en Google Shopping.
+
+<Card icon="1" title="Configuración del Step:">
+  - Tipo de Etapa: Google Shopping Search
+  - Product Search: Aquí se puede usar una variable
+  - Dominio e Idioma: Según tu mercado objetivo e idioma
+  - Nombre de la etapa: busqueda-del-producto
+
+  <Frame>
+    ![Image](/images/image-116.png)
+  </Frame>
+</Card>
+
+<Card icon="2" title="El Prompt de Comando (El Cerebro de la Operación)">
+  El Step obtiene la información bruta. Tu prompt es lo que transforma esa información en una respuesta útil e inteligente.
+
+  Prompt Sugerido:
+
+  > Asume la persona de un experto en análisis de promociones de electrónicos. Tu tarea es analizar los datos de la búsqueda de productos, disponibles en: **busqueda-del-producto**.
+  >
+  > Con base en esos datos, haz lo siguiente:
+  >
+  > 1.  Identifica las tres mejores ofertas, considerando el precio y la reputación de la tienda.\
+  > 2.  Presenta un resumen claro de cada oferta en formato de lista.\
+  > 3.  Para cada elemento de la lista, incluye el nombre del producto, el precio, el nombre de la tienda y el enlace directo.\
+  > 4.  Al final, escribe un párrafo explicando por qué estas tres ofertas son las más ventajosas en este momento.
+
+  <Frame>
+    ![Image](/images/image-117.png)
+  </Frame>
+  Al ejecutar el agente, primero realizará la búsqueda en Google Shopping (el Step) y, a continuación, usará los datos recopilados para ejecutar las instrucciones de tu prompt.
+
+  <Frame>
+    ![Image](/images/image-118.png)
+  </Frame>
+  <Frame>
+    ![Image](/images/image-119.png)
+  </Frame>
+</Card>
+
+<Tip>
+  Consejos:
+
+  - El Prompt es el Cerebro: Sé detallado en tus instrucciones. El Step recopila los datos; el prompt los analiza. Cuanto más claro sea el prompt, mejor será el análisis. Recuerda siempre agregar el parámetro creado para el Step en tu prompt.
+  - Sé Específico en la Búsqueda: Cuanto más específica sea tu consulta en el Step (ej.: "iPhone 15 128GB Negro" en lugar de "iPhone"), más relevantes serán los resultados.
+</Tip>
+
+Integrar los Steps de extracción de datos de la web transforma tus agentes de repositorios estáticos en asistentes dinámicos.
+
+Al dominar la combinación de steps de búsqueda con prompts detallados, puedes crear herramientas poderosas para automatizar investigaciones de mercado, monitorear noticias y ahorrar un tiempo valioso.

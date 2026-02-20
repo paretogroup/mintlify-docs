@@ -1,0 +1,72 @@
+---
+title: "AI Step | Integración de Apps"
+---
+
+Tus agentes en Tess pueden hacer mucho más que solo procesar información — pueden actuar. Los Steps de Integración de Apps (App Integration) son la funcionalidad que conecta tus agentes a sistemas externos, permitiendo que ejecuten tareas en el mundo real o recopilen información de otras plataformas.
+
+Esta guía explica la lógica detrás de este poderoso bloque de steps, mostrándote cómo podés dar "brazos y piernas" a tus agentes para que se conviertan en participantes activos en tus flujos de trabajo.
+
+### **La Lógica del Step: Obtener Información vs. Ejecutar Acción**
+
+Para entender App Integration, es útil contrastarla con otros tipos de steps.
+
+<Columns cols={2}>
+  <Card title="Steps de Recolección de Datos">
+    Están diseñados para RECOLECTAR LA INFORMACIÓN y traerla dentro del agente, para que pueda analizarla.
+  </Card>
+  <Card title="Steps de Integración de Apps">
+    Están diseñados para EJECUTAR ACCIONES fuera del agente, usando la información que ya tiene.
+  </Card>
+</Columns>
+
+<Info>
+  Es la diferencia entre un agente que lee un reporte de ventas y un agente que actualiza el estado de un cliente en tu CRM.
+</Info>
+
+### **Cómo Funciona en la Práctica**
+
+La configuración de una integración sigue un flujo lógico simple en AI Studio:
+
+- Agregar un Step: En tu agente, agregá una nueva etapa de App Integration.
+- Elegir el App y la Acción: Seleccioná la aplicación que querés conectar (ej.: Google Calendar) y la acción específica que el agente debe realizar (ej.: "Crear Evento").
+- Mapear la Información: Configurá los campos de la acción (como "Título del Evento" o "E-mail del Invitado"), completándolos con las variables correspondientes de tus Entradas de Usuario.
+
+<Frame>
+  ![Image](/images/image-113.png)
+</Frame>
+
+<Info>
+  El punto crucial es que el agente no ejecuta esta acción al azar. Tu **prompt** sirve como el cerebro de la operación, definiendo las reglas para que estos steps ocurran al inicio del chat (agente de chat) o antes del resultado final (agente de texto).
+</Info>
+
+### **Ejemplo Rápido: Calificación y Agendamiento**
+
+Imaginá un proceso automatizado de cierre y agendamiento, donde un cliente llega a tu plataforma de comunicación interna (ej.: Slack), avisándole al equipo de atención la nueva venta. Eso va a ser un disparador para activar Tess y completar la información del step de Google Calendar, con nombre, email y detalles de la demo a través del Step de Integración.
+
+El agente entonces toma las variables recolectadas en Slack y las usa para completar y ejecutar la acción "Crear Evento" en Google Calendar, enviando la invitación automáticamente.
+
+<Frame>
+  ![Image](/images/image-114.png)
+</Frame>
+
+En este caso, el mensaje en Slack fue el disparador, y el Step de Integración fue la herramienta de acción.
+
+<Note>
+  OBSERVACIÓN\
+  \
+  Para que todo esto ocurra, vas a necesitar integrar esa app con tu acceso en Tess. Ese va a ser el mecanismo de seguridad para que el proceso se realice y la herramienta se active.
+</Note>
+
+### **Ampliando las Posibilidades**
+
+Las aplicaciones son amplias y permiten automatizar innumerables procesos:
+
+- Actualizar una planilla de Google Sheets
+- Recolectar información de campañas de Google o Meta
+- Subir un archivo a Drive o Box 
+
+<Info>
+  Los Steps de Integración de Apps transforman tu agente de un asistente informativo en un miembro proactivo y funcional de tu equipo.
+</Info>
+
+Al dominar la lógica de conectar la inteligencia de tu agente con las herramientas que impulsan tu negocio, podés automatizar procesos, aumentar la eficiencia y crear soluciones verdaderamente integradas.

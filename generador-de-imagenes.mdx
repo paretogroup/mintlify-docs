@@ -1,0 +1,124 @@
+---
+title: "Generador de Imágenes"
+---
+
+El Generador de Imágenes de Tess es el entorno dedicado para la generación de imágenes con todos los modelos disponibles en la plataforma. Aquí transformas descripciones en texto (prompts) en imágenes únicas y personalizadas.
+
+Puedes crear desde fotografías ultrarrealistas hasta ilustraciones artísticas, logos, gráficos y arte conceptual — todo sin depender de bancos de imágenes genéricos.
+
+### **Puedes generar imágenes de tres formas en Tess AI:**
+
+<Card icon="1" title="En el Generador de Imágenes (interfaz de creación visual)">
+  Para esta opción, accede al Agent Studio en el menú lateral izquierdo y luego selecciona Generador de Imágenes.
+
+  <Frame>
+    <img
+      src="/images/image-42.png"
+      alt="Image"
+      title="Image"
+      className="mx-auto"
+      style={{ width:"83%" }}
+    />
+  </Frame>
+</Card>
+
+<Card icon="2" title="En el Chat (vía Tools)">
+  Aquí, después de abrir el chat, activa la herramienta de Imágenes en el menú de Tools y solicita la generación de imágenes en lenguaje natural.
+
+  <Frame>
+    <img
+      src="/images/image-43.png"
+      alt="Image"
+      title="Image"
+      className="mx-auto"
+      style={{ width:"77%" }}
+    />
+  </Frame>
+</Card>
+
+<Card icon="3" title="Vía Agente de Imagen (en Agent Studio)">
+  Después de crear un agente especializado en generar imágenes con estilo, formato y reglas fijas. Ideal para mantener consistencia visual en series (posts, ads, banners).
+
+  <Frame>
+    ![Image](/images/image-44.png)
+  </Frame>
+</Card>
+
+**Qué es y cómo usar el Generador de Imágenes**
+
+En este artículo, nos enfocaremos en la generación de imágenes en el Generador, cuya interfaz funcionará como tu estudio de arte digital dentro de Tess AI. En él, describes lo que quieres ver, eliges el modelo de IA, ajustas los detalles técnicos (proporción, resolución, estilo) y generas la imagen.
+
+Para trabajar con la generación de imágenes en el Generador, piensa con cuidado en el prompt, el modelo a usar y las demás configuraciones avanzadas, las cuales varían según el modelo elegido.
+
+<Tabs>
+  <Tab title="El Prompt">
+    Este es el corazón de la creación de imágenes con IA. En el prompt describimos, con el mayor detalle posible, la imagen que deseamos generar. Cuanto más específico, mejor — la IA crea la imagen según las composiciones de cada descripción.
+
+    Piensa en elementos como:
+
+    - Sujeto: ¿quién o qué es el foco principal? Ej.: "un robot vintage de metal oxidado"
+    - Acción: ¿qué está haciendo el sujeto? Ej.: "leyendo un libro iluminado por una vela"
+    - Entorno: ¿dónde ocurre la escena? Ej.: "en una biblioteca antigua y polvorienta, con estanterías altas"
+    - Estilo y atmósfera: ¿cuál es la estética? Ej.: "pintura al óleo, iluminación dramática, estilo barroco"
+    - Detalles técnicos (cuando aplique): ángulo de cámara, iluminación, composición. Ej.: "primer plano, luz lateral suave, poca profundidad de campo"
+
+      Ejemplo de prompt completo:
+
+      > "Fotografía ultrarrealista de un café acogedor en París durante un día lluvioso. La ventana está empañada con gotas de lluvia, y a través de ella se ve la Torre Eiffel al fondo. Dentro, una taza de cappuccino con latte art está sobre una mesa de madera rústica. Iluminación cálida y suave, atmósfera íntima."
+
+      <Tip>
+        **Consejo:** Aprovecha el recurso del Magic Prompt para mejorar tu prompt y traducirlo al inglés (que tiene mejor rendimiento) — ¡después de todo, no hay un LLM para apoyarte en esto, a diferencia de lo que ocurre en el chat!
+
+        <Frame>
+          ![Image](/images/image-47.png)
+        </Frame>
+      </Tip>
+  </Tab>
+  <Tab title="El modelo elegido">
+    Además del prompt, es importante elegir un modelo que será responsable de generar tu imagen. En Tess AI, tenemos una lista con decenas de modelos disponibles, cada uno con su propio entrenamiento y buenos resultados para diferentes contextos de imágenes.
+
+    Para explorar las opciones y buscar alguno, puedes escribir el nombre o desplazarte hacia abajo:
+
+    <Frame>
+      ![Image](/images/image-45.png)
+    </Frame>
+    Cada modelo tiene características propias — algunos son mejores para el realismo fotográfico, otros se destacan en arte fantástico, ilustración o estilo artístico, y algunos ofrecen mayor control técnico (pose, composición, detalles).
+
+    La mejor forma de descubrir cuál funciona mejor para ti es experimentando o revisando las especificaciones de cada uno en sus páginas de lanzamiento oficiales.
+  </Tab>
+  <Tab title="Configuraciones Avanzadas">
+    Cada modelo ofrece algunas opciones de configuraciones avanzadas, por lo que al ampliar esta sección en el generador de imágenes verás opciones que varían y se asemejan entre los modelos. Las configuraciones principales son:
+
+    - Proporción (aspect ratio): cuadrado, retrato, paisaje, widescreen
+    - Resolución: define la calidad y el tamaño del archivo
+    - Seed (semilla): para reproducir o iterar sobre una imagen específica
+
+    <Frame>
+      ![Image](/images/image-46.png)
+    </Frame>
+    En algunos casos, también verás la opción de prompt negativo. Igual de importante que el prompt principal, el negativo se usa para refinar el resultado, eliminando elementos no deseados.
+
+    Úsalo para evitar:
+
+    - Estilos que no deseas. Ej.: "dibujo animado, render 3D, ilustración vectorial"
+    - Problemas de calidad. Ej.: "baja resolución, borroso, deformado, distorsionado, artefactos"
+    - Elementos visuales no deseados. Ej.: "texto, marca de agua, firmas, marcos"
+    - Colores u objetos específicos. Ej.: "tonos verdes, personas al fondo"
+  </Tab>
+</Tabs>
+
+### ¡Listo!
+
+Una vez que todo esté configurado, ¡solo haz clic para generar, mira los resultados y refina los parámetros!
+
+¡Verás el consumo de créditos junto al botón de generación!
+
+<Tip>
+  Tu primera imagen puede no ser perfecta — úsala como punto de partida. Luego ajusta el prompt principal, genera variaciones y combina con posprocesamiento (upscale, edición, eliminación de fondo).
+</Tip>
+
+Mira más en la demostración a continuación:
+
+<iframe src="https://app.supademo.com/embed/cmg89389o1on32nomlu65hgo7?embed_v=2&utm_source=embed" title="Tess AI | Gerador de Imagem" loading="lazy" allow="clipboard-write" frameBorder="0" allowFullScreen className="w-full h-[80vh] min-h-[700px] rounded-xl" />
+
+El Generador de Imágenes abre un universo creativo de posibilidades prácticamente ilimitadas. Ya sea para crear contenido para redes sociales, ilustrar un artículo, desarrollar conceptos visuales o simplemente dar vida a tu imaginación, esta herramienta pone el poder de un estudio de diseño directamente en tus manos — guiado únicamente por tu descripción y creatividad.

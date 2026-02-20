@@ -288,7 +288,13 @@
               },
               {
                 "group": "Generators",
-                "pages": []
+                "pages": [
+                  "image-generator",
+                  "video-generator",
+                  "code-generator",
+                  "voiceover-generator",
+                  "transcription-generator"
+                ]
               },
               {
                 "group": "User Inputs",
@@ -394,7 +400,13 @@
               },
               {
                 "group": "Generadores",
-                "pages": []
+                "pages": [
+                  "generador-de-imagenes",
+                  "generador-de-video",
+                  "generador-de-codigo",
+                  "generador-de-narraciones",
+                  "generador-de-transcriptiones"
+                ]
               },
               {
                 "group": "Entradas del usuario",

@@ -1,0 +1,154 @@
+---
+title: "Generación de Imágenes"
+---
+
+Generá imágenes directamente en el chat de Tess usando los principales modelos de IA visual del mercado. Activás la tool de Imágenes, elegís el modelo y describís lo que querés ver. El LLM te ayuda a escribir el prompt y activa la IA de imagen — el resultado aparece en el propio chat, integrado al contexto de la conversación.
+
+### **¿Qué es?**
+
+La herramienta de Imágenes en el chat permite:
+
+1. Crear imágenes a partir de texto (prompt)
+2. Rehacer la misma imagen en modelos diferentes
+3. Aplicar funciones rápidas como:
+
+- Remove background (remover fondo)
+- Upscale image (mejorar resolución)
+- SVG vectorize (convertir en vector)
+
+<Frame>
+  ![Tessdocs Tools Imagens](/images/tessdocs-tools-imagens.png)
+</Frame>
+
+<Info>
+  Todo esto sin salir de la conversación: el contexto previo (marca, referencia visual, persona, objetivo del post, etc.) es usado por el LLM para sugerir mejores prompts y ajustes más rápidos.
+</Info>
+
+### **¿Cómo usarla?**
+
+<Steps>
+  <Step title='Abrí el chat y activá la tool "Imágenes"'>
+    Ubicá el botón de herramientas y la opción de imágenes.
+
+    <Frame>
+      <img
+        src="/images/tessdocs-tools-imagens-models2.png"
+        alt="Tessdocs Tools Imagens Models2"
+        title="Tessdocs Tools Imagens Models2"
+        style={{ width:"54%" }}
+      />
+    </Frame>
+  </Step>
+  <Step title="Elegí el modelo">
+    Se va a abrir otro botón donde veremos las IAs y demás funcionalidades disponibles para selección. Podés probar el mismo prompt en modelos diferentes para comparar estilos y calidad.
+
+    <Frame>
+      <img
+        src="/images/tessdocs-tools-imagens-models.png"
+        alt="Tessdocs Tools Imagens Models"
+        title="Tessdocs Tools Imagens Models"
+        style={{ width:"60%" }}
+      />
+    </Frame>
+  </Step>
+  <Step title="Pedí la imagen (el LLM te va a ayudar con el prompt)">
+    Escribí en lenguaje natural lo que querés:
+
+    "quiero un post de Instagram minimalista sobre salud mental, fondo claro, personaje femenina, estilo flat"
+
+    <Frame>
+      ![Tessdocs Tools Imagens Prompt](/images/tessdocs-tools-imagens-prompt-1.png)
+    </Frame>
+    Dependiendo de tu pedido, el modelo de texto seleccionado (LLM) puede hacerte preguntas rápidas de colores, formato y público para armar un prompt optimizado para tu necesidad. Compartí tus ideas y dejá que el LLM haga el resto. Va a escribir el prompt y activar la IA de imagen automáticamente; no necesitás salir del chat ni acceder a otro panel. ¡Ese es el poder de la colaboración multi-modelos!
+
+    <Frame>
+      ![Tessdocs Tools Imagens Info](/images/tessdocs-tools-imagens-info.png)
+    </Frame>
+    En el ejemplo de arriba, ChatGPT 5.2 nos ayudó a estructurar el prompt:
+
+    > _Minimalist Instagram post about mental health, clean light off-white background with lots of negative space, flat vector illustration style. Center-left a calm female character (adult woman) sitting cross-legged in a simple pose, eyes closed, gentle smile, hands on knees, subtle breathing lines near chest. Simple shapes, smooth pastel palette (sage green, muted blue, soft terracotta), thin outlines, no gradients, no textures, no shadows. Add a small abstract plant and a soft rounded shape behind her for balance. No text, no logos, no watermark. Modern, soothing, Scandinavian minimal design. High resolution, crisp edges._
+
+    Notá que el prompt pide la imagen sin logos, textos ni marca de agua. O sea, siempre que quieras imágenes con detalles o textos específicos, compartilo en el chat para que el modelo de texto te ayude.
+  </Step>
+  <Step title="Mirá el resultado y refiná el pedido">
+    La imagen generada aparece directamente en la conversación.
+
+    Podés comentar encima de ella, pedir variaciones, cambiar colores, ajustar estilo, etc.
+
+    <Frame>
+      ![Tessdocs Tools Imagens Bottons](/images/tessdocs-tools-imagens-bottons.png)
+    </Frame>
+    Al pasar el mouse por encima de la imagen, aparecen los íconos. De izquierda a derecha, representan:
+
+    1. Download: descargá la imagen generada en tu dispositivo
+    2. Información: mirá el prompt, el modelo y el costo de generación de la imagen
+    3. Upscale: hacé una mejora de 2x en la calidad de la imagen
+    4. Remover fondo: remové con IA el fondo de la imagen, generando una versión PNG
+    5. Vectorización: generá un vector de esta imagen en SVG
+    6. Abrir la imagen: para verla mejor, abrila y mirá los detalles de tu imagen
+  </Step>
+  <Step title="Rehacela usando otro modelo">
+    Uno de los diferenciales es poder:
+
+    - Generar la imagen con un modelo (ej.: Nano Banana).
+    - Después, elegir otro modelo (ej.: Ideogram 3 o Runway Gen4).
+    - Pedir: "rehacela con la misma estética, pero con el personaje de pie tomando té".
+
+    <Frame>
+      ![Tessdocs Tools Imagens Refaca](/images/tessdocs-tools-imagens-refaca.png)
+    </Frame>
+    El LLM revisa el prompt y el contexto y llama al nuevo modelo automáticamente para generar la imagen.
+  </Step>
+</Steps>
+
+### **Funciones extra (después del procesamiento de imagen)**
+
+Además de generar imágenes desde cero, podés usar funciones específicas directamente por el chat:
+
+<AccordionGroup>
+  <Accordion title="Remover fondo">
+    Remueve automáticamente el fondo de una imagen. Útil para recortar productos, crear stickers, armar composiciones en templates de social media
+  </Accordion>
+  <Accordion title="Mejorar resolución">
+    El Upscale aumenta la resolución y mejora la nitidez de la imagen. Útil para preparar piezas para impresión, dejar imágenes más nítidas en presentaciones, evitar pixelación en recortes de video. 
+  </Accordion>
+  <Accordion title="Convertir a vector">
+    Convierte logotipos, íconos o dibujos simples a formato vectorial (SVG). Útil para logos responsivos, íconos en interfaces, ajustes en herramientas de diseño vectorial. 
+  </Accordion>
+</AccordionGroup>
+
+### **Ejemplos rápidos de uso en el chat**
+
+1. Post para Instagram
+
+"Quiero una imagen para post de Instagram sobre ansiedad, estilo minimalista, fondo claro, con ilustración de una persona respirando profundo, colores en azul y lila."
+
+2. Imagen con texto legible
+
+"Creá una tapa de e-book en portugués con el título 'Guia Prático de IA para Negócios', estilo moderno, colores violeta y blanco, sin fotos de personas."
+
+### \\
+
+Ventajas de crear imágenes directo en el chat
+
+- Contexto continuo: el LLM recuerda la conversación (marca, persona, campaña) y usa eso para mejorar los prompts.
+- Iteración rápida: ajustás texto, color, estilo, modelo — todo en el mismo hilo.
+- Multimodalidad real: texto, imagen, video, música y audio en el mismo flujo.
+- Prueba de modelos: generá con un modelo, cambiá a otro y compará estilos.
+- Post-procesamiento integrado: remueve fondo, hace upscale y vectorización sin salir del chat.
+
+<Tip>
+  ¡Tips!
+
+  Siempre indicá:
+
+  - objetivo de la imagen (feed, story, thumb, slide)
+  - estilo (realista, ilustrado, flat, 3D, minimalista)
+  - colores principales
+  - si necesitás texto en la imagen (y qué texto)
+
+  Cuando vayas a probar modelos diferentes:
+
+  - mantené el mismo prompt base
+  - pedí explícitamente: "usá el mismo prompt, pero generando con el modelo X"
+</Tip>

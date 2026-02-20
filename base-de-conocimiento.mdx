@@ -1,0 +1,72 @@
+---
+title: "Base de Conocimiento"
+---
+
+En el chat de Tess, podés adjuntar archivos para dar contexto y “entrenar” la conversación, o sea, permitir que Tess use ese contenido para responder mejor. Hay dos formas de enviar archivos en el chat: el envío rápido (arrastrar/pegar) y el envío avanzado (con el botón “+”), que habilita configuraciones importantes de procesamiento.
+
+Cuando adjuntás un archivo al chat, Tess puede procesar y usar ese contenido como base para:
+
+- responder preguntas sobre el contenido del archivo
+- resumir, extraer datos y crear outputs a partir del material
+- mantener el contexto de la atención (especialmente útil en soporte, onboarding y proyectos)
+
+Además, todo el historial de uploads y uso de esos archivos se puede consultar en la Base de Conocimiento dentro de Configuraciones.
+
+<Note>
+  Recordá que, al agregar un documento a la Base de Conocimiento de una conversación, solo esa conversación va a estar entrenada con ese documento. Si iniciás un chat nuevo, vas a tener que adjuntar el archivo de nuevo. \
+  \
+  Para evitar retrabajo, si es una tarea repetitiva, recomendamos crear un agente y adjuntar el archivo a la Base de Conocimiento del agente (no del chat), así toda conversación iniciada en ese agente ya va a estar entrenada con el documento que integra tu Base de Conocimiento.
+</Note>
+
+## Dos formas de enviar archivos (y la diferencia entre ellas)
+
+<Card icon="1" title="Envío rápido (arrastrar o Ctrl+V)">
+  Arrastrás el archivo dentro del chat, o lo pegás (Ctrl+V) cuando aplique. Es la forma más rápida de adjuntar algo y seguir la conversación.
+
+  ![Tessdocs Dragdrop Chat](/images/tessdocs-dragdrop-chat.png)
+
+  Después de enviarlo, va a aparecer en la parte superior del chat, entrenando definitivamente cuando el mensaje se envía junto con el archivo:
+
+  ![Tessdocs Kbchat](/images/tessdocs-kbchat-1.png)
+
+  ![Tessdocs Chatfile](/images/tessdocs-chatfile.png)
+
+  - Limitación: Por lo general no permite elegir opciones avanzadas de procesamiento. O sea, adjuntás, pero no controlás el procesamiento del archivo (RAG o Deep Learning).
+  - Cuándo usarlo: Cuando solo necesitás adjuntar rápido y no necesitás configuraciones (ej.: una imagen simple, un CSV, un PDF con texto, un link).
+</Card>
+
+<Card icon="2" title="Envío avanzado (con el botón “+”)">
+  En el chat, hacé clic en el botón “+” (herramientas/adjuntos) al lado de la caja de mensaje. Después, seleccioná el upload/adjunto de archivo por ese camino.
+
+  ![Tessdocs Addfile](/images/tessdocs-addfile.png)
+
+  De esta forma, podés elegir el tipo de procesamiento antes de enviar (dependiendo del archivo) y habilitás configuraciones específicas por tipo de archivo.
+
+  ![Tessdocs Chatkb File](/images/tessdocs-chatkb-file.png)
+
+  En esta pantalla también es posible arrastrar el archivo o seleccionarlo desde la computadora. Al adjuntar un archivo, va a aparecer a la derecha y, en la flechita, podés extender las configuraciones disponibles (cuando aplique):
+
+  ![Tessdocs File Proceced](/images/tessdocs-file-proceced-1.png)
+
+  ### Podés configurar, por ejemplo:
+
+  **A) Tipo de procesamiento entre RAG y Deep Learning**
+
+  - RAG (retrieval): se enfoca en buscar fragmentos relevantes del archivo para responder preguntas en base al contenido. Consume menos créditos.
+  - Deep Learning: se enfoca en un procesamiento más profundo del contenido, dependiendo del tipo de archivo y del recurso disponible. Consume más créditos.
+
+  **B) Configuraciones específicas por tipo de archivo, por ejemplo:**
+
+  - **PDF:** Podés elegir cómo se va a interpretar el PDF, por ejemplo:
+    - Procesamiento de texto: ideal cuando el PDF está compuesto por texto seleccionable.
+    - OCR: ideal cuando el PDF tiene alguna imagen, o está escaneado y la IA necesita “leer” el texto de texto e imágenes.
+  - **MP3 y MP4:** Podés configurar parámetros de transcripción, por ejemplo:
+    - Idioma: ayuda a que la transcripción sea más correcta (principalmente en PT-BR, EN, ES, etc.).
+    - IA/modelo de transcripción: optar entre Deepgram, Assembly, Open AI y Rev AI.
+</Card>
+
+<Info>
+  Es posible seguir todo lo que se envió a Tess (incluyendo uploads hechos en el chat) en la Base de Conocimiento de Configuraciones.
+</Info>
+
+Cada documento agregado a la Base de Conocimiento implica el consumo de un volumen bajo de créditos para realizar esta tarea.

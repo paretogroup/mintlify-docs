@@ -1,0 +1,101 @@
+---
+title: "Deep Analysis"
+---
+
+Los LLMs son excelentes para interpretar texto, escribir, resumir y generar contenido. Pero cuando se trata de cálculos, estadísticas y análisis de datos, cualquier modelo tendrá un incómodo margen de error que, para tareas profesionales sensibles, es inaceptable. Para informes financieros, planillas de ventas y decisiones de negocio, necesitas precisión absoluta.
+
+Es exactamente para eso que existe el Deep Analysis: una herramienta que combina la conversación en lenguaje natural del LLM con la exactitud de la computación tradicional.
+
+### **¿Qué es el Deep Analysis?**
+
+Deep Analysis es un entorno seguro y aislado (un "sandbox") donde, en lugar de que la IA intente hacer los cálculos "de cabeza", ella:
+
+1. entiende lo que quieres hacer con los datos
+2. escribe un código en Python para ejecutar esa tarea
+3. ejecuta ese código en el sandbox
+4. devuelve el resultado con cálculos matemáticos 100% correctos
+
+En otras palabras: tú conversas en lenguaje natural; Tess crea una máquina virtual, traduce eso a código, lo ejecuta y te entrega el resultado listo (tablas, métricas, gráficos, segmentaciones, etc.).
+
+### **Cómo usar Deep Analysis en el chat**
+
+Cuando necesites algún análisis cuantitativo, o cualitativo/cuantitativo, un reporte, informe, HTML o tratamientos similares, ¡activa la herramienta de Deep Analysis en el chat!
+
+Si tienes un documento base, recuerda enviar tu archivo, haz el pedido en lenguaje natural y menciona el archivo y lo que será necesario hacer con él.
+
+<Frame>
+  ![Tessdocs Deepa](/images/tessdocs-deepa.png)
+</Frame>
+
+También puedes usar Deep Analysis para trabajar en reportes o dashboards interactivos en formato HTML:
+
+<Frame>
+  ![Image](/images/image-2.png)
+</Frame>
+
+<Frame>
+  ![Image](/images/image-3.png)
+</Frame>
+
+<Icon icon="link-horizontal" /> **Acceder al Informe HTML** ([link](https://tess-workflows-files.storage.googleapis.com/6ca511cbbab87f2226b638f5d69a04e7316b6e8d/auditoria_despesas_q3_completa.html))
+
+Para Dashboards es lo mismo:
+
+<Frame>
+  ![Captura De Tela 2026 02 13 Às 13 40 23](/images/CapturadeTela2026-02-13às13.40.23.png)
+
+  ![Image](/images/image-5.png)
+</Frame>
+
+<Icon icon="link-horizontal" /> **Acceder al Dashboard HTML** ([link](https://tess-workflows-files.storage.googleapis.com/a3edcb57bbe013d17e362703fa6b65b70c3cdfca/dashboard_auditoria_despesas_q3_interativo.html))
+
+<Note>
+  Para Dashboards, como la vista se construye con datos estáticos, no hay actualización automática del HTML — por lo tanto, cualquier cambio requiere que el HTML sea regenerado.
+</Note>
+
+### \\
+
+Úsalo siempre que la exactitud de los datos sea la máxima prioridad, por ejemplo:
+
+<Columns cols={2}>
+  <Card icon="database" title="Análisis">
+    Análisis financieros, de ventas y clientes; comparaciones de períodos (mes contra mes, año contra año), etc.
+  </Card>
+  <Card icon="calculator-simple" title="Cálculos">
+    Calcular EBITDA, margen de ganancia, ticket promedio; realizar análisis estadísticos (promedios, medianas, desviación estándar, etc.).
+  </Card>
+  <Card icon="eye" title="Visualizaciones">
+    Visualización de datos, gráficos de barras, líneas, torta, scatter, etc.; visualizar tendencias de ventas, churn, engagement, costos.
+  </Card>
+  <Card icon="diagram-project" title="Proyectos complejos">
+    Procesar datos de experimentos; ejecutar fórmulas complejas; ingeniería, ciencia y experimentos, etc.
+  </Card>
+  <Card icon="chart-mixed-up-circle-dollar" title="Segmentaciones">
+    Identificar productos más vendidos; segmentar clientes por rango de valor o frecuencia de compra, etc.
+  </Card>
+  <Card icon="share-nodes" title="Campañas">
+    Evaluar el rendimiento de campañas o canales; proyectar escenarios y estrategias con base en datos históricos, etc.
+  </Card>
+</Columns>
+
+### **Formatos comunes soportados**
+
+- Planillas (XLSX)
+- Archivos CSV
+- Otros formatos estructurados que puedan ser leídos vía Python (cuando aplique)
+
+<Info>
+  Ejemplos de prompts: 1. "Analiza este archivo vendas_trimestre.xlsx, calcula el total de ventas para cada categoría de producto y crea un gráfico de torta con la participación de cada una." 2. "En este CSV de clientes, calcula el ticket promedio por región y muéstralo en una tabla ordenada de mayor a menor." 3. "Genera un gráfico de línea mostrando la evolución mensual de la facturación en los últimos 12 meses."
+</Info>
+
+Más que eso, cuanto más literal y detallado sea tu prompt, mejor será la comprensión y el rendimiento de la IA en este caso. Las herramientas de este tipo tienden a responder bien a comandos objetivos y precisos.
+
+<Info>
+  En este proceso, Tess escribirá el código, lo ejecutará en el sandbox y devolverá los resultados (tablas, explicaciones y, cuando se solicite, gráficos generados a partir de los datos).
+</Info>
+
+<Frame>
+  ![Image](/images/image-6.png)
+</Frame>
+
+Deep Analysis es el puente entre la conversación en lenguaje natural y el rigor de la ciencia de datos. Garantiza que los informes, análisis y gráficos generados por Tess AI no sean solo inteligentes — sino matemáticamente correctos.

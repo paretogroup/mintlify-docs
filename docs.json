@@ -45,11 +45,55 @@
           },
           {
             "group": "Chat & Tools",
-            "pages": []
+            "pages": [
+              {
+                "group": "Chat",
+                "pages": [
+                  "using-the-chat",
+                  "auto-mode",
+                  "knowledge-base",
+                  "history"
+                ]
+              },
+              {
+                "group": "Tools",
+                "pages": [
+                  "chat-tools",
+                  "internet-1",
+                  "image-generation",
+                  "video-generation",
+                  "video-editing",
+                  "voiceover",
+                  "podcast",
+                  "music",
+                  "deep-analysis",
+                  "manage-files",
+                  "avatar-1",
+                  "integrations"
+                ]
+              }
+            ]
           },
           {
             "group": "Agent Studio",
-            "pages": []
+            "pages": [
+              {
+                "group": "Agents",
+                "pages": []
+              },
+              {
+                "group": "Generators",
+                "pages": []
+              },
+              {
+                "group": "User Inputs",
+                "pages": []
+              },
+              {
+                "group": "AI Steps",
+                "pages": []
+              }
+            ]
           },
           {
             "group": "Models",
@@ -298,7 +342,34 @@
           },
           {
             "group": "Chat & Tools",
-            "pages": []
+            "pages": [
+              {
+                "group": "Chat",
+                "pages": [
+                  "usando-el-chat",
+                  "auto-mode-1",
+                  "base-de-conocimiento",
+                  "historial"
+                ]
+              },
+              {
+                "group": "Tools",
+                "pages": [
+                  "chat-tools-1",
+                  "internet",
+                  "generacion-de-imagenes",
+                  "generacion-de-video",
+                  "edicion-de-videos",
+                  "narracion",
+                  "podcast-1",
+                  "music-1",
+                  "deep-analysis-1",
+                  "manage-files-1",
+                  "avatar-2",
+                  "integraciones"
+                ]
+              }
+            ]
           },
           {
             "group": "Agent Studio",

@@ -308,7 +308,19 @@
               {
                 "group": "AI Steps",
                 "pages": [
-                  "how-it-works-ai-steps"
+                  "how-it-works-ai-steps",
+                  {
+                    "group": "Web Data Extraction",
+                    "pages": []
+                  },
+                  {
+                    "group": "Integrations",
+                    "pages": []
+                  },
+                  {
+                    "group": "Document Processing",
+                    "pages": []
+                  }
                 ]
               }
             ]
@@ -427,7 +439,19 @@
               {
                 "group": "AI Steps",
                 "pages": [
-                  "funcionamento-ai-steps-1"
+                  "funcionamento-ai-steps-1",
+                  {
+                    "group": "Web Data Extraction",
+                    "pages": []
+                  },
+                  {
+                    "group": "Integrations",
+                    "pages": []
+                  },
+                  {
+                    "group": "Document Processing",
+                    "pages": []
+                  }
                 ]
               }
             ]

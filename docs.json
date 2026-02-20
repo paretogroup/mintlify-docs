@@ -23,9 +23,24 @@
                   "welcome-to-tess-ai",
                   "concepts",
                   "inicial-setup",
-                  "quickstart-2"
+                  "quickstart-2",
+                  "security-and-privacy",
+                  "mobile-app-1"
                 ]
               }
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "memories",
+              "tess-6-1-1",
+              "max-mode",
+              "shareable-links",
+              "tess-pages-1",
+              "embedding",
+              "marketplace-1",
+              "ai-wallet"
             ]
           }
         ]
@@ -241,9 +256,24 @@
                   "bienvenido-a-tess-ai",
                   "conceptos",
                   "configuracion-inicial",
-                  "quickstart-3"
+                  "quickstart-3",
+                  "seguridad-y-privacidad",
+                  "mobile-app-2"
                 ]
               }
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "memorias-1",
+              "tess-6-1-2",
+              "max-mode-1",
+              "enlaces-compartibles",
+              "tess-pages-2",
+              "embedding-1",
+              "marketplace-2",
+              "ai-wallet-1"
             ]
           }
         ]

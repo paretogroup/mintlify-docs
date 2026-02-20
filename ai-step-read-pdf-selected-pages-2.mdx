@@ -1,0 +1,49 @@
+---
+title: "AI Step | Read PDF Selected Pages"
+---
+
+Esta función permite extraer texto de páginas específicas de un documento PDF. Es útil para enfocarte en secciones particulares de un documento sin necesidad de procesar el archivo entero, ahorrando tiempo y recursos.
+
+<Frame>
+  <img
+    src="/images/image-122.png"
+    alt="Image"
+    title="Image"
+  />
+</Frame>
+
+> **Campos de Relleno:**
+>
+> - Subí el archivo o link del PDF: Proporcioná un link a un archivo PDF de acceso público. De forma alternativa, podés usar el resultado de la entrada de usuario "Subir Archivo" para extraer datos de archivos guardados en tu computadora.
+> - Especificá las Páginas: Indicá de qué páginas del PDF querés extraer el texto. Podés ingresar un único número de página, un rango o una lista separada por comas.
+>
+> **Resultado de Output:** Se va a extraer el texto de las páginas especificadas.
+
+### **Casos de Uso:**
+
+**1. Análisis de Capítulos Específicos:** Ideal para estudiantes e investigadores que necesitan analizar capítulos específicos de libros académicos.
+
+**2. Revisión de Documentos Legales:** Les permite a abogadas y abogados revisar rápido cláusulas específicas en contratos extensos.
+
+**3. Compilación de Información Sectorial:** Facilita la recolección de información de determinadas secciones de reportes anuales o documentos técnicos para análisis de mercado.
+
+<Info>
+  **Limitaciones:**
+
+  Es importante tener en cuenta que el entrenamiento de tu IA basado en documentos PDF extraídos por medio de Tess AI tiene una limitación de tamaño. 
+
+  El entrenamiento no puede superar las 80.000 palabras. Por lo tanto, asegurate de que el PDF seleccionado esté dentro de este límite. Si tenés un PDF con más de 80.000 palabras, considerá dividirlo en partes más chicas o seleccionar solo las secciones más relevantes.
+</Info>
+
+### **Ejemplos de Implementación**
+
+<Columns cols={2}>
+  <Card icon="book-bookmark" title="Análisis de Secciones de un Libro">
+    Un usuario sube un PDF de un libro y especifica que solo se lean las páginas del capítulo 3 para enfocarse en un tema específico.
+  </Card>
+  <Card icon="file-contract" title="Consulta de Cláusulas Contractuales">
+    Un abogado usa un link fijo a un contrato y extrae solo las páginas que contienen cláusulas de interés para una revisión rápida.
+  </Card>
+</Columns>
+
+"Read PDF Selected Pages" es un step valioso en Tess AI para extraer texto de páginas específicas de documentos PDF, permitiendo un análisis más dirigido y eficiente de la información relevante sin necesidad de procesar los documentos enteros.

@@ -1,0 +1,33 @@
+---
+title: "AI Step | Extract Text from Entire PDF"
+---
+
+En este tutorial, explicaremos cómo usar el Step "Extract Text from Entire PDF" en la plataforma Tess AI. Esta etapa es útil para extraer texto de un PDF, permitiéndote utilizarlo para entrenar tu modelo o consultar el documento.
+
+Aquí están los detalles sobre cómo completar los campos y ejemplos de casos de uso:
+
+<Frame>
+  ![Image](/images/image-121.png)
+</Frame>
+
+> \*\*Campos a Completar: \*\*Ingresa el archivo o enlace PDF — En este campo, debes proporcionar el enlace de un archivo PDF publicado en internet con acceso libre. Alternativamente, puedes usar el resultado de la entrada de usuario "Subir Archivo" para extraer datos de archivos almacenados en tu computadora.
+>
+> \*\*Resultado de Output: \*\*Se extraerá el texto de todo el PDF.
+
+### **Casos de Uso:**
+
+1. **Importación de Contratos para Consultas:** Imagina que tienes una biblioteca de contratos en formato PDF. Usando el Step "Extract Text from Entire PDF", puedes extraer el texto de todos esos contratos y crear un modelo de búsqueda que permita a los usuarios buscar términos específicos dentro de los contratos. Esto es útil para localizar información importante rápidamente.
+2. **Importación de Bases de Conocimiento para Consulta:** Si tienes una base de conocimiento en formato PDF, puedes usar este step para extraer el contenido de todos los documentos y ponerlo a disposición en un sistema de consulta. Los usuarios podrán, entonces, buscar y acceder a información relevante de manera eficaz.
+3. **Importación de Documentos para Entrenamiento en Diversos Mercados:** Si estás entrenando un modelo de IA para un mercado específico, como el sector financiero, jurídico o médico, puedes usar el Step "Extract Text from Entire PDF" para recopilar datos de documentos PDF relevantes. Estos datos pueden usarse para entrenar el modelo y mejorar su comprensión del mercado, permitiéndole proporcionar información más precisa y contextual.
+
+<Info>
+  **Limitaciones:**
+
+  Es importante tener en cuenta que el entrenamiento de tu IA con base en documentos PDF extraídos a través de Tess AI tiene una limitación de tamaño.
+
+  El entrenamiento no puede superar las 80.000 palabras. Por lo tanto, asegúrate de que el PDF seleccionado esté dentro de este límite. Si tienes un PDF con más de 80.000 palabras, considera dividirlo en partes más pequeñas o seleccionar solo las secciones más relevantes.
+
+  De lo contrario, es mejor usar el modo de creación de agentes agregando el archivo como RAG.
+</Info>
+
+El Step "Extract Text from Entire PDF" es una herramienta poderosa que permite la extracción de texto de PDFs para diversos fines — desde consultas de contratos hasta el entrenamiento de modelos en diferentes sectores. Simplifica el proceso de obtención de datos de documentos PDF y facilita el uso de esos datos en tu flujo de trabajo.

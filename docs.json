@@ -326,7 +326,9 @@
                   {
                     "group": "Document Processing",
                     "pages": [
-                      "ai-step-google-ocr-pdf-and-image"
+                      "ai-step-google-ocr-pdf-and-image",
+                      "ai-step-extract-text-from-entire-pdf-1",
+                      "ai-step-read-pdf-selected-pages-1"
                     ]
                   }
                 ]
@@ -343,7 +345,11 @@
           },
           {
             "group": "Account",
-            "pages": []
+            "pages": [
+              "teamboard",
+              "subscription-and-payment",
+              "shared-wallet"
+            ]
           }
         ]
       },
@@ -465,7 +471,9 @@
                   {
                     "group": "Document Processing",
                     "pages": [
-                      "ai-step-google-ocr-pdf-and-image-1"
+                      "ai-step-google-ocr-pdf-and-image-1",
+                      "ai-step-extract-text-from-entire-pdf-2",
+                      "ai-step-read-pdf-selected-pages-2"
                     ]
                   }
                 ]
@@ -482,7 +490,11 @@
           },
           {
             "group": "Cuenta",
-            "pages": []
+            "pages": [
+              "painel-del-equipo",
+              "subscripcion-y-pago",
+              "cartera-commpartida"
+            ]
           }
         ]
       }

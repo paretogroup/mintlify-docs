@@ -1,0 +1,85 @@
+---
+title: "Selección única y múltiple"
+---
+
+Sabemos que las User Inputs se usan para crear agentes flexibles. Sin embargo, en lugar de campos de texto abiertos, puedes presentarle al usuario una lista de opciones predefinidas, asegurando que las respuestas siempre estén dentro de lo esperado.
+
+En este tutorial, vamos a explorar cómo usar los campos de Selección Única y Múltipla para crear un agente inteligente de planificación de viajes.
+
+### **Entendiendo los tipos de entrada de selección**
+
+<Columns cols={2}>
+  <Card title="Caja de selección única (Dropdown)">
+    Ideal para cuando necesitas que el usuario elija solo una opción de una lista fija. Esto asegura que la respuesta sea única y decisiva (ej.: "¿Cuál es tu presupuesto? Alto, Medio o Bajo").
+  </Card>
+  <Card title="Caja de opción múltiple (Checkboxes)">
+    Perfecta para que el usuario pueda seleccionar varias opciones de una lista. Ofrece más flexibilidad, múltiples preferencias (ej.: "¿Cuáles son tus intereses? Gastronomía, Cultura, Deportes").
+  </Card>
+</Columns>
+
+<Frame>
+  ![Image](/images/image-104.png)
+</Frame>
+
+Para ambos tipos, las opciones de la lista se crean de la misma forma: basta con escribirlas en el campo de configuración, separadas por comas.
+
+### **Nuestro proyecto ejemplo: el Agente Planificador de Viajes**
+
+Vamos a construir un agente que funcione como un guía turístico, creando un itinerario de viaje con base en las preferencias del usuario.
+
+<Card icon="1" title="Configuración inicial del agente">
+  En AI Studio, inicia la creación de un nuevo agente. Como nuestro agente va a generar un itinerario en texto, un Agente de Chat o Texto es lo ideal. Mantén la selección predeterminada de "All LLM" o elige un modelo específico que prefieras.
+
+  <Frame>
+    ![Image](/images/image-105.png)
+  </Frame>
+</Card>
+
+<Card icon="2" title="Configuración inicial del agente">
+  En el campo de prompt, vamos a insertar la lógica de nuestro guía turístico, el contexto y las directrices base que lo guiarán:
+
+  > _Asume la persona de un guía turístico con experiencia y proporciona las mejores formas de explorar la ciudad según el tipo de viaje y las actividades elegidas por tu cliente. Al final, agrega una observación diciendo la importancia de verificar horarios y reglas locales antes del viaje._
+  >
+  > _Ciudad: \
+  > Tipo de viaje: \
+  > Actividades deseadas: _
+  >
+  > _Crítico: Crea un tema destacado para cada actividad elegida y ofrece más de una opción de actividad. No menciones la pandemia. Entrega solo lo solicitado de la mejor forma posible._
+
+  <Frame>
+    ![Image](/images/image-106.png)
+  </Frame>
+  Las variables para ciudad, tipo de viaje y actividades serán los puntos de conexión con nuestras User Inputs.
+</Card>
+
+<Card icon="3" title="Configurando las User Inputs">
+  Ahora, vamos a crear la interfaz que nuestro usuario final va a completar.
+
+  - Input para la Ciudad: "Texto corto", con el nombre ciudad y el rótulo "¿Qué ciudad y estado quieres visitar?"
+  - Input para el Tipo de Viaje (Selección única): "Selección única" con el nombre tipo de viaje y el rótulo "¿Cuál es el estilo de tu viaje?". Para las opciones, ingresa la lista de elecciones separadas por comas. Ej.: Económica, Romántica, Aventura, Familia, Lujo
+
+  <Frame>
+    ![Image](/images/image-107.png)
+  </Frame>
+  - Input para las Actividades (Selección múltipla): "Selección múltipla" con el nombre actividades y el rótulo: "¿Qué actividades te gustan más?". Para las opciones, ingresa la lista de intereses separadas por comas. Ej.: Cultura y Museos, Gastronomía, Vida nocturna, Compras, Parques y Naturaleza
+
+  <Frame>
+    ![Image](/images/image-108.png)
+  </Frame>
+  <Tip>
+    Tip: Usa el botón "+" en el editor de prompt para insertar las variables en el prompt y asegurar la correspondencia exacta, referenciando la variable en el entrenamiento.
+  </Tip>
+  <Frame>
+    ![Image](/images/image-109.png)
+  </Frame>
+</Card>
+
+<Card icon="4" title="Guardando y probando">
+  Con todo configurado, nombra tu agente y haz clic en "Guardar" y después en "Visualizar" para probarlo. Verás una interfaz amigable con un campo de texto, un menú dropdown y casillas de selección, lista para completarse.
+
+  <Frame>
+    ![Image](/images/image-110.png)
+  </Frame>
+</Card>
+
+Este tutorial muestra cómo las entradas de selección pueden volver tus agentes más estructurados, guiando al usuario y asegurando que recibas la información de la manera que esperas. ¡Sigue explorando y creando tus agentes!

@@ -1,0 +1,87 @@
+---
+title: "Funcionamiento: AI Steps"
+---
+
+Al crear un agente en el AI Studio de Tess AI, podés ir mucho más allá de un simple entrenamiento. Con los Steps Avanzados, podés crear agentes que ejecutan tareas previas, procesan información de múltiples fuentes antes de iniciar la conversación (agente de chat) o entregar el resultado final (agente de texto).
+
+Los AI Steps funcionan como etapas de ejecución obligatoria cada vez que se activa el agente. A pesar de ser opcionales, los AI Steps pueden, cuando sea necesario, sofisticar la arquitectura de tu agente y aumentar su poder de funcionamiento. Pero tené en cuenta que no siempre los AI Steps serán necesarios.
+
+### **¿Cuándo un Prompt por sí solo no es suficiente en el agente?**
+
+Imaginá que querés crear un agente y automatizar la generación de una descripción de un producto. Toda la información sobre ese producto está en un catálogo en PDF.
+
+Si solo le das el archivo PDF al agente en la entrada del usuario, no va a saber qué hacer. La IA necesita una instrucción para, primero, leer e interpretar el contenido de ese archivo. Una etapa previa y obligatoria en la estructura del agente como un todo. Es exactamente para eso que sirven los Steps Avanzados: le dan a tu agente la capacidad de ejecutar acciones preliminares para complementar el contexto necesario de tu entrenamiento.
+
+### **Ejemplos de Steps Avanzados disponibles**
+
+Podés equipar tu agente con una variedad de "sentidos" y habilidades, incluyendo:
+
+<AccordionGroup>
+  <Accordion title="Extracción de texto de PDF">
+    Permite que el agente lea y extraiga todo el texto de un documento PDF.
+  </Accordion>
+  <Accordion title="Lectura de imágenes con OCR">
+    Una habilidad poderosa para extraer texto que está dentro de imágenes (como en un folleto escaneado o una captura de pantalla).
+  </Accordion>
+  <Accordion title="Lectura de páginas seleccionadas de un PDF">
+    Optimiza el proceso, permitiéndote indicar al agente que se enfoque solo en las páginas relevantes de un documento largo.
+  </Accordion>
+  <Accordion title="Web Scraping">
+    Convierte tu agente en un "lector de internet", capaz de extraer información de páginas web, como el contenido de un artículo o datos de un e-commerce.
+  </Accordion>
+  <Accordion title="Búsqueda en Google">
+    Permite que el agente haga una búsqueda en Google y use los resultados como base para su respuesta.
+  </Accordion>
+</AccordionGroup>
+
+### **Cómo funciona en la práctica: la secuencia de acciones**
+
+Cuando configurás un Step Avanzado, estás definiendo una línea de montaje para tu agente:
+
+<Columns cols={2}>
+  <Card icon="1" title="Entrada del usuario (opcional)">
+    Cuando sea necesario, el usuario proporciona el material inicial (ej: archivo PDF, una URL de un sitio). 
+  </Card>
+  <Card icon="2" title="Ejecución del Step Avanzado">
+    El agente ejecuta la acción que configuraste (ej: extrae el texto del PDF, hace el web scraping de la URL).
+  </Card>
+  <Card icon="3" title="Contextualización para la IA">
+    El resultado del step (el texto extraído, el contenido del sitio, en este caso específico) se proporciona automáticamente como información de contexto para el prompt de la IA en el espacio de la variable.
+  </Card>
+  <Card icon="4" title="Generación de la respuesta final">
+    La IA, ahora con la información recibida, ejecuta tu prompt principal (ej: "Creá una descripción de producto con base en el texto extraído") y entrega el resultado.
+  </Card>
+</Columns>
+
+### **Puntos de atención para un uso eficaz**
+
+<Card icon="1" title="Impacto en el tiempo de procesamiento">
+  Recordá que cada Step es una tarea adicional en el flujo de trabajo de tu agente. Esto puede aumentar un poco el tiempo de procesamiento para iniciar la conversación (agente de chat) o para entregar el resultado final (agente de texto). Por eso, usalos de forma estratégica, solo cuando realmente sean necesarios.
+</Card>
+
+<Card icon="2" title="No se ejecutan a lo largo de un chat">
+  Como el objetivo principal de un step es complementar el entrenamiento con tareas y recursos avanzados, se ejecutará al inicio de un chat o del procesamiento del agente de texto, de forma preliminar.
+
+  > Ejemplo:
+  >
+  > Sabemos que hay un agente que crea eventos en la agenda de Google Calendar. Este step no se activa a lo largo de una conversación en el chat, por ejemplo; se ejecuta al inicio, justo después de que el usuario complete los inputs necesarios.
+  >
+  > Entonces, si yo necesitara crear un agente que creara eventos en mi agenda, necesitaría:
+  >
+  > - Incluir un step para obtener la información de la agenda (App Integration)
+  > - Ejecutar un asistente de IA que vea los espacios disponibles y establezca el nuevo horario
+  > - Recolectar vía entradas la información requerida para crear un evento
+  > - Usar el step de creación de evento
+  >
+  > O sea, antes de conversar con el chat, todo eso tendría que pasar.
+</Card>
+
+<Card icon="3" title="La conexión crucial con el Prompt">
+  No alcanza con solo agregar un Step Avanzado; tenés que indicarle a la IA en tu prompt cómo usar la información que este proporciona. En otras palabras: traer el parámetro creado para el Step a tu prompt y encajarlo en el lugar adecuado dentro de la estructura del prompt.
+
+  Ejemplo: Si agregaste un step de "Extracción de texto de PDF", tu prompt principal debería incluir algo como:
+
+  “Con base en el texto extraído del documento, identificá los principales beneficios del producto y escribí tres párrafos sobre ellos: _texto-del-pdf_”
+
+  Esta instrucción conecta la acción del step con el razonamiento del LLM, garantizando que la información recolectada se use de forma eficaz.
+</Card>

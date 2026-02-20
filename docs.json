@@ -417,11 +417,18 @@
               },
               {
                 "group": "Entradas del usuario",
-                "pages": []
+                "pages": [
+                  "funcionamento-entradas-del-usuario",
+                  "texto-corto-y-largo",
+                  "seleccion-unica-ay-multiple",
+                  "upload-de-archivo"
+                ]
               },
               {
                 "group": "AI Steps",
-                "pages": []
+                "pages": [
+                  "funcionamento-ai-steps-1"
+                ]
               }
             ]
           },

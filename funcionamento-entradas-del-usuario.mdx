@@ -1,0 +1,75 @@
+---
+title: "Funcionamiento: Entradas del Usuario"
+---
+
+Al construir un agente en Agent Studio, es posible que también quieras que ejecute la misma tarea, pero con información diferente cada vez. Para eso existen las Entradas de Usuario (User Inputs).
+
+A diferencia de una conversación fluida en un agente de chat con un entrenamiento estático, las Entradas de Usuario son campos de configuración predefinidos que deben completarse para iniciar el uso del agente.
+
+### **¿Qué son las Entradas de Usuario?**
+
+Piensa en ellas como los campos de un formulario que creas para tu agente. En lugar de escribir un prompt largo y detallado con múltiples escenarios, guías al usuario y le pides que proporcione información esencial y específica que el agente necesita para completar su entrenamiento y comenzar a trabajar.
+
+En otras palabras, estas entradas son variables que complementan el entrenamiento del agente. Pero recuerda — no aparecen a lo largo del uso del agente, ya que son la condición inicial para que comience.
+
+### **Los Tipos de Entrada Disponibles**
+
+Puedes solicitar información al usuario de varias formas estructuradas:
+
+- <u>Texto Corto:</u> Para solicitar información breve y directa. Ideal para nombres, títulos, números o palabras clave.
+- <u>Texto Largo:</u> Permite que el usuario ingrese grandes bloques de texto. Perfecto para descripciones, artículos a resumir o instrucciones detalladas.
+- **Selección Única (Dropdown):** Presenta una lista de opciones donde el usuario solo puede elegir una. Ideal para limitar la respuesta a un escenario específico.
+- <u>Selección Múltiple (Checkboxes):</u> Ofrece una lista de opciones donde el usuario puede marcar varias. Excelente para capturar preferencias o múltiples intereses.
+- <u>Carga de Archivo:</u> Permite que el usuario adjunte un archivo (como audio, video o documento). Este tipo de entrada es especialmente poderoso cuando se conecta a un Step Avanzado (como transcripción de audio o extracción de texto de PDF) para procesar el archivo antes de que la IA utilice la información.
+
+### **Ejemplo: El Agente "Mad Libs"**
+
+Imagina que creaste un agente para escribir correos electrónicos de agradecimiento. El cuerpo del correo siempre será parecido, pero el nombre del cliente y el producto que compró cambian cada vez.
+
+> En lugar de enseñar al agente a escribir: "Escribe un correo de agradecimiento al cliente [NOMBRE] que compró el producto [PRODUCTO]", puedes crear dos Entradas de Usuario: nombre_del_cliente y producto_comprado.
+
+<Frame>
+  ![Image](/images/image-134.png)
+</Frame>
+
+Cuando un usuario vaya a usar tu agente, no verá un chat vacío, sino dos campos para completar. Solo después de completarlos y hacer clic en "Ejecutar", el agente iniciará su tarea, ya equipado con esa información y reemplazando las variables en el entrenamiento.
+
+<Frame>
+  ![Image](/images/image-134.png)
+</Frame>
+
+### **Cómo Funciona en la Práctica**
+
+Al construir el agente, definirás las Entradas de Usuario que tu agente necesita (ej.: nombre_de_empresa, publico_objetivo, idioma_de_salida).
+
+Después de eso, debes insertar estas entradas como variables — porque si no las referencias en el prompt, no serán consideradas en ninguna parte.
+
+La parte variable de tu prompt podría ser:
+
+> "Con estas directrices presentadas, crea ahora una publicación para Instagram para la empresa nombre_de_empresa, enfocada en el publico_objetivo. El texto debe estar en idioma_de_salida."
+
+**Para quien usa el agente:**
+
+Al seleccionar el agente, aparece una interfaz con los campos "Nombre de la Empresa", "Público Objetivo" e "Idioma de Salida". El usuario completa esos campos y los envía.
+
+El agente, en segundo plano, inserta la información completada en el prompt y finaliza el entrenamiento con ese nuevo contexto.
+
+### **Principales Ventajas**
+
+<Card title="Reutilización">
+  Convierte un agente genérico en aplicable a infinitos escenarios específicos.
+</Card>
+
+<Card title="Facilidad de Uso">
+  El usuario final no necesita aprender a escribir prompts complejos. Solo completa un formulario sencillo.
+</Card>
+
+<Card title="Estandarización">
+  Garantiza que la IA siempre reciba la información crucial en el formato que definiste, evitando errores y ambigüedades.
+</Card>
+
+<Info>
+  Las Entradas de Usuario son la mejor manera de convertir un prompt poderoso en una herramienta amigable y reutilizable. Además, ¡también podrán ser utilizadas como insumo en los steps avanzados!
+
+  Son el puente entre la complejidad de tu entrenamiento de IA y la simplicidad que tu usuario final necesita para ser productivo.
+</Info>

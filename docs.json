@@ -16,6 +16,7 @@
         "groups": [
           {
             "group": "Introduction",
+            "icon": "folder",
             "pages": [
               {
                 "group": "First Steps",
@@ -33,6 +34,7 @@
           },
           {
             "group": "Features",
+            "icon": "folder",
             "pages": [
               "memories",
               "tess-6-1-1",
@@ -129,14 +131,6 @@
             ]
           },
           {
-            "group": "Models",
-            "pages": []
-          },
-          {
-            "group": "API",
-            "pages": []
-          },
-          {
             "group": "Account",
             "pages": []
           }
@@ -147,6 +141,7 @@
         "tabs": [
           {
             "tab": "Introdução",
+            "icon": "folder",
             "groups": [
               {
                 "group": "Primeiros Passos",
@@ -164,6 +159,7 @@
           },
           {
             "tab": "Features",
+            "icon": "folders",
             "pages": [
               "memorias",
               "tess-6-1",
@@ -268,33 +264,6 @@
                   }
                 ]
               }
-            ]
-          },
-          {
-            "tab": "Modelos"
-          },
-          {
-            "tab": "API ",
-            "pages": [
-              {
-                "group": "Guia da API",
-                "pages": [
-                  "api-reference/introduction",
-                  "api-reference/inicio-rapido",
-                  "api-reference/limites-de-taxa",
-                  "api-reference/erros"
-                ]
-              },
-              {
-                "group": "Endpoint examples",
-                "pages": [
-                  "api-reference/endpoint/get",
-                  "api-reference/endpoint/create",
-                  "api-reference/endpoint/delete",
-                  "api-reference/endpoint/webhook"
-                ]
-              },
-              "tokens-de-api"
             ]
           },
           {
@@ -455,14 +424,6 @@
                 ]
               }
             ]
-          },
-          {
-            "group": "Modelos",
-            "pages": []
-          },
-          {
-            "group": "API",
-            "pages": []
           },
           {
             "group": "Cuenta",

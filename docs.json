@@ -11,6 +11,138 @@
   "navigation": {
     "languages": [
       {
+        "language": "en",
+        "default": true,
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              {
+                "group": "First Steps",
+                "icon": "door-open",
+                "pages": [
+                  "welcome-to-tess-ai",
+                  "concepts",
+                  "inicial-setup",
+                  "quickstart-2",
+                  "security-and-privacy",
+                  "mobile-app-1"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "memories",
+              "tess-6-1-1",
+              "max-mode",
+              "shareable-links",
+              "tess-pages-1",
+              "embedding",
+              "marketplace-1",
+              "ai-wallet"
+            ]
+          },
+          {
+            "group": "Chat & Tools",
+            "pages": [
+              {
+                "group": "Chat",
+                "pages": [
+                  "using-the-chat",
+                  "auto-mode",
+                  "knowledge-base",
+                  "history"
+                ]
+              },
+              {
+                "group": "Tools",
+                "pages": [
+                  "chat-tools",
+                  "internet-1",
+                  "image-generation",
+                  "video-generation",
+                  "video-editing",
+                  "voiceover",
+                  "podcast",
+                  "music",
+                  "deep-analysis",
+                  "manage-files",
+                  "avatar-1",
+                  "integrations"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Agent Studio",
+            "pages": [
+              {
+                "group": "Agents",
+                "pages": [
+                  "agent-types",
+                  "static-training",
+                  "dynamic-training",
+                  "knowledge-base-1",
+                  "advanced-settings",
+                  "visibility"
+                ]
+              },
+              {
+                "group": "Generators",
+                "pages": [
+                  "image-generator",
+                  "video-generator",
+                  "code-generator",
+                  "voiceover-generator",
+                  "transcription-generator"
+                ]
+              },
+              {
+                "group": "User Inputs",
+                "pages": [
+                  "how-it-works",
+                  "short-and-long-text",
+                  "single-and-multiple-selection",
+                  "untitled-page"
+                ]
+              },
+              {
+                "group": "AI Steps",
+                "pages": [
+                  "how-it-works-ai-steps",
+                  {
+                    "group": "Web Data Extraction",
+                    "pages": []
+                  },
+                  {
+                    "group": "Integrations",
+                    "pages": []
+                  },
+                  {
+                    "group": "Document Processing",
+                    "pages": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Models",
+            "pages": []
+          },
+          {
+            "group": "API",
+            "pages": []
+          },
+          {
+            "group": "Account",
+            "pages": []
+          }
+        ]
+      },
+      {
         "language": "pt-BR",
         "tabs": [
           {
@@ -208,182 +340,6 @@
         ]
       },
       {
-        "language": "en",
-        "groups": [
-          {
-            "group": "Introduction",
-            "pages": [
-              {
-                "group": "First Steps",
-                "icon": "door-open",
-                "pages": [
-                  "welcome-to-tess-ai",
-                  "concepts",
-                  "inicial-setup",
-                  "quickstart-2",
-                  "security-and-privacy",
-                  "mobile-app-1"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Features",
-            "pages": [
-              "memories",
-              "tess-6-1-1",
-              "max-mode",
-              "shareable-links",
-              "tess-pages-1",
-              "embedding",
-              "marketplace-1",
-              "ai-wallet"
-            ]
-          },
-          {
-            "group": "Chat & Tools",
-            "pages": [
-              {
-                "group": "Chat",
-                "pages": [
-                  "using-the-chat",
-                  "auto-mode",
-                  "knowledge-base",
-                  "history"
-                ]
-              },
-              {
-                "group": "Tools",
-                "pages": [
-                  "chat-tools",
-                  "internet-1",
-                  "image-generation",
-                  "video-generation",
-                  "video-editing",
-                  "voiceover",
-                  "podcast",
-                  "music",
-                  "deep-analysis",
-                  "manage-files",
-                  "avatar-1",
-                  "integrations"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Agent Studio",
-            "pages": [
-              {
-                "group": "Agents",
-                "pages": [
-                  "agent-types",
-                  "static-training",
-                  "dynamic-training",
-                  "knowledge-base-1",
-                  "advanced-settings",
-                  "visibility"
-                ]
-              },
-              {
-                "group": "Generators",
-                "pages": [
-                  "image-generator",
-                  "video-generator",
-                  "code-generator",
-                  "voiceover-generator",
-                  "transcription-generator"
-                ]
-              },
-              {
-                "group": "User Inputs",
-                "pages": [
-                  "how-it-works",
-                  "short-and-long-text",
-                  "single-and-multiple-selection",
-                  "untitled-page"
-                ]
-              },
-              {
-                "group": "AI Steps",
-                "pages": [
-                  "how-it-works-ai-steps",
-                  {
-                    "group": "Web Data Extraction",
-                    "pages": [
-                      "ai-step-web-data-extraction-1"
-                    ]
-                  },
-                  {
-                    "group": "Integrations",
-                    "pages": [
-                      "ai-step-app-integration",
-                      "ai-step-google-sheets-get-value-1",
-                      "ai-step-google-sheets-write-values"
-                    ]
-                  },
-                  {
-                    "group": "Document Processing",
-                    "pages": [
-                      "ai-step-google-ocr-pdf-and-image",
-                      "ai-step-extract-text-from-entire-pdf-1",
-                      "ai-step-read-pdf-selected-pages-1"
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Models",
-            "pages": []
-          },
-          {
-            "group": "API",
-            "pages": []
-          },
-          {
-            "group": "Account",
-            "pages": [
-              "teamboard",
-              "subscription-and-payment",
-              "shared-wallet",
-              "system-status",
-              "sso-1",
-              "refund",
-              {
-                "group": "Programs",
-                "pages": [
-                  "referral",
-                  "rewards"
-                ]
-              },
-              {
-                "group": "Settings",
-                "pages": [
-                  "your-account",
-                  "workspace-1",
-                  "preferences",
-                  "subscription",
-                  "upgrade-and-downgrade",
-                  "members-and-permissions",
-                  "knowledge-base-2",
-                  "monetization",
-                  "data-controls"
-                ]
-              },
-              {
-                "group": "Support",
-                "pages": [
-                  "support-contact",
-                  "remote-support"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
         "language": "es",
         "groups": [
           {
@@ -486,25 +442,15 @@
                   "funcionamento-ai-steps-1",
                   {
                     "group": "Web Data Extraction",
-                    "pages": [
-                      "ai-step-web-data-extraction-2"
-                    ]
+                    "pages": []
                   },
                   {
                     "group": "Integrations",
-                    "pages": [
-                      "ai-step-integracion-de-apps",
-                      "ai-step-google-sheets-get-value-2",
-                      "ai-step-google-sheets-write-value-1"
-                    ]
+                    "pages": []
                   },
                   {
                     "group": "Document Processing",
-                    "pages": [
-                      "ai-step-google-ocr-pdf-and-image-1",
-                      "ai-step-extract-text-from-entire-pdf-2",
-                      "ai-step-read-pdf-selected-pages-2"
-                    ]
+                    "pages": []
                   }
                 ]
               }
@@ -520,42 +466,7 @@
           },
           {
             "group": "Cuenta",
-            "pages": [
-              "painel-del-equipo",
-              "subscripcion-y-pago",
-              "cartera-commpartida",
-              "estado-del-sistema",
-              "sso-2",
-              "reembolso-1",
-              {
-                "group": "Programas",
-                "pages": [
-                  "afiliados-1",
-                  "recompensas-1"
-                ]
-              },
-              {
-                "group": "Configuración",
-                "pages": [
-                  "tu-cuenta",
-                  "workspace-2",
-                  "preferencias-1",
-                  "subscripcion",
-                  "upgrade-and-downgrade-1",
-                  "miembros-y-permisos",
-                  "base-de-conocimiento-2",
-                  "monetizacion",
-                  "control-de-datos"
-                ]
-              },
-              {
-                "group": "Soporte",
-                "pages": [
-                  "contacto-de-soporte",
-                  "soporte-remoto"
-                ]
-              }
-            ]
+            "pages": []
           }
         ]
       }
@@ -570,7 +481,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:suporte@tess.im"
+        "href": "mailto:support@tess.im"
       }
     ],
     "primary": {
@@ -593,8 +504,6 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
       "linkedin": "https://www.linkedin.com/company/tess-ai/",
       "instagram": "https://www.instagram.com/tessai.br",
       "youtube": "https://www.youtube.com/@tessai_br"

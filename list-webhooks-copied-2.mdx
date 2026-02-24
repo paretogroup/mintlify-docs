@@ -1,12 +1,12 @@
 ---
-title: "List Webhooks"
+title: "Listar Webhooks"
 ---
 
 `GET /webhooks`
 
-Returns a paginated list of webhooks.
+Recupera una lista paginada de webhooks para el usuario autenticado.
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
@@ -185,59 +185,39 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Query Parameters**
+### **Encabezados**
 
-| **Parameter** | **Type** | **Required** | **Description**                        |
-| :------------ | :------- | :----------- | :------------------------------------- |
-| page          | integer  | No           | Current page (default: 1)              |
-| per_page      | integer  | No           | Number of items per page (default: 15) |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
+</Note>
+
+### **Parámetros de Consulta**
+
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                                                         |
+| :------------ | :------- | :------------ | :---------------------------------------------------------------------- |
+| limit         | integer  | No            | Número máximo de elementos por página (predeterminado: 25, máximo: 100) |
+| offset        | integer  | No            | Número de elementos para saltar (predeterminado: 0)                     |
+
+### **Respuesta**
 
 ```json
 {
-"current_page": 1,
-"data": [
+"webhooks": [
   {
-    "id": 19,
-    "template_id": 8794,
-    "user_id": 0,
-    "url": "https://webhook.site/3bea4d55-0734-4bbd-aab9-95639585e539",
-    "method": "POST",
-    "success_count": 0,
-    "failure_count": 0,
-    "status": "active",
-    "created_at": "2025-01-05T23:49:03.000000Z",
-    "updated_at": "2025-01-05T23:49:03.000000Z",
-    "deleted_at": null
+    "id": 123,
+    "url": "https://example.com/webhook",
+    "events": ["agent.completed", "agent.failed"],
+    "secret": "whsec_...",
+    "created_at": "2025-01-05T22:39:57+00:00",
+    "updated_at": "2025-01-05T22:39:57+00:00"
   }
 ],
-"first_page_url": "https://api.tess.im/webhooks?page=1",
-"from": 1,
-"last_page": 1,
-"last_page_url": "https://api.tess.im/webhooks?page=1",
-"links": [
-  {
-    "url": null,
-    "label": "pagination.previous",
-    "active": false
-  },
-  {
-    "url": "https://api.tess.im/webhooks?page=1",
-    "label": "1",
-    "active": true
-  },
-  {
-    "url": null,
-    "label": "pagination.next",
-    "active": false
-  }
-],
-"next_page_url": null,
-"path": "https://api.tess.im/webhooks",
-"per_page": 15,
-"prev_page_url": null,
-"to": 1,
-"total": 1
+"total": 1,
+"limit": 25,
+"offset": 0
 }
 ```

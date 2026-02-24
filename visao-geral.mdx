@@ -2,97 +2,84 @@
 title: "Visão Geral"
 ---
 
-Bem-vindo à documentação da API Tess AI! Este guia ajudará você a começar com nossa API e entender como integrar as poderosas capacidades da Tess AI em suas aplicações.
+A API da Tess AI usa códigos de resposta HTTP convencionais para indicar o sucesso ou a falha de uma requisição. Em geral:
 
-### **URL Base**
+- Códigos na faixa `2xx` indicam sucesso
+- Códigos na faixa `4xx` indicam um erro causado pelas informações fornecidas
+- Códigos na faixa `5xx` indicam um erro nos nossos servidores (esses são raros)
 
-Todas as requisições de API devem ser feitas para a seguinte URL base:
+## **Códigos de Status HTTP**
 
-```
-https://api.tess.im
-```
+| **Código de Status** | **Descrição**                                                        | **Causas Comuns**                                               |
+| :------------------- | :------------------------------------------------------------------- | :-------------------------------------------------------------- |
+| 200                  | Success - A requisição foi bem-sucedida                              | Requisição concluída conforme esperado                          |
+| 201                  | Created - O recurso foi criado com sucesso                           | Novo webhook criado com sucesso                                 |
+| 400                  | Bad Request - A requisição era inválida                              | Campos obrigatórios ausentes, valores de parâmetro inválidos    |
+| 403                  | Forbidden - Falha na autenticação                                    | Chave de API inválida, token expirado, permissões insuficientes |
+| 413                  | Payload Too Large - O corpo da requisição excede o tamanho permitido | Arquivo excede o tamanho máximo de upload                       |
+| 429                  | Rate Limited - Muitas requisições                                    | Rate limits da API excedidos                                    |
+| 500                  | Internal Server Error - Problema no servidor                         | Erro inesperado no servidor (entre em contato com o suporte)    |
 
-### **Autenticação**
+## **Tipos de Erros e Exemplos**
 
-Todas as requisições de API requerem autenticação usando uma chave de API. Você pode obter sua chave de API no [Painel Tess AI](https://tess.im/dashboard).
+### **Erros de Autenticação (403)**
 
-Para autenticar suas requisições, inclua sua chave de API no cabeçalho `Authorization`:
-
-```
-Authorization: Bearer YOUR_API_KEY
-```
-
-### **Endpoints da API**
-
-A API Tess AI fornece as seguintes categorias principais de endpoints:
-
-#### **Agentes**
-
-| **Endpoint**            | **Método** | **Descrição**                        | **Documentação**                                                                         |
-| :---------------------- | :--------- | :----------------------------------- | :--------------------------------------------------------------------------------------- |
-| `/agents`               | GET        | Listar todos os agentes              | [Listar Agentes](https://docs.tess.im/pt-BR/api/endpoints/agents/list)                   |
-| `/agents/{id}`          | GET        | Obter um agente específico           | [Obter Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/get)                      |
-| `/agents/{id}/execute`  | POST       | Executar um agente                   | [Executar Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/execute)               |
-| `/agent-responses/{id}` | GET        | Obter resposta de execução do agente | [Obter Resposta do Agente](https://docs.tess.im/pt-BR/api/endpoints/agent-responses/get) |
-
-#### **Arquivos do Agente**
-
-| **Endpoint**                       | **Método** | **Descrição**               | **Documentação**                                                                          |
-| :--------------------------------- | :--------- | :-------------------------- | :---------------------------------------------------------------------------------------- |
-| `/agents/{agentId}/files`          | GET        | Listar arquivos do agente   | [Listar Arquivos do Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/files/list)   |
-| `/agents/{agentId}/files`          | POST       | Vincular arquivos ao agente | [Vincular Arquivos ao Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/files/link) |
-| `/agents/{agentId}/files/{fileId}` | DELETE     | Excluir arquivo do agente   | [Excluir Arquivo do Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/files/delete) |
-
-#### **Webhooks do Agente**
-
-| **Endpoint**            | **Método** | **Descrição**             | **Documentação**                                                                           |
-| :---------------------- | :--------- | :------------------------ | :----------------------------------------------------------------------------------------- |
-| `/agents/{id}/webhooks` | GET        | Listar webhooks do agente | [Listar Webhooks do Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/webhooks/list) |
-| `/agents/{id}/webhooks` | POST       | Criar webhook do agente   | [Criar Webhook do Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/webhooks/create) |
-
-#### **Memórias**
-
-| **Endpoint**           | **Método** | **Descrição**            | **Documentação**                                                              |
-| :--------------------- | :--------- | :----------------------- | :---------------------------------------------------------------------------- |
-| `/memories`            | GET        | Listar todas as memórias | [Listar Memórias](https://docs.tess.im/pt-BR/api/endpoints/memories/list)     |
-| `/memories`            | POST       | Criar uma memória        | [Criar Memória](https://docs.tess.im/pt-BR/api/endpoints/memories/create)     |
-| `/memories/{memoryId}` | PATCH      | Atualizar uma memória    | [Atualizar Memória](https://docs.tess.im/pt-BR/api/endpoints/memories/update) |
-| `/memories/{memoryId}` | DELETE     | Excluir uma memória      | [Excluir Memória](https://docs.tess.im/pt-BR/api/endpoints/memories/delete)   |
-
-#### **Coleções de Memória**
-
-| **Endpoint**                          | **Método** | **Descrição**            | **Documentação**                                                                        |
-| :------------------------------------ | :--------- | :----------------------- | :-------------------------------------------------------------------------------------- |
-| `/memory-collections`                 | GET        | Listar todas as coleções | [Listar Coleções](https://docs.tess.im/pt-BR/api/endpoints/memory-collections/list)     |
-| `/memory-collections`                 | POST       | Criar uma coleção        | [Criar Coleção](https://docs.tess.im/pt-BR/api/endpoints/memory-collections/create)     |
-| `/memory-collections/{collection_id}` | PUT        | Atualizar uma coleção    | [Atualizar Coleção](https://docs.tess.im/pt-BR/api/endpoints/memory-collections/update) |
-| `/memory-collections/{collection_id}` | DELETE     | Excluir uma coleção      | [Excluir Coleção](https://docs.tess.im/pt-BR/api/endpoints/memory-collections/delete)   |
-
-#### **Arquivos**
-
-| **Endpoint**              | **Método** | **Descrição**              | **Documentação**                                                                 |
-| :------------------------ | :--------- | :------------------------- | :------------------------------------------------------------------------------- |
-| `/files`                  | GET        | Listar todos os arquivos   | [Listar Arquivos](https://docs.tess.im/pt-BR/api/endpoints/files/list)           |
-| `/files`                  | POST       | Fazer upload de um arquivo | [Fazer Upload de Arquivo](https://docs.tess.im/pt-BR/api/endpoints/files/upload) |
-| `/files/{fileId}`         | GET        | Obter detalhes do arquivo  | [Obter Arquivo](https://docs.tess.im/pt-BR/api/endpoints/files/get)              |
-| `/files/{fileId}`         | DELETE     | Excluir um arquivo         | [Excluir Arquivo](https://docs.tess.im/pt-BR/api/endpoints/files/delete)         |
-| `/files/{fileId}/process` | POST       | Processar um arquivo       | [Processar Arquivo](https://docs.tess.im/pt-BR/api/endpoints/files/process)      |
-
-#### **Webhooks**
-
-| **Endpoint**     | **Método** | **Descrição**            | **Documentação**                                                            |
-| :--------------- | :--------- | :----------------------- | :-------------------------------------------------------------------------- |
-| `/webhooks`      | GET        | Listar todos os webhooks | [Listar Webhooks](https://docs.tess.im/pt-BR/api/endpoints/webhooks/list)   |
-| `/webhooks/{id}` | DELETE     | Excluir um webhook       | [Excluir Webhook](https://docs.tess.im/pt-BR/api/endpoints/webhooks/delete) |
-
-### **Formato de Requisição**
-
-A maioria dos endpoints da API aceita corpos de requisição codificados em JSON. Certifique-se de incluir o seguinte cabeçalho em suas requisições:
+Esses erros ocorrem quando há um problema com sua chave de API:
 
 ```
-Content-Type: application/json
+{
+"error": "Invalid authentication"
+}
 ```
 
-### **Formato de Resposta**
+Causas comuns:
 
-Todas as respostas da API são retornadas em formato JSON. Uma resposta bem-sucedida normalmente terá um código de status HTTP `2xx` e conterá os dados solicitados. Respostas de erro terão um código de status `4xx` ou `5xx` e incluirão uma mensagem de erro.
+- Chave de API inválida
+- Chave de API expirada
+- Header de Authorization ausente
+- Permissões insuficientes
+
+### **Erros de Validação (400)**
+
+Ocorrem quando os dados da requisição não atendem aos requisitos:
+
+```
+{
+"error": "Validation failed",
+"messages": {
+"url": ["The url field must be a valid HTTPS URL"],
+"method": ["The method must be one of: POST, GET"]
+}
+}
+```
+
+Regras de validação comuns:
+
+- **Webhooks**
+  - A URL deve ser uma URL HTTPS válida
+  - O método deve ser POST ou GET
+  - O status deve ser "active" ou "inactive"
+- **Arquivos**
+  - O arquivo deve ser fornecido para upload
+  - O flag de processamento é opcional (padrão: false)
+
+### **Erros de Rate Limit (429)**
+
+Ocorrem quando você excedeu os rate limits da API:
+
+```
+{
+"error": "Rate limit exceeded",
+"retry_after": 60
+}
+```
+
+### **Erros de Servidor (500)**
+
+Indicam um problema no nosso lado:
+
+```
+{
+"error": "Internal server error"
+}
+```

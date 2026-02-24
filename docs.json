@@ -414,10 +414,10 @@
                 ]
               },
               {
-                "group": "API Reference",
+                "group": "Referência da API",
                 "pages": [
                   {
-                    "group": "Agents",
+                    "group": "Agentes",
                     "pages": [
                       "list-agent-copied-1",
                       "get-agent-copied-1",
@@ -428,7 +428,7 @@
                     ]
                   },
                   {
-                    "group": "Agent Files",
+                    "group": "Arquivos do Agente",
                     "pages": [
                       "list-agent-files-copied-1",
                       "link-files-to-agent-copied-1",
@@ -436,14 +436,14 @@
                     ]
                   },
                   {
-                    "group": "Agent Webhooks",
+                    "group": "Webhooks do Agente",
                     "pages": [
                       "list-agent-webhooks-copied-1",
                       "create-agent-webhook-copied-1"
                     ]
                   },
                   {
-                    "group": "Memories",
+                    "group": "Memórias",
                     "pages": [
                       "list-memories-copied-1",
                       "create-memory-copied-1",
@@ -452,7 +452,7 @@
                     ]
                   },
                   {
-                    "group": "Memory Collections",
+                    "group": "Coleções de Memórias",
                     "pages": [
                       "list-collections-copied-1",
                       "create-memory-collection-copied-1",
@@ -461,7 +461,7 @@
                     ]
                   },
                   {
-                    "group": "Files",
+                    "group": "Arquivos",
                     "pages": [
                       "list-files-copied-1",
                       "upload-file-copied-1",
@@ -480,7 +480,7 @@
                 ]
               },
               {
-                "group": "Integrations",
+                "group": "Integrações",
                 "pages": [
                   "integration-with-make-copied-1",
                   "integration-with-zapier-copied-1",
@@ -489,7 +489,7 @@
                 ]
               },
               {
-                "group": "Model Context Protocol (MCP)",
+                "group": "Protocolo de Contexto de Modelo (MCP)",
                 "pages": [
                   "mcp-copied-1"
                 ]
@@ -623,7 +623,7 @@
             "group": "API",
             "pages": [
               {
-                "group": "Guia da API",
+                "group": "Guía de API",
                 "pages": [
                   "visao-geral-copied-1",
                   "inicio-rapido-copied-1",
@@ -633,10 +633,10 @@
                 ]
               },
               {
-                "group": "API Reference",
+                "group": "Referencia de API",
                 "pages": [
                   {
-                    "group": "Agents",
+                    "group": "Agentes",
                     "pages": [
                       "list-agent-copied-2",
                       "get-agent-copied-2",
@@ -647,7 +647,7 @@
                     ]
                   },
                   {
-                    "group": "Agent Files",
+                    "group": "Archivos del Agente",
                     "pages": [
                       "list-agent-files-copied-2",
                       "link-files-to-agent-copied-2",
@@ -655,14 +655,14 @@
                     ]
                   },
                   {
-                    "group": "Agent Webhooks",
+                    "group": "Webhooks del Agente",
                     "pages": [
                       "list-agent-webhooks-copied-2",
                       "create-agent-webhook-copied-2"
                     ]
                   },
                   {
-                    "group": "Memories",
+                    "group": "Memorias",
                     "pages": [
                       "list-memories-copied-2",
                       "create-memory-copied-2",
@@ -671,7 +671,7 @@
                     ]
                   },
                   {
-                    "group": "Memory Collections",
+                    "group": "Colecciones de Memoria",
                     "pages": [
                       "list-collections-copied-2",
                       "create-memory-collection-copied-2",
@@ -680,7 +680,7 @@
                     ]
                   },
                   {
-                    "group": "Files",
+                    "group": "Archivos",
                     "pages": [
                       "list-files-copied-2",
                       "upload-file-copied-2",
@@ -699,7 +699,7 @@
                 ]
               },
               {
-                "group": "Integrations",
+                "group": "Integraciones",
                 "pages": [
                   "integration-with-make-copied-2",
                   "integration-with-zapier-copied-2",
@@ -708,7 +708,7 @@
                 ]
               },
               {
-                "group": "Model Context Protocol (MCP)",
+                "group": "Protocolo de Contexto de Modelo (MCP)",
                 "pages": [
                   "mcp-copied-2"
                 ]

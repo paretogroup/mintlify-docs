@@ -1,12 +1,12 @@
 ---
-title: "Execute Agent Stream"
+title: "Ejecutar Agente en Stream"
 ---
 
 `POST /agents/{id}/execute`
 
-Execute a specific **chat** agent by ID.
+Ejecuta un agente de **chat** específico por ID.
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
@@ -422,35 +422,35 @@ sleep
 
 </CodeGroup>
 
-### **Headers**
+### **Encabezados**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
 </Note>
 
-### **Path Parameters**
+### **Parámetros de Ruta**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The agent ID    |
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**  |
+| :------------ | :------- | :------------ | :--------------- |
+| id            | integer  | Sí            | El ID del agente |
 
-### **Request Body**
+### **Cuerpo de la Solicitud**
 
-| **Parameter** | **Type** | **Required**        | **Description**                                                          |
-| :------------ | :------- | :------------------ | :----------------------------------------------------------------------- |
-| stream        | boolean  | No                  | Streams the output using the Server-Sent Events format. Default: `false` |
-| answers       | object   | Yes                 | The agent answers                                                        |
-| messages      | array    | Only for Chat Agent | The agent messages                                                       |
-| file_ids      | array    | No                  | Array of file IDs to attach to the execution.                            |
+| **Parámetro** | **Tipo** | **Requerido**            | **Descripción**                                                                   |
+| :------------ | :------- | :----------------------- | :-------------------------------------------------------------------------------- |
+| stream        | boolean  | No                       | Transmite la salida usando el formato Server-Sent Events. Predeterminado: `false` |
+| answers       | object   | Sí                       | Las respuestas del agente                                                         |
+| messages      | array    | Solo para Agente de Chat | Los mensajes del agente                                                           |
+| file_ids      | array    | No                       | Array de IDs de archivos para adjuntar a la ejecución.                            |
 
-### **Response**
+### **Respuesta**
 
-```json wrap
-data: {"id": 123, "status": "running", "output": "Hi!", "error": null, "credits": null, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
+```json
+data: {"id": 123, "status": "running", "output": "¡Hola!", "error": null, "credits": null, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
 
 data: {"id": 123, "status": "completed", "output": "", "error": null, "credits": 10, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
 ```

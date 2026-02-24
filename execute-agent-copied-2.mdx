@@ -1,12 +1,12 @@
 ---
-title: "Execute Agent"
+title: "Ejecutar Agente"
 ---
 
 `POST /agents/{id}/execute`
 
-Execute a specific agent by ID.
+Ejecuta un agente específico por ID.
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
@@ -295,77 +295,77 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Headers**
+### **Encabezados**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
 </Note>
 
-### **Path Parameters**
+### **Parámetros de Ruta**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The agent ID    |
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**  |
+| :------------ | :------- | :------------ | :--------------- |
+| id            | integer  | Sí            | El ID del agente |
 
-### **Request Body**
+### **Cuerpo de la Solicitud**
 
-| **Parameter**  | **Type** | **Required**        | **Description**                                                                                                                                                                                                                           |
-| :------------- | :------- | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| answers        | object   | Yes                 | The agent answers                                                                                                                                                                                                                         |
-| messages       | array    | Only for Chat Agent | The agent messages                                                                                                                                                                                                                        |
-| wait_execution | boolean  | No                  | Indicates whether the execution should wait until completion. The timeout is 100 seconds. For longer executions, use `wait_execution=false` in combination with the Get Agent Response endpoint with a polling strategy (default: false). |
-| file_ids       | array    | No                  | Array of file IDs to attach to the execution.                                                                                                                                                                                             |
+| **Parámetro**  | **Tipo** | **Requerido**            | **Descripción**                                                                                                                                                                                                                                                          |
+| :------------- | :------- | :----------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| answers        | object   | Sí                       | Las respuestas del agente                                                                                                                                                                                                                                                |
+| messages       | array    | Solo para Agente de Chat | Los mensajes del agente                                                                                                                                                                                                                                                  |
+| wait_execution | boolean  | No                       | Indica si la ejecución debe esperar hasta completarse. El tiempo de espera es de 100 segundos. Para ejecuciones más largas, use `wait_execution=false` en combinación con el endpoint Obtener Respuesta del Agente con una estrategia de sondeo (predeterminado: false). |
+| file_ids       | array    | No                       | Array de IDs de archivos para adjuntar a la ejecución.                                                                                                                                                                                                                   |
 
-#### **Messages Roles (Chat Type Templates)**
+#### **Roles de Mensajes (Plantillas de Tipo Chat)**
 
-For chat type templates, the `messages` array supports the following roles:
+Para plantillas de tipo chat, el array `messages` admite los siguientes roles:
 
-| **Role**    | **Required** | **Description**                                                                 |
-| :---------- | :----------- | :------------------------------------------------------------------------------ |
-| `user`      | Yes          | User messages. Must be paired with `assistant` messages.                        |
-| `assistant` | Yes          | Assistant messages. Must be paired with `user` messages.                        |
-| `developer` | No           | Optional developer message. **Only allowed as the first message** in the array. |
-| `system`    | No           | **Not supported**. Using this role will cause an error.                         |
+| **Rol**     | **Requerido** | **Descripción**                                                                            |
+| :---------- | :------------ | :----------------------------------------------------------------------------------------- |
+| `user`      | Sí            | Mensajes del usuario. Deben estar emparejados con mensajes `assistant`.                    |
+| `assistant` | Sí            | Mensajes del asistente. Deben estar emparejados con mensajes `user`.                       |
+| `developer` | No            | Mensaje opcional del desarrollador. **Solo permitido como el primer mensaje** en el array. |
+| `system`    | No            | **No soportado**. Usar este rol causará un error.                                          |
 
-**Important rules:**
+**Reglas importantes:**
 
-- Messages must alternate between `user` and `assistant` roles (after the optional `developer` message).
-- The `developer` role can only appear as the first message in the array and will be extracted before processing the rest.
-- If two consecutive messages have the same role (e.g., two `user` messages), the API will return a validation error: "Chat messages must be a pair of user/assistant".
-- The `system` role is not supported and will cause an error.
+- Los mensajes deben alternar entre los roles `user` y `assistant` (después del mensaje opcional `developer`).
+- El rol `developer` solo puede aparecer como el primer mensaje en el array y será extraído antes de procesar el resto.
+- Si dos mensajes consecutivos tienen el mismo rol (por ejemplo, dos mensajes `user`), la API devolverá un error de validación: "Chat messages must be a pair of user/assistant".
+- El rol `system` no está soportado y causará un error.
 
-**Example with developer message:**
+**Ejemplo con mensaje developer:**
 
-```json
+```
 {
   "messages": [
-    { "role": "developer", "content": "You are a helpful assistant." },
-    { "role": "user", "content": "Hello!" },
-    { "role": "assistant", "content": "Hi there! How can I help you?" },
-    { "role": "user", "content": "What's the weather like?" }
+    { "role": "developer", "content": "Eres un asistente útil." },
+    { "role": "user", "content": "¡Hola!" },
+    { "role": "assistant", "content": "¡Hola! ¿Cómo puedo ayudarte?" },
+    { "role": "user", "content": "¿Cómo está el clima?" }
   ]
 }
 ```
 
-**Example without developer message:**
+**Ejemplo sin mensaje developer:**
 
-```json
+```
 {
   "messages": [
-    { "role": "user", "content": "Hello!" },
-    { "role": "assistant", "content": "Hi there! How can I help you?" },
-    { "role": "user", "content": "What's the weather like?" }
+    { "role": "user", "content": "¡Hola!" },
+    { "role": "assistant", "content": "¡Hola! ¿Cómo puedo ayudarte?" },
+    { "role": "user", "content": "¿Cómo está el clima?" }
   ]
 }
 ```
 
-Get more details of which options are accepted by this Agent requesting this endpoint: [Get Agent](https://docs.tess.im/api/endpoints/agents/get)
+Obtenga más detalles sobre qué opciones acepta este Agente solicitando este endpoint: [Obtener Agente](https://docs.tess.im/es/api/endpoints/agents/get)
 
-### **Response**
+### **Respuesta**
 
 ```json
 {

@@ -1,41 +1,41 @@
 ---
-title: "Integration with n8n"
+title: "Integración con n8n"
 ---
 
-### **What is n8n?**
+## **¿Qué es n8n?**
 
-n8n is an open-source automation platform that allows you to create custom workflows by connecting different services and APIs. With its flexibility, n8n is ideal for companies looking for tailored automation solutions.
+n8n es una plataforma de automatización de código abierto que permite crear flujos de trabajo personalizados conectando diferentes servicios y APIs. Con su flexibilidad, n8n es ideal para empresas que buscan soluciones de automatización personalizadas.
 
-### **Benefits of integrating Tess with n8n**
+## **Beneficios de integrar Tess con n8n**
 
-- Create advanced and custom automations with Tess and other services.
-- Easily integrate with APIs and internal systems.
-- Reduce manual tasks and increase productivity.
-- Leverage the power of open source to adapt integrations as needed.
+- Crea automatizaciones avanzadas y personalizadas con Tess y otros servicios.
+- Integra fácilmente con APIs y sistemas internos.
+- Reduce tareas manuales y aumenta la productividad.
+- Aprovecha el poder del código abierto para adaptar integraciones según sea necesario.
 
-### **Step-by-Step: Triggering a Tess AI Agent from n8n**
+## **Paso a Paso: Activando un Agente Tess AI desde n8n**
 
-Want to connect n8n with Tess AI? Here's a quick and friendly guide to get you started!
+¿Quieres conectar n8n con Tess AI? ¡Aquí tienes una guía rápida y amigable para comenzar!
 
 <Steps>
-  <Step title="Create a New Workflow">
-    Open n8n and start a new workflow. Each step (node) represents an action or service.
+  <Step title="Crea un Nuevo Flujo de Trabajo">
+    Abre n8n y inicia un nuevo flujo de trabajo. Cada paso (nodo) representa una acción o servicio.
   </Step>
-  <Step title="Add an HTTP Request Node">
-    Search for "HTTP Request" in the node panel and add it to your workflow. This node will send a message to your Tess AI agent.
+  <Step title="Agrega un Nodo de Solicitud HTTP">
+    Busca "HTTP Request" en el panel de nodos y agrégalo a tu flujo de trabajo. Este nodo enviará un mensaje a tu agente Tess AI.
   </Step>
-  <Step title="Configure the HTTP Request">
-    - **URL:** Use `https://api.tess.ai/agents/{agent_id}/execute` (replace `{agent_id}` with your agent's ID, found in the Tess AI platform URL).
-    - **Method:** Set to `POST`.
-    - **Headers:** Add `Authorization: Bearer {your_token}` (generate your API token in Tess AI under "API Tokens").
-    - **Body:** Set to `JSON` and include the message you want to send, e.g.:
+  <Step title="Configura la Solicitud HTTP">
+    - **URL:** Usa `https://api.tess.ai/agents/{agent_id}/execute` (reemplaza `{agent_id}` con el ID de tu agente, encontrado en la URL de la plataforma Tess AI).
+    - **Método:** Configura como `POST`.
+    - **Encabezados:** Agrega `Authorization: Bearer {your_token}` (genera tu token de API en Tess AI bajo "API Tokens").
+    - **Cuerpo:** Configura como `JSON` e incluye el mensaje que quieres enviar, ej.:
 
-      ```json
+      ```
          {
          "temperature": "1",
          "model": "tess-5",
          "messages": [
-             { "role": "user", "content": "Hello, how can you help me today?" }
+             { "role": "user", "content": "Hola, ¿cómo puedes ayudarme hoy?" }
          ],
          "tools": "no-tools",
          "wait_execution": true,
@@ -44,25 +44,25 @@ Want to connect n8n with Tess AI? Here's a quick and friendly guide to get you s
       
       ```
 
-      (You can use n8n expressions to insert dynamic values from previous nodes, like WhatsApp messages.)
+      (Puedes usar expresiones de n8n para insertar valores dinámicos de nodos anteriores, como mensajes de WhatsApp.)
   </Step>
-  <Step title="Wait for the Agent's Response">
-    Make sure to include the parameter "wait_execution": true in your request body. This tells Tess AI to wait for the agent's response before moving on, so you can use the reply in the next steps.
+  <Step title="Espera la Respuesta del Agente">
+    Asegúrate de incluir el parámetro "wait_execution": true en el cuerpo de la solicitud. Esto le dice a Tess AI que espere la respuesta del agente antes de continuar, para que puedas usar la respuesta en los siguientes pasos.
   </Step>
-  <Step title="Test Your Flow">
-    Save and run your workflow. Check the output of the HTTP node to see the agent's response. If something's off, double-check your token, agent ID, and JSON formatting.
+  <Step title="Prueba Tu Flujo">
+    Guarda y ejecuta tu flujo de trabajo. Verifica la salida del nodo HTTP para ver la respuesta del agente. Si algo anda mal, verifica nuevamente tu token, ID del agente y formato JSON.
   </Step>
-  <Step title="Send the Response Back">
-    Want to reply to a user (e.g., on WhatsApp)? Add another node after the HTTP Request to send the agent's answer back.
+  <Step title="Envía la Respuesta de Vuelta">
+    ¿Quieres responder a un usuario (ej.: en WhatsApp)? Agrega otro nodo después de la Solicitud HTTP para enviar la respuesta del agente de vuelta.
   </Step>
 </Steps>
 
 <Tip>
-  **Tips:**
+  **Consejos:**
 
-  - Keep your API token safe—never share it publicly!
-  - You can remove advanced parameters from the request if they're already set up in your agent.
-  - Always validate user input before sending it to the agent.
+  - ¡Mantén tu token de API seguro—nunca lo compartas públicamente!
+  - Puedes eliminar parámetros avanzados de la solicitud si ya están configurados en tu agente.
+  - Siempre valida la entrada del usuario antes de enviarla al agente.
 </Tip>
 
-For more details, check the [official Tess AI help article](https://help.tessai.io/en/articles/135-%F0%9F%8E%A5como-criar-uma-requisicao-para-acionar-um-agente-na-tess-ai-usando-o-n8n%F0%9F%97%92%EF%B8%8F).
+Para más detalles, consulta el [artículo de ayuda oficial de Tess AI](https://help.tessai.io/en/articles/135-%F0%9F%8E%A5como-criar-uma-requisicao-para-acionar-um-agente-na-tess-ai-usando-o-n8n%F0%9F%97%92%EF%B8%8F).

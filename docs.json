@@ -253,102 +253,6 @@
             ]
           },
           {
-            "group": "API",
-            "pages": [
-              {
-                "group": "API Guide",
-                "pages": [
-                  "overview-copied-1",
-                  "quickstart-api-copied-1",
-                  "max-mode-2-copied-1",
-                  "rate-limits-copied-1",
-                  "errors-copied-1"
-                ]
-              },
-              {
-                "group": "API Reference",
-                "pages": [
-                  {
-                    "group": "Agents",
-                    "pages": [
-                      "list-agent-copied-1",
-                      "get-agent-copied-1",
-                      "execute-agent-copied-1",
-                      "execute-agent-stream-copied-1",
-                      "execute-open-ai-compatible-copied-1",
-                      "get-agent-response-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Agent Files",
-                    "pages": [
-                      "list-agent-files-copied-1",
-                      "link-files-to-agent-copied-1",
-                      "delete-agent-file-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Agent Webhooks",
-                    "pages": [
-                      "list-agent-webhooks-copied-1",
-                      "create-agent-webhook-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Memories",
-                    "pages": [
-                      "list-memories-copied-1",
-                      "create-memory-copied-1",
-                      "update-memory-copied-1",
-                      "delete-memory-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Memory Collections",
-                    "pages": [
-                      "list-collections-copied-1",
-                      "create-memory-collection-copied-1",
-                      "update-memory-collection-copied-1",
-                      "delete-memory-collection-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Files",
-                    "pages": [
-                      "list-files-copied-1",
-                      "upload-file-copied-1",
-                      "get-file-copied-1",
-                      "delete-file-copied-1",
-                      "process-file-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Webhooks",
-                    "pages": [
-                      "list-webhooks-copied-1",
-                      "delete-webhook-copied-1"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Integrations",
-                "pages": [
-                  "integration-with-make-copied-1",
-                  "integration-with-zapier-copied-1",
-                  "integration-with-whats-app-via-make-copied-1",
-                  "integration-with-n8n-copied-1"
-                ]
-              },
-              {
-                "group": "Model Context Protocol (MCP)",
-                "pages": [
-                  "mcp-copied-1"
-                ]
-              }
-            ]
-          },
-          {
             "group": "Features",
             "pages": [
               "memorias",
@@ -492,6 +396,102 @@
                 "pages": [
                   "contato-de-suporte",
                   "suporte-remoto"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "API",
+            "pages": [
+              {
+                "group": "Guia da API",
+                "pages": [
+                  "visao-geral",
+                  "inicio-rapido",
+                  "max-mode-2-copied-1",
+                  "rate-limits-copied-1",
+                  "errors-copied-1"
+                ]
+              },
+              {
+                "group": "API Reference",
+                "pages": [
+                  {
+                    "group": "Agents",
+                    "pages": [
+                      "list-agent-copied-1",
+                      "get-agent-copied-1",
+                      "execute-agent-copied-1",
+                      "execute-agent-stream-copied-1",
+                      "execute-open-ai-compatible-copied-1",
+                      "get-agent-response-copied-1"
+                    ]
+                  },
+                  {
+                    "group": "Agent Files",
+                    "pages": [
+                      "list-agent-files-copied-1",
+                      "link-files-to-agent-copied-1",
+                      "delete-agent-file-copied-1"
+                    ]
+                  },
+                  {
+                    "group": "Agent Webhooks",
+                    "pages": [
+                      "list-agent-webhooks-copied-1",
+                      "create-agent-webhook-copied-1"
+                    ]
+                  },
+                  {
+                    "group": "Memories",
+                    "pages": [
+                      "list-memories-copied-1",
+                      "create-memory-copied-1",
+                      "update-memory-copied-1",
+                      "delete-memory-copied-1"
+                    ]
+                  },
+                  {
+                    "group": "Memory Collections",
+                    "pages": [
+                      "list-collections-copied-1",
+                      "create-memory-collection-copied-1",
+                      "update-memory-collection-copied-1",
+                      "delete-memory-collection-copied-1"
+                    ]
+                  },
+                  {
+                    "group": "Files",
+                    "pages": [
+                      "list-files-copied-1",
+                      "upload-file-copied-1",
+                      "get-file-copied-1",
+                      "delete-file-copied-1",
+                      "process-file-copied-1"
+                    ]
+                  },
+                  {
+                    "group": "Webhooks",
+                    "pages": [
+                      "list-webhooks-copied-1",
+                      "delete-webhook-copied-1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Integrations",
+                "pages": [
+                  "integration-with-make-copied-1",
+                  "integration-with-zapier-copied-1",
+                  "integration-with-whats-app-via-make-copied-1",
+                  "integration-with-n8n-copied-1"
+                ]
+              },
+              {
+                "group": "Model Context Protocol (MCP)",
+                "pages": [
+                  "mcp-copied-1"
                 ]
               }
             ]

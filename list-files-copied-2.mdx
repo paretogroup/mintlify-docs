@@ -1,13 +1,13 @@
 ---
-title: "List Files"
+title: "Listar Archivos"
 tag: "GET"
 ---
 
 `GET /files`
 
-Retrieve a paginated list of files with sorting options.
+Recupera una lista paginada de archivos con opciones de ordenación.
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
@@ -186,39 +186,42 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Query Parameters**
+### **Encabezados**
 
-| **Parameter** | **Type** | **Required** | **Description**                                                    |
-| :------------ | :------- | :----------- | :----------------------------------------------------------------- |
-| page          | integer  | No           | Page number for pagination (default: 1, minimum: 1)                |
-| per_page      | integer  | No           | Number of items per page (default: 15, maximum: 100, minimum: 1)   |
-| order         | string   | No           | Sort order for created_at field (default: desc, enum: [asc, desc]) |
-
-### **Headers**
-
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
 </Note>
 
-### **Response**
+### **Parámetros de Consulta**
+
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                                                         |
+| :------------ | :------- | :------------ | :---------------------------------------------------------------------- |
+| limit         | integer  | No            | Número máximo de elementos por página (predeterminado: 25, máximo: 100) |
+| offset        | integer  | No            | Número de elementos para saltar (predeterminado: 0)                     |
+| sort_by       | string   | No            | Campo para ordenación (created_at, updated_at, filename, size)          |
+| sort_order    | string   | No            | Orden de ordenación (asc, desc)                                         |
+
+### **Respuesta**
 
 ```json
 {
-"data": [
+"files": [
   {
-    "id": 73325,
-    "object": "file",
-    "bytes": 35504128,
-    "created_at": "2025-01-05T22:26:27+00:00",
-    "filename": "endpoints.pdf",
-    "credits": 20.10060847168,
-    "status": "completed"
-  },
-  [...]
-]
+    "id": 123,
+    "filename": "documento.pdf",
+    "size": 1024000,
+    "content_type": "application/pdf",
+    "status": "procesado",
+    "created_at": "2025-01-05T22:39:57+00:00",
+    "updated_at": "2025-01-05T22:39:57+00:00"
+  }
+],
+"total": 1,
+"limit": 25,
+"offset": 0
 }
 ```

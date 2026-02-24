@@ -1,37 +1,37 @@
 ---
-title: "Upload File"
+title: "Subir Archivo"
 tag: "POST"
 ---
 
 `POST /files`
 
-Upload a new file to the system and optionally process it.
+Sube un nuevo archivo al sistema y opcionalmente lo procesa.
 
-### **Supported files**
+### **Archivos soportados**
 
-| **Label**   | **File Pattern(s)**                                                                                                                                                                                                                              |
-| :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Text        | `*.txt`                                                                                                                                                                                                                                          |
-| Word        | `*.{doc,docx}`                                                                                                                                                                                                                                   |
-| Spreadsheet | `*.csv`                                                                                                                                                                                                                                          |
-| PDF         | `*.pdf`                                                                                                                                                                                                                                          |
-| Excel       | `*.xls`,`*.xlsx`                                                                                                                                                                                                                                 |
-| Power Point | `*.{ppt,pptx}`                                                                                                                                                                                                                                   |
-| Image       | `*.{jpg,jpeg,png,gif,bmp,svg,tiff,webp}`                                                                                                                                                                                                         |
-| Video       | `*.{mp4,avi,mov,mkv,wmv,flv}`                                                                                                                                                                                                                    |
-| Audio       | `*.{mp3,wav,aac,ogg,flac,m4a}`                                                                                                                                                                                                                   |
-| Code        | `*.bas`, `*.bat`, `*.xml`, `*.css`, `*.dart`, `*.{html,htm}`, `*.inc`, `*.js`, `*.json`, `*.kt`, `*.lua`, `*.pas`, `*.php`, `*.pl`, `*.ps1`, `*.py`, `*.r`, `*.sh`, `*.vsd`, `*.sql`, `*.swift`, `*.ts`, `*.vb`, `*.vba`, `*.{yml,yaml}`, `*.md` |
+| **Etiqueta**    | **Patrones de Archivo**                                                                                                                                                                                                                          |
+| :-------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Texto           | `*.txt`                                                                                                                                                                                                                                          |
+| Word            | `*.{doc,docx}`                                                                                                                                                                                                                                   |
+| Hoja de cálculo | `*.csv`                                                                                                                                                                                                                                          |
+| PDF             | `*.pdf`                                                                                                                                                                                                                                          |
+| Excel           | `*.xls`,`*.xlsx`                                                                                                                                                                                                                                 |
+| Power Point     | `*.{ppt,pptx}`                                                                                                                                                                                                                                   |
+| Imagen          | `*.{jpg,jpeg,png,gif,bmp,svg,tiff,webp}`                                                                                                                                                                                                         |
+| Video           | `*.{mp4,avi,mov,mkv,wmv,flv}`                                                                                                                                                                                                                    |
+| Audio           | `*.{mp3,wav,aac,ogg,flac,m4a}`                                                                                                                                                                                                                   |
+| Código          | `*.bas`, `*.bat`, `*.xml`, `*.css`, `*.dart`, `*.{html,htm}`, `*.inc`, `*.js`, `*.json`, `*.kt`, `*.lua`, `*.pas`, `*.php`, `*.pl`, `*.ps1`, `*.py`, `*.r`, `*.sh`, `*.vsd`, `*.sql`, `*.swift`, `*.ts`, `*.vb`, `*.vba`, `*.{yml,yaml}`, `*.md` |
 
-### **Limits**
+### **Límites**
 
-- Maximum file size per upload: 200 MB
-- This endpoint accepts one file per request (use multiple requests for multiple files).
-- File storage limit: 30 files
-- Some features have different limits:
-  - Chat attachments: up to 200 MB per file; up to 5 files per send
-  - Audio transcription: up to 10 MB per file
+- Tamaño máximo de archivo por carga: 200 MB
+- Este punto final acepta un archivo por solicitud (se pueden usar varias solicitudes para varios archivos).
+- Límite de almacenamiento de archivos: 30 archivos
+- Algunas funciones tienen límites diferentes:
+  - Adjuntos de chat: hasta 200 MB por archivo; hasta 5 archivos por envío
+  - Transcripción de audio: hasta 10 MB por archivo
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
@@ -279,33 +279,33 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Headers**
+### **Encabezados**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
 </Note>
 
-### **Request Body**
+### **Parámetros del Cuerpo**
 
-| **Parameter** | **Type** | **Required** | **Description**                                                                                        |
-| :------------ | :------- | :----------- | :----------------------------------------------------------------------------------------------------- |
-| file          | binary   | Yes          | The file to upload                                                                                     |
-| process       | boolean  | No           | Whether to process the file after upload (default: false). The file processing consume credits (true). |
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                                                        |
+| :------------ | :------- | :------------ | :--------------------------------------------------------------------- |
+| file          | file     | Sí            | El archivo a subir                                                     |
+| process       | boolean  | No            | Si debe procesar el archivo después de subirlo (predeterminado: false) |
 
-### **Response**
+### **Respuesta**
 
 ```json
 {
-"id": 73325,
-"object": "file",
-"bytes": 35504128,
-"created_at": "2025-01-05T22:26:27+00:00",
-"filename": "endpoints.pdf",
-"credits": 0,
-"status": "waiting"
+"id": 123,
+"filename": "documento.pdf",
+"size": 1024000,
+"content_type": "application/pdf",
+"status": "subido",
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:39:57+00:00"
 }
 ```

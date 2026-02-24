@@ -1,0 +1,297 @@
+---
+title: "Get Agent"
+---
+
+### `GET /agents/{id}`
+
+Retrieve a specific agent by ID.
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/agents/{id}' \
+  --header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/agents/{id}',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/agents/{id}"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/agents/{id}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/agents/{id}"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .GET()
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    client := &http.Client{}
+    req, err := http.NewRequest("GET", "https://api.tess.im/agents/{id}", nil)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+    
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+    
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+            
+            try
+            {
+                var response = await client.GetAsync("https://api.tess.im/agents/{id}");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch(HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ",e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/agents/{id}')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Headers**
+
+| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
+| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+
+> **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+
+### **Path Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description** |
+| :------------ | :------- | :----------- | :-------------- |
+| id            | integer  | Yes          | The agent ID    |
+
+### **Response**
+
+```json
+{
+"id": 8794,
+"title": "Tess AI - API Docs Helper",
+"description": null,
+"long_description": null,
+"workspace_id": 11,
+"visibility": "public",
+"slug": "tess-ai-docs-helper-pB9ujA",
+"active": 1,
+"type": "chat",
+"questions": [
+  {
+    "type": "select",
+    "name": "temperature",
+    "description": "Let Tess know if you want her to be more objective or more creative with her responses.",
+    "required": true,
+    "options": [
+      "0",
+      "0.25",
+      "0.5",
+      "0.75",
+      "1"
+    ]
+  },
+  {
+    "type": "select",
+    "name": "model",
+    "description": "Choose the Model version",
+    "required": true,
+    "options": [
+      "gpt-4o-mini",
+      "gpt-4o",
+      "tess-5",
+      "tess-ai-3",
+      "gpt-o1-preview",
+      "gpt-o1-mini",
+      "gemini-2.0-flash",
+      "gemini-1.5-flash",
+      "gemini-1.5-pro",
+      "claude-3-5-haiku-latest",
+      "claude-3-5-sonnet-20240620",
+      "claude-3-5-sonnet-latest",
+      "claude-3-opus-20240229",
+      "meta-llama-3.1-405b-instruct",
+      "meta-llama-3-70b-instruct",
+      "meta-llama-3-8b-instruct",
+      "cohere-command-r",
+      "cohere-command-r-plus",
+      "gpt-3.5-turbo",
+      "gpt-4-turbo",
+      "claude-3-haiku-20240307",
+      "claude-3-sonnet-20240229",
+      "gemini-1.0-pro",
+      "llama-2-13b-chat",
+      "llama-2-70b-chat"
+    ]
+  },
+  {
+    "type": "select",
+    "name": "tools",
+    "description": "Choose the Model version",
+    "required": true,
+    "options": [
+      "no-tools",
+      "internet",
+      "twitter",
+      "wikipedia",
+      "quora",
+      "reddit",
+      "medium",
+      "linkedin",
+      "instagram",
+      "facebook"
+    ]
+  },
+  {
+    "type": "number",
+    "name": "root_id",
+    "description": "The stored session id to continue conversation.",
+    "required": false
+  },
+  {
+    "type": "array",
+    "name": "messages",
+    "description": "Chat history messages",
+    "required": true
+  }
+],
+"created_at": "2025-01-05T18:09:18.000000Z",
+"updated_at": "2025-01-05T18:45:31.000000Z",
+"created_by": 13
+}
+```

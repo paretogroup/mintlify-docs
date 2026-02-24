@@ -153,7 +153,8 @@
                   {
                     "group": "Agents",
                     "pages": [
-                      "list-agent"
+                      "list-agent",
+                      "get-agent"
                     ]
                   },
                   {

@@ -1,12 +1,12 @@
 ---
-title: "Delete Memory"
+title: "Eliminar Memoria"
 ---
 
-`DELETE /memories/{memoryId}`
+`DELETE /memories/{id}`
 
-Deletes an existing memory.
+Elimina una memoria por su ID.
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
@@ -178,43 +178,28 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Path Parameters**
+### **Encabezados**
 
-| **Parameter** | **Type** | **Required** | **Description**  |
-| :------------ | :------- | :----------- | :--------------- |
-| memoryId      | integer  | Yes          | ID of the memory |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
+</Note>
 
-```json
-{
-"message": "Memory deleted successfully!"
-}
-```
+### **Parámetros de Ruta**
 
-### **Response Codes**
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                   |
+| :------------ | :------- | :------------ | :-------------------------------- |
+| id            | string   | Sí            | El ID de la memoria para eliminar |
 
-| **Status Code** | **Description**  |
-| :-------------- | :--------------- |
-| 200             | Success          |
-| 404             | Memory not found |
-| 500             | Server error     |
-
-### **Error Responses**
-
-#### **404 Not Found**
+### **Respuesta**
 
 ```json
 {
-  "message": "Memory not found!"
-}
-```
-
-#### **500 Server Error**
-
-```json
-{
-  "message": "Memory deletion failed!",
-  "error": "Error message details"
+"id": 123,
+"deleted": true,
+"message": "Memoria eliminada exitosamente"
 }
 ```

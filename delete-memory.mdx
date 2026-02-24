@@ -1,3 +1,220 @@
 ---
 title: "Delete Memory"
 ---
+
+`DELETE /memories/{memoryId}`
+
+Deletes an existing memory.
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request DELETE \
+  --url 'https://api.tess.im/memories/{memoryId}' \
+  --header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const memoryId = 123;
+const options = {
+  method: 'DELETE',
+  url: `https://api.tess.im/memories/${memoryId}`,
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+};
+
+axios.request(options)
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
+
+
+```python Python
+import requests
+
+memoryId = 123
+url = f"https://api.tess.im/memories/{memoryId}"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+response = requests.delete(url, headers=headers)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$memoryId = 123;
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/memories/{$memoryId}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_CUSTOMREQUEST => "DELETE",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error: " . $err;
+} else {
+  echo $response;
+}
+?>
+```
+
+
+```java Java
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+
+public class DeleteMemory {
+    public static void main(String[] args) {
+        int memoryId = 123;
+        HttpClient client = HttpClient.newHttpClient();
+        
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("https://api.tess.im/memories/" + memoryId))
+            .header("Authorization", "Bearer YOUR_API_KEY")
+            .DELETE()
+            .build();
+            
+        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+            .thenApply(HttpResponse::body)
+            .thenAccept(System.out::println)
+            .join();
+    }
+}
+```
+
+
+```go Go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"io/ioutil"
+)
+
+func main() {
+	memoryId := 123
+	url := fmt.Sprintf("https://api.tess.im/memories/%d", memoryId)
+	
+	req, _ := http.NewRequest("DELETE", url, nil)
+	req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+	
+	res, _ := http.DefaultClient.Do(req)
+	defer res.Body.Close()
+	
+	body, _ := ioutil.ReadAll(res.Body)
+	fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        int memoryId = 123;
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Authorization = 
+                new AuthenticationHeaderValue("Bearer", "YOUR_API_KEY");
+                
+            var response = await client.DeleteAsync($"https://api.tess.im/memories/{memoryId}");
+            var content = await response.Content.ReadAsStringAsync();
+            
+            Console.WriteLine(content);
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+memoryId = 123
+url = URI("https://api.tess.im/memories/#{memoryId}")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+
+request = Net::HTTP::Delete.new(url)
+request["Authorization"] = "Bearer YOUR_API_KEY"
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Path Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description**  |
+| :------------ | :------- | :----------- | :--------------- |
+| memoryId      | integer  | Yes          | ID of the memory |
+
+### **Response**
+
+```json
+{
+"message": "Memory deleted successfully!"
+}
+```
+
+### **Response Codes**
+
+| **Status Code** | **Description**  |
+| :-------------- | :--------------- |
+| 200             | Success          |
+| 404             | Memory not found |
+| 500             | Server error     |
+
+### **Error Responses**
+
+#### **404 Not Found**
+
+```json
+{
+  "message": "Memory not found!"
+}
+```
+
+#### **500 Server Error**
+
+```json
+{
+  "message": "Memory deletion failed!",
+  "error": "Error message details"
+}
+```

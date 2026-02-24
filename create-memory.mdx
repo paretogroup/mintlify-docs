@@ -1,4 +1,263 @@
 ---
-title: 'Create Memory'
+title: "Create Memory"
 ---
 
+`POST /memories`
+
+Creates a new memory.
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl -X POST "https://api.tess.im/memories" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "collection_id": 1,
+    "memory": "Example memory content"
+  }'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const url = 'https://api.tess.im/memories';
+const headers = {
+  'Authorization': 'Bearer YOUR_API_KEY',
+  'Content-Type': 'application/json'
+};
+const data = {
+  collection_id: 1,
+  memory: 'Example memory content'
+};
+
+axios.post(url, data, { headers })
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/memories"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+}
+payload = {
+    "collection_id": 1,
+    "memory": "Example memory content"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$url = "https://api.tess.im/memories";
+$data = [
+    "collection_id" => 1,
+    "memory" => "Example memory content"
+];
+
+$headers = [
+    "Authorization: Bearer YOUR_API_KEY",
+    "Content-Type: application/json"
+];
+
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+$response = curl_exec($curl);
+$httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+curl_close($curl);
+
+echo $response;
+?>
+```
+
+
+```java Java
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+
+public class CreateMemory {
+    public static void main(String[] args) {
+        try {
+            URL url = new URL("https://api.tess.im/memories");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Authorization", "Bearer YOUR_API_KEY");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
+            
+            String jsonInput = "{\"collection_id\":1,\"memory\":\"Example memory content\"}";
+            
+            try (OutputStream os = connection.getOutputStream()) {
+                byte[] input = jsonInput.getBytes(StandardCharsets.UTF_8);
+                os.write(input, 0, input.length);
+            }
+            
+            int responseCode = connection.getResponseCode();
+            
+            try (Scanner scanner = new Scanner(connection.getInputStream(), StandardCharsets.UTF_8.name())) {
+                String responseBody = scanner.useDelimiter("\\A").next();
+                System.out.println(responseBody);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+
+```go Go
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func main() {
+	url := "https://api.tess.im/memories"
+	
+	data := map[string]interface{}{
+		"collection_id": 1,
+		"memory":        "Example memory content",
+	}
+	
+	jsonData, _ := json.Marshal(data)
+	
+	req, _ := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))
+	req.Header.Set("Authorization", "Bearer YOUR_API_KEY")
+	req.Header.Set("Content-Type", "application/json")
+	
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+	
+	body, _ := ioutil.ReadAll(resp.Body)
+	fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        var url = "https://api.tess.im/memories";
+        var client = new HttpClient();
+        
+        client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+        
+        var data = new
+        {
+            collection_id = 1,
+            memory = "Example memory content"
+        };
+        
+        var json = JsonConvert.SerializeObject(data);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        
+        var response = await client.PostAsync(url, content);
+        var responseContent = await response.Content.ReadAsStringAsync();
+        
+        Console.WriteLine(responseContent);
+    }
+}
+```
+
+
+```ruby Ruby
+require 'net/http'
+require 'uri'
+require 'json'
+
+uri = URI.parse('https://api.tess.im/memories')
+request = Net::HTTP::Post.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+request['Content-Type'] = 'application/json'
+
+request.body = {
+  collection_id: 1,
+  memory: 'Example memory content'
+}.to_json
+
+response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == 'https') do |http|
+  http.request(request)
+end
+
+puts response.body
+```
+
+</CodeGroup>
+
+### **Request Body Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description**                       |
+| :------------ | :------- | :----------- | :------------------------------------ |
+| collection_id | integer  | No           | Collection ID                         |
+| memory        | string   | Yes          | Memory content (max 32000 characters) |
+
+### **Success Response**
+
+```json
+{
+  "message": "Memory created successfully!",
+  "memory": {
+    "id": 1,
+    "user_id": 1,
+    "collection_id": 1,
+    "memory": "Example memory content",
+    "credits": 0
+  }
+}
+```
+
+### **Error Responses**
+
+#### **Validation Error (422)**
+
+```json
+{
+  "message": "Validation error message"
+}
+```
+
+#### **Server Error (500)**
+
+```json
+{
+  "message": "Error message",
+  "error": "Error details"
+}
+```

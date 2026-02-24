@@ -1,12 +1,12 @@
 ---
-title: "Create Agent Webhook"
+title: "Crear Webhook del Agente"
 ---
 
 `POST /agents/{id}/webhooks`
 
-Create a new webhook for a specific agent.
+Crea un nuevo webhook para un agente específico.
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
@@ -245,41 +245,41 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Headers**
+### **Encabezados**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
 </Note>
 
-### **Path Parameters**
+### **Parámetros de Ruta**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The agent ID    |
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**  |
+| :------------ | :------- | :------------ | :--------------- |
+| id            | string   | Sí            | El ID del agente |
 
-### **Body Parameters**
+### **Parámetros del Cuerpo**
 
-| **Parameter** | **Type** | **Required** | **Description**                                 |
-| :------------ | :------- | :----------- | :---------------------------------------------- |
-| url           | string   | Yes          | The URL that will receive webhook notifications |
-| method        | string   | Yes          | The HTTP method to use for the webhook (POST)   |
-| status        | string   | No           | The status of the webhook (active or inactive)  |
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                          |
+| :------------ | :------- | :------------ | :--------------------------------------- |
+| url           | string   | Sí            | La URL del webhook                       |
+| method        | string   | No            | El método HTTP (GET, POST, etc.)         |
+| status        | string   | No            | El estado del webhook (active, inactive) |
 
-### **Response**
+### **Respuesta**
 
 ```json
 {
-"template_id": 8794,
-"user_id": 0,
-"url": "https://webhook.site/3bea4d55-0734-4bbd-aab9-95639585e539",
+"id": 123,
+"url": "https://example.com/webhook",
 "method": "POST",
 "status": "active",
-"updated_at": "2025-01-05T23:35:20.000000Z",
-"created_at": "2025-01-05T23:35:20.000000Z",
-"id": 18
+"secret": "whsec_...",
+"events": ["agent.completed", "agent.failed"],
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:39:57+00:00"
 }
 ```

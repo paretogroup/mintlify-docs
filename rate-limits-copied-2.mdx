@@ -1,39 +1,39 @@
 ---
-title: "Rate Limits"
+title: "Límites de Tasa"
 ---
 
-Rate limits act as control measures to regulate how frequently users and applications can access our API within specified timeframes. These limits help ensure service stability, fair access, and protection against misuse.
+Los límites de tasa actúan como medidas de control para regular la frecuencia con la que los usuarios y aplicaciones pueden acceder a nuestra API dentro de períodos de tiempo especificados. Estos límites ayudan a garantizar la estabilidad del servicio, acceso justo y protección contra uso indebido.
 
-### **Understanding Rate Limits**
+### **Entendiendo los Límites de Tasa**
 
-The default rate limit applied to all endpoints is **1 request per second**.
+El límite de tasa predeterminado aplicado a todos los endpoints es **1 solicitud por segundo**.
 
-Rate limits apply at the organization level, not individual users. You can hit any limit type depending on which threshold you reach first.
+Los límites de tasa se aplican a nivel de organización, no de usuarios individuales. Puedes alcanzar cualquier tipo de límite dependiendo de qué umbral alcances primero.
 
-### **Handling Rate Limits**
+### **Manejo de Límites de Tasa**
 
-When you exceed rate limits, our API returns a `429 Too Many Requests` HTTP status code with a response like:
+Cuando excedes los límites de tasa, nuestra API devuelve un código de estado HTTP `429 Too Many Requests` con una respuesta como:
 
 ```
 {
-  "error": "Rate limit exceeded",
+  "error": "Límite de tasa excedido",
   "retry_after": 60
 }
 ```
 
-### **Best Practices for Handling Rate Limits**
+### **Mejores Prácticas para Manejar Límites de Tasa**
 
-1. **Implement exponential backoff**: When receiving a 429 response, wait the suggested time before retrying.
-2. **Cache responses**: Store responses that don't change frequently to reduce API calls.
-3. **Batch requests**: Combine multiple operations into a single request where possible.
-4. **Monitor usage**: Keep track of your API usage to avoid hitting limits unexpectedly.
+1. **Implementar retroceso exponencial**: Al recibir una respuesta 429, espera el tiempo sugerido antes de reintentar.
+2. **Almacenar respuestas en caché**: Almacena respuestas que no cambian frecuentemente para reducir llamadas a la API.
+3. **Agrupar solicitudes**: Combina múltiples operaciones en una sola solicitud cuando sea posible.
+4. **Monitorear uso**: Mantén un registro de tu uso de la API para evitar alcanzar límites inesperadamente.
 
-### **Rate Limit Increases**
+## **Aumentos de Límite de Tasa**
 
-If you need higher rate limits, please contact our support team with:
+Si necesitas límites de tasa más altos, contacta a nuestro equipo de soporte con:
 
-- Your use case
-- Expected request volume
-- Justification for increased limits
+- Tu caso de uso
+- Volumen de solicitudes esperado
+- Justificación para límites aumentados
 
-Our team will review your request and work with you to find an appropriate solution.
+Nuestro equipo revisará tu solicitud y trabajará contigo para encontrar una solución apropiada.

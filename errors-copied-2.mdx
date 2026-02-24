@@ -2,84 +2,83 @@
 title: "Errors"
 ---
 
-The Tess AI API uses conventional HTTP response codes to indicate the success or failure of an API request. In general:
+La API de Tess AI utiliza códigos de respuesta HTTP convencionales para indicar el éxito o fallo de una solicitud de API. En general:
 
-- Codes in the `2xx` range indicate success
-- Codes in the `4xx` range indicate an error that failed given the information provided
-- Codes in the `5xx` range indicate an error with our servers (these are rare)
+- Los códigos en el rango `2xx` indican éxito
+- Los códigos en el rango `4xx` indican un error que falló con la información proporcionada
+- Los códigos en el rango `5xx` indican un error con nuestros servidores (estos son raros)
 
-## **HTTP Status Codes**
+## **Códigos de Estado HTTP**
 
-| **Status Code** | **Description**                                       | **Common Causes**                                        |
-| :-------------- | :---------------------------------------------------- | :------------------------------------------------------- |
-| 200             | Success - The request was successful                  | Request completed as expected                            |
-| 201             | Created - The resource was successfully created       | New webhook created successfully                         |
-| 400             | Bad Request - The request was invalid                 | Missing required fields, invalid parameter values        |
-| 403             | Forbidden - Authentication failed                     | Invalid API key, expired token, insufficient permissions |
-| 413             | Payload Too Large - Request body exceeds allowed size | File exceeds maximum upload size                         |
-| 429             | Rate Limited - Too many requests                      | Exceeded API rate limits                                 |
-| 500             | Internal Server Error - Server issue                  | Unexpected server error (please contact support)         |
+| **Código de Estado** | **Descripción**                                    | **Causas Comunes**                                             |
+| :------------------- | :------------------------------------------------- | :------------------------------------------------------------- |
+| 200                  | Éxito - La solicitud fue exitosa                   | Solicitud completada como se esperaba                          |
+| 201                  | Creado - El recurso se creó exitosamente           | Nuevo webhook creado exitosamente                              |
+| 400                  | Solicitud Incorrecta - La solicitud era inválida   | Campos obligatorios faltantes, valores de parámetros inválidos |
+| 403                  | Prohibido - La autenticación falló                 | Clave de API inválida, token expirado, permisos insuficientes  |
+| 429                  | Límite de Tasa - Demasiadas solicitudes            | Límites de tasa de API excedidos                               |
+| 500                  | Error Interno del Servidor - Problema del servidor | Error inesperado del servidor (por favor contacta al soporte)  |
 
-## **Error Types and Examples**
+## **Tipos de Error y Ejemplos**
 
-### **Authentication Errors (403)**
+### **Errores de Autenticación (403)**
 
-These errors occur when there's a problem with your API key:
+Estos errores ocurren cuando hay un problema con tu clave de API:
 
 ```
 {
-  "error": "Invalid authentication"
+  "error": "Autenticación inválida"
 }
 ```
 
-Common causes:
+Causas comunes:
 
-- Invalid API key
-- Expired API key
-- Missing Authorization header
-- Insufficient permissions
+- Clave de API inválida
+- Clave de API expirada
+- Encabezado Authorization faltante
+- Permisos insuficientes
 
-### **Validation Errors (400)**
+### **Errores de Validación (400)**
 
-Occur when the request data doesn't meet the requirements:
+Ocurren cuando los datos de la solicitud no cumplen con los requisitos:
 
 ```
 {
-  "error": "Validation failed",
+  "error": "Validación fallida",
   "messages": {
-    "url": ["The url field must be a valid HTTPS URL"],
-    "method": ["The method must be one of: POST, GET"]
+    "url": ["El campo url debe ser una URL HTTPS válida"],
+    "method": ["El método debe ser uno de: POST, GET"]
   }
 }
 ```
 
-Common validation rules:
+Reglas de validación comunes:
 
 - **Webhooks**
-  - URL must be a valid HTTPS URL
-  - Method must be either POST or GET
-  - Status must be either "active" or "inactive"
-- **Files**
-  - File must be provided for upload
-  - Process flag is optional (default: false)
+  - URL debe ser una URL HTTPS válida
+  - Método debe ser POST o GET
+  - Estado debe ser "active" o "inactive"
+- **Archivos**
+  - Archivo debe ser proporcionado para carga
+  - Bandera de procesamiento es opcional (predeterminado: false)
 
-### **Rate Limit Errors (429)**
+### **Errores de Límite de Tasa (429)**
 
-Occur when you've exceeded the API rate limits:
+Ocurren cuando has excedido los límites de tasa de la API:
 
 ```
 {
-  "error": "Rate limit exceeded",
+  "error": "Límite de tasa excedido",
   "retry_after": 60
 }
 ```
 
-### **Server Errors (500)**
+### **Errores del Servidor (500)**
 
-Indicate an issue on our end:
+Indican un problema de nuestro lado:
 
 ```
 {
-  "error": "Internal server error"
+  "error": "Error interno del servidor"
 }
 ```

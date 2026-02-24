@@ -1,4 +1,223 @@
 ---
-title: 'List Collections'
+title: "List Collections"
 ---
 
+`GET /memory-collections`
+
+Retrieves a paginated list of memory collections for the authenticated user.
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/memory-collections?page=1&per_page=10&search=example' \
+  --header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/memory-collections?page=1&per_page=10&search=example',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/memory-collections"
+params = {
+    "page": 1,
+    "per_page": 10,
+    "search": "example"
+}
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+response = requests.get(url, params=params, headers=headers)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/memory-collections?page=1&per_page=10&search=example",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/memory-collections?page=1&per_page=10&search=example"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .GET()
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    client := &http.Client{}
+    req, err := http.NewRequest("GET", "https://api.tess.im/memory-collections?page=1&per_page=10&search=example", nil)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+    
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+    
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+            
+            try
+            {
+                var response = await client.GetAsync("https://api.tess.im/memory-collections?page=1&per_page=10&search=example");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch(HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ",e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/memory-collections')
+params = { page: 1, per_page: 10, search: 'example' }
+uri.query = URI.encode_www_form(params)
+
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Query Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description**                   | **Default** | **Min** | **Max** |
+| :------------ | :------- | :----------- | :-------------------------------- | :---------- | :------ | :------ |
+| page          | integer  | No           | Page number                       | 1           | -       | -       |
+| per_page      | integer  | No           | Items per page                    | 10          | 1       | 50      |
+| search        | string   | No           | Search term to filter collections | -           | -       | -       |
+
+### **Response**
+
+```json
+{
+"message": "success",
+"collections": [
+  {
+    "id": 1,
+    "user_id": 1,
+    "name": "default",
+    "display_name": "My Memories"
+  }
+],
+"meta": {
+  "current_page": 1,
+  "last_page": 1,
+  "total": 1
+}
+}
+```

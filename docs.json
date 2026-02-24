@@ -133,6 +133,64 @@
           {
             "group": "Account",
             "pages": []
+          },
+          {
+            "group": "API",
+            "pages": [
+              {
+                "group": "API Guide",
+                "pages": [
+                  "overview",
+                  "quickstart-4",
+                  "max-mode-2",
+                  "rate-limits",
+                  "errors"
+                ]
+              },
+              {
+                "group": "API Reference",
+                "pages": [
+                  {
+                    "group": "Agents",
+                    "pages": [
+                      "list-agent"
+                    ]
+                  },
+                  {
+                    "group": "Agent Files",
+                    "pages": []
+                  },
+                  {
+                    "group": "Agent Webhooks",
+                    "pages": []
+                  },
+                  {
+                    "group": "Memories",
+                    "pages": []
+                  },
+                  {
+                    "group": "Memory Collections",
+                    "pages": []
+                  },
+                  {
+                    "group": "Files",
+                    "pages": []
+                  },
+                  {
+                    "group": "Webhooks",
+                    "pages": []
+                  }
+                ]
+              },
+              {
+                "group": "Integrations",
+                "pages": []
+              },
+              {
+                "group": "Model Context Protocol (MCP)",
+                "pages": []
+              }
+            ]
           }
         ]
       },

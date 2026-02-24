@@ -1,0 +1,85 @@
+---
+title: "Errors"
+---
+
+The Tess AI API uses conventional HTTP response codes to indicate the success or failure of an API request. In general:
+
+- Codes in the `2xx` range indicate success
+- Codes in the `4xx` range indicate an error that failed given the information provided
+- Codes in the `5xx` range indicate an error with our servers (these are rare)
+
+## **HTTP Status Codes**
+
+| **Status Code** | **Description**                                       | **Common Causes**                                        |
+| :-------------- | :---------------------------------------------------- | :------------------------------------------------------- |
+| 200             | Success - The request was successful                  | Request completed as expected                            |
+| 201             | Created - The resource was successfully created       | New webhook created successfully                         |
+| 400             | Bad Request - The request was invalid                 | Missing required fields, invalid parameter values        |
+| 403             | Forbidden - Authentication failed                     | Invalid API key, expired token, insufficient permissions |
+| 413             | Payload Too Large - Request body exceeds allowed size | File exceeds maximum upload size                         |
+| 429             | Rate Limited - Too many requests                      | Exceeded API rate limits                                 |
+| 500             | Internal Server Error - Server issue                  | Unexpected server error (please contact support)         |
+
+## **Error Types and Examples**
+
+### **Authentication Errors (403)**
+
+These errors occur when there's a problem with your API key:
+
+```
+{
+  "error": "Invalid authentication"
+}
+```
+
+Common causes:
+
+- Invalid API key
+- Expired API key
+- Missing Authorization header
+- Insufficient permissions
+
+### **Validation Errors (400)**
+
+Occur when the request data doesn't meet the requirements:
+
+```
+{
+  "error": "Validation failed",
+  "messages": {
+    "url": ["The url field must be a valid HTTPS URL"],
+    "method": ["The method must be one of: POST, GET"]
+  }
+}
+```
+
+Common validation rules:
+
+- **Webhooks**
+  - URL must be a valid HTTPS URL
+  - Method must be either POST or GET
+  - Status must be either "active" or "inactive"
+- **Files**
+  - File must be provided for upload
+  - Process flag is optional (default: false)
+
+### **Rate Limit Errors (429)**
+
+Occur when you've exceeded the API rate limits:
+
+```
+{
+  "error": "Rate limit exceeded",
+  "retry_after": 60
+}
+```
+
+### **Server Errors (500)**
+
+Indicate an issue on our end:
+
+```
+{
+  "error": "Internal server error"
+}
+```

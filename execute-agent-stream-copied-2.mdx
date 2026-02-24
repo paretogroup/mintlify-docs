@@ -1,0 +1,456 @@
+---
+title: "Execute Agent Stream"
+---
+
+`POST /agents/{id}/execute`
+
+Execute a specific **chat** agent by ID.
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request POST \
+  --url 'https://api.tess.im/agents/{id}/execute' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "stream": true,
+    "temperature": "1",
+    "model": "tess-5",
+    "messages": [
+        { "role": "user", "content": "hello there!" }
+    ],
+    "tools": "no-tools",
+    "file_ids": [123, 321]
+  }'
+```
+
+
+```json Node.js
+const axios = require('axios');
+const { parse } = require('eventsource-parser');
+
+const data = {
+  "stream": true,
+  "temperature": "1",
+  "model": "tess-5",
+  "messages": [
+    { "role": "user", "content": "hello there!" }
+  ],
+  "tools": "no-tools",
+  "file_ids": [123, 321]
+};
+
+const config = {
+  method: 'post',
+  url: 'https://api.tess.im/agents/{id}/openai/chat/completions',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  responseType: 'stream' // Required for handling streaming responses
+};
+
+async function fetchSSE() {
+  try {
+    const response = await axios(config);
+
+    response.data.on('data', (chunk) => {
+      const dataString = chunk.toString();
+      parseSSE(dataString);
+    });
+
+    response.data.on('end', () => {
+      console.log("\nStream ended.");
+    });
+
+  } catch (error) {
+    console.error("Error fetching SSE data:", error);
+  }
+}
+
+function parseSSE(data) {
+  // Use the eventsource-parser library
+  parse(data, (event) => {
+    if (event.data !== "[DONE]") {
+      try {
+        const parsed = JSON.parse(event.data);
+        console.log(parsed); // Process/Display received data
+      } catch (error) {
+        console.error("Error parsing SSE data:", error);
+      }
+    }
+  });
+}
+
+fetchSSE();
+```
+
+
+```python Python
+import requests
+import sseclient
+
+url = "https://api.tess.im/agents/{id}/execute"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+}
+data = {
+    "stream": True,
+    "temperature": "1",
+    "model": "tess-5",
+    "messages": [
+        {"role": "user", "content": "hello there!"}
+    ],
+    "tools": "no-tools",
+    "file_ids": [123, 321]
+}
+
+# Send the request with streaming enabled
+response = requests.post(url, headers=headers, json=data, stream=True)
+
+# Handle Server-Sent Events using sseclient
+client = sseclient.SSEClient(response)
+
+# Print each event as it arrives
+for event in client.events():
+    print(event.data)  # Print the data chunk received in the event
+```
+
+
+```php PHP
+<?php
+require 'vendor/autoload.php'; // Include Composer's autoloader
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+$data = [
+    "stream" => true,
+    "temperature" => "1",
+    "model" => "tess-5",
+    "messages" => [
+        ["role" => "user", "content" => "hello there!"]
+    ],
+    "tools" => "no-tools",
+    "file_ids" => [123, 321]
+];
+
+$client = new Client();
+
+try {
+    $response = $client->post('https://api.tess.im/agents/{id}/execute', [
+        'headers' => [
+            'Authorization' => 'Bearer YOUR_API_KEY',
+            'Content-Type' => 'application/json'
+        ],
+        'json' => $data,
+        'stream' => true, // Enable streaming
+    ]);
+
+    // Check that the response is successful
+    if ($response->getStatusCode() === 200) {
+        // Get the body as a stream
+        $body = $response->getBody();
+
+        // Iterate through each line of the stream
+        $parser = new \React\Stream\LineStream($body);
+        $parser->on('data', function ($line) {
+            // Check if this line is an SSE event
+            if (strpos(trim($line), 'data:') === 0) {
+                // Extract event data
+                $eventData = trim(substr($line, 5)); // Remove "data: " prefix
+                // Process or print the event data
+                echo "Received event: " . $eventData . PHP_EOL;
+            }
+        });
+
+        // Handle stream end or error
+        $parser->on('error', function ($error) {
+            echo "Error encountered: " . $error . PHP_EOL;
+        });
+
+        $body->on('close', function () {
+            echo "Stream closed." . PHP_EOL;
+        });
+
+    } else {
+        echo "Request failed with status: " . $response->getStatusCode();
+    }
+} catch (RequestException $e) {
+    echo "Request failed: " . $e->getMessage();
+}
+```
+
+
+```java Java
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.List;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+
+        Map<String, Object> data = Map.of(
+            "stream", true,
+            "temperature", "1",
+            "model", "tess-5",
+            "messages", List.of(Map.of("role", "user", "content", "hello there!")),
+            "tools", "no-tools",
+            "file_ids", List.of(123, 321)
+        );
+
+        String jsonPayload = mapper.writeValueAsString(data);
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("https://api.tess.im/agents/{id}/execute"))
+            .header("Authorization", "Bearer YOUR_API_KEY")
+            .header("Content-Type", "application/json")
+            .POST(HttpRequest.BodyPublishers.ofString(jsonPayload))
+            .build();
+
+        HttpResponse<InputStream> response = client.send(request,
+            HttpResponse.BodyHandlers.ofInputStream());
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(response.body()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (!line.trim().isEmpty() && line.startsWith("data: ")) {
+                    String jsonData = line.substring("data: ".length()).trim();
+                    JsonNode event = mapper.readTree(jsonData);
+                    // Handle the event (for example, print it)
+                    System.out.println("Received event: " + event);
+                }
+            }
+        }
+    }
+}
+```
+
+
+```go Go
+package main
+
+import (
+    "bufio"
+    "encoding/json"
+    "fmt"
+    "net/http"
+    "strings"
+)
+
+// Event struct to parse the SSE data
+type Event struct {
+    ID      string `json:"id,omitempty"`
+    Event   string `json:"event,omitempty"`
+    Data    string `json:"data,omitempty"`
+}
+
+func main() {
+    payload := `{
+        "stream": true,
+        "temperature": "1",
+        "model": "tess-5",
+        "messages": [
+            { "role": "user", "content": "hello there!" }
+        ],
+        "tools": "no-tools",
+        "file_ids": [123, 321]
+    }`
+
+    client := &http.Client{}
+    req, err := http.NewRequest("POST", "https://api.tess.im/agents/{id}/execute", strings.NewReader(payload))
+    if err != nil {
+        fmt.Println("Error creating request:", err)
+        return
+    }
+
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+    req.Header.Add("Content-Type", "application/json")
+
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println("Error making request:", err)
+        return
+    }
+    defer resp.Body.Close()
+
+    // Create a scanner to read the response body as a stream
+    scanner := bufio.NewScanner(resp.Body)
+    for scanner.Scan() {
+        line := scanner.Text()
+        if strings.HasPrefix(line, "data: ") {
+            data := strings.TrimPrefix(line, "data: ")
+            var event Event
+            if err := json.Unmarshal([]byte(data), &event); err != nil {
+                fmt.Println("Error parsing event:", err)
+                continue
+            }
+            // Handle the parsed event
+            fmt.Printf("Received event: %+v\n", event)
+        }
+    }
+
+    if err := scanner.Err(); err != nil {
+        fmt.Println("Error reading response:", err)
+    }
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+
+            var data = new
+            {
+                stream = true,
+                temperature = "1",
+                model = "tess-5",
+                messages = new List<object> { new { role = "user", content = "hello there!" } },
+                tools = "no-tools",
+                file_ids = new List<int> { 123, 321 }
+            };
+
+            var jsonPayload = JsonConvert.SerializeObject(data);
+            var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            try
+            {
+                // Send the POST request and receive the response as a stream
+                var response = await client.PostAsync("https://api.tess.im/agents/{id}/execute", content);
+                response.EnsureSuccessStatusCode();
+
+                // Get the stream from the response
+                using (var stream = await response.Content.ReadAsStreamAsync())
+                using (var reader = new StreamReader(stream))
+                {
+                    // Read lines from the stream continuously
+                    while (!reader.EndOfStream)
+                    {
+                        var line = await reader.ReadLineAsync();
+
+                        // Check if the line starts with "data:" which is the format for SSE
+                        if (line.StartsWith("data:"))
+                        {
+                            // Extract the data part
+                            var dataLine = line.Substring("data: ".Length).Trim();
+
+                            // Optionally: Deserialize the data if it's in JSON format
+                            // var eventData = JsonConvert.DeserializeObject<YourEventType>(dataLine);
+                            Console.WriteLine(dataLine); // Print the raw data or processed data
+                        }
+                    }
+                }
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+require 'sse/client'
+
+uri = URI('https://api.tess.im/agents/{id}/execute')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+request['Content-Type'] = 'application/json'
+request.body = {
+    "stream": true,
+    "temperature": "1",
+    "model": "tess-5",
+    "messages": [
+        { "role": "user", "content": "hello there!" }
+    ],
+    "tools": "no-tools",
+    "file_ids": [123, 321]
+}.to_json
+
+# Here we directly use the request and set up an SSE Client
+response = http.request(request)
+
+# Create an SSE Client with the response body
+client = SSE::Client.new(response.body)
+
+# Subscribe to the stream and handle events
+client.on(:message) do |event|
+  puts "Received message: #{event.data}"
+end
+
+client.start
+
+# Keep the main thread alive to receive the events
+sleep
+```
+
+</CodeGroup>
+
+### **Headers**
+
+| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
+| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+
+<Note>
+  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+</Note>
+
+### **Path Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description** |
+| :------------ | :------- | :----------- | :-------------- |
+| id            | integer  | Yes          | The agent ID    |
+
+### **Request Body**
+
+| **Parameter** | **Type** | **Required**        | **Description**                                                          |
+| :------------ | :------- | :------------------ | :----------------------------------------------------------------------- |
+| stream        | boolean  | No                  | Streams the output using the Server-Sent Events format. Default: `false` |
+| answers       | object   | Yes                 | The agent answers                                                        |
+| messages      | array    | Only for Chat Agent | The agent messages                                                       |
+| file_ids      | array    | No                  | Array of file IDs to attach to the execution.                            |
+
+### **Response**
+
+```json wrap
+data: {"id": 123, "status": "running", "output": "Hi!", "error": null, "credits": null, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
+
+data: {"id": 123, "status": "completed", "output": "", "error": null, "credits": 10, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
+```

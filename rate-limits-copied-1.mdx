@@ -1,18 +1,18 @@
 ---
-title: "Rate Limits"
+title: "Limites de Requisição"
 ---
 
-Rate limits act as control measures to regulate how frequently users and applications can access our API within specified timeframes. These limits help ensure service stability, fair access, and protection against misuse.
+Limites de Requisição são medidas de controle que regulam com que frequência usuários e aplicações podem acessar nossa API dentro de períodos de tempo determinados. Esses limites ajudam a garantir a estabilidade do serviço, o acesso justo e a proteção contra uso indevido.
 
-### **Understanding Rate Limits**
+### **Entendendo os Limites de Requisição**
 
-The default rate limit applied to all endpoints is **1 request per second**.
+O limite padrão aplicado a todos os endpoints é de **1 requisição por segundo**.
 
-Rate limits apply at the organization level, not individual users. You can hit any limit type depending on which threshold you reach first.
+Os limites se aplicam no nível da organização, não de usuários individuais. Você pode atingir qualquer tipo de limite dependendo de qual threshold for alcançado primeiro.
 
-### **Handling Rate Limits**
+### **Lidando com Limites de Requisição**
 
-When you exceed rate limits, our API returns a `429 Too Many Requests` HTTP status code with a response like:
+Quando você excede os limites, nossa API retorna o código de status HTTP `429 Too Many Requests` com uma resposta como:
 
 ```
 {
@@ -21,19 +21,19 @@ When you exceed rate limits, our API returns a `429 Too Many Requests` HTTP stat
 }
 ```
 
-### **Best Practices for Handling Rate Limits**
+### **Boas Práticas para Lidar com Limites de Requisição**
 
-1. **Implement exponential backoff**: When receiving a 429 response, wait the suggested time before retrying.
-2. **Cache responses**: Store responses that don't change frequently to reduce API calls.
-3. **Batch requests**: Combine multiple operations into a single request where possible.
-4. **Monitor usage**: Keep track of your API usage to avoid hitting limits unexpectedly.
+1. **Implemente exponential backoff**: Ao receber uma resposta 429, aguarde o tempo sugerido antes de tentar novamente.
+2. **Faça cache das respostas**: Armazene respostas que não mudam com frequência para reduzir as chamadas à API.
+3. **Agrupe requisições**: Combine múltiplas operações em uma única requisição sempre que possível.
+4. **Monitore o uso**: Acompanhe o uso da sua API para evitar atingir os limites de forma inesperada.
 
-### **Rate Limit Increases**
+### **Aumento de Limites de Requisição**
 
-If you need higher rate limits, please contact our support team with:
+Se você precisar de limites mais altos, entre em contato com nosso time de suporte informando:
 
-- Your use case
-- Expected request volume
-- Justification for increased limits
+- Seu caso de uso
+- Volume esperado de requisições
+- Justificativa para o aumento dos limites
 
-Our team will review your request and work with you to find an appropriate solution.
+Nossa equipe analisará sua solicitação e trabalhará com você para encontrar a solução mais adequada.

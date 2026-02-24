@@ -1,0 +1,275 @@
+---
+title: "Update Memory Collection"
+tag: "PUT"
+---
+
+`PUT /memory-collections/{collectionId}`
+
+Updates an existing memory collection.
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request PUT \
+  --url 'https://api.tess.im/memory-collections/{collectionId}' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "name": "Updated Collection Name"
+  }'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const data = {
+  name: "Updated Collection Name"
+};
+
+const config = {
+  method: 'put',
+  url: 'https://api.tess.im/memory-collections/{collectionId}',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  data: data
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+import json
+
+url = "https://api.tess.im/memory-collections/{collectionId}"
+payload = {
+    "name": "Updated Collection Name"
+}
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+}
+
+response = requests.put(url, json=payload, headers=headers)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+$data = [
+  "name" => "Updated Collection Name"
+];
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/memory-collections/{collectionId}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "PUT",
+  CURLOPT_POSTFIELDS => json_encode($data),
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY",
+    "Content-Type: application/json"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+String requestBody = "{\"name\":\"Updated Collection Name\"}";
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/memory-collections/{collectionId}"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .header("Content-Type", "application/json")
+    .PUT(HttpRequest.BodyPublishers.ofString(requestBody))
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```go Go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    data := map[string]string{
+        "name": "Updated Collection Name"
+    }
+    
+    jsonData, err := json.Marshal(data)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    client := &http.Client{}
+    req, err := http.NewRequest("PUT", "https://api.tess.im/memory-collections/{collectionId}", bytes.NewBuffer(jsonData))
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+    req.Header.Add("Content-Type", "application/json")
+    
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+    
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+            
+            var requestData = new
+            {
+                name = "Updated Collection Name"
+            };
+            
+            var content = new StringContent(
+                System.Text.Json.JsonSerializer.Serialize(requestData),
+                Encoding.UTF8,
+                "application/json"
+            );
+            
+            try
+            {
+                var response = await client.PutAsync("https://api.tess.im/memory-collections/{collectionId}", content);
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch(HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ",e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/memory-collections/{collectionId}')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Put.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+request['Content-Type'] = 'application/json'
+request.body = {
+  name: 'Updated Collection Name'
+}.to_json
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Path Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description** |
+| :------------ | :------- | :----------- | :-------------- |
+| collectionId  | integer  | Yes          | Collection ID   |
+
+### **Request Body**
+
+| **Parameter** | **Type** | **Required** | **Description**        |
+| :------------ | :------- | :----------- | :--------------------- |
+| name          | string   | Yes          | Name of the collection |
+
+### **Response**
+
+```json
+{
+"message": "Collection updated successfully",
+"collection": {
+  "id": 2,
+  "user_id": 1,
+  "name": "string"
+}
+}
+```
+
+### **Error Responses**
+
+#### **Collection not found (404)**
+
+```json
+{
+  "message": "Collection not found"
+}
+```

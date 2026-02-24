@@ -1,0 +1,39 @@
+---
+title: "Rate Limits"
+---
+
+Rate limits act as control measures to regulate how frequently users and applications can access our API within specified timeframes. These limits help ensure service stability, fair access, and protection against misuse.
+
+### **Understanding Rate Limits**
+
+The default rate limit applied to all endpoints is **1 request per second**.
+
+Rate limits apply at the organization level, not individual users. You can hit any limit type depending on which threshold you reach first.
+
+### **Handling Rate Limits**
+
+When you exceed rate limits, our API returns a `429 Too Many Requests` HTTP status code with a response like:
+
+```
+{
+  "error": "Rate limit exceeded",
+  "retry_after": 60
+}
+```
+
+### **Best Practices for Handling Rate Limits**
+
+1. **Implement exponential backoff**: When receiving a 429 response, wait the suggested time before retrying.
+2. **Cache responses**: Store responses that don't change frequently to reduce API calls.
+3. **Batch requests**: Combine multiple operations into a single request where possible.
+4. **Monitor usage**: Keep track of your API usage to avoid hitting limits unexpectedly.
+
+### **Rate Limit Increases**
+
+If you need higher rate limits, please contact our support team with:
+
+- Your use case
+- Expected request volume
+- Justification for increased limits
+
+Our team will review your request and work with you to find an appropriate solution.

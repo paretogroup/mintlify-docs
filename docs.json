@@ -618,6 +618,102 @@
           {
             "group": "Cuenta",
             "pages": []
+          },
+          {
+            "group": "API",
+            "pages": [
+              {
+                "group": "Guia da API",
+                "pages": [
+                  "visao-geral-copied-1",
+                  "inicio-rapido-copied-1",
+                  "modo-max-pt-copied-1",
+                  "rate-limits-copied-2",
+                  "errors-copied-2"
+                ]
+              },
+              {
+                "group": "API Reference",
+                "pages": [
+                  {
+                    "group": "Agents",
+                    "pages": [
+                      "list-agent-copied-2",
+                      "get-agent-copied-2",
+                      "execute-agent-copied-2",
+                      "execute-agent-stream-copied-2",
+                      "execute-open-ai-compatible-copied-2",
+                      "get-agent-response-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Agent Files",
+                    "pages": [
+                      "list-agent-files-copied-2",
+                      "link-files-to-agent-copied-2",
+                      "delete-agent-file-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Agent Webhooks",
+                    "pages": [
+                      "list-agent-webhooks-copied-2",
+                      "create-agent-webhook-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Memories",
+                    "pages": [
+                      "list-memories-copied-2",
+                      "create-memory-copied-2",
+                      "update-memory-copied-2",
+                      "delete-memory-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Memory Collections",
+                    "pages": [
+                      "list-collections-copied-2",
+                      "create-memory-collection-copied-2",
+                      "update-memory-collection-copied-2",
+                      "delete-memory-collection-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Files",
+                    "pages": [
+                      "list-files-copied-2",
+                      "upload-file-copied-2",
+                      "get-file-copied-2",
+                      "delete-file-copied-2",
+                      "process-file-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Webhooks",
+                    "pages": [
+                      "list-webhooks-copied-2",
+                      "delete-webhook-copied-2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Integrations",
+                "pages": [
+                  "integration-with-make-copied-2",
+                  "integration-with-zapier-copied-2",
+                  "integration-with-whats-app-via-make-copied-2",
+                  "integration-with-n8n-copied-2"
+                ]
+              },
+              {
+                "group": "Model Context Protocol (MCP)",
+                "pages": [
+                  "mcp-copied-2"
+                ]
+              }
+            ]
           }
         ]
       }

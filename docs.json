@@ -289,7 +289,7 @@
             "pages": [
               {
                 "group": "Primeiros Passos",
-                "icon": "door-open",
+                "icon": "folder-open",
                 "pages": [
                   "boas-vindas",
                   "quickstart",
@@ -562,7 +562,7 @@
             "pages": [
               {
                 "group": "Primeros pasos",
-                "icon": "door-open",
+                "icon": "folder-open",
                 "pages": [
                   "bienvenido-a-tess-ai",
                   "conceptos",

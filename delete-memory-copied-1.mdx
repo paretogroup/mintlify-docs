@@ -1,18 +1,18 @@
 ---
-title: "Delete Memory"
+title: "Excluir Memória "
 ---
 
-`DELETE /memories/{memoryId}`
+`DELETE /memories/{id}`
 
-Deletes an existing memory.
+Exclui uma memória pelo seu ID.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
 ```http cURL
 curl --request DELETE \
-  --url 'https://api.tess.im/memories/{memoryId}' \
+  --url 'https://api.tess.im/memories/{id}' \
   --header 'Authorization: Bearer YOUR_API_KEY'
 ```
 
@@ -173,48 +173,46 @@ request = Net::HTTP::Delete.new(url)
 request["Authorization"] = "Bearer YOUR_API_KEY"
 
 response = http.request(request)
-puts response.read_body
+puts response.read_bodyCabeçalhos
+Parâmetro	Tipo	Obrigatório	Descrição
+x-workspace-id	integer	Não	ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado.
+Nota: Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
+
+Parâmetros de Rota
+Parâmetro	Tipo	Obrigatório	Descrição
+id	string	Sim	O ID da memória para excluir
+Resposta
+{
+"id": 123,
+"deleted": true,
+"message": "Memória excluída com sucesso"
+}
 ```
 
 </CodeGroup>
 
-### **Path Parameters**
+### **Cabeçalhos**
 
-| **Parameter** | **Type** | **Required** | **Description**  |
-| :------------ | :------- | :----------- | :--------------- |
-| memoryId      | integer  | Yes          | ID of the memory |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
+</Note>
 
-```json
-{
-"message": "Memory deleted successfully!"
-}
-```
+### **Parâmetros de Rota**
 
-### **Response Codes**
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                |
+| :------------ | :------- | :-------------- | :--------------------------- |
+| id            | string   | Sim             | O ID da memória para excluir |
 
-| **Status Code** | **Description**  |
-| :-------------- | :--------------- |
-| 200             | Success          |
-| 404             | Memory not found |
-| 500             | Server error     |
-
-### **Error Responses**
-
-#### **404 Not Found**
+### **Resposta**
 
 ```json
 {
-  "message": "Memory not found!"
-}
-```
-
-#### **500 Server Error**
-
-```json
-{
-  "message": "Memory deletion failed!",
-  "error": "Error message details"
+"id": 123,
+"deleted": true,
+"message": "Memória excluída com sucesso"
 }
 ```

@@ -1,23 +1,26 @@
 ---
-title: "Update Memory"
+title: "Atualizar Memória "
 ---
 
-`PATCH /memories/{memoryId}`
+`PUT /memories/{id}`
 
-Updates an existing memory.
+Atualiza uma memória existente pelo seu ID.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
 ```http cURL
-curl --request PATCH \
-  --url 'https://api.tess.im/memories/{memoryId}' \
+curl --request PUT \
+  --url 'https://api.tess.im/memories/{id}' \
   --header 'Authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: application/json' \
   --data '{
-    "memory": "Updated memory content",
-    "collection_id": 1
+    "content": "Conteúdo atualizado da memória",
+    "metadata": {
+      "source": "updated_source",
+      "tags": ["atualizado", "teste"]
+    }
   }'
 ```
 
@@ -26,13 +29,16 @@ curl --request PATCH \
 const axios = require('axios');
 
 const data = {
-  memory: "Updated memory content",
-  collection_id: 1
+  content: 'Conteúdo atualizado da memória',
+  metadata: {
+    source: 'updated_source',
+    tags: ['atualizado', 'teste']
+  }
 };
 
 const config = {
-  method: 'patch',
-  url: 'https://api.tess.im/memories/{memoryId}',
+  method: 'put',
+  url: 'https://api.tess.im/memories/{id}',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
     'Content-Type': 'application/json'
@@ -53,17 +59,20 @@ try {
 import requests
 import json
 
-url = "https://api.tess.im/memories/{memoryId}"
-payload = {
-  "memory": "Updated memory content",
-  "collection_id": 1
-}
+url = "https://api.tess.im/memories/{id}"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
 }
+data = {
+    "content": "Conteúdo atualizado da memória",
+    "metadata": {
+        "source": "updated_source",
+        "tags": ["atualizado", "teste"]
+    }
+}
 
-response = requests.patch(url, headers=headers, json=payload)
+response = requests.put(url, headers=headers, json=data)
 print(response.json())
 ```
 
@@ -73,18 +82,21 @@ print(response.json())
 $curl = curl_init();
 
 $data = [
-  "memory" => "Updated memory content",
-  "collection_id" => 1
+    "content" => "Conteúdo atualizado da memória",
+    "metadata" => [
+        "source" => "updated_source",
+        "tags" => ["atualizado", "teste"]
+    ]
 ];
 
 curl_setopt_array($curl, [
-  CURLOPT_URL => "https://api.tess.im/memories/{memoryId}",
+  CURLOPT_URL => "https://api.tess.im/memories/{id}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "PATCH",
+  CURLOPT_CUSTOMREQUEST => "PUT",
   CURLOPT_POSTFIELDS => json_encode($data),
   CURLOPT_HTTPHEADER => [
     "Authorization: Bearer YOUR_API_KEY",
@@ -106,24 +118,42 @@ if ($err) {
 
 
 ```java Java
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Map;
 
-String jsonBody = "{\"memory\":\"Updated memory content\",\"collection_id\":1}";
+public class Main {
+    public static void main(String[] args) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
 
-HttpClient client = HttpClient.newHttpClient();
-HttpRequest request = HttpRequest.newBuilder()
-    .uri(URI.create("https://api.tess.im/memories/{memoryId}"))
-    .header("Authorization", "Bearer YOUR_API_KEY")
-    .header("Content-Type", "application/json")
-    .method("PATCH", HttpRequest.BodyPublishers.ofString(jsonBody))
-    .build();
+        Map<String, Object> metadata = Map.of(
+            "source", "updated_source",
+            "tags", java.util.List.of("atualizado", "teste")
+        );
 
-HttpResponse<String> response = client.send(request,
-    HttpResponse.BodyHandlers.ofString());
-System.out.println(response.body());
+        Map<String, Object> data = Map.of(
+            "content", "Conteúdo atualizado da memória",
+            "metadata", metadata
+        );
+
+        String jsonPayload = mapper.writeValueAsString(data);
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("https://api.tess.im/memories/{id}"))
+            .header("Authorization", "Bearer YOUR_API_KEY")
+            .header("Content-Type", "application/json")
+            .PUT(HttpRequest.BodyPublishers.ofString(jsonPayload))
+            .build();
+
+        HttpResponse<String> response = client.send(request,
+            HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+    }
+}
 ```
 
 
@@ -138,37 +168,49 @@ import (
     "net/http"
 )
 
+type MemoryData struct {
+    Content  string                 `json:"content"`
+    Metadata map[string]interface{} `json:"metadata"`
+}
+
 func main() {
-    data := map[string]interface{}{
-        "memory":        "Updated memory content",
-        "collection_id": 1,
+    data := MemoryData{
+        Content: "Conteúdo atualizado da memória",
+        Metadata: map[string]interface{}{
+            "source": "updated_source",
+            "tags": []string{"atualizado", "teste"},
+        },
     }
-    
-    jsonData, _ := json.Marshal(data)
-    
-    client := &http.Client{}
-    req, err := http.NewRequest("PATCH", "https://api.tess.im/memories/{memoryId}", bytes.NewBuffer(jsonData))
+
+    jsonData, err := json.Marshal(data)
     if err != nil {
         fmt.Println(err)
         return
     }
-    
+
+    client := &http.Client{}
+    req, err := http.NewRequest("PUT", "https://api.tess.im/memories/{id}", bytes.NewBuffer(jsonData))
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
     req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
     req.Header.Add("Content-Type", "application/json")
-    
+
     resp, err := client.Do(req)
     if err != nil {
         fmt.Println(err)
         return
     }
     defer resp.Body.Close()
-    
+
     body, err := ioutil.ReadAll(resp.Body)
     if err != nil {
         fmt.Println(err)
         return
     }
-    
+
     fmt.Println(string(body))
 }
 ```
@@ -179,6 +221,8 @@ using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 class Program
 {
@@ -187,25 +231,33 @@ class Program
         using (var client = new HttpClient())
         {
             client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
-            
-            var data = @"{
-                ""memory"": ""Updated memory content"",
-                ""collection_id"": 1
-            }";
-            
-            var content = new StringContent(data, Encoding.UTF8, "application/json");
-            
+
+            var metadata = new Dictionary<string, object>
+            {
+                { "source", "updated_source" },
+                { "tags", new List<string> { "atualizado", "teste" } }
+            };
+
+            var data = new
+            {
+                content = "Conteúdo atualizado da memória",
+                metadata = metadata
+            };
+
+            var jsonPayload = JsonConvert.SerializeObject(data);
+            var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
             try
             {
-                var response = await client.PatchAsync("https://api.tess.im/memories/{memoryId}", content);
+                var response = await client.PutAsync("https://api.tess.im/memories/{id}", content);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responseBody);
             }
-            catch(HttpRequestException e)
+            catch (HttpRequestException e)
             {
                 Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ",e.Message);
+                Console.WriteLine("Message :{0} ", e.Message);
             }
         }
     }
@@ -218,16 +270,19 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.tess.im/memories/{memoryId}')
+uri = URI('https://api.tess.im/memories/{id}')
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
-request = Net::HTTP::Patch.new(uri)
+request = Net::HTTP::Put.new(uri)
 request['Authorization'] = 'Bearer YOUR_API_KEY'
 request['Content-Type'] = 'application/json'
 request.body = {
-  memory: 'Updated memory content',
-  collection_id: 1
+    "content": "Conteúdo atualizado da memória",
+    "metadata": {
+        "source": "updated_source",
+        "tags": ["atualizado", "teste"]
+    }
 }.to_json
 
 response = http.request(request)
@@ -236,50 +291,38 @@ puts response.read_body
 
 </CodeGroup>
 
-### **URL Parameters**
+### **Cabeçalhos**
 
-| **Parameter** | **Type** | **Required** | **Description**  |
-| :------------ | :------- | :----------- | :--------------- |
-| memoryId      | integer  | Yes          | ID of the memory |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
-### **Request Body**
+> **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
 
-| **Parameter** | **Type** | **Required** | **Description**                       |
-| :------------ | :------- | :----------- | :------------------------------------ |
-| memory        | string   | Yes          | New memory content                    |
-| collection_id | integer  | No           | Collection ID to associate the memory |
+### **Parâmetros de Rota**
 
-```json
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**   |
+| :------------ | :------- | :-------------- | :-------------- |
+| id            | string   | Sim             | O ID da memória |
+
+### **Parâmetros do Corpo**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                    |
+| :------------ | :------- | :-------------- | :------------------------------- |
+| content       | string   | Não             | O conteúdo atualizado da memória |
+| metadata      | object   | Não             | Metadados atualizados da memória |
+
+### **Resposta**
+
+```
 {
-  "memory": "Updated memory content",
-  "collection_id": 1
+"id": 123,
+"content": "Conteúdo atualizado da memória",
+"metadata": {
+  "source": "updated_source",
+  "tags": ["atualizado", "teste"]
+},
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:40:00+00:00"
 }
 ```
-
-### **Response**
-
-```json
-{
-"message": "Memory updated successfully!",
-"memory": {
-  "id": 10,
-  "user_id": 1,
-  "memory": "Updated memory content",
-  "credits": 0,
-  "collection_id": 1,
-  "collection": {
-    "id": 1,
-    "user_id": 1,
-    "name": "default"
-  }
-}
-}
-```
-
-### **Response Codes**
-
-| **Code** | **Description**  |
-| :------- | :--------------- |
-| 200      | Success          |
-| 404      | Memory not found |
-| 500      | Server error     |

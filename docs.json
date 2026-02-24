@@ -454,7 +454,7 @@
                   {
                     "group": "Coleções de Memórias",
                     "pages": [
-                      "list-collections-copied-1",
+                      "listar-colecoes-de-memoria",
                       "create-memory-collection-copied-1",
                       "update-memory-collection-copied-1",
                       "delete-memory-collection-copied-1"

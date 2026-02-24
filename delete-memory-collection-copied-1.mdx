@@ -1,13 +1,13 @@
 ---
-title: "Delete Memory Collection"
+title: "Excluir Coleção de Memória "
 tag: "DELETE"
 ---
 
 `DELETE /memory-collections/{collectionId}`
 
-Deletes a memory collection and all associated memories.
+Exclui uma coleção de memória pelo seu ID.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -186,34 +186,28 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Path Parameters**
+### **Cabeçalhos**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| collectionId  | integer  | Yes          | Collection ID   |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
+</Note>
 
-```json
-{
-  "message": "Collection deleted successfully"
-}
-```
+### **Parâmetros de Rota**
 
-### **Error Responses**
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                           |
+| :------------ | :------- | :-------------- | :-------------------------------------- |
+| collectionId  | string   | Sim             | O ID da coleção de memória para excluir |
 
-#### **Collection not found (404)**
-
-```json
-{
-  "message": "Collection not found"
-}
-```
-
-#### **Cannot delete default collection (403)**
+### **Resposta**
 
 ```json
 {
-  "message": "Default collection cannot be deleted"
+"id": 123,
+"deleted": true,
+"message": "Coleção de memória excluída com sucesso"
 }
 ```

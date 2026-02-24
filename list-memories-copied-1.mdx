@@ -1,12 +1,12 @@
 ---
-title: "List Memories"
+title: "Listar Memórias"
 ---
 
 `GET /memories`
 
-Retrieves a paginated list of memories for the authenticated user.
+Recupera uma lista paginada de memórias para o usuário autenticado.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -185,32 +185,41 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Query Parameters**
+### **Cabeçalhos**
 
-| **Parameter** | **Type** | **Required** | **Description**         | **Default** | **Min** | **Max** |
-| :------------ | :------- | :----------- | :---------------------- | :---------- | :------ | :------ |
-| page          | integer  | No           | Page number             | 1           | -       | -       |
-| per_page      | integer  | No           | Items per page          | 10          | 1       | 50      |
-| collection_id | integer  | No           | Filter by collection ID | -           | -       | -       |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
+</Note>
+
+### **Parâmetros de Consulta**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                                               |
+| :------------ | :------- | :-------------- | :---------------------------------------------------------- |
+| limit         | integer  | Não             | Número máximo de itens por página (padrão: 25, máximo: 100) |
+| offset        | integer  | Não             | Número de itens para pular (padrão: 0)                      |
+
+### **Resposta**
 
 ```json
 {
-"message": "Memories fetched successfully!",
 "memories": [
   {
-    "id": 9,
-    "user_id": 1,
-    "memory": "Example memory content",
-    "credits": 0,
-    "collection_id": 1
+    "id": 123,
+    "content": "Este é um exemplo de memória",
+    "metadata": {
+      "source": "user_input",
+      "tags": ["exemplo", "teste"]
+    },
+    "created_at": "2025-01-05T22:39:57+00:00",
+    "updated_at": "2025-01-05T22:39:57+00:00"
   }
 ],
-"meta": {
-  "current_page": 1,
-  "last_page": 2,
-  "total": 8
-}
+"total": 1,
+"limit": 25,
+"offset": 0
 }
 ```

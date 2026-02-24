@@ -1,13 +1,13 @@
 ---
-title: "Create Memory Collection"
+title: "Criar Coleção de Memória "
 tag: "POST"
 ---
 
 `POST /memory-collections`
 
-Creates a new memory collection.
+Cria uma nova coleção de memória.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -17,7 +17,7 @@ curl --request POST \
   --header 'Authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: application/json' \
   --data '{
-    "name": "My Collection"
+    "name": "Minha Coleção"
   }'
 ```
 
@@ -239,21 +239,33 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Request Body**
+### **Cabeçalhos**
 
-| **Parameter** | **Type** | **Required** | **Description**        |
-| :------------ | :------- | :----------- | :--------------------- |
-| name          | string   | Yes          | Name of the collection |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
+</Note>
+
+### **Parâmetros do Corpo**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                 |
+| :------------ | :------- | :-------------- | :---------------------------- |
+| name          | string   | Sim             | O nome da coleção de memória  |
+| description   | string   | Não             | Uma descrição opcional        |
+| memory_ids    | array    | Não             | IDs das memórias para incluir |
+
+### **Resposta**
 
 ```json
 {
-"message": "Collection created successfully",
-"collection": {
-  "user_id": 1,
-  "name": "string",
-  "id": 2
-}
+"id": 123,
+"name": "Minha Coleção",
+"description": null,
+"memory_ids": [],
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:39:57+00:00"
 }
 ```

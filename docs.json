@@ -141,7 +141,7 @@
                 "group": "API Guide",
                 "pages": [
                   "overview",
-                  "quickstart-4",
+                  "quickstart-api",
                   "max-mode-2",
                   "rate-limits",
                   "errors"

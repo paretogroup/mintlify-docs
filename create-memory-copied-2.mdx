@@ -1,12 +1,12 @@
 ---
-title: "Create Memory"
+title: "Crear Memoria"
 ---
 
 `POST /memories`
 
-Creates a new memory.
+Crea una nueva memoria para el usuario autenticado.
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
@@ -221,43 +221,34 @@ puts response.body
 
 </CodeGroup>
 
-### **Request Body Parameters**
+### **Encabezados**
 
-| **Parameter** | **Type** | **Required** | **Description**                       |
-| :------------ | :------- | :----------- | :------------------------------------ |
-| collection_id | integer  | No           | Collection ID                         |
-| memory        | string   | Yes          | Memory content (max 32000 characters) |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
-### **Success Response**
+<Note>
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
+</Note>
 
-```json
-{
-  "message": "Memory created successfully!",
-  "memory": {
-    "id": 1,
-    "user_id": 1,
-    "collection_id": 1,
-    "memory": "Example memory content",
-    "credits": 0
-  }
-}
-```
+### **Parámetros del Cuerpo**
 
-### **Error Responses**
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                  |
+| :------------ | :------- | :------------ | :------------------------------- |
+| content       | string   | Sí            | El contenido de la memoria       |
+| metadata      | object   | No            | Metadatos asociados a la memoria |
 
-#### **Validation Error (422)**
+### **Respuesta**
 
 ```json
 {
-  "message": "Validation error message"
-}
-```
-
-#### **Server Error (500)**
-
-```json
-{
-  "message": "Error message",
-  "error": "Error details"
+"id": 123,
+"content": "Este es un ejemplo de memoria",
+"metadata": {
+  "source": "user_input",
+  "tags": ["ejemplo", "prueba"]
+},
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:39:57+00:00"
 }
 ```

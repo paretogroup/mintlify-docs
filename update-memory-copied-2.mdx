@@ -1,23 +1,26 @@
 ---
-title: "Update Memory"
+title: "Actualizar Memoria"
 ---
 
-`PATCH /memories/{memoryId}`
+`PUT /memories/{id}`
 
-Updates an existing memory.
+Actualiza una memoria existente por su ID.
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
 ```http cURL
-curl --request PATCH \
-  --url 'https://api.tess.im/memories/{memoryId}' \
+curl --request PUT \
+  --url 'https://api.tess.im/memories/{id}' \
   --header 'Authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: application/json' \
   --data '{
-    "memory": "Updated memory content",
-    "collection_id": 1
+    "content": "Contenido actualizado de la memoria",
+    "metadata": {
+      "source": "fuente_actualizada",
+      "tags": ["actualizado", "prueba"]
+    }
   }'
 ```
 
@@ -236,50 +239,48 @@ puts response.read_body
 
 </CodeGroup>
 
-### **URL Parameters**
+### **Encabezados**
 
-| **Parameter** | **Type** | **Required** | **Description**  |
-| :------------ | :------- | :----------- | :--------------- |
-| memoryId      | integer  | Yes          | ID of the memory |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
-### **Request Body**
+<Note>
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
+</Note>
 
-| **Parameter** | **Type** | **Required** | **Description**                       |
-| :------------ | :------- | :----------- | :------------------------------------ |
-| memory        | string   | Yes          | New memory content                    |
-| collection_id | integer  | No           | Collection ID to associate the memory |
+### **Parámetros de Ruta**
+
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**     |
+| :------------ | :------- | :------------ | :------------------ |
+| id            | string   | Sí            | El ID de la memoria |
+
+### **Parámetros del Cuerpo**
+
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                        |
+| :------------ | :------- | :------------ | :------------------------------------- |
+| content       | string   | No            | El contenido actualizado de la memoria |
+| metadata      | object   | No            | Metadatos actualizados de la memoria   |
+
+### **Respuesta**
 
 ```json
 {
-  "memory": "Updated memory content",
-  "collection_id": 1
+"id": 123,
+"content": "Contenido actualizado de la memoria",
+"metadata": {
+  "source": "fuente_actualizada",
+  "tags": ["actualizado", "prueba"]
+},
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:40:00+00:00"
 }
 ```
 
-### **Response**
+### **Códigos de respuesta**
 
-```json
-{
-"message": "Memory updated successfully!",
-"memory": {
-  "id": 10,
-  "user_id": 1,
-  "memory": "Updated memory content",
-  "credits": 0,
-  "collection_id": 1,
-  "collection": {
-    "id": 1,
-    "user_id": 1,
-    "name": "default"
-  }
-}
-}
-```
-
-### **Response Codes**
-
-| **Code** | **Description**  |
-| :------- | :--------------- |
-| 200      | Success          |
-| 404      | Memory not found |
-| 500      | Server error     |
+| **Código** | **Descripción**       |
+| :--------- | :-------------------- |
+| 200        | Éxito                 |
+| 404        | Memoria no encontrada |
+| 500        | Error del servidor    |

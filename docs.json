@@ -112,7 +112,7 @@
                   "how-it-works",
                   "short-and-long-text",
                   "single-and-multiple-selection",
-                  "untitled-page"
+                  "upload"
                 ]
               },
               {
@@ -138,7 +138,43 @@
           },
           {
             "group": "Account",
-            "pages": []
+            "pages": [
+              "subscription-and-payment",
+              "team-page",
+              "shared-wallet",
+              "system-status",
+              "sso-1",
+              "refund",
+              {
+                "group": "Programs",
+                "pages": [
+                  "reward",
+                  "affiliate"
+                ]
+              },
+              {
+                "group": "Settings",
+                "pages": [
+                  "your-account",
+                  "workspace-1",
+                  "preferences",
+                  "subscription",
+                  "upgrade-and-downgrade",
+                  "usage-monitoring",
+                  "members-and-permissions",
+                  "knowledge-base-2",
+                  "monetization",
+                  "data-control"
+                ]
+              },
+              {
+                "group": "Support",
+                "pages": [
+                  "support-contact",
+                  "remote-support"
+                ]
+              }
+            ]
           },
           {
             "group": "API",
@@ -640,7 +676,42 @@
           },
           {
             "group": "Cuenta",
-            "pages": []
+            "pages": [
+              "suscripcion-y-pago",
+              "panel-del-equipo",
+              "cartera-compartida",
+              "estado-del-sistema",
+              "sso-2",
+              "reembolso-1",
+              {
+                "group": "Programas",
+                "pages": [
+                  "afiliados-1",
+                  "recompensas-1"
+                ]
+              },
+              {
+                "group": "Configuración",
+                "pages": [
+                  "tu-cuenta",
+                  "preferencias-1",
+                  "workspace-2",
+                  "suscripcion",
+                  "upgrade-y-downgrade",
+                  "monitoreo-de-uso",
+                  "base-de-conocimientos",
+                  "monetizacion",
+                  "control-de-datos"
+                ]
+              },
+              {
+                "group": "Soporte",
+                "pages": [
+                  "contacto-de-soporte",
+                  "soporte-remoto"
+                ]
+              }
+            ]
           },
           {
             "group": "API",

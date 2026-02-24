@@ -1,0 +1,106 @@
+---
+title: "Usage Monitoring"
+---
+
+Having full visibility into how members of your Workspace use Tess AI can be essential for security, governance, cost control, and process optimization. 
+
+For families, Usage control enables Parental Control, meaning parents who own Workspaces can closely monitor how their children are using AI. On the other hand, managers can track engagement and the progress of their team members.
+
+<Info>
+  The "Usage" screen was created for exactly these situations, offering a detailed history of AI interactions in your workspace.
+</Info>
+
+### **How to access the Usage screen**
+
+<Step title='Log in to your Tess AI account and then click your profile icon, located in the bottom-left corner of the screen. In the menu that opens, select the "Settings" option.'>
+  Log in to your Tess AI account and then click your profile icon, located in the bottom-left corner of the screen. In the menu that opens, select the "Settings" option.
+</Step>
+
+<Step stepNumber={2} title='In the "Workspace" section, click "Usage".'>
+  In the "Workspace" section, click "Usage".
+</Step>
+
+<Note>
+  The screen shows a complete record of every time an AI model was triggered. You can filter and analyze this information to get valuable insights.
+</Note>
+
+### **Using the Filters**
+
+At the top of the screen, you’ll find filters to refine your search:
+
+1. **Type:** Lets you filter by interaction type, such as chat, Images, Code, among others.
+
+   <Frame>
+     ![Image](/images/image-28.png)
+   </Frame>
+2. **User**: Select a specific Workspace member to view only their activities.
+3. **Period**: Choose a time range for the analysis, with quick options for the last 1, 7, or 30 days. 
+
+<Note>
+  **Note**
+
+  _When exporting CSV, it’s possible to customize the analysis period, expanding or specifying ranges different from the options above._
+</Note>
+
+### **Understanding the table data**
+
+Each row in the table represents a single AI execution and is detailed in the following columns:
+
+<AccordionGroup>
+  <Accordion title="Agent">
+    The name of the AI Agent that was used in the interaction or Tess’s Default Chat (identified as Tess 6).
+  </Accordion>
+  <Accordion title="Type">
+    The execution type (e.g., Chat, Video, Image, etc.).
+  </Accordion>
+  <Accordion title="Origin">
+    Where the call was made from. It will generally be "Platform" (indicating direct use within Tess AI) or "API" (if the call came from an external system).
+  </Accordion>
+  <Accordion title="User">
+    The email of the team member who performed the action.
+  </Accordion>
+  <Accordion title="Date">
+    The exact day and time when the interaction occurred.
+  </Accordion>
+  <Accordion title="Credits">
+    The number of credits consumed by that specific interaction. This column is essential for cost tracking.
+  </Accordion>
+  <Accordion title="Link">
+    A shortcut that takes you directly to the conversation or the record of that specific interaction, allowing quick and contextual auditing. Here, Owners and Managers will be able to access conversation and execution records.
+  </Accordion>
+</AccordionGroup>
+
+### **Exporting the Data for Analysis**
+
+For deeper analyses, creating custom reports, or long-term storage, you can export the data.
+
+Click the "Export CSV" button in the top-right corner. This will download a CSV file (compatible with Excel, Google Sheets, and other spreadsheet tools) containing all the data that matches the filters selected at the time of export.
+
+<Frame>
+  ![Image](/images/image-29.png)
+</Frame>
+
+Then, select the period you want to pull the data for: 
+
+<Frame>
+  ![Image](/images/image-30.png)
+</Frame>
+
+Right after that, when you export CSV, the document will be sent to your email.
+
+### **Why is this screen important?**
+
+<Columns cols={2}>
+  <Card title="Security and Governance">
+    Monitor your children’s or your team’s usage in order to prevent incompatible or dangerous use.
+  </Card>
+  <Card title="Cost Control">
+    Monitor exactly which interactions and users are consuming the most credits.
+  </Card>
+  <Card title="Usage Auditing">
+    Keep a clear record of all activities performed, ensuring security and compliance.
+  </Card>
+  <Card title="Adoption Analysis">
+    Identify which agents are most popular and which team members are using the platform the most.
+  </Card>
+</Columns>

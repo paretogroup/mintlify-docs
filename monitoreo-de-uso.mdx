@@ -1,0 +1,106 @@
+---
+title: "Monitoreo de Uso"
+---
+
+Tener visibilidad completa sobre cómo los miembros de tu Workspace usan Tess AI puede ser esencial para la seguridad, la gobernanza, el control de costos y la optimización de tus procesos. 
+
+Para familias, el control de Uso habilita el Control Parental, es decir, los padres que son dueños de los Workspaces pueden monitorear de cerca cómo sus hijos están usando IA. Por otro lado, los gestores pueden acompañar el engagement y la evolución de los miembros de su equipo.
+
+<Info>
+  La pantalla de "Uso" fue creada exactamente para estas situaciones, ofreciendo un historial detallado de las interacciones con la IA en tu workspace.
+</Info>
+
+### **Cómo acceder a la pantalla de Uso**
+
+<Step title='Iniciá sesión en tu cuenta Tess AI y luego hacé clic en el ícono de tu perfil, ubicado en la esquina inferior izquierda de la pantalla. En el menú que se abre, seleccioná la opción "Configuraciones".'>
+  Iniciá sesión en tu cuenta Tess AI y luego hacé clic en el ícono de tu perfil, ubicado en la esquina inferior izquierda de la pantalla. En el menú que se abre, seleccioná la opción "Configuraciones".
+</Step>
+
+<Step stepNumber={2} title='En la sección "Workspace", hacé clic en "Uso".'>
+  En la sección "Workspace", hacé clic en "Uso".
+</Step>
+
+<Note>
+  La pantalla presenta un registro completo de todas las veces que se activó un modelo de IA. Podés filtrar y analizar esta información para obtener insights valiosos.
+</Note>
+
+### **Usando los Filtros**
+
+En la parte superior de la pantalla, vas a encontrar filtros para refinar tu búsqueda:
+
+1. **Tipo:** Permite filtrar por tipo de interacción, como chat, Imágenes, Códigos, entre otros.
+
+   <Frame>
+     ![Image](/images/image-28.png)
+   </Frame>
+2. **Usuario**: Seleccioná un miembro específico del Workspace para ver solo sus actividades.
+3. **Período**: Elegí un rango de tiempo para el análisis, con opciones rápidas para los últimos 1, 7 o 30 días. 
+
+<Note>
+  **Observación**
+
+  _A la hora de exportar CSV es posible personalizar el período de análisis, ampliando o especificando rangos distintos de las opciones anteriores._
+</Note>
+
+### **Entendiendo los datos de la tabla**
+
+Cada fila en la tabla representa una única ejecución de IA y se detalla en las siguientes columnas:
+
+<AccordionGroup>
+  <Accordion title="Agente">
+    El nombre del Agente de IA que se utilizó en la interacción o en el Chat Predeterminado de Tess (identificado como Tess 6).
+  </Accordion>
+  <Accordion title="Tipo">
+    El tipo de ejecución (ej: Chat, Video, Imagen, etc.).
+  </Accordion>
+  <Accordion title="Origen">
+    Desde dónde se hizo la llamada. Por lo general será "Plataforma" (indicando el uso directo dentro de Tess AI) o "API" (si la llamada vino de un sistema externo).
+  </Accordion>
+  <Accordion title="Usuario">
+    El email del miembro del equipo que realizó la acción.
+  </Accordion>
+  <Accordion title="Fecha">
+    El día y la hora exactos en que ocurrió la interacción.
+  </Accordion>
+  <Accordion title="Créditos">
+    La cantidad de créditos que se consumió en esa interacción específica. Esta columna es fundamental para el seguimiento de costos.
+  </Accordion>
+  <Accordion title="Link">
+    Un atajo que te lleva directamente a la conversación o al registro de esa interacción específica, permitiendo una auditoría rápida y contextualizada. Aquí, Owners y Managers podrán acceder a los registros de conversaciones y ejecuciones.
+  </Accordion>
+</AccordionGroup>
+
+### **Exportando los Datos para Análisis**
+
+Para análisis más profundos, creación de reportes personalizados o almacenamiento a largo plazo, podés exportar los datos.
+
+Hacé clic en el botón "Exportar CSV" en la esquina superior derecha. Esto hará la descarga de un archivo en formato CSV (compatible con Excel, Google Sheets y otras herramientas de planilla) que contiene todos los datos que corresponden a los filtros seleccionados al momento de la exportación.
+
+<Frame>
+  ![Image](/images/image-29.png)
+</Frame>
+
+Luego, seleccioná el período que querés traer los datos: 
+
+<Frame>
+  ![Image](/images/image-30.png)
+</Frame>
+
+Justo después, al exportar CSV el documento será enviado a tu email.
+
+### **¿Por qué esta pantalla es importante?**
+
+<Columns cols={2}>
+  <Card title="Seguridad y Gobernanza">
+    Monitorea el uso de tus hijos o de tu equipo para evitar un uso incompatible o peligroso.
+  </Card>
+  <Card title="Control de Costos">
+    Monitorea exactamente qué interacciones y usuarios están consumiendo más créditos.
+  </Card>
+  <Card title="Auditoría de Uso">
+    Tené un registro claro de todas las actividades realizadas, garantizando seguridad y cumplimiento.
+  </Card>
+  <Card title="Análisis de Adopción">
+    Identificá cuáles agentes son los más populares y cuáles miembros del equipo están usando más la plataforma.
+  </Card>
+</Columns>

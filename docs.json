@@ -171,33 +171,62 @@
                   },
                   {
                     "group": "Agent Webhooks",
-                    "pages": []
+                    "pages": [
+                      "list-agent-webhooks",
+                      "create-agent-webhook"
+                    ]
                   },
                   {
                     "group": "Memories",
-                    "pages": []
+                    "pages": [
+                      "list-memories",
+                      "create-memory",
+                      "update-memory",
+                      "delete-memory"
+                    ]
                   },
                   {
                     "group": "Memory Collections",
-                    "pages": []
+                    "pages": [
+                      "list-collections",
+                      "create-memory-collection",
+                      "update-memory-collection",
+                      "delete-memory-collection"
+                    ]
                   },
                   {
                     "group": "Files",
-                    "pages": []
+                    "pages": [
+                      "list-files",
+                      "upload-file",
+                      "get-file",
+                      "delete-file",
+                      "process-file"
+                    ]
                   },
                   {
                     "group": "Webhooks",
-                    "pages": []
+                    "pages": [
+                      "list-webhooks",
+                      "delete-webhook"
+                    ]
                   }
                 ]
               },
               {
                 "group": "Integrations",
-                "pages": []
+                "pages": [
+                  "integration-with-make",
+                  "integration-with-zapier",
+                  "integration-with-whats-app-via-make",
+                  "integration-with-n8n"
+                ]
               },
               {
                 "group": "Model Context Protocol (MCP)",
-                "pages": []
+                "pages": [
+                  "mcp"
+                ]
               }
             ]
           }

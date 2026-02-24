@@ -1,0 +1,285 @@
+---
+title: "Create Agent Webhook"
+---
+
+`POST /agents/{id}/webhooks`
+
+Create a new webhook for a specific agent.
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request POST \
+  --url 'https://api.tess.im/agents/{id}/webhooks' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "url": "https://example.com/webhook",
+    "method": "POST",
+    "status": "active"
+  }'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const data = {
+  url: 'https://example.com/webhook',
+  method: 'POST',
+  status: 'active'
+};
+
+const config = {
+  method: 'post',
+  url: 'https://api.tess.im/agents/{id}/webhooks',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  data: data
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+import json
+
+url = "https://api.tess.im/agents/{id}/webhooks"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+}
+data = {
+    "url": "https://example.com/webhook",
+    "method": "POST",
+    "status": "active"
+}
+
+response = requests.post(url, headers=headers, json=data)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+$data = [
+    'url' => 'https://example.com/webhook',
+    'method' => 'POST',
+    'status' => 'active'
+];
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/agents/{id}/webhooks",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => json_encode($data),
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY",
+    "Content-Type: application/json"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+String data = "{\"url\":\"https://example.com/webhook\",\"method\":\"POST\",\"status\":\"active\"}";
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/agents/{id}/webhooks"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .header("Content-Type", "application/json")
+    .POST(HttpRequest.BodyPublishers.ofString(data))
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```go Go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    data := map[string]string{
+        "url":    "https://example.com/webhook",
+        "method": "POST",
+        "status": "active",
+    }
+    
+    jsonData, err := json.Marshal(data)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    client := &http.Client{}
+    req, err := http.NewRequest("POST", "https://api.tess.im/agents/{id}/webhooks", bytes.NewBuffer(jsonData))
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+    req.Header.Add("Content-Type", "application/json")
+    
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+    
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+            
+            var data = new StringContent(
+                "{\"url\":\"https://example.com/webhook\",\"method\":\"POST\",\"status\":\"active\"}",
+                Encoding.UTF8,
+                "application/json"
+            );
+            
+            try
+            {
+                var response = await client.PostAsync("https://api.tess.im/agents/{id}/webhooks", data);
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch(HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ",e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/agents/{id}/webhooks')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+request['Content-Type'] = 'application/json'
+request.body = {
+  url: 'https://example.com/webhook',
+  method: 'POST',
+  status: 'active'
+}.to_json
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Headers**
+
+| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
+| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+
+<Note>
+  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+</Note>
+
+### **Path Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description** |
+| :------------ | :------- | :----------- | :-------------- |
+| id            | integer  | Yes          | The agent ID    |
+
+### **Body Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description**                                 |
+| :------------ | :------- | :----------- | :---------------------------------------------- |
+| url           | string   | Yes          | The URL that will receive webhook notifications |
+| method        | string   | Yes          | The HTTP method to use for the webhook (POST)   |
+| status        | string   | No           | The status of the webhook (active or inactive)  |
+
+### **Response**
+
+```json
+{
+"template_id": 8794,
+"user_id": 0,
+"url": "https://webhook.site/3bea4d55-0734-4bbd-aab9-95639585e539",
+"method": "POST",
+"status": "active",
+"updated_at": "2025-01-05T23:35:20.000000Z",
+"created_at": "2025-01-05T23:35:20.000000Z",
+"id": 18
+}
+```

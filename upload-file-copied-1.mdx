@@ -1,0 +1,311 @@
+---
+title: "Upload File"
+tag: "POST"
+---
+
+`POST /files`
+
+Upload a new file to the system and optionally process it.
+
+### **Supported files**
+
+| **Label**   | **File Pattern(s)**                                                                                                                                                                                                                              |
+| :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Text        | `*.txt`                                                                                                                                                                                                                                          |
+| Word        | `*.{doc,docx}`                                                                                                                                                                                                                                   |
+| Spreadsheet | `*.csv`                                                                                                                                                                                                                                          |
+| PDF         | `*.pdf`                                                                                                                                                                                                                                          |
+| Excel       | `*.xls`,`*.xlsx`                                                                                                                                                                                                                                 |
+| Power Point | `*.{ppt,pptx}`                                                                                                                                                                                                                                   |
+| Image       | `*.{jpg,jpeg,png,gif,bmp,svg,tiff,webp}`                                                                                                                                                                                                         |
+| Video       | `*.{mp4,avi,mov,mkv,wmv,flv}`                                                                                                                                                                                                                    |
+| Audio       | `*.{mp3,wav,aac,ogg,flac,m4a}`                                                                                                                                                                                                                   |
+| Code        | `*.bas`, `*.bat`, `*.xml`, `*.css`, `*.dart`, `*.{html,htm}`, `*.inc`, `*.js`, `*.json`, `*.kt`, `*.lua`, `*.pas`, `*.php`, `*.pl`, `*.ps1`, `*.py`, `*.r`, `*.sh`, `*.vsd`, `*.sql`, `*.swift`, `*.ts`, `*.vb`, `*.vba`, `*.{yml,yaml}`, `*.md` |
+
+### **Limits**
+
+- Maximum file size per upload: 200 MB
+- This endpoint accepts one file per request (use multiple requests for multiple files).
+- File storage limit: 30 files
+- Some features have different limits:
+  - Chat attachments: up to 200 MB per file; up to 5 files per send
+  - Audio transcription: up to 10 MB per file
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request POST \
+  --url 'https://api.tess.im/files' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: multipart/form-data' \
+  --form 'file=@/path/to/file' \
+  --form 'process=false'
+```
+
+
+```json Node.js
+const axios = require('axios');
+const FormData = require('form-data');
+const fs = require('fs');
+
+const form = new FormData();
+form.append('file', fs.createReadStream('/path/to/file'));
+form.append('process', 'false');
+
+const config = {
+  method: 'post',
+  url: 'https://api.tess.im/files',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    ...form.getHeaders()
+  },
+  data: form
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/files"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+files = {
+    'file': open('/path/to/file', 'rb')
+}
+data = {
+    'process': 'false'
+}
+
+response = requests.post(url, headers=headers, files=files, data=data)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+$file = new CURLFile('/path/to/file');
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/files",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => [
+    'file' => $file,
+    'process' => 'false'
+  ],
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY",
+    "Content-Type: multipart/form-data"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import java.io.File;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.file.Path;
+
+String boundary = "---boundary" + System.currentTimeMillis();
+File file = new File("/path/to/file");
+
+HttpClient client = HttpClient.newBuilder().build();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/files"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .header("Content-Type", "multipart/form-data;boundary=" + boundary)
+    .POST(HttpRequest.BodyPublishers.ofFile(file.toPath()))
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```go Go
+package main
+
+import (
+    "bytes"
+    "fmt"
+    "io"
+    "io/ioutil"
+    "mime/multipart"
+    "net/http"
+    "os"
+)
+
+func main() {
+    file, err := os.Open("/path/to/file")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer file.Close()
+    
+    body := &bytes.Buffer{}
+    writer := multipart.NewWriter(body)
+    
+    part, err := writer.CreateFormFile("file", "filename")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    io.Copy(part, file)
+    
+    
+    writer.WriteField("process", "false")
+    writer.Close()
+    
+    client := &http.Client{}
+    req, err := http.NewRequest("POST", "https://api.tess.im/files", body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+    req.Header.Add("Content-Type", writer.FormDataContentType())
+    
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+    
+    respBody, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    fmt.Println(string(respBody))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+            
+            using (var formData = new MultipartFormDataContent())
+            {
+                var fileContent = new ByteArrayContent(File.ReadAllBytes("/path/to/file"));
+                formData.Add(fileContent, "file", "filename");
+                formData.Add(new StringContent("false"), "process");
+                
+                try
+                {
+                    var response = await client.PostAsync("https://api.tess.im/files", formData);
+                    response.EnsureSuccessStatusCode();
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine(responseBody);
+                }
+                catch(HttpRequestException e)
+                {
+                    Console.WriteLine("\nException Caught!");
+                    Console.WriteLine("Message :{0} ",e.Message);
+                }
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/files')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+
+form_data = [
+  ['file', File.open('/path/to/file')],
+  ['process', 'false']
+]
+request.set_form form_data, 'multipart/form-data'
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Headers**
+
+| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
+| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+
+<Note>
+  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+</Note>
+
+### **Request Body**
+
+| **Parameter** | **Type** | **Required** | **Description**                                                                                        |
+| :------------ | :------- | :----------- | :----------------------------------------------------------------------------------------------------- |
+| file          | binary   | Yes          | The file to upload                                                                                     |
+| process       | boolean  | No           | Whether to process the file after upload (default: false). The file processing consume credits (true). |
+
+### **Response**
+
+```json
+{
+"id": 73325,
+"object": "file",
+"bytes": 35504128,
+"created_at": "2025-01-05T22:26:27+00:00",
+"filename": "endpoints.pdf",
+"credits": 0,
+"status": "waiting"
+}
+```

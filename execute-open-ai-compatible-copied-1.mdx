@@ -1,0 +1,93 @@
+---
+title: "Execute OpenAI Compatible"
+---
+
+`POST /agents/{id}/openai/chat/completions`
+
+Execute a specific **chat** agent by ID using the OpenAI-compatible API.
+
+### **Code Examples**
+
+See the [OpenAI SDK](https://platform.openai.com/docs/libraries) documentation for more info. At the moment, our API only support the `temperature` and `messages` (roles `system`, `user` and `assistant`) model parameters. Additionally, the `tools` parameter is a `string` enum. To verify the model parameters of an specific agent, see the [Get Agent](https://docs.tess.im/api/endpoints/agents/get) endpoint.
+
+<CodeGroup>
+
+```http cURL
+curl --request POST \
+  --url 'https://api.tess.im/agents/{id}/openai/chat/completions' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "temperature": "1",
+    "model": "tess-5",
+    "messages": [{ "role": "user", "content": "hello there!" }],
+    "tools": "no-tools",
+    "stream": true
+  }'
+```
+
+
+```json Node.js
+import OpenAI from 'openai';
+
+const client = new OpenAI({
+  baseURL: 'https://api.tess.im/agents/{id}/openai',
+  apiKey: 'YOUR_API_KEY',
+});
+
+async function main() {
+  const chatCompletion = await client.chat.completions.create({
+    messages: [{ role: 'user', content: 'Say this is a test' }],
+    model: 'gpt-4o',
+  });
+}
+
+main();
+```
+
+
+```python Python
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.tess.im/agents/{id}/openai",
+    api_key="YOUR_API_KEY"
+)
+
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "Say this is a test",
+        }
+    ],
+    model="gpt-4o",
+)
+```
+
+</CodeGroup>
+
+### **Headers**
+
+| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
+| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+
+<Note>
+  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+</Note>
+
+### **Path Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description** |
+| :------------ | :------- | :----------- | :-------------- |
+| id            | integer  | Yes          | The agent ID    |
+
+### **Request Body**
+
+See the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat/create) for request body parameters. At the moment, our API only supports the `temperature` and `messages` (roles `system`, `user` and `assistant`) model parameters. Additionally, the `tools` parameter is a `string` enum. To verify the model parameters of a specific agent, see the [Get Agent](https://docs.tess.im/api/endpoints/agents/get) endpoint.
+
+### **Response**
+
+See the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat/object) for response format.

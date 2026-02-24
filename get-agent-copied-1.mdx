@@ -1,12 +1,12 @@
 ---
-title: "Get Agent"
+title: "Obter Agente"
 ---
 
 ### `GET /agents/{id}`
 
-Retrieve a specific agent by ID.
+Recuperar um agente específico por ID.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -185,23 +185,23 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Headers**
+### **Cabeçalhos**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                       |
+| :------------- | :------- | :-------------- | :---------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será usado. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendado defini-lo agora para garantir compatibilidade com atualizações futuras.
 </Note>
 
-### **Path Parameters**
+### **Parâmetros de Caminho**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The agent ID    |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**  |
+| :------------ | :------- | :-------------- | :------------- |
+| id            | integer  | Sim             | O ID do agente |
 
-### **Response**
+### **Resposta**
 
 ```json
 {
@@ -218,7 +218,7 @@ puts response.read_body
   {
     "type": "select",
     "name": "temperature",
-    "description": "Let Tess know if you want her to be more objective or more creative with her responses.",
+    "description": "Informe à Tess se você quer que ela seja mais objetiva ou mais criativa em suas respostas.",
     "required": true,
     "options": [
       "0",
@@ -231,7 +231,7 @@ puts response.read_body
   {
     "type": "select",
     "name": "model",
-    "description": "Choose the Model version",
+    "description": "Escolha a versão do Modelo",
     "required": true,
     "options": [
       "gpt-4o-mini",
@@ -264,7 +264,7 @@ puts response.read_body
   {
     "type": "select",
     "name": "tools",
-    "description": "Choose the Model version",
+    "description": "Escolha a versão do Modelo",
     "required": true,
     "options": [
       "no-tools",
@@ -282,13 +282,13 @@ puts response.read_body
   {
     "type": "number",
     "name": "root_id",
-    "description": "The stored session id to continue conversation.",
+    "description": "O ID da sessão armazenada para continuar a conversa.",
     "required": false
   },
   {
     "type": "array",
     "name": "messages",
-    "description": "Chat history messages",
+    "description": "Mensagens do histórico do chat",
     "required": true
   }
 ],

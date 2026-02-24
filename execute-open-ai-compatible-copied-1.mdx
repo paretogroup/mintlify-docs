@@ -1,14 +1,14 @@
 ---
-title: "Execute OpenAI Compatible"
+title: "Executar Compatível com OpenAI"
 ---
 
 `POST /agents/{id}/openai/chat/completions`
 
-Execute a specific **chat** agent by ID using the OpenAI-compatible API.
+Executa um agente de **chat** específico por ID usando a API compatível com OpenAI.
 
-### **Code Examples**
+### **Exemplos de Código**
 
-See the [OpenAI SDK](https://platform.openai.com/docs/libraries) documentation for more info. At the moment, our API only support the `temperature` and `messages` (roles `system`, `user` and `assistant`) model parameters. Additionally, the `tools` parameter is a `string` enum. To verify the model parameters of an specific agent, see the [Get Agent](https://docs.tess.im/api/endpoints/agents/get) endpoint.
+Veja a documentação do [OpenAI SDK](https://platform.openai.com/docs/libraries) para mais informações. No momento, nossa API suporta apenas os parâmetros de modelo `temperature` e `messages` (funções `system`, `user` e `assistant`). Além disso, o parâmetro `tools` é um enum de `string`. Para verificar os parâmetros de modelo de um agente específico, consulte o endpoint [Obter Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/get).
 
 <CodeGroup>
 
@@ -68,26 +68,26 @@ chat_completion = client.chat.completions.create(
 
 </CodeGroup>
 
-### **Headers**
+### **Cabeçalhos**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
 </Note>
 
-### **Path Parameters**
+### **Parâmetros de Rota**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The agent ID    |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**  |
+| :------------ | :------- | :-------------- | :------------- |
+| id            | integer  | Sim             | O ID do agente |
 
-### **Request Body**
+### **Corpo da Solicitação**
 
-See the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat/create) for request body parameters. At the moment, our API only supports the `temperature` and `messages` (roles `system`, `user` and `assistant`) model parameters. Additionally, the `tools` parameter is a `string` enum. To verify the model parameters of a specific agent, see the [Get Agent](https://docs.tess.im/api/endpoints/agents/get) endpoint.
+Veja a documentação da [API OpenAI](https://platform.openai.com/docs/api-reference/chat/create) para os parâmetros do corpo da solicitação. No momento, nossa API suporta apenas os parâmetros de modelo `temperature` e `messages` (funções `system`, `user` e `assistant`). Além disso, o parâmetro `tools` é um enum de `string`. Para verificar os parâmetros de modelo de um agente específico, consulte o endpoint [Obter Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/get).
 
-### **Response**
+### **Resposta**
 
-See the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat/object) for response format.
+Veja a documentação da [API OpenAI](https://platform.openai.com/docs/api-reference/chat/object) para o formato da resposta.

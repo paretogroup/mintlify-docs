@@ -1,5 +1,5 @@
 ---
-title: "Execute Agent Stream"
+title: "Executar Agente em Stream"
 ---
 
 `POST /agents/{id}/execute`
@@ -422,35 +422,35 @@ sleep
 
 </CodeGroup>
 
-### **Headers**
+### **Cabeçalhos**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
 </Note>
 
-### **Path Parameters**
+### **Parâmetros de Rota**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The agent ID    |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**  |
+| :------------ | :------- | :-------------- | :------------- |
+| id            | integer  | Sim             | O ID do agente |
 
-### **Request Body**
+### **Corpo da Solicitação**
 
-| **Parameter** | **Type** | **Required**        | **Description**                                                          |
-| :------------ | :------- | :------------------ | :----------------------------------------------------------------------- |
-| stream        | boolean  | No                  | Streams the output using the Server-Sent Events format. Default: `false` |
-| answers       | object   | Yes                 | The agent answers                                                        |
-| messages      | array    | Only for Chat Agent | The agent messages                                                       |
-| file_ids      | array    | No                  | Array of file IDs to attach to the execution.                            |
+| **Parâmetro** | **Tipo** | **Obrigatório**            | **Descrição**                                                          |
+| :------------ | :------- | :------------------------- | :--------------------------------------------------------------------- |
+| stream        | boolean  | Não                        | Transmite a saída usando o formato Server-Sent Events. Padrão: `false` |
+| answers       | object   | Sim                        | As respostas do agente                                                 |
+| messages      | array    | Apenas para Agente de Chat | As mensagens do agente                                                 |
+| file_ids      | array    | Não                        | Array de IDs de arquivos para anexar à execução.                       |
 
-### **Response**
+### **Resposta**
 
-```json wrap
-data: {"id": 123, "status": "running", "output": "Hi!", "error": null, "credits": null, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
+```json
+data: {"id": 123, "status": "running", "output": "Oi!", "error": null, "credits": null, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
 
 data: {"id": 123, "status": "completed", "output": "", "error": null, "credits": 10, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
 ```

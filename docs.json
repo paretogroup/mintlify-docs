@@ -673,7 +673,7 @@
                   {
                     "group": "Colecciones de Memoria",
                     "pages": [
-                      "list-collections-copied-2",
+                      "listar-colecciones-de-memoria",
                       "create-memory-collection-copied-2",
                       "update-memory-collection-copied-2",
                       "delete-memory-collection-copied-2"

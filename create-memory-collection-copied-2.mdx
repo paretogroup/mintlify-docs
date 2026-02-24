@@ -1,13 +1,13 @@
 ---
-title: "Create Memory Collection"
+title: "Crear Colección de Memoria"
 tag: "POST"
 ---
 
 `POST /memory-collections`
 
-Creates a new memory collection.
+Crea una nueva colección de memoria.
 
-### **Code Examples**
+### **Ejemplos de Código**
 
 <CodeGroup>
 
@@ -239,21 +239,33 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Request Body**
+### **Encabezados**
 
-| **Parameter** | **Type** | **Required** | **Description**        |
-| :------------ | :------- | :----------- | :--------------------- |
-| name          | string   | Yes          | Name of the collection |
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
+</Note>
+
+### **Parámetros del Cuerpo**
+
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                      |
+| :------------ | :------- | :------------ | :----------------------------------- |
+| name          | string   | Sí            | El nombre de la colección de memoria |
+| description   | string   | No            | Una descripción opcional             |
+| memory_ids    | array    | No            | IDs de las memorias para incluir     |
+
+### **Respuesta**
 
 ```json
 {
-"message": "Collection created successfully",
-"collection": {
-  "user_id": 1,
-  "name": "string",
-  "id": 2
-}
+"id": 123,
+"name": "Mi Colección",
+"description": null,
+"memory_ids": [],
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:39:57+00:00"
 }
 ```

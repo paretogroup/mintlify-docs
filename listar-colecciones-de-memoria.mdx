@@ -1,42 +1,31 @@
 ---
-title: "Actualizar Colección de Memoria"
-tag: "PUT"
+title: "Listar Colecciones de Memoria"
 ---
 
-`PUT /memory-collections/{collectionId}`
+`GET /memory-collections`
 
-Actualiza una colección de memoria existente.
+Recupera una lista paginada de colecciones de memoria para el usuario autenticado.
 
 ### **Ejemplos de Código**
 
 <CodeGroup>
 
 ```http cURL
-curl --request PUT \
-  --url 'https://api.tess.im/memory-collections/{collectionId}' \
-  --header 'Authorization: Bearer YOUR_API_KEY' \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "name": "Updated Collection Name"
-  }'
+curl --request GET \
+  --url 'https://api.tess.im/memory-collections' \
+  --header 'Authorization: Bearer YOUR_API_KEY'
 ```
 
 
 ```json Node.js
 const axios = require('axios');
 
-const data = {
-  name: "Updated Collection Name"
-};
-
 const config = {
-  method: 'put',
-  url: 'https://api.tess.im/memory-collections/{collectionId}',
+  method: 'get',
+  url: 'https://api.tess.im/memory-collections',
   headers: {
-    'Authorization': 'Bearer YOUR_API_KEY',
-    'Content-Type': 'application/json'
-  },
-  data: data
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
 };
 
 try {
@@ -50,18 +39,18 @@ try {
 
 ```python Python
 import requests
-import json
 
-url = "https://api.tess.im/memory-collections/{collectionId}"
-payload = {
-    "name": "Updated Collection Name"
+url = "https://api.tess.im/memory-collections"
+params = {
+    "page": 1,
+    "per_page": 10,
+    "search": "example"
 }
 headers = {
-    "Authorization": "Bearer YOUR_API_KEY",
-    "Content-Type": "application/json"
+    "Authorization": "Bearer YOUR_API_KEY"
 }
 
-response = requests.put(url, json=payload, headers=headers)
+response = requests.get(url, params=params, headers=headers)
 print(response.json())
 ```
 
@@ -70,22 +59,16 @@ print(response.json())
 <?php
 $curl = curl_init();
 
-$data = [
-  "name" => "Updated Collection Name"
-];
-
 curl_setopt_array($curl, [
-  CURLOPT_URL => "https://api.tess.im/memory-collections/{collectionId}",
+  CURLOPT_URL => "https://api.tess.im/memory-collections?page=1&per_page=10&search=example",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "PUT",
-  CURLOPT_POSTFIELDS => json_encode($data),
+  CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => [
-    "Authorization: Bearer YOUR_API_KEY",
-    "Content-Type: application/json"
+    "Authorization: Bearer YOUR_API_KEY"
   ]
 ]);
 
@@ -108,14 +91,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-String requestBody = "{\"name\":\"Updated Collection Name\"}";
-
 HttpClient client = HttpClient.newHttpClient();
 HttpRequest request = HttpRequest.newBuilder()
-    .uri(URI.create("https://api.tess.im/memory-collections/{collectionId}"))
+    .uri(URI.create("https://api.tess.im/memory-collections?page=1&per_page=10&search=example"))
     .header("Authorization", "Bearer YOUR_API_KEY")
-    .header("Content-Type", "application/json")
-    .PUT(HttpRequest.BodyPublishers.ofString(requestBody))
+    .GET()
     .build();
 
 HttpResponse<String> response = client.send(request,
@@ -128,33 +108,20 @@ System.out.println(response.body());
 package main
 
 import (
-    "bytes"
-    "encoding/json"
     "fmt"
     "io/ioutil"
     "net/http"
 )
 
 func main() {
-    data := map[string]string{
-        "name": "Updated Collection Name"
-    }
-    
-    jsonData, err := json.Marshal(data)
-    if err != nil {
-        fmt.Println(err)
-        return
-    }
-    
     client := &http.Client{}
-    req, err := http.NewRequest("PUT", "https://api.tess.im/memory-collections/{collectionId}", bytes.NewBuffer(jsonData))
+    req, err := http.NewRequest("GET", "https://api.tess.im/memory-collections?page=1&per_page=10&search=example", nil)
     if err != nil {
         fmt.Println(err)
         return
     }
     
     req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
-    req.Header.Add("Content-Type", "application/json")
     
     resp, err := client.Do(req)
     if err != nil {
@@ -177,7 +144,6 @@ func main() {
 ```jsonnet .NET
 using System;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 class Program
@@ -188,20 +154,9 @@ class Program
         {
             client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
             
-            var requestData = new
-            {
-                name = "Updated Collection Name"
-            };
-            
-            var content = new StringContent(
-                System.Text.Json.JsonSerializer.Serialize(requestData),
-                Encoding.UTF8,
-                "application/json"
-            );
-            
             try
             {
-                var response = await client.PutAsync("https://api.tess.im/memory-collections/{collectionId}", content);
+                var response = await client.GetAsync("https://api.tess.im/memory-collections?page=1&per_page=10&search=example");
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responseBody);
@@ -222,16 +177,15 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.tess.im/memory-collections/{collectionId}')
+uri = URI('https://api.tess.im/memory-collections')
+params = { page: 1, per_page: 10, search: 'example' }
+uri.query = URI.encode_www_form(params)
+
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
-request = Net::HTTP::Put.new(uri)
+request = Net::HTTP::Get.new(uri)
 request['Authorization'] = 'Bearer YOUR_API_KEY'
-request['Content-Type'] = 'application/json'
-request.body = {
-  name: 'Updated Collection Name'
-}.to_json
 
 response = http.request(request)
 puts response.read_body
@@ -249,29 +203,29 @@ puts response.read_body
   **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
 </Note>
 
-### **Parámetros de Ruta**
+### **Parámetros de Consulta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                  |
-| :------------ | :------- | :------------ | :------------------------------- |
-| collectionId  | string   | Sí            | El ID de la colección de memoria |
-
-### **Parámetros del Cuerpo**
-
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                       |
-| :------------ | :------- | :------------ | :------------------------------------ |
-| name          | string   | No            | El nombre actualizado de la colección |
-| description   | string   | No            | Una descripción actualizada           |
-| memory_ids    | array    | No            | IDs de las memorias para incluir      |
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                                                         |
+| :------------ | :------- | :------------ | :---------------------------------------------------------------------- |
+| limit         | integer  | No            | Número máximo de elementos por página (predeterminado: 25, máximo: 100) |
+| offset        | integer  | No            | Número de elementos para saltar (predeterminado: 0)                     |
 
 ### **Respuesta**
 
 ```json
 {
-"id": 123,
-"name": "Nombre Actualizado de la Colección",
-"description": null,
-"memory_ids": [],
-"created_at": "2025-01-05T22:39:57+00:00",
-"updated_at": "2025-01-05T22:40:00+00:00"
+"memory_collections": [
+  {
+    "id": 123,
+    "name": "Colección de Ejemplos",
+    "description": "Una colección de memorias de ejemplo",
+    "memory_ids": [456, 789],
+    "created_at": "2025-01-05T22:39:57+00:00",
+    "updated_at": "2025-01-05T22:39:57+00:00"
+  }
+],
+"total": 1,
+"limit": 25,
+"offset": 0
 }
 ```

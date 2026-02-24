@@ -51,6 +51,7 @@
             "pages": [
               {
                 "group": "Chat",
+                "icon": "folder-open",
                 "pages": [
                   "using-the-chat",
                   "auto-mode",
@@ -60,6 +61,7 @@
               },
               {
                 "group": "Tools",
+                "icon": "folder-open",
                 "pages": [
                   "chat-tools",
                   "internet-1",
@@ -82,6 +84,7 @@
             "pages": [
               {
                 "group": "Agents",
+                "icon": "folder-open",
                 "pages": [
                   "agent-types",
                   "static-training",
@@ -93,6 +96,7 @@
               },
               {
                 "group": "Generators",
+                "icon": "folder-open",
                 "pages": [
                   "image-generator",
                   "video-generator",
@@ -103,6 +107,7 @@
               },
               {
                 "group": "User Inputs",
+                "icon": "folder-open",
                 "pages": [
                   "how-it-works",
                   "short-and-long-text",
@@ -112,6 +117,7 @@
               },
               {
                 "group": "AI Steps",
+                "icon": "folder-open",
                 "pages": [
                   "how-it-works-ai-steps",
                   {
@@ -139,6 +145,7 @@
             "pages": [
               {
                 "group": "API Guide",
+                "icon": "folder-open",
                 "pages": [
                   "overview",
                   "quickstart-api",
@@ -149,6 +156,7 @@
               },
               {
                 "group": "API Reference",
+                "icon": "folder-open",
                 "pages": [
                   {
                     "group": "Agents",
@@ -215,6 +223,7 @@
               },
               {
                 "group": "Integrations",
+                "icon": "folder-open",
                 "pages": [
                   "integration-with-make",
                   "integration-with-zapier",
@@ -224,6 +233,7 @@
               },
               {
                 "group": "Model Context Protocol (MCP)",
+                "icon": "folder-open",
                 "pages": [
                   "mcp"
                 ]
@@ -371,6 +381,7 @@
               "reembolso",
               {
                 "group": "Programas",
+                "icon": "folder-open",
                 "pages": [
                   "afiliados",
                   "recompensas"
@@ -378,6 +389,7 @@
               },
               {
                 "group": "Configurações",
+                "icon": "folder-open",
                 "pages": [
                   "sua-conta",
                   "workspace",
@@ -393,6 +405,7 @@
               },
               {
                 "group": "Suporte",
+                "icon": "folder-open",
                 "pages": [
                   "contato-de-suporte",
                   "suporte-remoto"
@@ -405,6 +418,7 @@
             "pages": [
               {
                 "group": "Guia da API",
+                "icon": "folder-open",
                 "pages": [
                   "visao-geral",
                   "inicio-rapido",
@@ -415,6 +429,7 @@
               },
               {
                 "group": "Referência da API",
+                "icon": "folder-open",
                 "pages": [
                   {
                     "group": "Agentes",
@@ -481,6 +496,7 @@
               },
               {
                 "group": "Integrações",
+                "icon": "folder-open",
                 "pages": [
                   "integration-with-make-copied-1",
                   "integration-with-zapier-copied-1",
@@ -490,6 +506,7 @@
               },
               {
                 "group": "Protocolo de Contexto de Modelo (MCP)",
+                "icon": "folder-open",
                 "pages": [
                   "mcp-copied-1"
                 ]
@@ -536,6 +553,7 @@
             "pages": [
               {
                 "group": "Chat",
+                "icon": "folder-open",
                 "pages": [
                   "usando-el-chat",
                   "auto-mode-1",
@@ -545,6 +563,7 @@
               },
               {
                 "group": "Tools",
+                "icon": "folder-open",
                 "pages": [
                   "chat-tools-1",
                   "internet",
@@ -567,6 +586,7 @@
             "pages": [
               {
                 "group": "Agentes",
+                "icon": "folder-open",
                 "pages": [
                   "tipos-de-agentes-1",
                   "entrenamiento-estatico",
@@ -578,6 +598,7 @@
               },
               {
                 "group": "Generadores",
+                "icon": "folder-open",
                 "pages": [
                   "generador-de-imagenes",
                   "generador-de-video",
@@ -588,6 +609,7 @@
               },
               {
                 "group": "Entradas del usuario",
+                "icon": "folder-open",
                 "pages": [
                   "funcionamento-entradas-del-usuario",
                   "texto-corto-y-largo",
@@ -597,6 +619,7 @@
               },
               {
                 "group": "AI Steps",
+                "icon": "folder-open",
                 "pages": [
                   "funcionamento-ai-steps-1",
                   {

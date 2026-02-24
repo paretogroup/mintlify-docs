@@ -1,12 +1,12 @@
 ---
-title: "Link Files to Agent"
+title: "Vincular Arquivos ao Agente "
 ---
 
 `POST /agents/{agentId}/files`
 
-Link a file to be associated with a specific agent.
+Vincula um arquivo para ser associado a um agente específico.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -246,29 +246,29 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Headers**
+### **Cabeçalhos**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
 </Note>
 
-### **Path Parameters**
+### **Parâmetros de Rota**
 
-| **Parameter** | **Type** | **Required** | **Description**     |
-| :------------ | :------- | :----------- | :------------------ |
-| agentId       | string   | Yes          | The ID of the agent |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**  |
+| :------------ | :------- | :-------------- | :------------- |
+| agentId       | string   | Sim             | O ID do agente |
 
-### **Body Parameters**
+### **Parâmetros do Corpo**
 
-| **Parameter** | **Type** | **Required** | **Description**                    |
-| :------------ | :------- | :----------- | :--------------------------------- |
-| file_ids      | array    | Yes          | The files ids to link to the agent |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                               |
+| :------------ | :------- | :-------------- | :------------------------------------------ |
+| file_ids      | array    | Sim             | Os IDs dos arquivos para vincular ao agente |
 
-### **Response**
+### **Resposta**
 
 ```json
 {

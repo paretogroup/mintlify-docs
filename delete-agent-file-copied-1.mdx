@@ -1,12 +1,12 @@
 ---
-title: "Delete Agent File"
+title: "Excluir Arquivo do Agente "
 ---
 
 `DELETE /agents/{agentId}/files/{fileId}`
 
-Delete a specific file associated with an agent.
+Exclui um arquivo específico associado a um agente.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -185,26 +185,26 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Headers**
+### **Cabeçalhos**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
 </Note>
 
-### **Path Parameters**
+### **Parâmetros de Rota**
 
-| **Parameter** | **Type** | **Required** | **Description**              |
-| :------------ | :------- | :----------- | :--------------------------- |
-| agentId       | string   | Yes          | The ID of the agent          |
-| fileId        | string   | Yes          | The ID of the file to delete |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                |
+| :------------ | :------- | :-------------- | :--------------------------- |
+| agentId       | string   | Sim             | O ID do agente               |
+| fileId        | string   | Sim             | O ID do arquivo para excluir |
 
-### **Response**
+### **Resposta**
 
-```
+```json
 {
 "id": 8794,
 "file": {
@@ -219,5 +219,3 @@ puts response.read_body
 "removed": true
 }
 ```
-
-### **Try it ou**

@@ -154,7 +154,8 @@
                     "group": "Agents",
                     "pages": [
                       "list-agent",
-                      "get-agent"
+                      "get-agent",
+                      "execute-agent"
                     ]
                   },
                   {

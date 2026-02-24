@@ -1,0 +1,387 @@
+---
+title: "Execute Agent"
+---
+
+`POST /agents/{id}/execute`
+
+Execute a specific agent by ID.
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request POST \
+  --url 'https://api.tess.im/agents/{id}/execute' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "temperature": "1",
+    "model": "tess-5",
+    "messages": [
+        { "role": "user", "content": "Hello, how can you help me today?" }
+    ],
+    "tools": "no-tools",
+    "wait_execution": false,
+    "file_ids": [123, 321]
+  }'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const data = {
+    "temperature": "1",
+    "model": "tess-5",
+    "messages": [
+        { "role": "user", "content": "Hello, how can you help me today?" }
+    ],
+    "tools": "no-tools",
+    "wait_execution": false,
+    "file_ids": [123, 321]
+  };
+
+const config = {
+  method: 'post',
+  url: 'https://api.tess.im/agents/{id}/execute',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  data: data
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+import json
+
+url = "https://api.tess.im/agents/{id}/execute"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+}
+data = {
+    "temperature": "1",
+    "model": "tess-5",
+    "messages": [
+        { "role": "user", "content": "Hello, how can you help me today?" }
+    ],
+    "tools": "no-tools",
+    "wait_execution": false,
+    "file_ids": [123, 321]
+  }
+
+response = requests.post(url, headers=headers, json=data)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+$data = [
+    "temperature" => "1",
+    "model" => "tess-5",
+    "messages" => [
+        [ "role" => "user", "content" => "Hello, how can you help me today?" ]
+    ],
+    "tools" => "no-tools",
+    "wait_execution" => false,
+    "file_ids": [123, 321]
+];
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/agents/{id}/execute",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => json_encode($data),
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY",
+    "Content-Type: application/json"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.List;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+
+        Map<String, Object> data = Map.of(
+            "temperature", "1",
+            "model", "tess-5",
+            "messages", List.of(Map.of("role", "user", "content", "Hello, how can you help me today?")),
+            "tools", "no-tools",
+            "wait_execution", false,
+            "file_ids", List.of(123, 321)
+        );
+
+        String jsonPayload = mapper.writeValueAsString(data);
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("https://api.tess.im/agents/{id}/execute"))
+            .header("Authorization", "Bearer YOUR_API_KEY")
+            .header("Content-Type", "application/json")
+            .POST(HttpRequest.BodyPublishers.ofString(jsonPayload))
+            .build();
+
+        HttpResponse<String> response = client.send(request,
+            HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+    }
+}
+```
+
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "strings"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    payload := `{
+        "temperature": "1",
+        "model": "tess-5",
+        "messages": [
+            { "role": "user", "content": "Hello, how can you help me today?" }
+        ],
+        "tools": "no-tools",
+        "wait_execution": false,
+        "file_ids": [123, 321]
+    }`
+
+    client := &http.Client{}
+    req, err := http.NewRequest("POST", "https://api.tess.im/agents/{id}/execute", strings.NewReader(payload))
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+    req.Header.Add("Content-Type", "application/json")
+    
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+    
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+
+            var data = new
+            {
+                temperature = "1",
+                model = "tess-5",
+                messages = new List<object> { new { role = "user", content = "Hello, how can you help me today?" } },
+                tools = "no-tools",
+                wait_execution = false,
+                file_ids = new List<int> { 123, 321 }
+            };
+
+            var jsonPayload = JsonConvert.SerializeObject(data);
+            var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await client.PostAsync("https://api.tess.im/agents/{id}/execute", content);
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/agents/{id}/execute')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+request['Content-Type'] = 'application/json'
+request.body = {
+    "temperature": "1",
+    "model": "tess-5",
+    "messages": [
+        { "role": "user", "content": "Hello, how can you help me today?" }
+    ],
+    "tools": "no-tools",
+    "wait_execution": false,
+    "file_ids": [123, 321]
+}.to_json
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Headers**
+
+| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
+| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+
+> **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+
+### **Path Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description** |
+| :------------ | :------- | :----------- | :-------------- |
+| id            | integer  | Yes          | The agent ID    |
+
+### **Request Body**
+
+| **Parameter**  | **Type** | **Required**        | **Description**                                                                                                                                                                                                                           |
+| :------------- | :------- | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| answers        | object   | Yes                 | The agent answers                                                                                                                                                                                                                         |
+| messages       | array    | Only for Chat Agent | The agent messages                                                                                                                                                                                                                        |
+| wait_execution | boolean  | No                  | Indicates whether the execution should wait until completion. The timeout is 100 seconds. For longer executions, use `wait_execution=false` in combination with the Get Agent Response endpoint with a polling strategy (default: false). |
+| file_ids       | array    | No                  | Array of file IDs to attach to the execution.                                                                                                                                                                                             |
+
+#### **Messages Roles (Chat Type Templates)**
+
+For chat type templates, the `messages` array supports the following roles:
+
+| **Role**    | **Required** | **Description**                                                                 |
+| :---------- | :----------- | :------------------------------------------------------------------------------ |
+| `user`      | Yes          | User messages. Must be paired with `assistant` messages.                        |
+| `assistant` | Yes          | Assistant messages. Must be paired with `user` messages.                        |
+| `developer` | No           | Optional developer message. **Only allowed as the first message** in the array. |
+| `system`    | No           | **Not supported**. Using this role will cause an error.                         |
+
+**Important rules:**
+
+- Messages must alternate between `user` and `assistant` roles (after the optional `developer` message).
+- The `developer` role can only appear as the first message in the array and will be extracted before processing the rest.
+- If two consecutive messages have the same role (e.g., two `user` messages), the API will return a validation error: "Chat messages must be a pair of user/assistant".
+- The `system` role is not supported and will cause an error.
+
+**Example with developer message:**
+
+```
+{
+  "messages": [
+    { "role": "developer", "content": "You are a helpful assistant." },
+    { "role": "user", "content": "Hello!" },
+    { "role": "assistant", "content": "Hi there! How can I help you?" },
+    { "role": "user", "content": "What's the weather like?" }
+  ]
+}
+```
+
+**Example without developer message:**
+
+```
+{
+  "messages": [
+    { "role": "user", "content": "Hello!" },
+    { "role": "assistant", "content": "Hi there! How can I help you?" },
+    { "role": "user", "content": "What's the weather like?" }
+  ]
+}
+```
+
+Get more details of which options are accepted by this Agent requesting this endpoint: [Get Agent](https://docs.tess.im/api/endpoints/agents/get)
+
+### **Response**
+
+```
+{
+"template_id": "8794",
+"responses": [
+  {
+    "id": 4773337,
+    "status": "starting",
+    "input": "hello",
+    "output": "",
+    "credits": 0.000337,
+    "root_id": 4773337,
+    "created_at": "2025-01-05T19:35:21.000000Z",
+    "updated_at": "2025-01-05T19:35:21.000000Z",
+    "template_id": 8794
+  }
+]
+}
+```
+
+### **Try it out!**

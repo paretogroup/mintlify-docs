@@ -20,7 +20,7 @@
             "pages": [
               {
                 "group": "First Steps",
-                "icon": "door-open",
+                "icon": "folder-open",
                 "pages": [
                   "welcome-to-tess-ai",
                   "concepts",
@@ -122,14 +122,17 @@
                   "how-it-works-ai-steps",
                   {
                     "group": "Web Data Extraction",
+                    "icon": "folder-open",
                     "pages": []
                   },
                   {
                     "group": "Integrations",
+                    "icon": "folder-open",
                     "pages": []
                   },
                   {
                     "group": "Document Processing",
+                    "icon": "folder-open",
                     "pages": []
                   }
                 ]

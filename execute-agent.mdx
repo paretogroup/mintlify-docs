@@ -301,7 +301,9 @@ puts response.read_body
 | :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
 | x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
 
-> **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+<Note>
+  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+</Note>
 
 ### **Path Parameters**
 
@@ -338,7 +340,7 @@ For chat type templates, the `messages` array supports the following roles:
 
 **Example with developer message:**
 
-```
+```json
 {
   "messages": [
     { "role": "developer", "content": "You are a helpful assistant." },
@@ -351,7 +353,7 @@ For chat type templates, the `messages` array supports the following roles:
 
 **Example without developer message:**
 
-```
+```json
 {
   "messages": [
     { "role": "user", "content": "Hello!" },
@@ -365,7 +367,7 @@ Get more details of which options are accepted by this Agent requesting this end
 
 ### **Response**
 
-```
+```json
 {
 "template_id": "8794",
 "responses": [
@@ -383,5 +385,3 @@ Get more details of which options are accepted by this Agent requesting this end
 ]
 }
 ```
-
-### **Try it out!**

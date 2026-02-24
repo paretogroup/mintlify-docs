@@ -2,59 +2,57 @@
 title: "MCP"
 ---
 
-# **Model Context Protocol (MCP)**
+O **Protocolo de Contexto de Modelo (MCP)** é um protocolo aberto que padroniza como os aplicativos fornecem contexto aos Modelos de Linguagem (LLMs). Assim como USB-C padroniza conexões de dispositivos, MCP padroniza a integração de modelos de IA com diferentes fontes de dados e ferramentas.
 
-The **Model Context Protocol (MCP)** is an open protocol that standardizes how applications provide context to Language Models (LLMs). Just as USB-C standardizes device connections, MCP standardizes the integration of AI models with different data sources and tools.
+## **O que é MCP?**
 
-## **What is MCP?**
+MCP permite que aplicativos e modelos de IA se comuniquem de forma estruturada, facilitando a troca de informações contextuais, comandos e resultados. Isso torna possível conectar modelos a bancos de dados, sistemas de arquivos, APIs externas e muito mais, sem a necessidade de integrações personalizadas para cada caso.
 
-MCP allows applications and AI models to communicate in a structured way, facilitating the exchange of contextual information, commands, and results. This makes it possible to connect models to databases, file systems, external APIs, and much more, without the need for custom integrations for each case.
+- **Padronização:** Um único protocolo para conectar diferentes modelos e ferramentas.
+- **Interoperabilidade:** Permite que modelos de IA acessem dados e executem ações em vários sistemas.
+- **Segurança e Controle:** O protocolo define permissões claras sobre o que o modelo pode acessar ou modificar.
 
-- **Standardization:** A single protocol to connect different models and tools.
-- **Interoperability:** Allows AI models to access data and perform actions across multiple systems.
-- **Security and Control:** The protocol defines clear permissions on what the model can access or modify.
+## **Pré-requisitos**
 
-## **Prerequisites**
+Certifique-se de ter o seguinte instalado antes de prosseguir:
 
-Make sure you have the following installed before proceeding:
+- **Node.js** (v18 ou posterior recomendado)
+- **npx** (vem incluído com Node.js)
 
-- **Node.js** (v18 or later recommended)
-- **npx** (comes bundled with Node.js)
-
-You can check if they are installed by running:
+Você pode verificar se estão instalados executando:
 
 ```
 node -v
 npx -v
 ```
 
-## **Installing Tess AI MCP**
+## **Instalando Tess AI MCP**
 
-Installing MCP is simple and can be done using the command below with npx. Just provide the MCP name locally and your API key:
+Instalar MCP é simples e pode ser feito usando o comando abaixo com npx. Basta fornecer o nome MCP localmente e sua chave de API:
 
 ```
 TESS_API_KEY="API_KEY_HERE" npx -y mcp-tess
 ```
 
-> Replace `API_KEY_HERE` with your access key.
+> Substitua `API_KEY_HERE` pela sua chave de acesso.
 
-After installation, you will have access to all endpoints available in the Tess AI API.
+Após a instalação, você terá acesso a todos os endpoints disponíveis na API Tess AI.
 
-> **How to generate your access token:** Follow the steps at [How to create an API Token in Tess AI](https://tess.im/dashboard/user/tokens) or see the detailed instructions [here](https://docs.tess.im/api/get-started/quickstart).
+> **Como gerar seu token de acesso:** Siga os passos em [Como criar um Token de API no Tess AI](https://tess.im/dashboard/user/tokens) ou veja as instruções detalhadas [aqui](https://docs.tess.im/pt-BR/api/get-started/quickstart).
 
-Check the documentation to see how to generate the Access Token, access endpoints, execute operations, and review contracts and versions.
+Verifique a documentação para ver como gerar o Token de Acesso, acessar endpoints, executar operações e revisar contratos e versões.
 
-## **How does it work in practice?**
+## **Como funciona na prática?**
 
-The typical MCP flow is:
+O fluxo típico do MCP é:
 
-1. **Client (e.g., Claude, another LLM, or your application)** sends an MCP request to an MCP server.
-2. **MCP Server** interprets the request, accesses data, executes commands, or returns requested information.
-3. **Response:** The server returns the result to the client, which can be used by the model to generate richer responses or perform automated actions.
+1. **Cliente (ex.: Claude, outro LLM ou seu aplicativo)** envia uma solicitação MCP para um servidor MCP.
+2. **Servidor MCP** interpreta a solicitação, acessa dados, executa comandos ou retorna informações solicitadas.
+3. **Resposta:** O servidor retorna o resultado para o cliente, que pode ser usado pelo modelo para gerar respostas mais ricas ou executar ações automatizadas.
 
-## **Installing on Cursor / VSCode**
+## **Instalando no Cursor / VSCode**
 
-Locate the MCP configuration file and add the Tess MCP configuration as shown below. In Cursor, the file can be found via Tools & Integration \> MCP Tools (menu) or at ~/.cursor/mcp.json:
+Localize o arquivo de configuração MCP e adicione a configuração Tess MCP conforme mostrado abaixo. No Cursor, o arquivo pode ser encontrado via Tools & Integration \> MCP Tools (menu) ou em ~/.cursor/mcp.json:
 
 ```
 {
@@ -70,48 +68,48 @@ Locate the MCP configuration file and add the Tess MCP configuration as shown be
 }
 ```
 
-In VSCode, the location may vary depending on the extension you use, but the structure remains the same.
+No VSCode, a localização pode variar dependendo da extensão que você usa, mas a estrutura permanece a mesma.
 
-## **Installing on Claude Code**
+## **Instalando no Claude Code**
 
-Using the CLI, you can add it directly with:
+Usando a CLI, você pode adicioná-lo diretamente com:
 
 ```
 claude mcp add tess -e TESS_API_KEY="<REPLACE_YOUR_TOKEN_HERE>" -- npx -y mcp-tess
 ```
 
-### **Usage Example with Tess AI**
+### **Exemplo de Uso com Tess AI**
 
-Let's see a practical example of how to use MCP to manage memories and collections in Tess AI:
+Vamos ver um exemplo prático de como usar MCP para gerenciar memórias e coleções no Tess AI:
 
-1. **List collections and memories:**
-   - Initially, when listing memories, there may be none registered.
-   - List the collections to check the existing ones. By default, there is the `MyMemories` collection.
-2. **Create a new collection:**
-   - Create a collection called, for example, "Programming Best Practices".
-   - Confirm the creation and list the collections again to ensure the new one was added.
-3. **Add memories to the collection:**
-   - Add memories to the new collection, such as:
-     - "Always use SOLID as a development standard."
-     - "Always create unit tests using BDD."
-   - Confirm that the memories were successfully added.
-4. **List memories in the collection:**
-   - List the memories in the collection to verify they were saved correctly.
-5. **Use the memories in a practical case:**
-   - Ask the Tess AI agent (for example, the TES AIV5 chat agent) to create a service, such as "Flight Reservation Management in Node.js", using the best practices saved in the collection.
-   - The agent will fetch the collection, use the memories as reference, and generate the requested service, including the recommended practices (such as using BDD for tests).
+1. **Listar coleções e memórias:**
+   - Inicialmente, ao listar memórias, pode não haver nenhuma registrada.
+   - Liste as coleções para verificar as existentes. Por padrão, existe a coleção `MyMemories`.
+2. **Criar uma nova coleção:**
+   - Crie uma coleção chamada, por exemplo, "Melhores Práticas de Programação".
+   - Confirme a criação e liste as coleções novamente para garantir que a nova foi adicionada.
+3. **Adicionar memórias à coleção:**
+   - Adicione memórias à nova coleção, como:
+     - "Sempre use SOLID como padrão de desenvolvimento."
+     - "Sempre crie testes unitários usando BDD."
+   - Confirme que as memórias foram adicionadas com sucesso.
+4. **Listar memórias na coleção:**
+   - Liste as memórias na coleção para verificar se foram salvas corretamente.
+5. **Usar as memórias em um caso prático:**
+   - Peça ao agente Tess AI (por exemplo, o agente de chat TES AIV5) para criar um serviço, como "Gerenciamento de Reservas de Voos em Node.js", usando as melhores práticas salvas na coleção.
+   - O agente buscará a coleção, usará as memórias como referência e gerará o serviço solicitado, incluindo as práticas recomendadas (como usar BDD para testes).
 
-This flow demonstrates how MCP allows you to integrate, query, and use contextual information in a practical and efficient way with Tess AI.
+Este fluxo demonstra como MCP permite integrar, consultar e usar informações contextuais de forma prática e eficiente com Tess AI.
 
-## **MCP Benefits**
+## **Benefícios do MCP**
 
-- **Plug & Play:** Add new data sources or tools without having to rewrite integrations.
-- **Scalability:** The same model can be connected to multiple MCPs, each with different permissions and capabilities.
-- **Security:** The protocol allows you to define exactly what can be accessed or executed.
+- **Plug & Play:** Adicione novas fontes de dados ou ferramentas sem precisar reescrever integrações.
+- **Escalabilidade:** O mesmo modelo pode ser conectado a múltiplos MCPs, cada um com permissões e capacidades diferentes.
+- **Segurança:** O protocolo permite definir exatamente o que pode ser acessado ou executado.
 
-## **Resources and References**
+## **Recursos e Referências**
 
-- [Official MCP Documentation (Anthropic)](https://docs.anthropic.com/en/docs/mcp)
-- [How to use MCP in Claude Desktop](https://docs.anthropic.com/en/docs/mcp)
+- [Documentação Oficial MCP (Anthropic)](https://docs.anthropic.com/en/docs/mcp)
+- [Como usar MCP no Claude Desktop](https://docs.anthropic.com/en/docs/mcp)
 
-> For technical details, payload examples, and MCP server implementation, see the official documentation above.
+> Para detalhes técnicos, exemplos de payload e implementação do servidor MCP, consulte a documentação oficial acima.

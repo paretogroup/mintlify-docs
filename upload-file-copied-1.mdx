@@ -1,37 +1,37 @@
 ---
-title: "Upload File"
+title: "Upload de Arquivo "
 tag: "POST"
 ---
 
-`POST /files`
+### `POST /files`
 
-Upload a new file to the system and optionally process it.
+Faz upload de um novo arquivo para o sistema e opcionalmente o processa.
 
-### **Supported files**
+### **Arquivos suportados**
 
-| **Label**   | **File Pattern(s)**                                                                                                                                                                                                                              |
+| **Rótulo**  | **Padrões de Arquivo**                                                                                                                                                                                                                           |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Text        | `*.txt`                                                                                                                                                                                                                                          |
+| Texto       | `*.txt`                                                                                                                                                                                                                                          |
 | Word        | `*.{doc,docx}`                                                                                                                                                                                                                                   |
-| Spreadsheet | `*.csv`                                                                                                                                                                                                                                          |
+| Planilha    | `*.csv`                                                                                                                                                                                                                                          |
 | PDF         | `*.pdf`                                                                                                                                                                                                                                          |
 | Excel       | `*.xls`,`*.xlsx`                                                                                                                                                                                                                                 |
 | Power Point | `*.{ppt,pptx}`                                                                                                                                                                                                                                   |
-| Image       | `*.{jpg,jpeg,png,gif,bmp,svg,tiff,webp}`                                                                                                                                                                                                         |
-| Video       | `*.{mp4,avi,mov,mkv,wmv,flv}`                                                                                                                                                                                                                    |
-| Audio       | `*.{mp3,wav,aac,ogg,flac,m4a}`                                                                                                                                                                                                                   |
-| Code        | `*.bas`, `*.bat`, `*.xml`, `*.css`, `*.dart`, `*.{html,htm}`, `*.inc`, `*.js`, `*.json`, `*.kt`, `*.lua`, `*.pas`, `*.php`, `*.pl`, `*.ps1`, `*.py`, `*.r`, `*.sh`, `*.vsd`, `*.sql`, `*.swift`, `*.ts`, `*.vb`, `*.vba`, `*.{yml,yaml}`, `*.md` |
+| Imagem      | `*.{jpg,jpeg,png,gif,bmp,svg,tiff,webp}`                                                                                                                                                                                                         |
+| Vídeo       | `*.{mp4,avi,mov,mkv,wmv,flv}`                                                                                                                                                                                                                    |
+| Áudio       | `*.{mp3,wav,aac,ogg,flac,m4a}`                                                                                                                                                                                                                   |
+| Código      | `*.bas`, `*.bat`, `*.xml`, `*.css`, `*.dart`, `*.{html,htm}`, `*.inc`, `*.js`, `*.json`, `*.kt`, `*.lua`, `*.pas`, `*.php`, `*.pl`, `*.ps1`, `*.py`, `*.r`, `*.sh`, `*.vsd`, `*.sql`, `*.swift`, `*.ts`, `*.vb`, `*.vba`, `*.{yml,yaml}`, `*.md` |
 
-### **Limits**
+### **Limites**
 
-- Maximum file size per upload: 200 MB
-- This endpoint accepts one file per request (use multiple requests for multiple files).
-- File storage limit: 30 files
-- Some features have different limits:
-  - Chat attachments: up to 200 MB per file; up to 5 files per send
-  - Audio transcription: up to 10 MB per file
+- Tamanho máximo de arquivo por upload: 200 MB
+- Este endpoint aceita um arquivo por solicitação (use várias solicitações para vários arquivos).
+- Limite de armazenamento de arquivos: 30 arquivos
+- Alguns recursos têm limites diferentes:
+  - Anexos de bate-papo: até 200 MB por arquivo; até 5 arquivos por envio
+  - Transcrição de áudio: até 10 MB por arquivo
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -279,33 +279,33 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Headers**
+### **Cabeçalhos**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
 </Note>
 
-### **Request Body**
+### **Parâmetros do Corpo**
 
-| **Parameter** | **Type** | **Required** | **Description**                                                                                        |
-| :------------ | :------- | :----------- | :----------------------------------------------------------------------------------------------------- |
-| file          | binary   | Yes          | The file to upload                                                                                     |
-| process       | boolean  | No           | Whether to process the file after upload (default: false). The file processing consume credits (true). |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                                             |
+| :------------ | :------- | :-------------- | :-------------------------------------------------------- |
+| file          | file     | Sim             | O arquivo a ser enviado                                   |
+| process       | boolean  | Não             | Se deve processar o arquivo após o upload (padrão: false) |
 
-### **Response**
+### **Resposta**
 
 ```json
 {
-"id": 73325,
-"object": "file",
-"bytes": 35504128,
-"created_at": "2025-01-05T22:26:27+00:00",
-"filename": "endpoints.pdf",
-"credits": 0,
-"status": "waiting"
+"id": 123,
+"filename": "documento.pdf",
+"size": 1024000,
+"content_type": "application/pdf",
+"status": "uploaded",
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:39:57+00:00"
 }
 ```

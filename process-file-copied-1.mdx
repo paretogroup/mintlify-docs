@@ -1,13 +1,13 @@
 ---
-title: "Process File"
+title: "Processar Arquivo "
 tag: "POST"
 ---
 
 `POST /files/{fileId}/process`
 
-Process a specific file by its ID.
+Processa um arquivo específico pelo seu ID.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -186,22 +186,32 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Path Parameters**
+### **Cabeçalhos**
 
-| **Parameter** | **Type** | **Required** | **Description**                                                     |
-| :------------ | :------- | :----------- | :------------------------------------------------------------------ |
-| fileId        | string   | Yes          | The ID of the file to process. Note that this will consume credits. |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
+</Note>
+
+### **Parâmetros de Rota**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                  |
+| :------------ | :------- | :-------------- | :----------------------------- |
+| fileId        | string   | Sim             | O ID do arquivo para processar |
+
+### **Resposta**
 
 ```json
 {
-"id": 73325,
-"object": "file",
-"bytes": 35504128,
-"created_at": "2025-01-05T22:26:27+00:00",
-"filename": "endpoints.pdf",
-"credits": 20.10060847168,
-"status": "completed"
+"id": 123,
+"filename": "documento.pdf",
+"size": 1024000,
+"content_type": "application/pdf",
+"status": "processando",
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:40:00+00:00"
 }
 ```

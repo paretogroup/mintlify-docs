@@ -1,12 +1,12 @@
 ---
-title: "Delete File"
+title: "Excluir Arquivo "
 ---
 
 `DELETE /files/{fileId}`
 
-Delete a specific file by its ID.
+Exclui um arquivo específico pelo seu ID.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -186,18 +186,28 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Path Parameters**
+### **Cabeçalhos**
 
-| **Parameter** | **Type** | **Required** | **Description**              |
-| :------------ | :------- | :----------- | :--------------------------- |
-| fileId        | string   | Yes          | The ID of the file to delete |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
+</Note>
+
+### **Parâmetros de Rota**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                |
+| :------------ | :------- | :-------------- | :--------------------------- |
+| fileId        | string   | Sim             | O ID do arquivo para excluir |
+
+### **Resposta**
 
 ```json
 {
-"id": "73325",
-"object": "file",
-"deleted": true
+"id": 123,
+"deleted": true,
+"message": "Arquivo excluído com sucesso"
 }
 ```

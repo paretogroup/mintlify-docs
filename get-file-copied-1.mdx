@@ -1,13 +1,13 @@
 ---
-title: "Get File"
+title: "Obter Arquivo "
 tag: "GET"
 ---
 
 `GET /files/{fileId}`
 
-Retrieve a specific file by its ID.
+Recupera um arquivo específico pelo seu ID.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -186,22 +186,33 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Path Parameters**
+### **Cabeçalhos**
 
-| **Parameter** | **Type** | **Required** | **Description**                |
-| :------------ | :------- | :----------- | :----------------------------- |
-| fileId        | string   | Yes          | The ID of the file to retrieve |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
+</Note>
+
+### **Parâmetros de Rota**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**   |
+| :------------ | :------- | :-------------- | :-------------- |
+| fileId        | string   | Sim             | O ID do arquivo |
+
+### **Resposta**
 
 ```json
 {
-"id": 73325,
-"object": "file",
-"created_at": "2025-01-05T22:26:27+00:00",
-"bytes": 35504128,
-"filename": "endpoints.pdf",
-"credits": 20.10060847168,
-"status": "completed"
+"id": 123,
+"filename": "documento.pdf",
+"size": 1024000,
+"content_type": "application/pdf",
+"status": "processado",
+"content": "Conteúdo extraído do arquivo...",
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:39:57+00:00"
 }
 ```

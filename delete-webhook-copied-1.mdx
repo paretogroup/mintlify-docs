@@ -1,15 +1,13 @@
 ---
-title: "Delete Webhook"
+title: "Excluir Webhook "
 tag: "DELETE"
 ---
 
-<Badge color="red">DELETE</Badge>
-
 `DELETE /webhooks/{id}`
 
-Deletes a specific webhook by ID.
+Exclui um webhook específico pelo ID.
 
-### **Code Examples**
+### **Exemplos de Código**
 
 <CodeGroup>
 
@@ -188,16 +186,28 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Path Parameters**
+### **Cabeçalhos**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The webhook ID  |
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
 
-### **Response**
+<Note>
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
+</Note>
+
+### **Parâmetros de Rota**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                |
+| :------------ | :------- | :-------------- | :--------------------------- |
+| id            | string   | Sim             | O ID do webhook para excluir |
+
+### **Resposta**
 
 ```json
 {
-"message": "Webhook deleted successfully"
+"id": 123,
+"deleted": true,
+"message": "Webhook excluído com sucesso"
 }
 ```

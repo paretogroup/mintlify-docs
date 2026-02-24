@@ -163,7 +163,11 @@
                   },
                   {
                     "group": "Agent Files",
-                    "pages": []
+                    "pages": [
+                      "list-agent-files",
+                      "link-files-to-agent",
+                      "delete-agent-file"
+                    ]
                   },
                   {
                     "group": "Agent Webhooks",

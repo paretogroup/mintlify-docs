@@ -1,12 +1,12 @@
 ---
-title: "List Agent"
+title: "Listar Agentes"
 ---
 
 `GET /agents`
 
-Lists all agents with support for searching, filtering, and pagination.
+Enumera todos los agentes compatibles con búsqueda, filtrado y paginación.
 
-### **Code Examples**
+### **Ejemplos de código**
 
 <CodeGroup>
 
@@ -186,26 +186,26 @@ puts response.read_body
 
 </CodeGroup>
 
-### **Headers**
+### **Encabezados**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+| **Parámetro**  | **Tipo** | **Obligatorio** | **Descripción**                                                                                                  |
+| :------------- | :------- | :-------------- | :--------------------------------------------------------------------------------------------------------------- |
+| x-workspace-id | entero   | No              | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado por el usuario. |
 
 <Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+  **Nota:** Este campo será obligatorio en una futura versión de la API. Se recomienda configurarlo ahora para garantizar la compatibilidad con futuras actualizaciones.
 </Note>
 
-### **Query Parameters**
+### **Parámetros de consulta**
 
-| **Parameter** | **Type** | **Required** | **Description**                                          |
-| :------------ | :------- | :----------- | :------------------------------------------------------- |
-| q             | string   | No           | Search agents by title, description and long description |
-| type          | string   | No           | Filter by agents type (chat, image, text, video)         |
-| page          | integer  | No           | Current page (default: 1)                                |
-| per_page      | integer  | No           | Number of items per page (default: 15)                   |
+| **Parámetro** | **Tipo** | **Obligatorio** | **Descripción**                                            |
+| :------------ | :------- | :-------------- | :--------------------------------------------------------- |
+| q             | string   | No              | Buscar agentes por título, descripción y descripción larga |
+| type          | string   | No              | Filtrar por tipo de agente (chat, imagen, texto, vídeo)    |
+| page          | integer  | No              | Página actual (predeterminado: 1)                          |
+| per_page      | integer  | No              | Número de elementos por página (predeterminado: 15)        |
 
-### **Response**
+### **Resposta**
 
 ```json
 {
@@ -225,7 +225,7 @@ puts response.read_body
       {
         "type": "select",
         "name": "temperature",
-        "description": "Let Tess know if you want her to be more objective or more creative with her responses.",
+        "description": "Dile a Tess si quieres que sea más objetiva o más creativa en sus respuestas.",
         "required": true,
         "options": [
           "0",
@@ -238,7 +238,7 @@ puts response.read_body
       {
         "type": "select",
         "name": "model",
-        "description": "Choose the Model version",
+        "description": "Elige la versión del modelo",
         "required": true,
         "options": [
           "gpt-4o-mini",
@@ -271,7 +271,7 @@ puts response.read_body
       {
         "type": "select",
         "name": "tools",
-        "description": "Choose the Model version",
+        "description": "Seleccione la versión del modelo",
         "required": true,
         "options": [
           "no-tools",
@@ -289,13 +289,13 @@ puts response.read_body
       {
         "type": "number",
         "name": "root_id",
-        "description": "The stored session id to continue conversation.",
+        "description": "El ID de sesión almacenado para continuar la conversación.",
         "required": false
       },
       {
         "type": "array",
         "name": "messages",
-        "description": "The list of messages in the chat history. Use a list of objects with role and content, same as OpenAI API.",
+        "description": "La lista de mensajes en el historial de chat. Usa una lista de objetos con rol y contenido, similar a la API de OpenAI.",
         "required": true
       }
     ],

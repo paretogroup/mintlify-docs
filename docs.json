@@ -155,7 +155,10 @@
                     "pages": [
                       "list-agent",
                       "get-agent",
-                      "execute-agent"
+                      "execute-agent",
+                      "execute-agent-stream",
+                      "execute-open-ai-compatible",
+                      "get-agent-response"
                     ]
                   },
                   {

@@ -290,7 +290,7 @@
                 "icon": "folder-open",
                 "pages": [
                   "boas-vindas",
-                  "quickstart",
+                  "conceitos",
                   "development",
                   "quickstart-1",
                   "seguranca-e-privacidade",
@@ -352,7 +352,6 @@
                 "group": "Agentes",
                 "icon": "folder-open",
                 "pages": [
-                  "tipos-de-agentes",
                   "treino-estatico",
                   "treino-dinamico",
                   "monetizacao-2",
@@ -463,7 +462,7 @@
                 "group": "Guia da API",
                 "icon": "folder-open",
                 "pages": [
-                  "visao-geral",
+                  "visao-geral-api",
                   "inicio-rapido",
                   "modo-max-pt",
                   "rate-limits-copied-1",

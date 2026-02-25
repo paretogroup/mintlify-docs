@@ -816,12 +816,7 @@
     "href": "https://tess.im/"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@tess.im"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
       "label": "Dashboard",

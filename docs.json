@@ -20,18 +20,12 @@
               {
                 "group": "Introduction",
                 "pages": [
-                  {
-                    "group": "First Steps",
-                    "icon": "folder-open",
-                    "pages": [
-                      "welcome-to-tess-ai",
-                      "concepts-en",
-                      "inicial-setup",
-                      "quickstart-en",
-                      "security-and-privacy",
-                      "mobile-app-1"
-                    ]
-                  }
+                  "welcome-to-tess-ai",
+                  "concepts-en",
+                  "inicial-setup",
+                  "quickstart-en",
+                  "security-and-privacy",
+                  "mobile-app-1"
                 ]
               },
               {
@@ -188,18 +182,12 @@
               {
                 "group": "Introdução",
                 "pages": [
-                  {
-                    "group": "Primeiros Passos",
-                    "icon": "folder-open",
-                    "pages": [
-                      "boas-vindas",
-                      "conceitos",
-                      "development",
-                      "quickstart-pt",
-                      "seguranca-e-privacidade",
-                      "mobile-app"
-                    ]
-                  }
+                  "boas-vindas",
+                  "conceitos",
+                  "development",
+                  "quickstart-pt",
+                  "seguranca-e-privacidade",
+                  "mobile-app"
                 ]
               },
               {
@@ -366,18 +354,12 @@
               {
                 "group": "Introducción",
                 "pages": [
-                  {
-                    "group": "Primeros pasos",
-                    "icon": "folder-open",
-                    "pages": [
-                      "bienvenido-a-tess-ai",
-                      "conceptos",
-                      "configuracion-inicial",
-                      "quickstart-3",
-                      "seguridad-y-privacidad",
-                      "mobile-app-2"
-                    ]
-                  }
+                  "bienvenido-a-tess-ai",
+                  "conceptos",
+                  "configuracion-inicial",
+                  "quickstart-3",
+                  "seguridad-y-privacidad",
+                  "mobile-app-2"
                 ]
               },
               {

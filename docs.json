@@ -638,6 +638,7 @@
                 "pages": [
                   {
                     "group": "Agentes",
+                    "icon": "brain-circuit",
                     "pages": [
                       "list-agent-copied-1",
                       "get-agent-copied-1",
@@ -649,6 +650,7 @@
                   },
                   {
                     "group": "Arquivos do Agente",
+                    "icon": "folder-gear",
                     "pages": [
                       "list-agent-files-copied-1",
                       "link-files-to-agent-copied-1",
@@ -657,6 +659,7 @@
                   },
                   {
                     "group": "Webhooks do Agente",
+                    "icon": "tower-broadcast",
                     "pages": [
                       "list-agent-webhooks-copied-1",
                       "create-agent-webhook-copied-1"
@@ -664,6 +667,7 @@
                   },
                   {
                     "group": "Memórias",
+                    "icon": "atom-simple",
                     "pages": [
                       "list-memories-copied-1",
                       "create-memory-copied-1",
@@ -673,6 +677,7 @@
                   },
                   {
                     "group": "Coleções de Memórias",
+                    "icon": "atom",
                     "pages": [
                       "listar-colecoes-de-memoria",
                       "create-memory-collection-copied-1",
@@ -682,6 +687,7 @@
                   },
                   {
                     "group": "Arquivos",
+                    "icon": "file",
                     "pages": [
                       "list-files-copied-1",
                       "upload-file-copied-1",
@@ -692,6 +698,7 @@
                   },
                   {
                     "group": "Webhooks",
+                    "icon": "webhook",
                     "pages": [
                       "list-webhooks-copied-1",
                       "delete-webhook-copied-1"
@@ -721,7 +728,6 @@
             "groups": [
               {
                 "group": "Guía de API",
-                "icon": "folder-open",
                 "pages": [
                   "visao-geral-copied-1",
                   "inicio-rapido-copied-1",
@@ -735,6 +741,7 @@
                 "pages": [
                   {
                     "group": "Agentes",
+                    "icon": "brain-circuit",
                     "pages": [
                       "list-agent-copied-2",
                       "get-agent-copied-2",
@@ -746,6 +753,7 @@
                   },
                   {
                     "group": "Archivos del Agente",
+                    "icon": "folder-gear",
                     "pages": [
                       "list-agent-files-copied-2",
                       "link-files-to-agent-copied-2",
@@ -754,6 +762,7 @@
                   },
                   {
                     "group": "Webhooks del Agente",
+                    "icon": "tower-broadcast",
                     "pages": [
                       "list-agent-webhooks-copied-2",
                       "create-agent-webhook-copied-2"
@@ -761,6 +770,7 @@
                   },
                   {
                     "group": "Memorias",
+                    "icon": "atom-simple",
                     "pages": [
                       "list-memories-copied-2",
                       "create-memory-copied-2",
@@ -770,6 +780,7 @@
                   },
                   {
                     "group": "Colecciones de Memoria",
+                    "icon": "atom",
                     "pages": [
                       "listar-colecciones-de-memoria",
                       "create-memory-collection-copied-2",
@@ -779,6 +790,7 @@
                   },
                   {
                     "group": "Archivos",
+                    "icon": "file",
                     "pages": [
                       "list-files-copied-2",
                       "upload-file-copied-2",
@@ -789,6 +801,7 @@
                   },
                   {
                     "group": "Webhooks",
+                    "icon": "webhook",
                     "pages": [
                       "list-webhooks-copied-2",
                       "delete-webhook-copied-2"

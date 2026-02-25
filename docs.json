@@ -889,5 +889,8 @@
     "color": {
       "dark": "#272727"
     }
+  },
+  "banner": {
+    "dismissible": false
   }
 }

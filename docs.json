@@ -9,273 +9,823 @@
   },
   "favicon": "/logo/tess-black-icon.png",
   "navigation": {
-    "anchors": [
+    "tabs": [
       {
-        "anchor": "Documentation",
-        "languages": [
+        "tab": "Documentation",
+        "anchors": [
           {
-            "language": "en",
-            "default": true,
-            "groups": [
+            "anchor": "Documentation",
+            "languages": [
               {
-                "group": "Introduction",
-                "pages": [
+                "language": "en",
+                "default": true,
+                "groups": [
                   {
-                    "group": "First Steps",
-                    "icon": "folder-open",
+                    "group": "Introduction",
                     "pages": [
-                      "welcome-to-tess-ai",
-                      "concepts-en",
-                      "inicial-setup",
-                      "quickstart-en",
-                      "security-and-privacy",
-                      "mobile-app-1"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Features",
-                "pages": [
-                  "memories",
-                  "tess-6-1-1",
-                  "max-mode",
-                  "shareable-links",
-                  "tess-pages-1",
-                  "embedding",
-                  "marketplace-1",
-                  "ai-wallet"
-                ]
-              },
-              {
-                "group": "Chat & Tools",
-                "pages": [
-                  {
-                    "group": "Chat",
-                    "icon": "folder-open",
-                    "pages": [
-                      "using-the-chat",
-                      "auto-mode",
-                      "knowledge-base",
-                      "history"
-                    ]
-                  },
-                  {
-                    "group": "Tools",
-                    "icon": "folder-open",
-                    "pages": [
-                      "chat-tools",
-                      "internet-1",
-                      "image-generation",
-                      "video-generation",
-                      "video-editing",
-                      "voiceover",
-                      "podcast",
-                      "music",
-                      "deep-analysis",
-                      "manage-files",
-                      "avatar-1",
-                      "integrations"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Agent Studio",
-                "pages": [
-                  {
-                    "group": "Agents",
-                    "icon": "folder-open",
-                    "pages": [
-                      "agent-types",
-                      "static-training",
-                      "dynamic-training",
-                      "knowledge-base-1",
-                      "advanced-settings",
-                      "visibility"
-                    ]
-                  },
-                  {
-                    "group": "Generators",
-                    "icon": "folder-open",
-                    "pages": [
-                      "image-generator",
-                      "video-generator",
-                      "code-generator",
-                      "voiceover-generator",
-                      "transcription-generator"
-                    ]
-                  },
-                  {
-                    "group": "User Inputs",
-                    "icon": "folder-open",
-                    "pages": [
-                      "how-it-works",
-                      "short-and-long-text",
-                      "single-and-multiple-selection",
-                      "upload"
-                    ]
-                  },
-                  {
-                    "group": "AI Steps",
-                    "icon": "folder-open",
-                    "pages": [
-                      "how-it-works-ai-steps",
                       {
-                        "group": "Web Data Extraction",
+                        "group": "First Steps",
                         "icon": "folder-open",
-                        "pages": []
-                      },
-                      {
-                        "group": "Integrations",
-                        "icon": "folder-open",
-                        "pages": []
-                      },
-                      {
-                        "group": "Document Processing",
-                        "icon": "folder-open",
-                        "pages": []
+                        "pages": [
+                          "welcome-to-tess-ai",
+                          "concepts-en",
+                          "inicial-setup",
+                          "quickstart-en",
+                          "security-and-privacy",
+                          "mobile-app-1"
+                        ]
                       }
                     ]
-                  }
-                ]
-              },
-              {
-                "group": "Account",
-                "pages": [
-                  "subscription-and-payment",
-                  "team-page",
-                  "shared-wallet",
-                  "system-status",
-                  "sso-1",
-                  "refund",
+                  },
                   {
-                    "group": "Programs",
+                    "group": "Features",
                     "pages": [
-                      "reward",
-                      "affiliate"
+                      "memories",
+                      "tess-6-1-1",
+                      "max-mode",
+                      "shareable-links",
+                      "tess-pages-1",
+                      "embedding",
+                      "marketplace-1",
+                      "ai-wallet"
                     ]
                   },
                   {
-                    "group": "Settings",
+                    "group": "Chat & Tools",
                     "pages": [
-                      "your-account",
-                      "workspace-1",
-                      "preferences",
-                      "subscription",
-                      "upgrade-and-downgrade",
-                      "usage-monitoring",
-                      "members-and-permissions",
-                      "knowledge-base-2",
-                      "monetization",
-                      "data-control"
+                      {
+                        "group": "Chat",
+                        "icon": "folder-open",
+                        "pages": [
+                          "using-the-chat",
+                          "auto-mode",
+                          "knowledge-base",
+                          "history"
+                        ]
+                      },
+                      {
+                        "group": "Tools",
+                        "icon": "folder-open",
+                        "pages": [
+                          "chat-tools",
+                          "internet-1",
+                          "image-generation",
+                          "video-generation",
+                          "video-editing",
+                          "voiceover",
+                          "podcast",
+                          "music",
+                          "deep-analysis",
+                          "manage-files",
+                          "avatar-1",
+                          "integrations"
+                        ]
+                      }
                     ]
                   },
                   {
-                    "group": "Support",
-                    "pages": [
-                      "support-contact",
-                      "remote-support"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "API",
-                "pages": [
-                  {
-                    "group": "API Guide",
-                    "icon": "folder-open",
-                    "pages": [
-                      "overview-api",
-                      "quickstart-api",
-                      "max-mode-2",
-                      "rate-limits",
-                      "errors"
-                    ]
-                  },
-                  {
-                    "group": "API Reference",
-                    "icon": "folder-open",
+                    "group": "Agent Studio",
                     "pages": [
                       {
                         "group": "Agents",
+                        "icon": "folder-open",
                         "pages": [
-                          "list-agent",
-                          "get-agent",
-                          "execute-agent",
-                          "execute-agent-stream",
-                          "execute-open-ai-compatible",
-                          "get-agent-response"
+                          "agent-types",
+                          "static-training",
+                          "dynamic-training",
+                          "knowledge-base-1",
+                          "advanced-settings",
+                          "visibility"
                         ]
                       },
                       {
-                        "group": "Agent Files",
+                        "group": "Generators",
+                        "icon": "folder-open",
                         "pages": [
-                          "list-agent-files",
-                          "link-files-to-agent",
-                          "delete-agent-file"
+                          "image-generator",
+                          "video-generator",
+                          "code-generator",
+                          "voiceover-generator",
+                          "transcription-generator"
                         ]
                       },
                       {
-                        "group": "Agent Webhooks",
+                        "group": "User Inputs",
+                        "icon": "folder-open",
                         "pages": [
-                          "list-agent-webhooks",
-                          "create-agent-webhook"
+                          "how-it-works",
+                          "short-and-long-text",
+                          "single-and-multiple-selection",
+                          "upload"
                         ]
                       },
                       {
-                        "group": "Memories",
+                        "group": "AI Steps",
+                        "icon": "folder-open",
                         "pages": [
-                          "list-memories",
-                          "create-memory",
-                          "update-memory",
-                          "delete-memory"
-                        ]
-                      },
-                      {
-                        "group": "Memory Collections",
-                        "pages": [
-                          "list-collections",
-                          "create-memory-collection",
-                          "update-memory-collection",
-                          "delete-memory-collection"
-                        ]
-                      },
-                      {
-                        "group": "Files",
-                        "pages": [
-                          "list-files",
-                          "upload-file",
-                          "get-file",
-                          "delete-file",
-                          "process-file"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks",
-                        "pages": [
-                          "list-webhooks",
-                          "delete-webhook"
+                          "how-it-works-ai-steps",
+                          {
+                            "group": "Web Data Extraction",
+                            "icon": "folder-open",
+                            "pages": []
+                          },
+                          {
+                            "group": "Integrations",
+                            "icon": "folder-open",
+                            "pages": []
+                          },
+                          {
+                            "group": "Document Processing",
+                            "icon": "folder-open",
+                            "pages": []
+                          }
                         ]
                       }
                     ]
                   },
                   {
-                    "group": "Integrations",
-                    "icon": "folder-open",
+                    "group": "Account",
                     "pages": [
-                      "integration-with-make",
-                      "integration-with-zapier",
-                      "integration-with-whats-app-via-make",
-                      "integration-with-n8n"
+                      "subscription-and-payment",
+                      "team-page",
+                      "shared-wallet",
+                      "system-status",
+                      "sso-1",
+                      "refund",
+                      {
+                        "group": "Programs",
+                        "pages": [
+                          "reward",
+                          "affiliate"
+                        ]
+                      },
+                      {
+                        "group": "Settings",
+                        "pages": [
+                          "your-account",
+                          "workspace-1",
+                          "preferences",
+                          "subscription",
+                          "upgrade-and-downgrade",
+                          "usage-monitoring",
+                          "members-and-permissions",
+                          "knowledge-base-2",
+                          "monetization",
+                          "data-control"
+                        ]
+                      },
+                      {
+                        "group": "Support",
+                        "pages": [
+                          "support-contact",
+                          "remote-support"
+                        ]
+                      }
                     ]
                   },
                   {
-                    "group": "Model Context Protocol (MCP)",
-                    "icon": "folder-open",
+                    "group": "API",
                     "pages": [
-                      "mcp"
+                      {
+                        "group": "API Guide",
+                        "icon": "folder-open",
+                        "pages": [
+                          "overview-api",
+                          "quickstart-api",
+                          "max-mode-2",
+                          "rate-limits",
+                          "errors"
+                        ]
+                      },
+                      {
+                        "group": "API Reference",
+                        "icon": "folder-open",
+                        "pages": [
+                          {
+                            "group": "Agents",
+                            "pages": [
+                              "list-agent",
+                              "get-agent",
+                              "execute-agent",
+                              "execute-agent-stream",
+                              "execute-open-ai-compatible",
+                              "get-agent-response"
+                            ]
+                          },
+                          {
+                            "group": "Agent Files",
+                            "pages": [
+                              "list-agent-files",
+                              "link-files-to-agent",
+                              "delete-agent-file"
+                            ]
+                          },
+                          {
+                            "group": "Agent Webhooks",
+                            "pages": [
+                              "list-agent-webhooks",
+                              "create-agent-webhook"
+                            ]
+                          },
+                          {
+                            "group": "Memories",
+                            "pages": [
+                              "list-memories",
+                              "create-memory",
+                              "update-memory",
+                              "delete-memory"
+                            ]
+                          },
+                          {
+                            "group": "Memory Collections",
+                            "pages": [
+                              "list-collections",
+                              "create-memory-collection",
+                              "update-memory-collection",
+                              "delete-memory-collection"
+                            ]
+                          },
+                          {
+                            "group": "Files",
+                            "pages": [
+                              "list-files",
+                              "upload-file",
+                              "get-file",
+                              "delete-file",
+                              "process-file"
+                            ]
+                          },
+                          {
+                            "group": "Webhooks",
+                            "pages": [
+                              "list-webhooks",
+                              "delete-webhook"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Integrations",
+                        "icon": "folder-open",
+                        "pages": [
+                          "integration-with-make",
+                          "integration-with-zapier",
+                          "integration-with-whats-app-via-make",
+                          "integration-with-n8n"
+                        ]
+                      },
+                      {
+                        "group": "Model Context Protocol (MCP)",
+                        "icon": "folder-open",
+                        "pages": [
+                          "mcp"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "language": "pt-BR",
+                "groups": [
+                  {
+                    "group": "Introdução",
+                    "pages": [
+                      {
+                        "group": "Primeiros Passos",
+                        "icon": "folder-open",
+                        "pages": [
+                          "boas-vindas",
+                          "conceitos",
+                          "development",
+                          "quickstart-pt",
+                          "seguranca-e-privacidade",
+                          "mobile-app"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Features",
+                    "pages": [
+                      "memorias",
+                      "tess-6-1",
+                      "modo-max",
+                      "links-compartilhaveis",
+                      "tess-pages",
+                      "embeding",
+                      "marketplace",
+                      "carteira-de-creditos"
+                    ]
+                  },
+                  {
+                    "group": "Chat & Tools",
+                    "pages": [
+                      {
+                        "group": "Chat",
+                        "icon": "folder-open",
+                        "pages": [
+                          "usando-o-chat",
+                          "modo-auto",
+                          "base-de-conhecimentos",
+                          "historico"
+                        ]
+                      },
+                      {
+                        "group": "Tools",
+                        "icon": "folder-open",
+                        "pages": [
+                          "tools",
+                          "tool-internet",
+                          "tool-imagens",
+                          "tool-video",
+                          "tool-edicao-de-videos",
+                          "tool-narracao",
+                          "tool-podcast",
+                          "tool-music",
+                          "tool-deep-analysis",
+                          "tool-manage-files",
+                          "avatar",
+                          "tool-integracoes"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Agent Studio",
+                    "pages": [
+                      {
+                        "group": "Agentes",
+                        "icon": "folder-open",
+                        "pages": [
+                          "treino-estatico",
+                          "treino-dinamico",
+                          "monetizacao-2",
+                          "base-de-conhecimentos-2",
+                          "configruacoes-avancadas",
+                          "visibilidade"
+                        ]
+                      },
+                      {
+                        "group": "Geradores",
+                        "icon": "folder-open",
+                        "pages": [
+                          "gerador-de-imagem",
+                          "gerador-de-video",
+                          "gerador",
+                          "gerador-de-narracoes",
+                          "gerador-de-transcricoes"
+                        ]
+                      },
+                      {
+                        "group": "Entradas do Usuário",
+                        "icon": "folder-open",
+                        "pages": [
+                          "funcionamento-entradas-do-usua",
+                          "texto-curto-e-longo",
+                          "selecao-unica-e-multipla",
+                          "upload-de-arquivo"
+                        ]
+                      },
+                      {
+                        "group": "AI Steps",
+                        "icon": "folder-open",
+                        "pages": [
+                          "funcionamento-ai-steps",
+                          {
+                            "group": "Web Data Extraction",
+                            "pages": [
+                              "ai-step-web-data-extraction"
+                            ]
+                          },
+                          {
+                            "group": "Integrations",
+                            "pages": [
+                              "ai-step-integrations",
+                              "ai-step-google-sheets-get-value",
+                              "ai-step-google-sheets-write-value"
+                            ]
+                          },
+                          {
+                            "group": "Document Processing",
+                            "pages": [
+                              "ai-step-conversao-ocr-to-pdf-e-imagens",
+                              "ai-step-extract-text-from-entire-pdf",
+                              "ai-step-read-pdf-selected-pages"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Conta",
+                    "pages": [
+                      "assinatura-e-pagamento",
+                      "painel-da-equipe",
+                      "conta-compartilhada",
+                      "bi",
+                      "sso",
+                      "reembolso",
+                      {
+                        "group": "Programas",
+                        "icon": "folder-open",
+                        "pages": [
+                          "afiliados",
+                          "recompensas"
+                        ]
+                      },
+                      {
+                        "group": "Configurações",
+                        "icon": "folder-open",
+                        "pages": [
+                          "sua-conta",
+                          "workspace",
+                          "preferencias",
+                          "assinatura",
+                          "upgrade-e-downgrade",
+                          "monitoramento-do-uso",
+                          "membros-e-permissoes",
+                          "base-de-conhecimentos-1",
+                          "monetizacao-1",
+                          "controle-de-dados"
+                        ]
+                      },
+                      {
+                        "group": "Suporte",
+                        "icon": "folder-open",
+                        "pages": [
+                          "contato-de-suporte",
+                          "suporte-remoto"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "API",
+                    "pages": [
+                      {
+                        "group": "Guia da API",
+                        "icon": "folder-open",
+                        "pages": [
+                          "visao-geral-api",
+                          "inicio-rapido",
+                          "modo-max-pt",
+                          "rate-limits-copied-1",
+                          "errors-copied-1"
+                        ]
+                      },
+                      {
+                        "group": "Referência da API",
+                        "icon": "folder-open",
+                        "pages": [
+                          {
+                            "group": "Agentes",
+                            "pages": [
+                              "list-agent-copied-1",
+                              "get-agent-copied-1",
+                              "execute-agent-copied-1",
+                              "execute-agent-stream-copied-1",
+                              "execute-open-ai-compatible-copied-1",
+                              "get-agent-response-copied-1"
+                            ]
+                          },
+                          {
+                            "group": "Arquivos do Agente",
+                            "pages": [
+                              "list-agent-files-copied-1",
+                              "link-files-to-agent-copied-1",
+                              "delete-agent-file-copied-1"
+                            ]
+                          },
+                          {
+                            "group": "Webhooks do Agente",
+                            "pages": [
+                              "list-agent-webhooks-copied-1",
+                              "create-agent-webhook-copied-1"
+                            ]
+                          },
+                          {
+                            "group": "Memórias",
+                            "pages": [
+                              "list-memories-copied-1",
+                              "create-memory-copied-1",
+                              "update-memory-copied-1",
+                              "delete-memory-copied-1"
+                            ]
+                          },
+                          {
+                            "group": "Coleções de Memórias",
+                            "pages": [
+                              "listar-colecoes-de-memoria",
+                              "create-memory-collection-copied-1",
+                              "update-memory-collection-copied-1",
+                              "delete-memory-collection-copied-1"
+                            ]
+                          },
+                          {
+                            "group": "Arquivos",
+                            "pages": [
+                              "list-files-copied-1",
+                              "upload-file-copied-1",
+                              "get-file-copied-1",
+                              "delete-file-copied-1",
+                              "process-file-copied-1"
+                            ]
+                          },
+                          {
+                            "group": "Webhooks",
+                            "pages": [
+                              "list-webhooks-copied-1",
+                              "delete-webhook-copied-1"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Integrações",
+                        "icon": "folder-open",
+                        "pages": [
+                          "integration-with-make-copied-1",
+                          "integration-with-zapier-copied-1",
+                          "integration-with-whats-app-via-make-copied-1",
+                          "integration-with-n8n-copied-1"
+                        ]
+                      },
+                      {
+                        "group": "Protocolo de Contexto de Modelo (MCP)",
+                        "icon": "folder-open",
+                        "pages": [
+                          "mcp-copied-1"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "language": "es",
+                "groups": [
+                  {
+                    "group": "Introducción",
+                    "pages": [
+                      {
+                        "group": "Primeros pasos",
+                        "icon": "folder-open",
+                        "pages": [
+                          "bienvenido-a-tess-ai",
+                          "conceptos",
+                          "configuracion-inicial",
+                          "quickstart-3",
+                          "seguridad-y-privacidad",
+                          "mobile-app-2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Features",
+                    "pages": [
+                      "memorias-1",
+                      "tess-6-1-2",
+                      "max-mode-1",
+                      "enlaces-compartibles",
+                      "tess-pages-2",
+                      "embedding-1",
+                      "marketplace-2",
+                      "ai-wallet-1"
+                    ]
+                  },
+                  {
+                    "group": "Chat & Tools",
+                    "pages": [
+                      {
+                        "group": "Chat",
+                        "icon": "folder-open",
+                        "pages": [
+                          "usando-el-chat",
+                          "auto-mode-1",
+                          "base-de-conocimiento",
+                          "historial"
+                        ]
+                      },
+                      {
+                        "group": "Tools",
+                        "icon": "folder-open",
+                        "pages": [
+                          "chat-tools-1",
+                          "internet",
+                          "generacion-de-imagenes",
+                          "generacion-de-video",
+                          "edicion-de-videos",
+                          "narracion",
+                          "podcast-1",
+                          "music-1",
+                          "deep-analysis-1",
+                          "manage-files-1",
+                          "avatar-2",
+                          "integraciones"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Agent Studio",
+                    "pages": [
+                      {
+                        "group": "Agentes",
+                        "icon": "folder-open",
+                        "pages": [
+                          "tipos-de-agentes-1",
+                          "entrenamiento-estatico",
+                          "entrenamiento-dinamico",
+                          "base-de-conocimiento-1",
+                          "configuraciones-avanzadas",
+                          "visibilidad"
+                        ]
+                      },
+                      {
+                        "group": "Generadores",
+                        "icon": "folder-open",
+                        "pages": [
+                          "generador-de-imagenes",
+                          "generador-de-video",
+                          "generador-de-codigo",
+                          "generador-de-narraciones",
+                          "generador-de-transcriptiones"
+                        ]
+                      },
+                      {
+                        "group": "Entradas del usuario",
+                        "icon": "folder-open",
+                        "pages": [
+                          "funcionamento-entradas-del-usuario",
+                          "texto-corto-y-largo",
+                          "seleccion-unica-ay-multiple",
+                          "upload-de-archivo"
+                        ]
+                      },
+                      {
+                        "group": "AI Steps",
+                        "icon": "folder-open",
+                        "pages": [
+                          "funcionamento-ai-steps-1",
+                          {
+                            "group": "Web Data Extraction",
+                            "pages": []
+                          },
+                          {
+                            "group": "Integrations",
+                            "pages": []
+                          },
+                          {
+                            "group": "Document Processing",
+                            "pages": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Cuenta",
+                    "pages": [
+                      "suscripcion-y-pago",
+                      "panel-del-equipo",
+                      "cartera-compartida",
+                      "estado-del-sistema",
+                      "sso-2",
+                      "reembolso-1",
+                      {
+                        "group": "Programas",
+                        "icon": "folder-open",
+                        "pages": [
+                          "afiliados-1",
+                          "recompensas-1"
+                        ]
+                      },
+                      {
+                        "group": "Configuración",
+                        "icon": "folder-open",
+                        "pages": [
+                          "tu-cuenta",
+                          "preferencias-1",
+                          "workspace-2",
+                          "suscripcion",
+                          "upgrade-y-downgrade",
+                          "monitoreo-de-uso",
+                          "base-de-conocimientos",
+                          "monetizacion",
+                          "control-de-datos"
+                        ]
+                      },
+                      {
+                        "group": "Soporte",
+                        "icon": "folder-open",
+                        "pages": [
+                          "contacto-de-soporte",
+                          "soporte-remoto"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "API",
+                    "pages": [
+                      {
+                        "group": "Guía de API",
+                        "icon": "folder-open",
+                        "pages": [
+                          "visao-geral-copied-1",
+                          "inicio-rapido-copied-1",
+                          "modo-max-pt-copied-1",
+                          "rate-limits-copied-2",
+                          "errors-copied-2"
+                        ]
+                      },
+                      {
+                        "group": "Referencia de API",
+                        "icon": "folder-open",
+                        "pages": [
+                          {
+                            "group": "Agentes",
+                            "pages": [
+                              "list-agent-copied-2",
+                              "get-agent-copied-2",
+                              "execute-agent-copied-2",
+                              "execute-agent-stream-copied-2",
+                              "execute-open-ai-compatible-copied-2",
+                              "get-agent-response-copied-2"
+                            ]
+                          },
+                          {
+                            "group": "Archivos del Agente",
+                            "pages": [
+                              "list-agent-files-copied-2",
+                              "link-files-to-agent-copied-2",
+                              "delete-agent-file-copied-2"
+                            ]
+                          },
+                          {
+                            "group": "Webhooks del Agente",
+                            "pages": [
+                              "list-agent-webhooks-copied-2",
+                              "create-agent-webhook-copied-2"
+                            ]
+                          },
+                          {
+                            "group": "Memorias",
+                            "pages": [
+                              "list-memories-copied-2",
+                              "create-memory-copied-2",
+                              "update-memory-copied-2",
+                              "delete-memory-copied-2"
+                            ]
+                          },
+                          {
+                            "group": "Colecciones de Memoria",
+                            "pages": [
+                              "listar-colecciones-de-memoria",
+                              "create-memory-collection-copied-2",
+                              "update-memory-collection-copied-2",
+                              "delete-memory-collection-copied-2"
+                            ]
+                          },
+                          {
+                            "group": "Archivos",
+                            "pages": [
+                              "list-files-copied-2",
+                              "upload-file-copied-2",
+                              "get-file-copied-2",
+                              "delete-file-copied-2",
+                              "process-file-copied-2"
+                            ]
+                          },
+                          {
+                            "group": "Webhooks",
+                            "pages": [
+                              "list-webhooks-copied-2",
+                              "delete-webhook-copied-2"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Integraciones",
+                        "icon": "folder-open",
+                        "pages": [
+                          "integration-with-make-copied-2",
+                          "integration-with-zapier-copied-2",
+                          "integration-with-whats-app-via-make-copied-2",
+                          "integration-with-n8n-copied-2"
+                        ]
+                      },
+                      {
+                        "group": "Protocolo de Contexto de Modelo (MCP)",
+                        "icon": "folder-open",
+                        "pages": [
+                          "mcp-copied-2"
+                        ]
+                      }
                     ]
                   }
                 ]
@@ -283,554 +833,12 @@
             ]
           },
           {
-            "language": "pt-BR",
-            "groups": [
-              {
-                "group": "Introdução",
-                "pages": [
-                  {
-                    "group": "Primeiros Passos",
-                    "icon": "folder-open",
-                    "pages": [
-                      "boas-vindas",
-                      "conceitos",
-                      "development",
-                      "quickstart-pt",
-                      "seguranca-e-privacidade",
-                      "mobile-app"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Features",
-                "pages": [
-                  "memorias",
-                  "tess-6-1",
-                  "modo-max",
-                  "links-compartilhaveis",
-                  "tess-pages",
-                  "embeding",
-                  "marketplace",
-                  "carteira-de-creditos"
-                ]
-              },
-              {
-                "group": "Chat & Tools",
-                "pages": [
-                  {
-                    "group": "Chat",
-                    "icon": "folder-open",
-                    "pages": [
-                      "usando-o-chat",
-                      "modo-auto",
-                      "base-de-conhecimentos",
-                      "historico"
-                    ]
-                  },
-                  {
-                    "group": "Tools",
-                    "icon": "folder-open",
-                    "pages": [
-                      "tools",
-                      "tool-internet",
-                      "tool-imagens",
-                      "tool-video",
-                      "tool-edicao-de-videos",
-                      "tool-narracao",
-                      "tool-podcast",
-                      "tool-music",
-                      "tool-deep-analysis",
-                      "tool-manage-files",
-                      "avatar",
-                      "tool-integracoes"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Agent Studio",
-                "pages": [
-                  {
-                    "group": "Agentes",
-                    "icon": "folder-open",
-                    "pages": [
-                      "treino-estatico",
-                      "treino-dinamico",
-                      "monetizacao-2",
-                      "base-de-conhecimentos-2",
-                      "configruacoes-avancadas",
-                      "visibilidade"
-                    ]
-                  },
-                  {
-                    "group": "Geradores",
-                    "icon": "folder-open",
-                    "pages": [
-                      "gerador-de-imagem",
-                      "gerador-de-video",
-                      "gerador",
-                      "gerador-de-narracoes",
-                      "gerador-de-transcricoes"
-                    ]
-                  },
-                  {
-                    "group": "Entradas do Usuário",
-                    "icon": "folder-open",
-                    "pages": [
-                      "funcionamento-entradas-do-usua",
-                      "texto-curto-e-longo",
-                      "selecao-unica-e-multipla",
-                      "upload-de-arquivo"
-                    ]
-                  },
-                  {
-                    "group": "AI Steps",
-                    "icon": "folder-open",
-                    "pages": [
-                      "funcionamento-ai-steps",
-                      {
-                        "group": "Web Data Extraction",
-                        "pages": [
-                          "ai-step-web-data-extraction"
-                        ]
-                      },
-                      {
-                        "group": "Integrations",
-                        "pages": [
-                          "ai-step-integrations",
-                          "ai-step-google-sheets-get-value",
-                          "ai-step-google-sheets-write-value"
-                        ]
-                      },
-                      {
-                        "group": "Document Processing",
-                        "pages": [
-                          "ai-step-conversao-ocr-to-pdf-e-imagens",
-                          "ai-step-extract-text-from-entire-pdf",
-                          "ai-step-read-pdf-selected-pages"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Conta",
-                "pages": [
-                  "assinatura-e-pagamento",
-                  "painel-da-equipe",
-                  "conta-compartilhada",
-                  "bi",
-                  "sso",
-                  "reembolso",
-                  {
-                    "group": "Programas",
-                    "icon": "folder-open",
-                    "pages": [
-                      "afiliados",
-                      "recompensas"
-                    ]
-                  },
-                  {
-                    "group": "Configurações",
-                    "icon": "folder-open",
-                    "pages": [
-                      "sua-conta",
-                      "workspace",
-                      "preferencias",
-                      "assinatura",
-                      "upgrade-e-downgrade",
-                      "monitoramento-do-uso",
-                      "membros-e-permissoes",
-                      "base-de-conhecimentos-1",
-                      "monetizacao-1",
-                      "controle-de-dados"
-                    ]
-                  },
-                  {
-                    "group": "Suporte",
-                    "icon": "folder-open",
-                    "pages": [
-                      "contato-de-suporte",
-                      "suporte-remoto"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "API",
-                "pages": [
-                  {
-                    "group": "Guia da API",
-                    "icon": "folder-open",
-                    "pages": [
-                      "visao-geral-api",
-                      "inicio-rapido",
-                      "modo-max-pt",
-                      "rate-limits-copied-1",
-                      "errors-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Referência da API",
-                    "icon": "folder-open",
-                    "pages": [
-                      {
-                        "group": "Agentes",
-                        "pages": [
-                          "list-agent-copied-1",
-                          "get-agent-copied-1",
-                          "execute-agent-copied-1",
-                          "execute-agent-stream-copied-1",
-                          "execute-open-ai-compatible-copied-1",
-                          "get-agent-response-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Arquivos do Agente",
-                        "pages": [
-                          "list-agent-files-copied-1",
-                          "link-files-to-agent-copied-1",
-                          "delete-agent-file-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks do Agente",
-                        "pages": [
-                          "list-agent-webhooks-copied-1",
-                          "create-agent-webhook-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Memórias",
-                        "pages": [
-                          "list-memories-copied-1",
-                          "create-memory-copied-1",
-                          "update-memory-copied-1",
-                          "delete-memory-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Coleções de Memórias",
-                        "pages": [
-                          "listar-colecoes-de-memoria",
-                          "create-memory-collection-copied-1",
-                          "update-memory-collection-copied-1",
-                          "delete-memory-collection-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Arquivos",
-                        "pages": [
-                          "list-files-copied-1",
-                          "upload-file-copied-1",
-                          "get-file-copied-1",
-                          "delete-file-copied-1",
-                          "process-file-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks",
-                        "pages": [
-                          "list-webhooks-copied-1",
-                          "delete-webhook-copied-1"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Integrações",
-                    "icon": "folder-open",
-                    "pages": [
-                      "integration-with-make-copied-1",
-                      "integration-with-zapier-copied-1",
-                      "integration-with-whats-app-via-make-copied-1",
-                      "integration-with-n8n-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Protocolo de Contexto de Modelo (MCP)",
-                    "icon": "folder-open",
-                    "pages": [
-                      "mcp-copied-1"
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "language": "es",
-            "groups": [
-              {
-                "group": "Introducción",
-                "pages": [
-                  {
-                    "group": "Primeros pasos",
-                    "icon": "folder-open",
-                    "pages": [
-                      "bienvenido-a-tess-ai",
-                      "conceptos",
-                      "configuracion-inicial",
-                      "quickstart-3",
-                      "seguridad-y-privacidad",
-                      "mobile-app-2"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Features",
-                "pages": [
-                  "memorias-1",
-                  "tess-6-1-2",
-                  "max-mode-1",
-                  "enlaces-compartibles",
-                  "tess-pages-2",
-                  "embedding-1",
-                  "marketplace-2",
-                  "ai-wallet-1"
-                ]
-              },
-              {
-                "group": "Chat & Tools",
-                "pages": [
-                  {
-                    "group": "Chat",
-                    "icon": "folder-open",
-                    "pages": [
-                      "usando-el-chat",
-                      "auto-mode-1",
-                      "base-de-conocimiento",
-                      "historial"
-                    ]
-                  },
-                  {
-                    "group": "Tools",
-                    "icon": "folder-open",
-                    "pages": [
-                      "chat-tools-1",
-                      "internet",
-                      "generacion-de-imagenes",
-                      "generacion-de-video",
-                      "edicion-de-videos",
-                      "narracion",
-                      "podcast-1",
-                      "music-1",
-                      "deep-analysis-1",
-                      "manage-files-1",
-                      "avatar-2",
-                      "integraciones"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Agent Studio",
-                "pages": [
-                  {
-                    "group": "Agentes",
-                    "icon": "folder-open",
-                    "pages": [
-                      "tipos-de-agentes-1",
-                      "entrenamiento-estatico",
-                      "entrenamiento-dinamico",
-                      "base-de-conocimiento-1",
-                      "configuraciones-avanzadas",
-                      "visibilidad"
-                    ]
-                  },
-                  {
-                    "group": "Generadores",
-                    "icon": "folder-open",
-                    "pages": [
-                      "generador-de-imagenes",
-                      "generador-de-video",
-                      "generador-de-codigo",
-                      "generador-de-narraciones",
-                      "generador-de-transcriptiones"
-                    ]
-                  },
-                  {
-                    "group": "Entradas del usuario",
-                    "icon": "folder-open",
-                    "pages": [
-                      "funcionamento-entradas-del-usuario",
-                      "texto-corto-y-largo",
-                      "seleccion-unica-ay-multiple",
-                      "upload-de-archivo"
-                    ]
-                  },
-                  {
-                    "group": "AI Steps",
-                    "icon": "folder-open",
-                    "pages": [
-                      "funcionamento-ai-steps-1",
-                      {
-                        "group": "Web Data Extraction",
-                        "pages": []
-                      },
-                      {
-                        "group": "Integrations",
-                        "pages": []
-                      },
-                      {
-                        "group": "Document Processing",
-                        "pages": []
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Cuenta",
-                "pages": [
-                  "suscripcion-y-pago",
-                  "panel-del-equipo",
-                  "cartera-compartida",
-                  "estado-del-sistema",
-                  "sso-2",
-                  "reembolso-1",
-                  {
-                    "group": "Programas",
-                    "icon": "folder-open",
-                    "pages": [
-                      "afiliados-1",
-                      "recompensas-1"
-                    ]
-                  },
-                  {
-                    "group": "Configuración",
-                    "icon": "folder-open",
-                    "pages": [
-                      "tu-cuenta",
-                      "preferencias-1",
-                      "workspace-2",
-                      "suscripcion",
-                      "upgrade-y-downgrade",
-                      "monitoreo-de-uso",
-                      "base-de-conocimientos",
-                      "monetizacion",
-                      "control-de-datos"
-                    ]
-                  },
-                  {
-                    "group": "Soporte",
-                    "icon": "folder-open",
-                    "pages": [
-                      "contacto-de-soporte",
-                      "soporte-remoto"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "API",
-                "pages": [
-                  {
-                    "group": "Guía de API",
-                    "icon": "folder-open",
-                    "pages": [
-                      "visao-geral-copied-1",
-                      "inicio-rapido-copied-1",
-                      "modo-max-pt-copied-1",
-                      "rate-limits-copied-2",
-                      "errors-copied-2"
-                    ]
-                  },
-                  {
-                    "group": "Referencia de API",
-                    "icon": "folder-open",
-                    "pages": [
-                      {
-                        "group": "Agentes",
-                        "pages": [
-                          "list-agent-copied-2",
-                          "get-agent-copied-2",
-                          "execute-agent-copied-2",
-                          "execute-agent-stream-copied-2",
-                          "execute-open-ai-compatible-copied-2",
-                          "get-agent-response-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Archivos del Agente",
-                        "pages": [
-                          "list-agent-files-copied-2",
-                          "link-files-to-agent-copied-2",
-                          "delete-agent-file-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks del Agente",
-                        "pages": [
-                          "list-agent-webhooks-copied-2",
-                          "create-agent-webhook-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Memorias",
-                        "pages": [
-                          "list-memories-copied-2",
-                          "create-memory-copied-2",
-                          "update-memory-copied-2",
-                          "delete-memory-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Colecciones de Memoria",
-                        "pages": [
-                          "listar-colecciones-de-memoria",
-                          "create-memory-collection-copied-2",
-                          "update-memory-collection-copied-2",
-                          "delete-memory-collection-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Archivos",
-                        "pages": [
-                          "list-files-copied-2",
-                          "upload-file-copied-2",
-                          "get-file-copied-2",
-                          "delete-file-copied-2",
-                          "process-file-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks",
-                        "pages": [
-                          "list-webhooks-copied-2",
-                          "delete-webhook-copied-2"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Integraciones",
-                    "icon": "folder-open",
-                    "pages": [
-                      "integration-with-make-copied-2",
-                      "integration-with-zapier-copied-2",
-                      "integration-with-whats-app-via-make-copied-2",
-                      "integration-with-n8n-copied-2"
-                    ]
-                  },
-                  {
-                    "group": "Protocolo de Contexto de Modelo (MCP)",
-                    "icon": "folder-open",
-                    "pages": [
-                      "mcp-copied-2"
-                    ]
-                  }
-                ]
-              }
-            ]
+            "anchor": "API"
           }
         ]
       },
       {
-        "anchor": "API"
+        "tab": "API"
       }
     ]
   },

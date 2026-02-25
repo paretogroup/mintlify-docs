@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "almond",
+  "theme": "luma",
   "name": "Tess AI Docs",
   "colors": {
     "primary": "#272727",
@@ -894,9 +894,5 @@
     "color": {
       "dark": "#272727"
     }
-  },
-  "banner": {
-    "dismissible": false,
-    "content": "Documentation"
   }
 }

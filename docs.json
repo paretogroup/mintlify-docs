@@ -16,14 +16,13 @@
         "groups": [
           {
             "group": "Introduction",
-            "icon": "folder",
             "pages": [
               {
                 "group": "First Steps",
                 "icon": "folder-open",
                 "pages": [
                   "welcome-to-tess-ai",
-                  "concepts",
+                  "concepts-en",
                   "inicial-setup",
                   "quickstart-en",
                   "security-and-privacy",
@@ -34,7 +33,6 @@
           },
           {
             "group": "Features",
-            "icon": "folder",
             "pages": [
               "memories",
               "tess-6-1-1",
@@ -186,7 +184,7 @@
                 "group": "API Guide",
                 "icon": "folder-open",
                 "pages": [
-                  "overview",
+                  "overview-api",
                   "quickstart-api",
                   "max-mode-2",
                   "rate-limits",
@@ -319,6 +317,7 @@
             "pages": [
               {
                 "group": "Chat",
+                "icon": "folder-open",
                 "pages": [
                   "usando-o-chat",
                   "modo-auto",
@@ -328,6 +327,7 @@
               },
               {
                 "group": "Tools",
+                "icon": "folder-open",
                 "pages": [
                   "tools",
                   "tool-internet",
@@ -350,6 +350,7 @@
             "pages": [
               {
                 "group": "Agentes",
+                "icon": "folder-open",
                 "pages": [
                   "tipos-de-agentes",
                   "treino-estatico",
@@ -362,6 +363,7 @@
               },
               {
                 "group": "Geradores",
+                "icon": "folder-open",
                 "pages": [
                   "gerador-de-imagem",
                   "gerador-de-video",
@@ -372,6 +374,7 @@
               },
               {
                 "group": "Entradas do Usuário",
+                "icon": "folder-open",
                 "pages": [
                   "funcionamento-entradas-do-usua",
                   "texto-curto-e-longo",
@@ -381,6 +384,7 @@
               },
               {
                 "group": "AI Steps",
+                "icon": "folder-open",
                 "pages": [
                   "funcionamento-ai-steps",
                   {
@@ -688,6 +692,7 @@
               "reembolso-1",
               {
                 "group": "Programas",
+                "icon": "folder-open",
                 "pages": [
                   "afiliados-1",
                   "recompensas-1"
@@ -695,6 +700,7 @@
               },
               {
                 "group": "Configuración",
+                "icon": "folder-open",
                 "pages": [
                   "tu-cuenta",
                   "preferencias-1",
@@ -709,6 +715,7 @@
               },
               {
                 "group": "Soporte",
+                "icon": "folder-open",
                 "pages": [
                   "contacto-de-soporte",
                   "soporte-remoto"
@@ -721,6 +728,7 @@
             "pages": [
               {
                 "group": "Guía de API",
+                "icon": "folder-open",
                 "pages": [
                   "visao-geral-copied-1",
                   "inicio-rapido-copied-1",
@@ -731,6 +739,7 @@
               },
               {
                 "group": "Referencia de API",
+                "icon": "folder-open",
                 "pages": [
                   {
                     "group": "Agentes",
@@ -797,6 +806,7 @@
               },
               {
                 "group": "Integraciones",
+                "icon": "folder-open",
                 "pages": [
                   "integration-with-make-copied-2",
                   "integration-with-zapier-copied-2",
@@ -806,6 +816,7 @@
               },
               {
                 "group": "Protocolo de Contexto de Modelo (MCP)",
+                "icon": "folder-open",
                 "pages": [
                   "mcp-copied-2"
                 ]

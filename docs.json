@@ -418,7 +418,7 @@
                     "group": "Agentes",
                     "icon": "grid-round-2-plus",
                     "pages": [
-                      "tipos-de-agentes-1",
+                      "es/tipos-de-agentes",
                       "entrenamiento-estatico",
                       "entrenamiento-dinamico",
                       "base-de-conocimiento-1",

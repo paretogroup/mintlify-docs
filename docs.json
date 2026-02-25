@@ -535,6 +535,7 @@
                 "pages": [
                   {
                     "group": "Agents",
+                    "icon": "brain-circuit",
                     "pages": [
                       "list-agent",
                       "get-agent",
@@ -546,6 +547,7 @@
                   },
                   {
                     "group": "Agent Files",
+                    "icon": "folder-gear",
                     "pages": [
                       "list-agent-files",
                       "link-files-to-agent",
@@ -554,6 +556,7 @@
                   },
                   {
                     "group": "Agent Webhooks",
+                    "icon": "tower-broadcast",
                     "pages": [
                       "list-agent-webhooks",
                       "create-agent-webhook"
@@ -561,6 +564,7 @@
                   },
                   {
                     "group": "Memories",
+                    "icon": "atom-simple",
                     "pages": [
                       "list-memories",
                       "create-memory",
@@ -570,6 +574,7 @@
                   },
                   {
                     "group": "Memory Collections",
+                    "icon": "atom",
                     "pages": [
                       "list-collections",
                       "create-memory-collection",
@@ -579,6 +584,7 @@
                   },
                   {
                     "group": "Files",
+                    "icon": "file",
                     "pages": [
                       "list-files",
                       "upload-file",
@@ -589,6 +595,7 @@
                   },
                   {
                     "group": "Webhooks",
+                    "icon": "webhook",
                     "pages": [
                       "list-webhooks",
                       "delete-webhook"

@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "sequoia",
+  "theme": "almond",
   "name": "Tess AI Docs",
   "colors": {
     "primary": "#272727",
@@ -176,106 +176,6 @@
                     "pages": [
                       "support-contact",
                       "remote-support"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "API",
-                "pages": [
-                  {
-                    "group": "API Guide",
-                    "icon": "folder-open",
-                    "pages": [
-                      "overview-api",
-                      "quickstart-api",
-                      "max-mode-2",
-                      "rate-limits",
-                      "errors"
-                    ]
-                  },
-                  {
-                    "group": "API Reference",
-                    "icon": "folder-open",
-                    "pages": [
-                      {
-                        "group": "Agents",
-                        "pages": [
-                          "list-agent",
-                          "get-agent",
-                          "execute-agent",
-                          "execute-agent-stream",
-                          "execute-open-ai-compatible",
-                          "get-agent-response"
-                        ]
-                      },
-                      {
-                        "group": "Agent Files",
-                        "pages": [
-                          "list-agent-files",
-                          "link-files-to-agent",
-                          "delete-agent-file"
-                        ]
-                      },
-                      {
-                        "group": "Agent Webhooks",
-                        "pages": [
-                          "list-agent-webhooks",
-                          "create-agent-webhook"
-                        ]
-                      },
-                      {
-                        "group": "Memories",
-                        "pages": [
-                          "list-memories",
-                          "create-memory",
-                          "update-memory",
-                          "delete-memory"
-                        ]
-                      },
-                      {
-                        "group": "Memory Collections",
-                        "pages": [
-                          "list-collections",
-                          "create-memory-collection",
-                          "update-memory-collection",
-                          "delete-memory-collection"
-                        ]
-                      },
-                      {
-                        "group": "Files",
-                        "pages": [
-                          "list-files",
-                          "upload-file",
-                          "get-file",
-                          "delete-file",
-                          "process-file"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks",
-                        "pages": [
-                          "list-webhooks",
-                          "delete-webhook"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Integrations",
-                    "icon": "folder-open",
-                    "pages": [
-                      "integration-with-make",
-                      "integration-with-zapier",
-                      "integration-with-whats-app-via-make",
-                      "integration-with-n8n"
-                    ]
-                  },
-                  {
-                    "group": "Model Context Protocol (MCP)",
-                    "icon": "folder-open",
-                    "pages": [
-                      "mcp"
                     ]
                   }
                 ]
@@ -457,106 +357,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "group": "API",
-                "pages": [
-                  {
-                    "group": "Guia da API",
-                    "icon": "folder-open",
-                    "pages": [
-                      "visao-geral-api",
-                      "inicio-rapido",
-                      "modo-max-pt",
-                      "rate-limits-copied-1",
-                      "errors-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Referência da API",
-                    "icon": "folder-open",
-                    "pages": [
-                      {
-                        "group": "Agentes",
-                        "pages": [
-                          "list-agent-copied-1",
-                          "get-agent-copied-1",
-                          "execute-agent-copied-1",
-                          "execute-agent-stream-copied-1",
-                          "execute-open-ai-compatible-copied-1",
-                          "get-agent-response-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Arquivos do Agente",
-                        "pages": [
-                          "list-agent-files-copied-1",
-                          "link-files-to-agent-copied-1",
-                          "delete-agent-file-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks do Agente",
-                        "pages": [
-                          "list-agent-webhooks-copied-1",
-                          "create-agent-webhook-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Memórias",
-                        "pages": [
-                          "list-memories-copied-1",
-                          "create-memory-copied-1",
-                          "update-memory-copied-1",
-                          "delete-memory-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Coleções de Memórias",
-                        "pages": [
-                          "listar-colecoes-de-memoria",
-                          "create-memory-collection-copied-1",
-                          "update-memory-collection-copied-1",
-                          "delete-memory-collection-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Arquivos",
-                        "pages": [
-                          "list-files-copied-1",
-                          "upload-file-copied-1",
-                          "get-file-copied-1",
-                          "delete-file-copied-1",
-                          "process-file-copied-1"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks",
-                        "pages": [
-                          "list-webhooks-copied-1",
-                          "delete-webhook-copied-1"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Integrações",
-                    "icon": "folder-open",
-                    "pages": [
-                      "integration-with-make-copied-1",
-                      "integration-with-zapier-copied-1",
-                      "integration-with-whats-app-via-make-copied-1",
-                      "integration-with-n8n-copied-1"
-                    ]
-                  },
-                  {
-                    "group": "Protocolo de Contexto de Modelo (MCP)",
-                    "icon": "folder-open",
-                    "pages": [
-                      "mcp-copied-1"
-                    ]
-                  }
-                ]
               }
             ]
           },
@@ -724,106 +524,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "group": "API",
-                "pages": [
-                  {
-                    "group": "Guía de API",
-                    "icon": "folder-open",
-                    "pages": [
-                      "visao-geral-copied-1",
-                      "inicio-rapido-copied-1",
-                      "modo-max-pt-copied-1",
-                      "rate-limits-copied-2",
-                      "errors-copied-2"
-                    ]
-                  },
-                  {
-                    "group": "Referencia de API",
-                    "icon": "folder-open",
-                    "pages": [
-                      {
-                        "group": "Agentes",
-                        "pages": [
-                          "list-agent-copied-2",
-                          "get-agent-copied-2",
-                          "execute-agent-copied-2",
-                          "execute-agent-stream-copied-2",
-                          "execute-open-ai-compatible-copied-2",
-                          "get-agent-response-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Archivos del Agente",
-                        "pages": [
-                          "list-agent-files-copied-2",
-                          "link-files-to-agent-copied-2",
-                          "delete-agent-file-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks del Agente",
-                        "pages": [
-                          "list-agent-webhooks-copied-2",
-                          "create-agent-webhook-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Memorias",
-                        "pages": [
-                          "list-memories-copied-2",
-                          "create-memory-copied-2",
-                          "update-memory-copied-2",
-                          "delete-memory-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Colecciones de Memoria",
-                        "pages": [
-                          "listar-colecciones-de-memoria",
-                          "create-memory-collection-copied-2",
-                          "update-memory-collection-copied-2",
-                          "delete-memory-collection-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Archivos",
-                        "pages": [
-                          "list-files-copied-2",
-                          "upload-file-copied-2",
-                          "get-file-copied-2",
-                          "delete-file-copied-2",
-                          "process-file-copied-2"
-                        ]
-                      },
-                      {
-                        "group": "Webhooks",
-                        "pages": [
-                          "list-webhooks-copied-2",
-                          "delete-webhook-copied-2"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Integraciones",
-                    "icon": "folder-open",
-                    "pages": [
-                      "integration-with-make-copied-2",
-                      "integration-with-zapier-copied-2",
-                      "integration-with-whats-app-via-make-copied-2",
-                      "integration-with-n8n-copied-2"
-                    ]
-                  },
-                  {
-                    "group": "Protocolo de Contexto de Modelo (MCP)",
-                    "icon": "folder-open",
-                    "pages": [
-                      "mcp-copied-2"
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -833,13 +533,318 @@
         "tab": "API Reference",
         "languages": [
           {
-            "language": "en"
+            "language": "en",
+            "groups": [
+              {
+                "group": "API",
+                "pages": [
+                  {
+                    "group": "API Guide",
+                    "icon": "folder-open",
+                    "pages": [
+                      "overview-api",
+                      "quickstart-api",
+                      "max-mode-2",
+                      "rate-limits",
+                      "errors"
+                    ]
+                  },
+                  {
+                    "group": "API Reference",
+                    "icon": "folder-open",
+                    "pages": [
+                      {
+                        "group": "Agents",
+                        "pages": [
+                          "list-agent",
+                          "get-agent",
+                          "execute-agent",
+                          "execute-agent-stream",
+                          "execute-open-ai-compatible",
+                          "get-agent-response"
+                        ]
+                      },
+                      {
+                        "group": "Agent Files",
+                        "pages": [
+                          "list-agent-files",
+                          "link-files-to-agent",
+                          "delete-agent-file"
+                        ]
+                      },
+                      {
+                        "group": "Agent Webhooks",
+                        "pages": [
+                          "list-agent-webhooks",
+                          "create-agent-webhook"
+                        ]
+                      },
+                      {
+                        "group": "Memories",
+                        "pages": [
+                          "list-memories",
+                          "create-memory",
+                          "update-memory",
+                          "delete-memory"
+                        ]
+                      },
+                      {
+                        "group": "Memory Collections",
+                        "pages": [
+                          "list-collections",
+                          "create-memory-collection",
+                          "update-memory-collection",
+                          "delete-memory-collection"
+                        ]
+                      },
+                      {
+                        "group": "Files",
+                        "pages": [
+                          "list-files",
+                          "upload-file",
+                          "get-file",
+                          "delete-file",
+                          "process-file"
+                        ]
+                      },
+                      {
+                        "group": "Webhooks",
+                        "pages": [
+                          "list-webhooks",
+                          "delete-webhook"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Integrations",
+                    "icon": "folder-open",
+                    "pages": [
+                      "integration-with-make",
+                      "integration-with-zapier",
+                      "integration-with-whats-app-via-make",
+                      "integration-with-n8n"
+                    ]
+                  },
+                  {
+                    "group": "Model Context Protocol (MCP)",
+                    "icon": "folder-open",
+                    "pages": [
+                      "mcp"
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           {
-            "language": "pt-BR"
+            "language": "pt-BR",
+            "groups": [
+              {
+                "group": "API",
+                "pages": [
+                  {
+                    "group": "Guia da API",
+                    "icon": "folder-open",
+                    "pages": [
+                      "visao-geral-api",
+                      "inicio-rapido",
+                      "modo-max-pt",
+                      "rate-limits-copied-1",
+                      "errors-copied-1"
+                    ]
+                  },
+                  {
+                    "group": "Referência da API",
+                    "icon": "folder-open",
+                    "pages": [
+                      {
+                        "group": "Agentes",
+                        "pages": [
+                          "list-agent-copied-1",
+                          "get-agent-copied-1",
+                          "execute-agent-copied-1",
+                          "execute-agent-stream-copied-1",
+                          "execute-open-ai-compatible-copied-1",
+                          "get-agent-response-copied-1"
+                        ]
+                      },
+                      {
+                        "group": "Arquivos do Agente",
+                        "pages": [
+                          "list-agent-files-copied-1",
+                          "link-files-to-agent-copied-1",
+                          "delete-agent-file-copied-1"
+                        ]
+                      },
+                      {
+                        "group": "Webhooks do Agente",
+                        "pages": [
+                          "list-agent-webhooks-copied-1",
+                          "create-agent-webhook-copied-1"
+                        ]
+                      },
+                      {
+                        "group": "Memórias",
+                        "pages": [
+                          "list-memories-copied-1",
+                          "create-memory-copied-1",
+                          "update-memory-copied-1",
+                          "delete-memory-copied-1"
+                        ]
+                      },
+                      {
+                        "group": "Coleções de Memórias",
+                        "pages": [
+                          "listar-colecoes-de-memoria",
+                          "create-memory-collection-copied-1",
+                          "update-memory-collection-copied-1",
+                          "delete-memory-collection-copied-1"
+                        ]
+                      },
+                      {
+                        "group": "Arquivos",
+                        "pages": [
+                          "list-files-copied-1",
+                          "upload-file-copied-1",
+                          "get-file-copied-1",
+                          "delete-file-copied-1",
+                          "process-file-copied-1"
+                        ]
+                      },
+                      {
+                        "group": "Webhooks",
+                        "pages": [
+                          "list-webhooks-copied-1",
+                          "delete-webhook-copied-1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Integrações",
+                    "icon": "folder-open",
+                    "pages": [
+                      "integration-with-make-copied-1",
+                      "integration-with-zapier-copied-1",
+                      "integration-with-whats-app-via-make-copied-1",
+                      "integration-with-n8n-copied-1"
+                    ]
+                  },
+                  {
+                    "group": "Protocolo de Contexto de Modelo (MCP)",
+                    "icon": "folder-open",
+                    "pages": [
+                      "mcp-copied-1"
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           {
-            "language": "es"
+            "language": "es",
+            "groups": [
+              {
+                "group": "API",
+                "pages": []
+              },
+              {
+                "group": "Guía de API",
+                "icon": "folder-open",
+                "pages": [
+                  "visao-geral-copied-1",
+                  "inicio-rapido-copied-1",
+                  "modo-max-pt-copied-1",
+                  "rate-limits-copied-2",
+                  "errors-copied-2"
+                ]
+              },
+              {
+                "group": "Referencia de API",
+                "icon": "folder-open",
+                "pages": [
+                  {
+                    "group": "Agentes",
+                    "pages": [
+                      "list-agent-copied-2",
+                      "get-agent-copied-2",
+                      "execute-agent-copied-2",
+                      "execute-agent-stream-copied-2",
+                      "execute-open-ai-compatible-copied-2",
+                      "get-agent-response-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Archivos del Agente",
+                    "pages": [
+                      "list-agent-files-copied-2",
+                      "link-files-to-agent-copied-2",
+                      "delete-agent-file-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Webhooks del Agente",
+                    "pages": [
+                      "list-agent-webhooks-copied-2",
+                      "create-agent-webhook-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Memorias",
+                    "pages": [
+                      "list-memories-copied-2",
+                      "create-memory-copied-2",
+                      "update-memory-copied-2",
+                      "delete-memory-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Colecciones de Memoria",
+                    "pages": [
+                      "listar-colecciones-de-memoria",
+                      "create-memory-collection-copied-2",
+                      "update-memory-collection-copied-2",
+                      "delete-memory-collection-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Archivos",
+                    "pages": [
+                      "list-files-copied-2",
+                      "upload-file-copied-2",
+                      "get-file-copied-2",
+                      "delete-file-copied-2",
+                      "process-file-copied-2"
+                    ]
+                  },
+                  {
+                    "group": "Webhooks",
+                    "pages": [
+                      "list-webhooks-copied-2",
+                      "delete-webhook-copied-2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Integraciones",
+                "icon": "folder-open",
+                "pages": [
+                  "integration-with-make-copied-2",
+                  "integration-with-zapier-copied-2",
+                  "integration-with-whats-app-via-make-copied-2",
+                  "integration-with-n8n-copied-2"
+                ]
+              },
+              {
+                "group": "Protocolo de Contexto de Modelo (MCP)",
+                "icon": "folder-open",
+                "pages": [
+                  "mcp-copied-2"
+                ]
+              }
+            ]
           }
         ]
       }

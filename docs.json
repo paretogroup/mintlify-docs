@@ -46,7 +46,7 @@
                 "pages": [
                   {
                     "group": "Chat",
-                    "icon": "folder-open",
+                    "icon": "comment",
                     "pages": [
                       "using-the-chat",
                       "auto-mode",
@@ -56,7 +56,7 @@
                   },
                   {
                     "group": "Tools",
-                    "icon": "folder-open",
+                    "icon": "sliders-up",
                     "pages": [
                       "chat-tools",
                       "internet-1",
@@ -79,7 +79,7 @@
                 "pages": [
                   {
                     "group": "Agents",
-                    "icon": "folder-open",
+                    "icon": "grid-round-2-plus",
                     "pages": [
                       "agent-types",
                       "static-training",
@@ -91,7 +91,7 @@
                   },
                   {
                     "group": "Generators",
-                    "icon": "folder-open",
+                    "icon": "bolt",
                     "pages": [
                       "image-generator",
                       "video-generator",
@@ -102,7 +102,7 @@
                   },
                   {
                     "group": "User Inputs",
-                    "icon": "folder-open",
+                    "icon": "user",
                     "pages": [
                       "how-it-works",
                       "short-and-long-text",
@@ -112,7 +112,7 @@
                   },
                   {
                     "group": "AI Steps",
-                    "icon": "folder-open",
+                    "icon": "sparkles",
                     "pages": [
                       "how-it-works-ai-steps",
                       {
@@ -145,6 +145,7 @@
                   "refund",
                   {
                     "group": "Programs",
+                    "icon": "puzzle-piece",
                     "pages": [
                       "reward",
                       "affiliate"
@@ -152,6 +153,7 @@
                   },
                   {
                     "group": "Settings",
+                    "icon": "gear",
                     "pages": [
                       "your-account",
                       "workspace-1",
@@ -167,6 +169,7 @@
                   },
                   {
                     "group": "Support",
+                    "icon": "circle-question",
                     "pages": [
                       "support-contact",
                       "remote-support"

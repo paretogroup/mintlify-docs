@@ -246,9 +246,9 @@
                     "group": "Agentes",
                     "icon": "grid-round-2-plus",
                     "pages": [
+                      "tipos-de-agentes",
                       "treino-estatico",
                       "treino-dinamico",
-                      "monetizacao-2",
                       "base-de-conhecimentos-2",
                       "configruacoes-avancadas",
                       "visibilidade"

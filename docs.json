@@ -211,7 +211,7 @@
                 "pages": [
                   {
                     "group": "Chat",
-                    "icon": "folder-open",
+                    "icon": "comment",
                     "pages": [
                       "usando-o-chat",
                       "modo-auto",
@@ -221,7 +221,7 @@
                   },
                   {
                     "group": "Tools",
-                    "icon": "folder-open",
+                    "icon": "sliders-up",
                     "pages": [
                       "tools",
                       "tool-internet",
@@ -244,7 +244,7 @@
                 "pages": [
                   {
                     "group": "Agentes",
-                    "icon": "folder-open",
+                    "icon": "grid-round-2-plus",
                     "pages": [
                       "treino-estatico",
                       "treino-dinamico",
@@ -256,7 +256,7 @@
                   },
                   {
                     "group": "Geradores",
-                    "icon": "folder-open",
+                    "icon": "bolt",
                     "pages": [
                       "gerador-de-imagem",
                       "gerador-de-video",
@@ -267,7 +267,7 @@
                   },
                   {
                     "group": "Entradas do Usuário",
-                    "icon": "folder-open",
+                    "icon": "user",
                     "pages": [
                       "funcionamento-entradas-do-usua",
                       "texto-curto-e-longo",
@@ -277,7 +277,7 @@
                   },
                   {
                     "group": "AI Steps",
-                    "icon": "folder-open",
+                    "icon": "sparkles",
                     "pages": [
                       "funcionamento-ai-steps",
                       {
@@ -317,7 +317,7 @@
                   "reembolso",
                   {
                     "group": "Programas",
-                    "icon": "folder-open",
+                    "icon": "puzzle-piece",
                     "pages": [
                       "afiliados",
                       "recompensas"
@@ -325,7 +325,7 @@
                   },
                   {
                     "group": "Configurações",
-                    "icon": "folder-open",
+                    "icon": "gear",
                     "pages": [
                       "sua-conta",
                       "workspace",
@@ -341,7 +341,7 @@
                   },
                   {
                     "group": "Suporte",
-                    "icon": "folder-open",
+                    "icon": "circle-question",
                     "pages": [
                       "contato-de-suporte",
                       "suporte-remoto"
@@ -383,7 +383,7 @@
                 "pages": [
                   {
                     "group": "Chat",
-                    "icon": "folder-open",
+                    "icon": "comment",
                     "pages": [
                       "usando-el-chat",
                       "auto-mode-1",
@@ -393,7 +393,7 @@
                   },
                   {
                     "group": "Tools",
-                    "icon": "folder-open",
+                    "icon": "sliders-up",
                     "pages": [
                       "chat-tools-1",
                       "internet",
@@ -416,7 +416,7 @@
                 "pages": [
                   {
                     "group": "Agentes",
-                    "icon": "folder-open",
+                    "icon": "grid-round-2-plus",
                     "pages": [
                       "tipos-de-agentes-1",
                       "entrenamiento-estatico",
@@ -428,7 +428,7 @@
                   },
                   {
                     "group": "Generadores",
-                    "icon": "folder-open",
+                    "icon": "bolt",
                     "pages": [
                       "generador-de-imagenes",
                       "generador-de-video",
@@ -439,7 +439,7 @@
                   },
                   {
                     "group": "Entradas del usuario",
-                    "icon": "folder-open",
+                    "icon": "user",
                     "pages": [
                       "funcionamento-entradas-del-usuario",
                       "texto-corto-y-largo",
@@ -449,7 +449,7 @@
                   },
                   {
                     "group": "AI Steps",
-                    "icon": "folder-open",
+                    "icon": "sparkles",
                     "pages": [
                       "funcionamento-ai-steps-1",
                       {
@@ -479,7 +479,7 @@
                   "reembolso-1",
                   {
                     "group": "Programas",
-                    "icon": "folder-open",
+                    "icon": "puzzle-piece",
                     "pages": [
                       "afiliados-1",
                       "recompensas-1"
@@ -487,7 +487,7 @@
                   },
                   {
                     "group": "Configuración",
-                    "icon": "folder-open",
+                    "icon": "gear",
                     "pages": [
                       "tu-cuenta",
                       "preferencias-1",
@@ -502,7 +502,7 @@
                   },
                   {
                     "group": "Soporte",
-                    "icon": "folder-open",
+                    "icon": "circle-question",
                     "pages": [
                       "contacto-de-soporte",
                       "soporte-remoto"

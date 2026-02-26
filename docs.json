@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "almond",
+  "theme": "aspen",
   "name": "Tess AI Docs",
   "openapi": "api-reference/openapi.json",
   "playground": {

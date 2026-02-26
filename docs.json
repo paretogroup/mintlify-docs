@@ -2,6 +2,10 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "almond",
   "name": "Tess AI Docs",
+  "openapi": "api-reference/openapi.json",
+  "playground": {
+    "display": "interactive"
+  },
   "colors": {
     "primary": "#272727",
     "light": "#ffffff",

@@ -562,168 +562,121 @@
         "language": "es",
         "tabs": [
           {
-            "tab": "Documentación",
-            "groups": [
+            "tab": "Introducción",
+            "pages": [
+              "bienvenido-a-tess-ai",
+              "conceptos",
+              "configuracion-inicial",
+              "quickstart-3",
+              "seguridad-y-privacidad",
+              "mobile-app-2"
+            ]
+          },
+          {
+            "tab": "Features",
+            "pages": [
+              "memorias-1",
+              "tess-6-1-2",
+              "max-mode-1",
+              "enlaces-compartibles",
+              "tess-pages-2",
+              "embedding-1",
+              "marketplace-2",
+              "ai-wallet-1"
+            ]
+          },
+          {
+            "tab": "Chat y Tools",
+            "pages": [
               {
-                "group": "Introducción",
+                "group": "Chat",
+                "icon": "comment",
                 "pages": [
-                  "bienvenido-a-tess-ai",
-                  "conceptos",
-                  "configuracion-inicial",
-                  "quickstart-3",
-                  "seguridad-y-privacidad",
-                  "mobile-app-2"
+                  "usando-el-chat",
+                  "auto-mode-1",
+                  "base-de-conocimiento",
+                  "historial"
                 ]
               },
               {
-                "group": "Features",
+                "group": "Tools",
+                "icon": "sliders-up",
                 "pages": [
-                  "memorias-1",
-                  "tess-6-1-2",
-                  "max-mode-1",
-                  "enlaces-compartibles",
-                  "tess-pages-2",
-                  "embedding-1",
-                  "marketplace-2",
-                  "ai-wallet-1"
+                  "chat-tools-1",
+                  "internet",
+                  "generacion-de-imagenes",
+                  "generacion-de-video",
+                  "edicion-de-videos",
+                  "narracion",
+                  "podcast-1",
+                  "music-1",
+                  "deep-analysis-1",
+                  "manage-files-1",
+                  "avatar-2",
+                  "integraciones"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Agent Studio",
+            "pages": [
+              {
+                "group": "Agentes",
+                "icon": "grid-round-2-plus",
+                "pages": [
+                  "es/tipos-de-agentes",
+                  "entrenamiento-estatico",
+                  "entrenamiento-dinamico",
+                  "base-de-conocimiento-1",
+                  "configuraciones-avanzadas",
+                  "visibilidad"
                 ]
               },
               {
-                "group": "Chat & Tools",
+                "group": "Generadores",
+                "icon": "bolt",
                 "pages": [
-                  {
-                    "group": "Chat",
-                    "icon": "comment",
-                    "pages": [
-                      "usando-el-chat",
-                      "auto-mode-1",
-                      "base-de-conocimiento",
-                      "historial"
-                    ]
-                  },
-                  {
-                    "group": "Tools",
-                    "icon": "sliders-up",
-                    "pages": [
-                      "chat-tools-1",
-                      "internet",
-                      "generacion-de-imagenes",
-                      "generacion-de-video",
-                      "edicion-de-videos",
-                      "narracion",
-                      "podcast-1",
-                      "music-1",
-                      "deep-analysis-1",
-                      "manage-files-1",
-                      "avatar-2",
-                      "integraciones"
-                    ]
-                  }
+                  "generador-de-imagenes",
+                  "generador-de-video",
+                  "generador-de-codigo",
+                  "generador-de-narraciones",
+                  "generador-de-transcriptiones"
                 ]
               },
               {
-                "group": "Agent Studio",
+                "group": "Entradas del usuario",
+                "icon": "user",
                 "pages": [
-                  {
-                    "group": "Agentes",
-                    "icon": "grid-round-2-plus",
-                    "pages": [
-                      "es/tipos-de-agentes",
-                      "entrenamiento-estatico",
-                      "entrenamiento-dinamico",
-                      "base-de-conocimiento-1",
-                      "configuraciones-avanzadas",
-                      "visibilidad"
-                    ]
-                  },
-                  {
-                    "group": "Generadores",
-                    "icon": "bolt",
-                    "pages": [
-                      "generador-de-imagenes",
-                      "generador-de-video",
-                      "generador-de-codigo",
-                      "generador-de-narraciones",
-                      "generador-de-transcriptiones"
-                    ]
-                  },
-                  {
-                    "group": "Entradas del usuario",
-                    "icon": "user",
-                    "pages": [
-                      "funcionamento-entradas-del-usuario",
-                      "texto-corto-y-largo",
-                      "seleccion-unica-ay-multiple",
-                      "upload-de-archivo"
-                    ]
-                  },
-                  {
-                    "group": "AI Steps",
-                    "icon": "sparkles",
-                    "pages": [
-                      "funcionamento-ai-steps-1",
-                      {
-                        "group": "Web Data Extraction",
-                        "pages": []
-                      },
-                      {
-                        "group": "Integrations",
-                        "pages": []
-                      },
-                      {
-                        "group": "Document Processing",
-                        "pages": []
-                      }
-                    ]
-                  }
+                  "funcionamento-entradas-del-usuario",
+                  "texto-corto-y-largo",
+                  "seleccion-unica-ay-multiple",
+                  "upload-de-archivo"
                 ]
               },
               {
-                "group": "Cuenta",
+                "group": "AI Steps",
+                "icon": "sparkles",
                 "pages": [
-                  "suscripcion-y-pago",
-                  "panel-del-equipo",
-                  "cartera-compartida",
-                  "estado-del-sistema",
-                  "sso-2",
-                  "reembolso-1",
+                  "funcionamento-ai-steps-1",
                   {
-                    "group": "Programas",
-                    "icon": "puzzle-piece",
-                    "pages": [
-                      "afiliados-1",
-                      "recompensas-1"
-                    ]
+                    "group": "Web Data Extraction",
+                    "pages": []
                   },
                   {
-                    "group": "Configuración",
-                    "icon": "gear",
-                    "pages": [
-                      "tu-cuenta",
-                      "preferencias-1",
-                      "workspace-2",
-                      "suscripcion",
-                      "upgrade-y-downgrade",
-                      "monitoreo-de-uso",
-                      "base-de-conocimientos",
-                      "monetizacion",
-                      "control-de-datos"
-                    ]
+                    "group": "Integrations",
+                    "pages": []
                   },
                   {
-                    "group": "Soporte",
-                    "icon": "circle-question",
-                    "pages": [
-                      "contacto-de-soporte",
-                      "soporte-remoto"
-                    ]
+                    "group": "Document Processing",
+                    "pages": []
                   }
                 ]
               }
             ]
           },
           {
-            "tab": "Referencia de la API",
+            "tab": "API",
             "groups": [
               {
                 "group": "Guía de API",
@@ -821,6 +774,48 @@
                 "group": "Protocolo de Contexto de Modelo (MCP)",
                 "pages": [
                   "mcp-copied-2"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Cuenta",
+            "pages": [
+              "suscripcion-y-pago",
+              "panel-del-equipo",
+              "cartera-compartida",
+              "estado-del-sistema",
+              "sso-2",
+              "reembolso-1",
+              {
+                "group": "Programas",
+                "icon": "puzzle-piece",
+                "pages": [
+                  "afiliados-1",
+                  "recompensas-1"
+                ]
+              },
+              {
+                "group": "Configuración",
+                "icon": "gear",
+                "pages": [
+                  "tu-cuenta",
+                  "preferencias-1",
+                  "workspace-2",
+                  "suscripcion",
+                  "upgrade-y-downgrade",
+                  "monitoreo-de-uso",
+                  "base-de-conocimientos",
+                  "monetizacion",
+                  "control-de-datos"
+                ]
+              },
+              {
+                "group": "Soporte",
+                "icon": "circle-question",
+                "pages": [
+                  "contacto-de-soporte",
+                  "soporte-remoto"
                 ]
               }
             ]

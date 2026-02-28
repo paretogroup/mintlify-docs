@@ -301,6 +301,7 @@
           {
             "tab": "Features",
             "pages": [
+              "agent-computer",
               "memorias",
               "tess-6-1",
               "modo-max",

@@ -1,0 +1,85 @@
+---
+title: "Skills"
+---
+
+Skills son “paquetes de competencia” que añades en Tess para habilitar que tus agentes o tus chats ejecuten tareas específicas con mucha más organización, consistencia y eficiencia. 
+
+En lugar de poner instrucciones enormes dentro de un solo agente (lo que aumenta el costo, la confusión y la probabilidad de alucinación), la Skill funciona como un procedimiento listo: el agente “abre” la Skill cuando la necesita, lee las instrucciones y ejecuta exactamente lo que se definió.
+
+<Info>
+  Piénsalo así:
+
+  - Agente = el profesional (quien decide y conduce)
+  - Skill = el proceso (cómo ejecutar una tarea de la manera correcta)
+</Info>
+
+### **Qué es una Skill**
+
+Una Skill es, en la práctica, una carpeta aislada con un archivo principal de instrucciones (por defecto, algo como [skill.md](http://skill.md)) , además de otros archivos auxiliares relevantes para esa competencia (templates, imágenes, scripts, códigos, assets, ejemplos, etc.). En otras palabras, esa carpeta funciona como un “kit completo” para una tarea. 
+
+### **Por qué existen las Skills (y por qué eso importa)**
+
+<Card icon="1" title="Eficiência e redução de custo (revelação progressiva)">
+  Un problema común al “entrenar” agentes es poner todo en el contexto: decenas de páginas de instrucciones para cubrir todas las tareas. Esto, en consecuencia, aumenta el costo; deja al agente confundido; aumenta el riesgo de alucinación e incluso puede empeorar el rendimiento en tareas específicas.
+
+  Con Skills, el agente solo necesita “leer lo necesario, cuando es necesario”. Aunque tengas varias skills disponibles, solo buscará las que sean relevantes para la tarea del momento. 
+
+  Es lo mejor de ambos mundos: el agente tiene todo el potencial necesario para realizar brillantemente innumerables tareas, pero solo usa de hecho lo que se necesita para cada una. Esto mejora el costo y el rendimiento porque reduce los tokens consumidos innecesariamente y evita poner todo dentro del contexto siempre
+</Card>
+
+<Card icon="2" title="Esse mecanismo é baseado em revelação progressiva">
+  Primero se lee una “etiqueta/metadata” corta para entender si la Skill tiene sentido. En caso positivo, el agente lee el resto y accede a los archivos completos de la Skill.
+</Card>
+
+<Card icon="3" title="Especialização real, sem criar 5 agentes diferentes">
+  Sin skills, es común que necesites múltiples agentes (cuentas por pagar, DRE, análisis, etc.). Con skills, mantienes el mismo agente y le das procedimientos específicos por tarea. El agente se convierte en un “empleado genial” que sabe dónde encontrar el procedimiento correcto.
+</Card>
+
+<Card icon="4" title="Reuso entre agentes">
+  Si tienes varios agentes y existe una parte “común” entre ellos (ej.: estándar de respuesta, checklist, template, rutina de ejecución), puedes convertir eso en Skill y reutilizarlo en todos.
+</Card>
+
+### **Dónde y cómo funcionan las Skills**
+
+Por el momento, las Skills quedan disponibles en Agent Computer, porque en este modo trabajamos con una estructura de “máquina virtual” y carpetas, lo que permite navegar en los archivos, leer instrucciones, ejecutar scripts y acceder a assets con consistencia.
+
+Una Skill normalmente sigue este concepto:
+
+- Carpeta aislada: Cada Skill es una “cajita” separada: su propio contexto, sus propios archivos, sus propias reglas.
+- Archivo de instrucciones ([skill.md](http://skill.md)): Es el corazón de la Skill: explica el objetivo, el paso a paso y cómo usar los archivos contenidos en la carpeta.
+- Artefactos (archivos de apoyo): Puede incluir imágenes (logos, referencias), templates, scripts y códigos (ej.: Python), ejemplos y patrones o cualquier archivo útil para cumplir la tarea
+
+### **Cómo importar Skills en Tess**
+
+Puedes importar Skills desde diferentes repositorios, ya sea directo desde GitHub o incluyendo el archivo en tu área de gestión de Skills:
+
+Pegas el link del repositorio en el área de skills de Tess (Configuración \> Mi cuenta \> Skils)
+
+<Frame>
+  ![Captura De Tela 2026 02 27 Às 18 33 04](/images/CapturadeTela2026-02-27às18.33.04.png)
+</Frame>
+
+\
+Tess descarga la estructura (carpetas + archivos) y en pocos segundos, la Skill estará disponible.
+
+<Tip>
+  Buenas prácticas:
+
+  - prefiere repositorios confiables y skills que tengan un alto ranking de seguridad dentro de esos lugares
+  - prueba en un ambiente controlado antes de usar en tareas críticas
+  - revisa el contenido de instrucciones y scripts antes de correr cualquier automatización
+  - evita insertar tokens sensibles directamente en conversaciones/skills
+</Tip>
+
+### **¿Las Skills pueden ejecutar código?**
+
+Sí. Una Skill puede incluir scripts (ej.: Python) e instrucciones de ejecución. Esto permite que el agente:
+
+- ejecute tareas repetitivas
+- procese datos
+- genere reportes
+- automatice rutinas
+
+<Info>
+  Observación práctica: la ejecución suele ocurrir vía recursos de ejecución de código en el modo agente y/o mediante la herramienta de gestión de archivos/ejecución (dependiendo del flujo).
+</Info>

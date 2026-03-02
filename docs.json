@@ -40,7 +40,8 @@
               "tess-pages-1",
               "embedding",
               "marketplace-1",
-              "ai-wallet"
+              "ai-wallet",
+              "skills-1"
             ]
           },
           {
@@ -309,7 +310,10 @@
               "tess-pages",
               "embeding",
               "marketplace",
-              "carteira-de-creditos"
+              "carteira-de-creditos",
+              "skills",
+              "agendamento",
+              "tess-autopilot"
             ]
           },
           {
@@ -585,7 +589,8 @@
               "tess-pages-2",
               "embedding-1",
               "marketplace-2",
-              "ai-wallet-1"
+              "ai-wallet-1",
+              "skills-2"
             ]
           },
           {

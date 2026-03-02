@@ -1,0 +1,91 @@
+---
+title: "Agendamiento"
+---
+
+Los Agendamientos (Schedules) permiten que Tess ejecute tareas de manera programada y recurrente, en horarios específicos. 
+
+Podés pedir, por ejemplo:
+
+- “Buscá en internet las principales noticias de ayer sobre IA y traeme un reporte todos los días a las 9 h”
+- “Al inicio de cada mes, generá un informe en PDF sobre las ventas de la empresa, con división por canales, métricas principales, etc.”
+
+Es un recurso pensado para facilitarte la vida y sacar trabajo repetitivo de tu día. Con los Agendamientos, podés automatizar en Tess todas las tareas valiosas que te gustaría realizar con frecuencia.
+
+### **Qué es el Agendamiento**
+
+Agendamiento es la capacidad de Tess de ejecutar una tarea automáticamente, sin que tengas que pedirla de nuevo.
+
+Vos definís:
+
+<Columns cols={3}>
+  <Column>
+    **1. LA TAREA**\
+    Qué debe hacerse
+  </Column>
+  <Column>
+    **2. FRECUENCIA**\
+    Cuándo debe correr 
+  </Column>
+  <Column>
+    **3. CONFIGURACIONES**\
+    Contexto/ejecución usada 
+  </Column>
+</Columns>
+
+<Info>
+  El agendamiento se ejecuta vía agente (es decir, es especialmente poderoso cuando se combina con Modo Agente y Tools como Internet, Manage Files, Deep Analysis, etc.).
+</Info>
+
+### Por qué es importante
+
+<Card icon="1" title="Rutina automatizada">
+  Transformás tareas repetitivas en automatización, trabajando con reportes diarios/semanales/mensuales; monitoreo de temas y noticias; consolidación de métricas; chequeos periódicos.
+</Card>
+
+<Card icon="2" title="Menos olvidos y más consistencia">
+  Una vez agendado, corre siempre en el horario definido.
+</Card>
+
+<Card icon="2" title="Alto impacto en lo operativo">
+  Para equipos de CS/Revenue/Marketing/Producto, esto habilita casos de uso como:
+
+  - reportes recurrentes de uso
+  - resúmenes de feedback
+  - seguimiento de métricas
+  - alertas inteligentes (cuando se combina con datos/integraciones)
+</Card>
+
+### **Cómo funciona el Agendamiento** 
+
+Hoy, el agendamiento corre usando las configuraciones del chat y funciona con las configuraciones del primer mensaje del chat (no necesariamente del mensaje específico en el que pediste el agendamiento).
+
+Si querés cambiar configuraciones (ej.: modelo, modo agente, herramientas), hoy el camino más confiable es iniciar una nueva conversación y configurar todo de nuevo antes de agendar.
+
+La automatización es orientada por herramientas:
+
+- Con Internet: investigación y monitoreo
+- Con Manage Files: generar/editar PDFs, documentos y presentaciones
+- Con Deep Analysis: análisis recurrentes en planillas/CSV
+- Con Integrations: disparar acciones externas (con los cuidados de seguridad)
+
+**Cómo configurar un agendamiento**
+
+<Steps>
+  <Step title="Configurá el chat antes de pedir el agendamiento">
+    Elegí el modo (Chat estándar o Modo Agente), el modelo (LLM) y las tools necesarias (Internet, etc.). Dejá el contexto inicial del chat “del modo correcto”.
+  </Step>
+  <Step title="Describí la tarea con claridad">
+    Incluí objetivo, formato de salida (bullet points, PDF, tabla, etc.), frecuencia y horario (diario, semanal, mensual, cada X minutos), fuentes y criterios (si es internet: temas, palabras clave, regiones, idioma).
+  </Step>
+  <Step title="Confirmá la recurrencia">
+    Tess registra el agendamiento y pasa a ejecutarlo automáticamente.
+  </Step>
+</Steps>
+
+<Tip>
+  **Buenas prácticas**
+
+  - Sé específico en el output: Trabajá, por ejemplo, así: “Quiero un reporte diario con: 10 noticias con link, 1 párrafo de impacto, 3 insights accionables y 1 recomendación sobre qué monitorear mañana”.
+  - Empezá simple y evolucioná: Primero agendá un reporte sencillo. Después agregás: secciones, filtros, formatos, adjuntos (PDF), integraciones.
+  - Atención al costo: Los agendamientos recurrentes pueden consumir créditos con frecuencia. Recomendación: definí una cadencia que tenga sentido (diario/semanal) y solo aumentá la frecuencia cuando haya una necesidad real.
+</Tip>

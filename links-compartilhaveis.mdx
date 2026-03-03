@@ -12,14 +12,14 @@ A Tess AI permite compartilhar conversas do chat por meio de links, o que facili
 
 <Frame>
   <img
+    className="hidden dark:block"
     src="/images/tessdocs-shareblelinks1.png"
     alt="Tessdocs Shareblelinks1"
-    className="hidden dark:block"
   />
   <img
+    className="dark:hidden"
     src="/images/tessdocs-shareblelinks2.png"
     alt="Tessdocs Shareblelinks1"
-    className="dark:hidden"
   />
 </Frame>
 
@@ -35,6 +35,8 @@ A Tess AI permite compartilhar conversas do chat por meio de links, o que facili
   Use quando quiser colaboração em projetos e passar o contexto construído até então para alguém continuar da tela dele(a). Ou se tiver feito alguma demonstração interna de um fluxo (ex.: prompt, estrutura de atendimento, roteiro) e o resultado puder ser aproveitado por outro usuário na Tess.
 
   Em resumo, a pessoa consegue continuar o chat e gerar novas mensagens a partir do histórico existente sem atrapalhar sua tela ou adaptar para o contexto dela (sem “reinventar” tudo).
+
+  Neste caso, você precisará excluir os arquivos da base de conhecimentos!
 </Card>
 
 <Card icon="circle-play" title="Chat Público (Replay) (link de visualização)">
@@ -42,10 +44,10 @@ A Tess AI permite compartilhar conversas do chat por meio de links, o que facili
 
   Use para compartilhar um resultado com público externo (ex.: insight, tutorial, exemplo de agente), mostrar como a Tess chegou a um output (transparência do processo) ou até mesmo enviar para cliente/parceiro como referência de conversa (sem dar acesso de edição).
 
-  A pessoa conseguirá apenas visualizar a conversa (como um replay), por isso, não precisa login na Tess para abrir o link.
+  A pessoa conseguirá apenas visualizar a conversa (como um replay), por isso, não precisa login na Tess para abrir o link, nem precisa excluir os arquivos da base.
 </Card>
 
-O compartilhamento em ambos os caminhos também funcionam se o chat estiver com anexos na base de conhecimento. É possível ver os modelos usados em cada mensagem, assim como as tools utilizadas durante a conversa e também se chamou algum agente (pelo recurso @).
+Em ambos os caminhos é possível ver os modelos usados em cada mensagem, assim como as tools utilizadas durante a conversa e também se chamou algum agente (pelo recurso @).
 
 <Warning>
   Atenção

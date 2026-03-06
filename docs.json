@@ -86,7 +86,7 @@
                 "group": "Agents",
                 "icon": "grid-round-2-plus",
                 "pages": [
-                  "agent-types",
+                  "en/agent-types",
                   "static-training",
                   "dynamic-training",
                   "knowledge-base-1",
@@ -358,7 +358,7 @@
                 "group": "Agentes",
                 "icon": "grid-round-2-plus",
                 "pages": [
-                  "tipos-de-agentes",
+                  "pt/agent-types",
                   "treino-estatico",
                   "treino-dinamico",
                   "base-de-conhecimentos-2",
@@ -637,7 +637,7 @@
                 "group": "Agentes",
                 "icon": "grid-round-2-plus",
                 "pages": [
-                  "es/tipos-de-agentes",
+                  "es/agent-types",
                   "entrenamiento-estatico",
                   "entrenamiento-dinamico",
                   "base-de-conocimiento-1",

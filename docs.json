@@ -33,7 +33,7 @@
             "tab": "Features",
             "pages": [
               "agent-computer-en",
-              "memories",
+              "en/memories",
               "tess-6-1-1",
               "max-mode",
               "en/shareable-links",
@@ -305,7 +305,7 @@
             "tab": "Features",
             "pages": [
               "agent-computer",
-              "memorias",
+              "pt/memories",
               "tess-6-1",
               "modo-max",
               "pt/shareable-links",
@@ -584,7 +584,7 @@
             "tab": "Features",
             "pages": [
               "agent-computer-es",
-              "memorias-1",
+              "es/memories",
               "tess-6-1-2",
               "max-mode-1",
               "es/shareable-links",

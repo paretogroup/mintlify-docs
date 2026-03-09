@@ -32,7 +32,7 @@
           {
             "tab": "Features",
             "pages": [
-              "agent-computer-en",
+              "en/agent-computer",
               "en/memories",
               "tess-6-1-1",
               "max-mode",
@@ -304,7 +304,7 @@
           {
             "tab": "Features",
             "pages": [
-              "agent-computer",
+              "pt/agent-computer",
               "pt/memories",
               "tess-6-1",
               "modo-max",
@@ -583,7 +583,7 @@
           {
             "tab": "Features",
             "pages": [
-              "agent-computer-es",
+              "es/agent-computer",
               "es/memories",
               "tess-6-1-2",
               "max-mode-1",

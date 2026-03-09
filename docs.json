@@ -256,7 +256,7 @@
                 "icon": "puzzle-piece",
                 "pages": [
                   "reward",
-                  "affiliate"
+                  "en/affiliate"
                 ]
               },
               {
@@ -534,7 +534,7 @@
                 "group": "Programas",
                 "icon": "puzzle-piece",
                 "pages": [
-                  "afiliados",
+                  "pt/affiliate",
                   "recompensas"
                 ]
               },
@@ -803,7 +803,7 @@
                 "group": "Programas",
                 "icon": "puzzle-piece",
                 "pages": [
-                  "afiliados-1",
+                  "es/affiliate",
                   "recompensas-1"
                 ]
               },

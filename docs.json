@@ -11,7 +11,7 @@
     "light": "#ffffff",
     "dark": "#272727"
   },
-  "favicon": "/images/icon-black.svg",
+  "favicon": "/logo/tess-black-icon.png",
   "navigation": {
     "languages": [
       {
@@ -837,8 +837,8 @@
     ]
   },
   "logo": {
-    "light": "/images/tess-black.png",
-    "dark": "/images/tess-white.png",
+    "light": "/logo/tess-logo-dark.svg",
+    "dark": "/images/tess-white-logo.svg",
     "href": "https://tess.im/"
   },
   "navbar": {

@@ -660,17 +660,17 @@
                 "group": "Entradas del usuario",
                 "icon": "user",
                 "pages": [
-                  "funcionamento-entradas-del-usuario",
-                  "texto-corto-y-largo",
-                  "seleccion-unica-ay-multiple",
-                  "upload-de-archivo"
+                  "es/inputs",
+                  "es/text-input",
+                  "es/select",
+                  "es/upload"
                 ]
               },
               {
                 "group": "AI Steps",
                 "icon": "sparkles",
                 "pages": [
-                  "funcionamento-ai-steps-1",
+                  "es/ai-steps",
                   {
                     "group": "Web Data Extraction",
                     "pages": []

@@ -459,8 +459,8 @@
                     "group": "Webhooks do Agente",
                     "icon": "tower-broadcast",
                     "pages": [
-                      "list-agent-webhooks-copied-1",
-                      "create-agent-webhook-copied-1"
+                      "pt/list-agent-webhooks",
+                      "pt/create-agent-webhook"
                     ]
                   },
                   {

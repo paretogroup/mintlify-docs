@@ -693,11 +693,11 @@
               {
                 "group": "Guía de API",
                 "pages": [
-                  "visao-geral-api-es",
-                  "inicio-rapido-copied-1",
+                  "es/api-overview",
+                  "es/api-quickstart",
                   "modo-max-pt-copied-1",
-                  "rate-limits-copied-2",
-                  "errors-copied-2"
+                  "es/rate-limits",
+                  "es/errors"
                 ]
               },
               {
@@ -707,8 +707,8 @@
                     "group": "Agentes",
                     "icon": "brain-circuit",
                     "pages": [
-                      "list-agent-copied-2",
-                      "get-agent-copied-2",
+                      "es/list-agents",
+                      "es/get-agent",
                       "execute-agent-copied-2",
                       "execute-agent-stream-copied-2",
                       "execute-open-ai-compatible-copied-2",

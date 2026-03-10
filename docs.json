@@ -63,18 +63,18 @@
                 "group": "Tools",
                 "icon": "sliders-up",
                 "pages": [
-                  "chat-tools",
-                  "internet-1",
-                  "image-generation",
-                  "video-generation",
-                  "video-editing",
-                  "voiceover",
-                  "podcast",
-                  "music",
-                  "deep-analysis",
-                  "manage-files",
-                  "avatar-1",
-                  "integrations"
+                  "en/tools",
+                  "en/internet",
+                  "en/images",
+                  "en/videos",
+                  "en/video-edit",
+                  "en/voiceover",
+                  "en/podcast",
+                  "en/music",
+                  "en/deep-analysis",
+                  "en/manage-files",
+                  "en/avatar",
+                  "en/integrations"
                 ]
               }
             ]

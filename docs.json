@@ -22,11 +22,11 @@
             "tab": "Introduction",
             "pages": [
               "en/welcome",
-              "concepts-en",
-              "inicial-setup",
-              "quickstart-en",
-              "security-and-privacy",
-              "mobile-app-1"
+              "en/concepts",
+              "en/setup",
+              "en/quickstart",
+              "en/security",
+              "en/mobile"
             ]
           },
           {
@@ -34,16 +34,16 @@
             "pages": [
               "en/agent-computer",
               "en/memories",
-              "tess-6-1-1",
-              "max-mode",
+              "en/tess-6-1",
+              "en/max-mode",
               "en/shareable-links",
               "en/tess-pages",
               "en/embedding",
-              "marketplace-1",
-              "ai-wallet",
-              "skills-1",
-              "scheduling",
-              "tess-autopilot-1"
+              "en/marketplace",
+              "en/wallet",
+              "en/skills",
+              "en/scheduling",
+              "en/autopilot"
             ]
           },
           {

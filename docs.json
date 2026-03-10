@@ -53,10 +53,10 @@
                 "group": "Chat",
                 "icon": "comment",
                 "pages": [
-                  "using-the-chat",
-                  "auto-mode",
-                  "knowledge-base",
-                  "history"
+                  "en/chat",
+                  "en/auto-mode",
+                  "en/chat/kb",
+                  "en/history"
                 ]
               },
               {

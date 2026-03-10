@@ -87,39 +87,39 @@
                 "icon": "grid-round-2-plus",
                 "pages": [
                   "en/agent-types",
-                  "static-training",
-                  "dynamic-training",
-                  "knowledge-base-1",
-                  "advanced-settings",
-                  "visibility"
+                  "en/static-training",
+                  "en/dynamic-training",
+                  "en/agents/kb",
+                  "en/advanced-settings",
+                  "en/visibility"
                 ]
               },
               {
                 "group": "Generators",
                 "icon": "bolt",
                 "pages": [
-                  "image-generator",
-                  "video-generator",
-                  "code-generator",
-                  "voiceover-generator",
-                  "transcription-generator"
+                  "en/image-gen",
+                  "en/video-gen",
+                  "en/code-gen",
+                  "en/voiceover-gen",
+                  "en/transcription-gen"
                 ]
               },
               {
                 "group": "User Inputs",
                 "icon": "user",
                 "pages": [
-                  "how-it-works",
-                  "short-and-long-text",
-                  "single-and-multiple-selection",
-                  "upload"
+                  "en/inputs",
+                  "en/text-input",
+                  "en/select",
+                  "en/upload"
                 ]
               },
               {
                 "group": "AI Steps",
                 "icon": "sparkles",
                 "pages": [
-                  "how-it-works-ai-steps",
+                  "en/ai-steps",
                   {
                     "group": "Web Data Extraction",
                     "icon": "folder-open",

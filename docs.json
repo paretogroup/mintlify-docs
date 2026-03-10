@@ -438,12 +438,12 @@
                     "group": "Agentes",
                     "icon": "brain-circuit",
                     "pages": [
-                      "list-agent-copied-1",
-                      "get-agent-copied-1",
-                      "execute-agent-copied-1",
-                      "execute-agent-stream-copied-1",
-                      "execute-open-ai-compatible-copied-1",
-                      "get-agent-response-copied-1"
+                      "pt/list-agents",
+                      "pt/get-agent",
+                      "pt/execute-agent",
+                      "pt/stream-agent",
+                      "pt/open-ai-compat",
+                      "pt/agent-response"
                     ]
                   },
                   {

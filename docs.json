@@ -306,16 +306,16 @@
             "pages": [
               "pt/agent-computer",
               "pt/memories",
-              "tess-6-1",
-              "modo-max",
+              "pt/tess-6-1",
+              "pt/max-mode",
               "pt/shareable-links",
               "pt/tess-pages",
               "pt/embedding",
-              "marketplace",
-              "carteira-de-creditos",
-              "skills",
-              "agendamento",
-              "tess-autopilot"
+              "pt/marketplace",
+              "pt/wallet",
+              "pt/skills",
+              "pt/scheduling",
+              "pt/autopilot"
             ]
           },
           {

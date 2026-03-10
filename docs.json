@@ -21,12 +21,12 @@
           {
             "tab": "Introduction",
             "pages": [
-              "en/welcome",
-              "en/concepts",
-              "en/setup",
-              "en/quickstart",
-              "en/security",
-              "en/mobile"
+              "welcome-to-tess-ai",
+              "concepts-en",
+              "inicial-setup",
+              "quickstart-en",
+              "security-and-privacy",
+              "mobile-app-1"
             ]
           },
           {
@@ -293,12 +293,12 @@
           {
             "tab": "Introdução",
             "pages": [
-              "pt/welcome",
-              "pt/concepts",
-              "pt/setup",
-              "pt/quickstart",
-              "pt/security",
-              "pt/mobile"
+              "boas-vindas",
+              "conceitos",
+              "development",
+              "quickstart-pt",
+              "seguranca-e-privacidade",
+              "mobile-app"
             ]
           },
           {
@@ -572,12 +572,12 @@
           {
             "tab": "Introducción",
             "pages": [
-              "es/welcome",
-              "es/concepts",
-              "es/setup",
-              "es/quickstart",
-              "es/security",
-              "es/mobile"
+              "bienvenido-a-tess-ai",
+              "conceptos",
+              "configuracion-inicial",
+              "quickstart-3",
+              "seguridad-y-privacidad",
+              "mobile-app-2"
             ]
           },
           {

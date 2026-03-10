@@ -604,23 +604,23 @@
                 "group": "Chat",
                 "icon": "comment",
                 "pages": [
-                  "usando-el-chat",
-                  "auto-mode-1",
-                  "base-de-conocimiento",
-                  "historial"
+                  "es/chat",
+                  "es/auto-mode",
+                  "es/chat/kb",
+                  "es/history"
                 ]
               },
               {
                 "group": "Tools",
                 "icon": "sliders-up",
                 "pages": [
-                  "chat-tools-1",
-                  "internet",
-                  "generacion-de-imagenes",
-                  "generacion-de-video",
-                  "edicion-de-videos",
-                  "narracion",
-                  "podcast-1",
+                  "es/tools",
+                  "es/internet",
+                  "es/images",
+                  "es/video",
+                  "es/video-edit",
+                  "es/voiceover",
+                  "es/podcast",
                   "music-1",
                   "deep-analysis-1",
                   "manage-files-1",

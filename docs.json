@@ -507,16 +507,16 @@
               {
                 "group": "Integrações",
                 "pages": [
-                  "integration-with-make-copied-1",
-                  "integration-with-zapier-copied-1",
-                  "integration-with-whats-app-via-make-copied-1",
-                  "integration-with-n8n-copied-1"
+                  "pt/make",
+                  "pt/zapier",
+                  "pt/whatsapp-make",
+                  "pt/n8n"
                 ]
               },
               {
                 "group": "Protocolo de Contexto de Modelo (MCP)",
                 "pages": [
-                  "mcp-copied-1"
+                  "pt/api-mcp"
                 ]
               }
             ]
@@ -524,7 +524,7 @@
           {
             "tab": "Conta",
             "pages": [
-              "assinatura-e-pagamento",
+              "pt/subscription",
               "painel-da-equipe",
               "carteira-compartilhada",
               "bi",

@@ -728,18 +728,18 @@
                     "group": "Webhooks del Agente",
                     "icon": "tower-broadcast",
                     "pages": [
-                      "list-agent-webhooks-copied-2",
-                      "create-agent-webhook-copied-2"
+                      "es/list-agent-webhooks",
+                      "es/create-agent-webhook"
                     ]
                   },
                   {
                     "group": "Memorias",
                     "icon": "atom-simple",
                     "pages": [
-                      "list-memories-copied-2",
-                      "create-memory-copied-2",
-                      "update-memory-copied-2",
-                      "delete-memory-copied-2"
+                      "es/list-memories",
+                      "es/create-memory",
+                      "es/update-memory",
+                      "es/delete-memory"
                     ]
                   },
                   {

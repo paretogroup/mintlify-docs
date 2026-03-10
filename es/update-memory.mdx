@@ -1,24 +1,27 @@
 ---
-title: "Crear Webhook del Agente"
+title: "Actualizar Memoria"
+openapi: "PUT /memories/{id}"
 ---
 
-`POST /agents/{id}/webhooks`
+`PUT /memories/{id}`
 
-Crea un nuevo webhook para un agente específico.
+Actualiza una memoria existente por su ID.
 
 ### **Ejemplos de Código**
 
 <CodeGroup>
 
 ```http cURL
-curl --request POST \
-  --url 'https://api.tess.im/agents/{id}/webhooks' \
+curl --request PUT \
+  --url 'https://api.tess.im/memories/{id}' \
   --header 'Authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: application/json' \
   --data '{
-    "url": "https://example.com/webhook",
-    "method": "POST",
-    "status": "active"
+    "content": "Contenido actualizado de la memoria",
+    "metadata": {
+      "source": "fuente_actualizada",
+      "tags": ["actualizado", "prueba"]
+    }
   }'
 ```
 
@@ -27,14 +30,13 @@ curl --request POST \
 const axios = require('axios');
 
 const data = {
-  url: 'https://example.com/webhook',
-  method: 'POST',
-  status: 'active'
+  memory: "Updated memory content",
+  collection_id: 1
 };
 
 const config = {
-  method: 'post',
-  url: 'https://api.tess.im/agents/{id}/webhooks',
+  method: 'patch',
+  url: 'https://api.tess.im/memories/{memoryId}',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
     'Content-Type': 'application/json'
@@ -55,18 +57,17 @@ try {
 import requests
 import json
 
-url = "https://api.tess.im/agents/{id}/webhooks"
+url = "https://api.tess.im/memories/{memoryId}"
+payload = {
+  "memory": "Updated memory content",
+  "collection_id": 1
+}
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
 }
-data = {
-    "url": "https://example.com/webhook",
-    "method": "POST",
-    "status": "active"
-}
 
-response = requests.post(url, headers=headers, json=data)
+response = requests.patch(url, headers=headers, json=payload)
 print(response.json())
 ```
 
@@ -76,19 +77,18 @@ print(response.json())
 $curl = curl_init();
 
 $data = [
-    'url' => 'https://example.com/webhook',
-    'method' => 'POST',
-    'status' => 'active'
+  "memory" => "Updated memory content",
+  "collection_id" => 1
 ];
 
 curl_setopt_array($curl, [
-  CURLOPT_URL => "https://api.tess.im/agents/{id}/webhooks",
+  CURLOPT_URL => "https://api.tess.im/memories/{memoryId}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_CUSTOMREQUEST => "PATCH",
   CURLOPT_POSTFIELDS => json_encode($data),
   CURLOPT_HTTPHEADER => [
     "Authorization: Bearer YOUR_API_KEY",
@@ -115,14 +115,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-String data = "{\"url\":\"https://example.com/webhook\",\"method\":\"POST\",\"status\":\"active\"}";
+String jsonBody = "{\"memory\":\"Updated memory content\",\"collection_id\":1}";
 
 HttpClient client = HttpClient.newHttpClient();
 HttpRequest request = HttpRequest.newBuilder()
-    .uri(URI.create("https://api.tess.im/agents/{id}/webhooks"))
+    .uri(URI.create("https://api.tess.im/memories/{memoryId}"))
     .header("Authorization", "Bearer YOUR_API_KEY")
     .header("Content-Type", "application/json")
-    .POST(HttpRequest.BodyPublishers.ofString(data))
+    .method("PATCH", HttpRequest.BodyPublishers.ofString(jsonBody))
     .build();
 
 HttpResponse<String> response = client.send(request,
@@ -143,20 +143,15 @@ import (
 )
 
 func main() {
-    data := map[string]string{
-        "url":    "https://example.com/webhook",
-        "method": "POST",
-        "status": "active",
+    data := map[string]interface{}{
+        "memory":        "Updated memory content",
+        "collection_id": 1,
     }
     
-    jsonData, err := json.Marshal(data)
-    if err != nil {
-        fmt.Println(err)
-        return
-    }
+    jsonData, _ := json.Marshal(data)
     
     client := &http.Client{}
-    req, err := http.NewRequest("POST", "https://api.tess.im/agents/{id}/webhooks", bytes.NewBuffer(jsonData))
+    req, err := http.NewRequest("PATCH", "https://api.tess.im/memories/{memoryId}", bytes.NewBuffer(jsonData))
     if err != nil {
         fmt.Println(err)
         return
@@ -197,15 +192,16 @@ class Program
         {
             client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
             
-            var data = new StringContent(
-                "{\"url\":\"https://example.com/webhook\",\"method\":\"POST\",\"status\":\"active\"}",
-                Encoding.UTF8,
-                "application/json"
-            );
+            var data = @"{
+                ""memory"": ""Updated memory content"",
+                ""collection_id"": 1
+            }";
+            
+            var content = new StringContent(data, Encoding.UTF8, "application/json");
             
             try
             {
-                var response = await client.PostAsync("https://api.tess.im/agents/{id}/webhooks", data);
+                var response = await client.PatchAsync("https://api.tess.im/memories/{memoryId}", content);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responseBody);
@@ -226,17 +222,16 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.tess.im/agents/{id}/webhooks')
+uri = URI('https://api.tess.im/memories/{memoryId}')
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
-request = Net::HTTP::Post.new(uri)
+request = Net::HTTP::Patch.new(uri)
 request['Authorization'] = 'Bearer YOUR_API_KEY'
 request['Content-Type'] = 'application/json'
 request.body = {
-  url: 'https://example.com/webhook',
-  method: 'POST',
-  status: 'active'
+  memory: 'Updated memory content',
+  collection_id: 1
 }.to_json
 
 response = http.request(request)
@@ -257,29 +252,36 @@ puts response.read_body
 
 ### **Parámetros de Ruta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**  |
-| :------------ | :------- | :------------ | :--------------- |
-| id            | string   | Sí            | El ID del agente |
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**     |
+| :------------ | :------- | :------------ | :------------------ |
+| id            | string   | Sí            | El ID de la memoria |
 
 ### **Parámetros del Cuerpo**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                          |
-| :------------ | :------- | :------------ | :--------------------------------------- |
-| url           | string   | Sí            | La URL del webhook                       |
-| method        | string   | No            | El método HTTP (GET, POST, etc.)         |
-| status        | string   | No            | El estado del webhook (active, inactive) |
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                        |
+| :------------ | :------- | :------------ | :------------------------------------- |
+| content       | string   | No            | El contenido actualizado de la memoria |
+| metadata      | object   | No            | Metadatos actualizados de la memoria   |
 
 ### **Respuesta**
 
 ```json
 {
 "id": 123,
-"url": "https://example.com/webhook",
-"method": "POST",
-"status": "active",
-"secret": "whsec_...",
-"events": ["agent.completed", "agent.failed"],
+"content": "Contenido actualizado de la memoria",
+"metadata": {
+  "source": "fuente_actualizada",
+  "tags": ["actualizado", "prueba"]
+},
 "created_at": "2025-01-05T22:39:57+00:00",
-"updated_at": "2025-01-05T22:39:57+00:00"
+"updated_at": "2025-01-05T22:40:00+00:00"
 }
 ```
+
+### **Códigos de respuesta**
+
+| **Código** | **Descripción**       |
+| :--------- | :-------------------- |
+| 200        | Éxito                 |
+| 404        | Memoria no encontrada |
+| 500        | Error del servidor    |

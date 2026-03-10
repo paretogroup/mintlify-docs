@@ -621,11 +621,11 @@
                   "es/video-edit",
                   "es/voiceover",
                   "es/podcast",
-                  "music-1",
-                  "deep-analysis-1",
-                  "manage-files-1",
-                  "avatar-2",
-                  "integraciones"
+                  "es/music",
+                  "es/deep-analysis",
+                  "es/manage-files",
+                  "es/avatar",
+                  "es/integrations"
                 ]
               }
             ]
@@ -639,21 +639,21 @@
                 "pages": [
                   "es/agent-types",
                   "entrenamiento-estatico",
-                  "entrenamiento-dinamico",
-                  "base-de-conocimiento-1",
-                  "configuraciones-avanzadas",
-                  "visibilidad"
+                  "es/static-training",
+                  "es/agents/kb",
+                  "es/advanced-settings",
+                  "es/visibility"
                 ]
               },
               {
                 "group": "Generadores",
                 "icon": "bolt",
                 "pages": [
-                  "generador-de-imagenes",
-                  "generador-de-video",
-                  "generador-de-codigo",
-                  "generador-de-narraciones",
-                  "generador-de-transcriptiones"
+                  "es/image-gen",
+                  "es/video-gen",
+                  "es/code-gen",
+                  "es/voiceover-gen",
+                  "es/transcription-gen"
                 ]
               },
               {

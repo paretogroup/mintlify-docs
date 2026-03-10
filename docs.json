@@ -550,16 +550,16 @@
                   "pt/usage",
                   "pt/members-permissions",
                   "pt/workspace/kb",
-                  "monetizacao-1",
-                  "controle-de-dados"
+                  "pt/monetization",
+                  "pt/data-control"
                 ]
               },
               {
                 "group": "Suporte",
                 "icon": "circle-question",
                 "pages": [
-                  "contato-de-suporte",
-                  "suporte-remoto"
+                  "pt/support-contact",
+                  "pt/remote-support"
                 ]
               }
             ]

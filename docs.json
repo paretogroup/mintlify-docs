@@ -710,9 +710,9 @@
                       "es/list-agents",
                       "es/get-agent",
                       "es/execute-agent",
-                      "execute-agent-stream-copied-2",
-                      "execute-open-ai-compatible-copied-2",
-                      "get-agent-response-copied-2"
+                      "es/stream-agent",
+                      "es/open-ai-compat",
+                      "es/agent-response"
                     ]
                   },
                   {

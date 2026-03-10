@@ -359,22 +359,22 @@
                 "icon": "grid-round-2-plus",
                 "pages": [
                   "pt/agent-types",
-                  "treino-estatico",
-                  "treino-dinamico",
-                  "base-de-conhecimentos-2",
-                  "configruacoes-avancadas",
-                  "visibilidade"
+                  "pt/static-training",
+                  "pt/dynamic-training",
+                  "pt/agents/kb",
+                  "pt/advanced-settings",
+                  "pt/visibility"
                 ]
               },
               {
                 "group": "Geradores",
                 "icon": "bolt",
                 "pages": [
-                  "gerador-de-imagem",
-                  "gerador-de-video",
-                  "gerador",
-                  "gerador-de-narracoes",
-                  "gerador-de-transcricoes"
+                  "pt/image-gen",
+                  "pt/video-gen",
+                  "pt/code-gen",
+                  "pt/voice-gen",
+                  "pt/transcript"
                 ]
               },
               {

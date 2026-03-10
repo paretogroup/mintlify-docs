@@ -467,17 +467,17 @@
                     "group": "Memórias",
                     "icon": "atom-simple",
                     "pages": [
-                      "list-memories-copied-1",
-                      "create-memory-copied-1",
-                      "update-memory-copied-1",
-                      "delete-memory-copied-1"
+                      "pt/list-memories",
+                      "pt/create-memory",
+                      "pt/update-memory",
+                      "pt/delete-memory"
                     ]
                   },
                   {
                     "group": "Coleções de Memórias",
                     "icon": "atom",
                     "pages": [
-                      "listar-colecoes-de-memoria",
+                      "pt/list-collections",
                       "create-memory-collection-copied-1",
                       "update-memory-collection-copied-1",
                       "delete-memory-collection-copied-1"

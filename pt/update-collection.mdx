@@ -1,23 +1,23 @@
 ---
-title: "Criar Coleção de Memória "
-tag: "POST"
+title: "Atualizar Coleção de Memória "
+openapi: "PUT /memory-collections/{collectionId}"
 ---
 
-`POST /memory-collections`
+`PUT /memory-collections/{collectionId}`
 
-Cria uma nova coleção de memória.
+Atualiza uma coleção de memória existente.
 
 ### **Exemplos de Código**
 
 <CodeGroup>
 
 ```http cURL
-curl --request POST \
-  --url 'https://api.tess.im/memory-collections' \
+curl --request PUT \
+  --url 'https://api.tess.im/memory-collections/{collectionId}' \
   --header 'Authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: application/json' \
   --data '{
-    "name": "Minha Coleção"
+    "name": "Updated Collection Name"
   }'
 ```
 
@@ -26,12 +26,12 @@ curl --request POST \
 const axios = require('axios');
 
 const data = {
-  name: "My Collection"
+  name: "Updated Collection Name"
 };
 
 const config = {
-  method: 'post',
-  url: 'https://api.tess.im/memory-collections',
+  method: 'put',
+  url: 'https://api.tess.im/memory-collections/{collectionId}',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
     'Content-Type': 'application/json'
@@ -52,16 +52,16 @@ try {
 import requests
 import json
 
-url = "https://api.tess.im/memory-collections"
+url = "https://api.tess.im/memory-collections/{collectionId}"
 payload = {
-    "name": "My Collection"
+    "name": "Updated Collection Name"
 }
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
 }
 
-response = requests.post(url, json=payload, headers=headers)
+response = requests.put(url, json=payload, headers=headers)
 print(response.json())
 ```
 
@@ -71,17 +71,17 @@ print(response.json())
 $curl = curl_init();
 
 $data = [
-  "name" => "My Collection"
+  "name" => "Updated Collection Name"
 ];
 
 curl_setopt_array($curl, [
-  CURLOPT_URL => "https://api.tess.im/memory-collections",
+  CURLOPT_URL => "https://api.tess.im/memory-collections/{collectionId}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_CUSTOMREQUEST => "PUT",
   CURLOPT_POSTFIELDS => json_encode($data),
   CURLOPT_HTTPHEADER => [
     "Authorization: Bearer YOUR_API_KEY",
@@ -108,14 +108,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-String requestBody = "{\"name\":\"My Collection\"}";
+String requestBody = "{\"name\":\"Updated Collection Name\"}";
 
 HttpClient client = HttpClient.newHttpClient();
 HttpRequest request = HttpRequest.newBuilder()
-    .uri(URI.create("https://api.tess.im/memory-collections"))
+    .uri(URI.create("https://api.tess.im/memory-collections/{collectionId}"))
     .header("Authorization", "Bearer YOUR_API_KEY")
     .header("Content-Type", "application/json")
-    .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+    .PUT(HttpRequest.BodyPublishers.ofString(requestBody))
     .build();
 
 HttpResponse<String> response = client.send(request,
@@ -137,7 +137,7 @@ import (
 
 func main() {
     data := map[string]string{
-        "name": "My Collection"
+        "name": "Updated Collection Name"
     }
     
     jsonData, err := json.Marshal(data)
@@ -147,7 +147,7 @@ func main() {
     }
     
     client := &http.Client{}
-    req, err := http.NewRequest("POST", "https://api.tess.im/memory-collections", bytes.NewBuffer(jsonData))
+    req, err := http.NewRequest("PUT", "https://api.tess.im/memory-collections/{collectionId}", bytes.NewBuffer(jsonData))
     if err != nil {
         fmt.Println(err)
         return
@@ -190,7 +190,7 @@ class Program
             
             var requestData = new
             {
-                name = "My Collection"
+                name = "Updated Collection Name"
             };
             
             var content = new StringContent(
@@ -201,7 +201,7 @@ class Program
             
             try
             {
-                var response = await client.PostAsync("https://api.tess.im/memory-collections", content);
+                var response = await client.PutAsync("https://api.tess.im/memory-collections/{collectionId}", content);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responseBody);
@@ -222,15 +222,15 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.tess.im/memory-collections')
+uri = URI('https://api.tess.im/memory-collections/{collectionId}')
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
-request = Net::HTTP::Post.new(uri)
+request = Net::HTTP::Put.new(uri)
 request['Authorization'] = 'Bearer YOUR_API_KEY'
 request['Content-Type'] = 'application/json'
 request.body = {
-  name: 'My Collection'
+  name: 'Updated Collection Name'
 }.to_json
 
 response = http.request(request)
@@ -249,12 +249,18 @@ puts response.read_body
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
 </Note>
 
+### **Parâmetros de Rota**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**              |
+| :------------ | :------- | :-------------- | :------------------------- |
+| collectionId  | string   | Sim             | O ID da coleção de memória |
+
 ### **Parâmetros do Corpo**
 
 | **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                 |
 | :------------ | :------- | :-------------- | :---------------------------- |
-| name          | string   | Sim             | O nome da coleção de memória  |
-| description   | string   | Não             | Uma descrição opcional        |
+| name          | string   | Não             | O nome atualizado da coleção  |
+| description   | string   | Não             | Uma descrição atualizada      |
 | memory_ids    | array    | Não             | IDs das memórias para incluir |
 
 ### **Resposta**
@@ -262,10 +268,10 @@ puts response.read_body
 ```json
 {
 "id": 123,
-"name": "Minha Coleção",
+"name": "Nome Atualizado da Coleção",
 "description": null,
 "memory_ids": [],
 "created_at": "2025-01-05T22:39:57+00:00",
-"updated_at": "2025-01-05T22:39:57+00:00"
+"updated_at": "2025-01-05T22:40:00+00:00"
 }
 ```

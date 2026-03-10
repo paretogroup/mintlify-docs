@@ -478,9 +478,9 @@
                     "icon": "atom",
                     "pages": [
                       "pt/list-collections",
-                      "create-memory-collection-copied-1",
-                      "update-memory-collection-copied-1",
-                      "delete-memory-collection-copied-1"
+                      "pt/create-collection",
+                      "pt/update-collection",
+                      "pt/delete-collection"
                     ]
                   },
                   {

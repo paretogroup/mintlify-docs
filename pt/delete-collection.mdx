@@ -1,42 +1,32 @@
 ---
-title: "Atualizar Coleção de Memória "
-tag: "PUT"
+title: "Excluir Coleção de Memória "
+openapi: "DELETE /memory-collections/{collectionId}"
 ---
 
-`PUT /memory-collections/{collectionId}`
+`DELETE /memory-collections/{collectionId}`
 
-Atualiza uma coleção de memória existente.
+Exclui uma coleção de memória pelo seu ID.
 
 ### **Exemplos de Código**
 
 <CodeGroup>
 
 ```http cURL
-curl --request PUT \
+curl --request DELETE \
   --url 'https://api.tess.im/memory-collections/{collectionId}' \
-  --header 'Authorization: Bearer YOUR_API_KEY' \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "name": "Updated Collection Name"
-  }'
+  --header 'Authorization: Bearer YOUR_API_KEY'
 ```
 
 
 ```json Node.js
 const axios = require('axios');
 
-const data = {
-  name: "Updated Collection Name"
-};
-
 const config = {
-  method: 'put',
+  method: 'delete',
   url: 'https://api.tess.im/memory-collections/{collectionId}',
   headers: {
-    'Authorization': 'Bearer YOUR_API_KEY',
-    'Content-Type': 'application/json'
-  },
-  data: data
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
 };
 
 try {
@@ -50,18 +40,13 @@ try {
 
 ```python Python
 import requests
-import json
 
 url = "https://api.tess.im/memory-collections/{collectionId}"
-payload = {
-    "name": "Updated Collection Name"
-}
 headers = {
-    "Authorization": "Bearer YOUR_API_KEY",
-    "Content-Type": "application/json"
+    "Authorization": "Bearer YOUR_API_KEY"
 }
 
-response = requests.put(url, json=payload, headers=headers)
+response = requests.delete(url, headers=headers)
 print(response.json())
 ```
 
@@ -70,10 +55,6 @@ print(response.json())
 <?php
 $curl = curl_init();
 
-$data = [
-  "name" => "Updated Collection Name"
-];
-
 curl_setopt_array($curl, [
   CURLOPT_URL => "https://api.tess.im/memory-collections/{collectionId}",
   CURLOPT_RETURNTRANSFER => true,
@@ -81,11 +62,9 @@ curl_setopt_array($curl, [
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "PUT",
-  CURLOPT_POSTFIELDS => json_encode($data),
+  CURLOPT_CUSTOMREQUEST => "DELETE",
   CURLOPT_HTTPHEADER => [
-    "Authorization: Bearer YOUR_API_KEY",
-    "Content-Type: application/json"
+    "Authorization: Bearer YOUR_API_KEY"
   ]
 ]);
 
@@ -108,14 +87,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-String requestBody = "{\"name\":\"Updated Collection Name\"}";
-
 HttpClient client = HttpClient.newHttpClient();
 HttpRequest request = HttpRequest.newBuilder()
     .uri(URI.create("https://api.tess.im/memory-collections/{collectionId}"))
     .header("Authorization", "Bearer YOUR_API_KEY")
-    .header("Content-Type", "application/json")
-    .PUT(HttpRequest.BodyPublishers.ofString(requestBody))
+    .DELETE()
     .build();
 
 HttpResponse<String> response = client.send(request,
@@ -128,33 +104,20 @@ System.out.println(response.body());
 package main
 
 import (
-    "bytes"
-    "encoding/json"
     "fmt"
     "io/ioutil"
     "net/http"
 )
 
 func main() {
-    data := map[string]string{
-        "name": "Updated Collection Name"
-    }
-    
-    jsonData, err := json.Marshal(data)
-    if err != nil {
-        fmt.Println(err)
-        return
-    }
-    
     client := &http.Client{}
-    req, err := http.NewRequest("PUT", "https://api.tess.im/memory-collections/{collectionId}", bytes.NewBuffer(jsonData))
+    req, err := http.NewRequest("DELETE", "https://api.tess.im/memory-collections/{collectionId}", nil)
     if err != nil {
         fmt.Println(err)
         return
     }
     
     req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
-    req.Header.Add("Content-Type", "application/json")
     
     resp, err := client.Do(req)
     if err != nil {
@@ -177,7 +140,6 @@ func main() {
 ```jsonnet .NET
 using System;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 class Program
@@ -188,20 +150,9 @@ class Program
         {
             client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
             
-            var requestData = new
-            {
-                name = "Updated Collection Name"
-            };
-            
-            var content = new StringContent(
-                System.Text.Json.JsonSerializer.Serialize(requestData),
-                Encoding.UTF8,
-                "application/json"
-            );
-            
             try
             {
-                var response = await client.PutAsync("https://api.tess.im/memory-collections/{collectionId}", content);
+                var response = await client.DeleteAsync("https://api.tess.im/memory-collections/{collectionId}");
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responseBody);
@@ -226,12 +177,8 @@ uri = URI('https://api.tess.im/memory-collections/{collectionId}')
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
-request = Net::HTTP::Put.new(uri)
+request = Net::HTTP::Delete.new(uri)
 request['Authorization'] = 'Bearer YOUR_API_KEY'
-request['Content-Type'] = 'application/json'
-request.body = {
-  name: 'Updated Collection Name'
-}.to_json
 
 response = http.request(request)
 puts response.read_body
@@ -251,27 +198,16 @@ puts response.read_body
 
 ### **Parâmetros de Rota**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**              |
-| :------------ | :------- | :-------------- | :------------------------- |
-| collectionId  | string   | Sim             | O ID da coleção de memória |
-
-### **Parâmetros do Corpo**
-
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                 |
-| :------------ | :------- | :-------------- | :---------------------------- |
-| name          | string   | Não             | O nome atualizado da coleção  |
-| description   | string   | Não             | Uma descrição atualizada      |
-| memory_ids    | array    | Não             | IDs das memórias para incluir |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                           |
+| :------------ | :------- | :-------------- | :-------------------------------------- |
+| collectionId  | string   | Sim             | O ID da coleção de memória para excluir |
 
 ### **Resposta**
 
 ```json
 {
 "id": 123,
-"name": "Nome Atualizado da Coleção",
-"description": null,
-"memory_ids": [],
-"created_at": "2025-01-05T22:39:57+00:00",
-"updated_at": "2025-01-05T22:40:00+00:00"
+"deleted": true,
+"message": "Coleção de memória excluída com sucesso"
 }
 ```

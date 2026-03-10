@@ -1,0 +1,223 @@
+---
+title: "Delete Agent File"
+openapi: "DELETE /{agentId}/files/{fileId}"
+---
+
+`DELETE /agents/{agentId}/files/{fileId}`
+
+Deletes a specific file associated with an agent.
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request DELETE \
+  --url '
+ \
+  --header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'delete',
+  url: '
+
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+```python Python
+import requests
+
+url = "
+
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+response = requests.delete(url, headers=headers)
+print(response.json())
+```
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "
+
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "DELETE",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("
+
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .DELETE()
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    client := &http.Client{}
+    req, err := http.NewRequest("DELETE", "
+ nil)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+    
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+    
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    
+    fmt.Println(string(body))
+}
+```
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+            
+            try
+            {
+                var response = await client.DeleteAsync("
+
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch(HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ",e.Message);
+            }
+        }
+    }
+}
+```
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('
+
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Delete.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Headers**
+
+| **Parameter**  | **Type** | **Required** | **Description**                                                                                       |
+| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | No             | Workspace ID. If not provided, the user's selected Workspace will be used. |
+
+<Note>
+  **Note:** This field will be required in a future API release. It is highly recommended to set it now to ensure compatibility with future updates.
+</Note>
+
+### **Parâmetros de Rota**
+
+| **Parameter** | **Type** | **Required** | **Description**                |
+| :------------ | :------- | :-------------- | :--------------------------- |
+| agentId       | string   | Yes             | The agent ID              |
+| fileId        | string   | Yes             | The ID of the file to delete |
+
+### **Resposta**
+
+```json
+{
+"id": 8794,
+"file": {
+  "id": 73336,
+  "object": "file",
+  "bytes": 35504128,
+  "created_at": "2025-01-05T22:39:57+00:00",
+  "filename": "endpoints.pdf",
+  "credits": 20.10060847168,
+  "status": "completed"
+},
+"removed": true
+}
+```

@@ -255,8 +255,8 @@
                 "group": "Programs",
                 "icon": "puzzle-piece",
                 "pages": [
-                  "en/reward",
-                  "en/affiliate"
+                  "en/affiliate",
+                  "en/reward"
                 ]
               },
               {
@@ -525,25 +525,25 @@
             "tab": "Conta",
             "pages": [
               "pt/subscription",
-              "painel-da-equipe",
-              "carteira-compartilhada",
-              "bi",
-              "sso",
-              "reembolso",
+              "pt/team",
+              "pt/shared-wallet",
+              "pt/status",
+              "pt/sso",
+              "pt/refund",
               {
                 "group": "Programas",
                 "icon": "puzzle-piece",
                 "pages": [
                   "pt/affiliate",
-                  "recompensas"
+                  "pt/reward"
                 ]
               },
               {
                 "group": "Configurações",
                 "icon": "gear",
                 "pages": [
-                  "sua-conta",
-                  "workspace",
+                  "pt/account",
+                  "pt/workspace",
                   "preferencias",
                   "assinatura",
                   "upgrade-e-downgrade",

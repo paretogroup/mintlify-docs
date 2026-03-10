@@ -585,16 +585,16 @@
             "pages": [
               "es/agent-computer",
               "es/memories",
-              "tess-6-1-2",
-              "max-mode-1",
+              "es/tess-6-1",
+              "es/max-mode",
               "es/shareable-links",
               "es/tess-pages",
               "es/embedding",
-              "marketplace-2",
-              "ai-wallet-1",
-              "skills-2",
-              "agendamiento",
-              "tess-autopilot-2"
+              "es/marketplace",
+              "es/wallet",
+              "es/skills",
+              "es/scheduling",
+              "es/autopilot"
             ]
           },
           {

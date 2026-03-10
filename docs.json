@@ -498,8 +498,8 @@
                     "group": "Webhooks",
                     "icon": "webhook",
                     "pages": [
-                      "list-webhooks-copied-1",
-                      "delete-webhook-copied-1"
+                      "pt/list-webhooks",
+                      "pt/delete-webhook"
                     ]
                   }
                 ]

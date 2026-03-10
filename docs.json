@@ -381,37 +381,37 @@
                 "group": "Entradas do Usuário",
                 "icon": "user",
                 "pages": [
-                  "funcionamento-entradas-do-usua",
-                  "texto-curto-e-longo",
-                  "selecao-unica-e-multipla",
-                  "upload-de-arquivo"
+                  "pt/inputs",
+                  "pt/text-input",
+                  "pt/select",
+                  "pt/upload"
                 ]
               },
               {
                 "group": "AI Steps",
                 "icon": "sparkles",
                 "pages": [
-                  "funcionamento-ai-steps",
+                  "pt/ai-steps",
                   {
                     "group": "Web Data Extraction",
                     "pages": [
-                      "ai-step-web-data-extraction"
+                      "pt/web-extract"
                     ]
                   },
                   {
                     "group": "Integrations",
                     "pages": [
-                      "ai-step-integrations",
-                      "ai-step-google-sheets-get-value",
-                      "ai-step-google-sheets-write-value"
+                      "pt/app-integrations",
+                      "pt/sheets-read",
+                      "pt/sheets-write"
                     ]
                   },
                   {
                     "group": "Document Processing",
                     "pages": [
-                      "ai-step-conversao-ocr-to-pdf-e-imagens",
-                      "ai-step-extract-text-from-entire-pdf",
-                      "ai-step-read-pdf-selected-pages"
+                      "pt/ocr-pdf",
+                      "pt/pdf-extract",
+                      "pt/pdf-pages"
                     ]
                   }
                 ]
@@ -424,11 +424,11 @@
               {
                 "group": "Guia da API",
                 "pages": [
-                  "visao-geral-api",
-                  "inicio-rapido",
-                  "modo-max-pt",
-                  "rate-limits-copied-1",
-                  "errors-copied-1"
+                  "pt/api-overview",
+                  "pt/api-quickstart",
+                  "pt/api-max-mode",
+                  "pt/rate-limits",
+                  "pt/errors"
                 ]
               },
               {

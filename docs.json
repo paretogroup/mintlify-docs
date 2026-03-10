@@ -294,11 +294,11 @@
             "tab": "Introdução",
             "pages": [
               "pt/welcome",
-              "conceitos",
-              "development",
-              "quickstart-pt",
-              "seguranca-e-privacidade",
-              "mobile-app"
+              "pt/concepts",
+              "pt/setup",
+              "pt/quickstart",
+              "pt/security",
+              "pt/mobile"
             ]
           },
           {

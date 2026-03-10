@@ -145,11 +145,11 @@
               {
                 "group": "API Guide",
                 "pages": [
-                  "overview-api",
-                  "quickstart-api",
-                  "max-mode-2",
-                  "rate-limits",
-                  "errors"
+                  "en/api-overview",
+                  "en/api-quickstart",
+                  "en/api-max-mode",
+                  "en/rate-limits",
+                  "en/errors"
                 ]
               },
               {
@@ -159,49 +159,49 @@
                     "group": "Agents",
                     "icon": "brain-circuit",
                     "pages": [
-                      "list-agent",
-                      "get-agent",
-                      "execute-agent",
-                      "execute-agent-stream",
-                      "execute-open-ai-compatible",
-                      "get-agent-response"
+                      "en/list-agents",
+                      "en/get-agent",
+                      "en/execute-agent",
+                      "en/stream-agent",
+                      "en/open-ai-compat",
+                      "en/agent-response"
                     ]
                   },
                   {
                     "group": "Agent Files",
                     "icon": "folder-gear",
                     "pages": [
-                      "list-agent-files",
-                      "link-files-to-agent",
-                      "delete-agent-file"
+                      "en/list-agent-files",
+                      "en/link-files",
+                      "en/delete-agent-file"
                     ]
                   },
                   {
                     "group": "Agent Webhooks",
                     "icon": "tower-broadcast",
                     "pages": [
-                      "list-agent-webhooks",
-                      "create-agent-webhook"
+                      "en/list-agent-webhooks",
+                      "en/create-agent-webhook"
                     ]
                   },
                   {
                     "group": "Memories",
                     "icon": "atom-simple",
                     "pages": [
-                      "list-memories",
-                      "create-memory",
-                      "update-memory",
-                      "delete-memory"
+                      "en/list-memories",
+                      "en/create-memory",
+                      "en/update-memory",
+                      "en/delete-memory"
                     ]
                   },
                   {
                     "group": "Memory Collections",
                     "icon": "atom",
                     "pages": [
-                      "list-collections",
-                      "create-memory-collection",
-                      "update-memory-collection",
-                      "delete-memory-collection"
+                      "en/list-collections",
+                      "en/create-collection",
+                      "en/update-collection",
+                      "en/delete-collection"
                     ]
                   },
                   {

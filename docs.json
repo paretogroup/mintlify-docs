@@ -544,12 +544,12 @@
                 "pages": [
                   "pt/account",
                   "pt/workspace",
-                  "preferencias",
-                  "assinatura",
-                  "upgrade-e-downgrade",
-                  "monitoramento-do-uso",
+                  "pt/preferences",
+                  "pt/subscription-page",
+                  "pt/upgrade-downgrade",
+                  "pt/usage",
                   "pt/members-permissions",
-                  "base-de-conhecimentos-1",
+                  "pt/workspace/kb",
                   "monetizacao-1",
                   "controle-de-dados"
                 ]

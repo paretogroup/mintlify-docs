@@ -325,28 +325,28 @@
                 "group": "Chat",
                 "icon": "comment",
                 "pages": [
-                  "usando-o-chat",
-                  "modo-auto",
-                  "base-de-conhecimentos",
-                  "historico"
+                  "pt/chat",
+                  "pt/auto-mode",
+                  "pt/chat/kb",
+                  "pt/history"
                 ]
               },
               {
                 "group": "Tools",
                 "icon": "sliders-up",
                 "pages": [
-                  "tools",
-                  "tool-internet",
-                  "tool-imagens",
-                  "tool-video",
-                  "tool-edicao-de-videos",
-                  "tool-narracao",
-                  "tool-podcast",
-                  "tool-music",
-                  "tool-deep-analysis",
-                  "tool-manage-files",
-                  "avatar",
-                  "tool-integracoes"
+                  "pt/tools",
+                  "pt/internet",
+                  "pt/images",
+                  "pt/videos",
+                  "pt/video-edit",
+                  "pt/voiceover",
+                  "pt/podcast",
+                  "pt/music",
+                  "pt/deep-analysis",
+                  "pt/manage-files",
+                  "pt/avatar",
+                  "pt/integrations"
                 ]
               }
             ]

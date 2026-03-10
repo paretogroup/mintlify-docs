@@ -208,19 +208,19 @@
                     "group": "Files",
                     "icon": "file",
                     "pages": [
-                      "list-files",
-                      "upload-file",
-                      "get-file",
-                      "delete-file",
-                      "process-file"
+                      "en/list-files",
+                      "en/upload-file",
+                      "en/get-file",
+                      "en/delete-file",
+                      "en/process-file"
                     ]
                   },
                   {
                     "group": "Webhooks",
                     "icon": "webhook",
                     "pages": [
-                      "list-webhooks",
-                      "delete-webhook"
+                      "en/list-webhooks",
+                      "en/delete-webhook"
                     ]
                   }
                 ]
@@ -228,16 +228,16 @@
               {
                 "group": "Integrations",
                 "pages": [
-                  "integration-with-make",
-                  "integration-with-zapier",
-                  "integration-with-whats-app-via-make",
-                  "integration-with-n8n"
+                  "en/make",
+                  "en/zapier",
+                  "en/whatsapp-make",
+                  "en/n8n"
                 ]
               },
               {
                 "group": "Model Context Protocol (MCP)",
                 "pages": [
-                  "mcp-api"
+                  "en/api-mcp"
                 ]
               }
             ]
@@ -245,17 +245,17 @@
           {
             "tab": "Account",
             "pages": [
-              "subscription-and-payment",
-              "team-page",
-              "shared-wallet",
-              "system-status",
-              "sso-1",
-              "refund",
+              "en/subscription",
+              "en/team",
+              "en/shared-wallet",
+              "en/status",
+              "en/sso",
+              "en/refund",
               {
                 "group": "Programs",
                 "icon": "puzzle-piece",
                 "pages": [
-                  "reward",
+                  "en/reward",
                   "en/affiliate"
                 ]
               },
@@ -263,24 +263,24 @@
                 "group": "Settings",
                 "icon": "gear",
                 "pages": [
-                  "your-account",
-                  "workspace-1",
-                  "preferences",
-                  "subscription",
-                  "upgrade-and-downgrade",
-                  "usage-monitoring",
+                  "en/account",
+                  "en/workspace",
+                  "en/preferences",
+                  "en/subscription-page",
+                  "en/upgrade-downgrade",
+                  "en/usage",
                   "en/members-permissions",
-                  "knowledge-base-2",
-                  "monetization",
-                  "data-control"
+                  "en/workspace/kb",
+                  "en/monetization",
+                  "en/data-control"
                 ]
               },
               {
                 "group": "Support",
                 "icon": "circle-question",
                 "pages": [
-                  "support-contact",
-                  "remote-support"
+                  "en/support-contact",
+                  "en/remote-support"
                 ]
               }
             ]

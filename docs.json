@@ -719,9 +719,9 @@
                     "group": "Archivos del Agente",
                     "icon": "folder-gear",
                     "pages": [
-                      "list-agent-files-copied-2",
-                      "link-files-to-agent-copied-2",
-                      "delete-agent-file-copied-2"
+                      "es/list-agent-files",
+                      "es/link-files",
+                      "es/delete-agent-file"
                     ]
                   },
                   {

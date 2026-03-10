@@ -488,10 +488,10 @@
                     "icon": "file",
                     "pages": [
                       "listar-arquivos-do-agente",
-                      "upload-file-copied-1",
-                      "get-file-copied-1",
-                      "delete-file-copied-1",
-                      "process-file-copied-1"
+                      "pt/upload-file",
+                      "pt/get-file",
+                      "pt/delete-file",
+                      "pt/process-file"
                     ]
                   },
                   {

@@ -1,18 +1,19 @@
 ---
-title: "Excluir Arquivo "
+title: "Processar Arquivo "
+openapi: "POST /files/{fileId}/process"
 ---
 
-`DELETE /files/{fileId}`
+`POST /files/{fileId}/process`
 
-Exclui um arquivo específico pelo seu ID.
+Processa um arquivo específico pelo seu ID.
 
 ### **Exemplos de Código**
 
 <CodeGroup>
 
 ```http cURL
-curl --request DELETE \
-  --url 'https://api.tess.im/files/{fileId}' \
+curl --request POST \
+  --url 'https://api.tess.im/files/{fileId}/process' \
   --header 'Authorization: Bearer YOUR_API_KEY'
 ```
 
@@ -21,8 +22,8 @@ curl --request DELETE \
 const axios = require('axios');
 
 const config = {
-  method: 'delete',
-  url: 'https://api.tess.im/files/{fileId}',
+  method: 'post',
+  url: 'https://api.tess.im/files/{fileId}/process',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY'
   }
@@ -40,12 +41,12 @@ try {
 ```python Python
 import requests
 
-url = "https://api.tess.im/files/{fileId}"
+url = "https://api.tess.im/files/{fileId}/process"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
 
-response = requests.delete(url, headers=headers)
+response = requests.post(url, headers=headers)
 print(response.json())
 ```
 
@@ -55,13 +56,13 @@ print(response.json())
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-  CURLOPT_URL => "https://api.tess.im/files/{fileId}",
+  CURLOPT_URL => "https://api.tess.im/files/{fileId}/process",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "DELETE",
+  CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_HTTPHEADER => [
     "Authorization: Bearer YOUR_API_KEY"
   ]
@@ -88,9 +89,9 @@ import java.net.http.HttpResponse;
 
 HttpClient client = HttpClient.newHttpClient();
 HttpRequest request = HttpRequest.newBuilder()
-    .uri(URI.create("https://api.tess.im/files/{fileId}"))
+    .uri(URI.create("https://api.tess.im/files/{fileId}/process"))
     .header("Authorization", "Bearer YOUR_API_KEY")
-    .DELETE()
+    .POST(HttpRequest.BodyPublishers.noBody())
     .build();
 
 HttpResponse<String> response = client.send(request,
@@ -110,7 +111,7 @@ import (
 
 func main() {
     client := &http.Client{}
-    req, err := http.NewRequest("DELETE", "https://api.tess.im/files/{fileId}", nil)
+    req, err := http.NewRequest("POST", "https://api.tess.im/files/{fileId}/process", nil)
     if err != nil {
         fmt.Println(err)
         return
@@ -130,7 +131,6 @@ func main() {
         fmt.Println(err)
         return
     }
-    
     
     fmt.Println(string(body))
 }
@@ -152,7 +152,7 @@ class Program
             
             try
             {
-                var response = await client.DeleteAsync("https://api.tess.im/files/{fileId}");
+                var response = await client.PostAsync("https://api.tess.im/files/{fileId}/process", null);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responseBody);
@@ -173,11 +173,11 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.tess.im/files/{fileId}')
+uri = URI('https://api.tess.im/files/{fileId}/process')
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
-request = Net::HTTP::Delete.new(uri)
+request = Net::HTTP::Post.new(uri)
 request['Authorization'] = 'Bearer YOUR_API_KEY'
 
 response = http.request(request)
@@ -198,16 +198,20 @@ puts response.read_body
 
 ### **Parâmetros de Rota**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                |
-| :------------ | :------- | :-------------- | :--------------------------- |
-| fileId        | string   | Sim             | O ID do arquivo para excluir |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                  |
+| :------------ | :------- | :-------------- | :----------------------------- |
+| fileId        | string   | Sim             | O ID do arquivo para processar |
 
 ### **Resposta**
 
 ```json
 {
 "id": 123,
-"deleted": true,
-"message": "Arquivo excluído com sucesso"
+"filename": "documento.pdf",
+"size": 1024000,
+"content_type": "application/pdf",
+"status": "processando",
+"created_at": "2025-01-05T22:39:57+00:00",
+"updated_at": "2025-01-05T22:40:00+00:00"
 }
 ```

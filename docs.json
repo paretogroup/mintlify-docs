@@ -21,7 +21,7 @@
           {
             "tab": "Introduction",
             "pages": [
-              "welcome-to-tess-ai",
+              "en/welcome",
               "concepts-en",
               "inicial-setup",
               "quickstart-en",
@@ -293,7 +293,7 @@
           {
             "tab": "Introdução",
             "pages": [
-              "boas-vindas",
+              "pt/welcome",
               "conceitos",
               "development",
               "quickstart-pt",
@@ -572,7 +572,7 @@
           {
             "tab": "Introducción",
             "pages": [
-              "bienvenido-a-tess-ai",
+              "es/welcome",
               "conceptos",
               "configuracion-inicial",
               "quickstart-3",

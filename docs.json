@@ -815,19 +815,19 @@
                   "es/preferences",
                   "es/workspace",
                   "es/subscription-page",
-                  "upgrade-y-downgrade",
-                  "monitoreo-de-uso",
-                  "base-de-conocimientos",
-                  "monetizacion",
-                  "control-de-datos"
+                  "es/upgrade-downgrade",
+                  "es/usage",
+                  "es/workspace/kb",
+                  "es/monetization",
+                  "es/data-control"
                 ]
               },
               {
                 "group": "Soporte",
                 "icon": "circle-question",
                 "pages": [
-                  "contacto-de-soporte",
-                  "soporte-remoto"
+                  "es/support-contact",
+                  "es/remote-support"
                 ]
               }
             ]

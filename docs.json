@@ -130,7 +130,9 @@
                   {
                     "group": "Integrations",
                     "icon": "folder-open",
-                    "pages": []
+                    "pages": [
+                      "en/app-integrations"
+                    ]
                   },
                   {
                     "group": "Document Processing",
@@ -681,7 +683,9 @@
                   },
                   {
                     "group": "Integrations",
-                    "pages": []
+                    "pages": [
+                      "es/app-integrations"
+                    ]
                   },
                   {
                     "group": "Document Processing",

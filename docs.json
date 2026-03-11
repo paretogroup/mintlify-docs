@@ -816,6 +816,7 @@
                   "es/workspace",
                   "es/subscription-page",
                   "es/upgrade-downgrade",
+                  "es/members-permissions",
                   "es/usage",
                   "es/workspace/kb",
                   "es/monetization",

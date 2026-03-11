@@ -131,7 +131,9 @@
                     "group": "Integrations",
                     "icon": "folder-open",
                     "pages": [
-                      "en/app-integrations"
+                      "en/app-integrations",
+                      "en/sheets-read",
+                      "en/sheets-write"
                     ]
                   },
                   {
@@ -684,7 +686,9 @@
                   {
                     "group": "Integrations",
                     "pages": [
-                      "es/app-integrations"
+                      "es/app-integrations",
+                      "es/sheets-read",
+                      "es/sheets-write"
                     ]
                   },
                   {

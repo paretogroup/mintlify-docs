@@ -139,7 +139,11 @@
                   {
                     "group": "Document Processing",
                     "icon": "folder-open",
-                    "pages": []
+                    "pages": [
+                      "ai-step-google-ocr-pdf-and-image",
+                      "ai-step-extract-text-from-entire-pdf-2",
+                      "ai-step-read-pdf-selected-pages-1"
+                    ]
                   }
                 ]
               }
@@ -693,7 +697,11 @@
                   },
                   {
                     "group": "Document Processing",
-                    "pages": []
+                    "pages": [
+                      "ai-step-google-ocr-pdf-and-image-1",
+                      "es/ai-step-extract-text-from-entire-pdf-2",
+                      "ai-step-read-pdf-selected-pages-2"
+                    ]
                   }
                 ]
               }

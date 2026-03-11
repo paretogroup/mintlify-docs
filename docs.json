@@ -793,28 +793,28 @@
           {
             "tab": "Cuenta",
             "pages": [
-              "suscripcion-y-pago",
-              "panel-del-equipo",
-              "cartera-compartida",
-              "estado-del-sistema",
-              "sso-2",
-              "reembolso-1",
+              "es/subscription",
+              "es/team",
+              "es/shared-wallet",
+              "es/status",
+              "es/sso",
+              "es/refund",
               {
                 "group": "Programas",
                 "icon": "puzzle-piece",
                 "pages": [
                   "es/affiliate",
-                  "recompensas-1"
+                  "es/reward"
                 ]
               },
               {
                 "group": "Configuración",
                 "icon": "gear",
                 "pages": [
-                  "tu-cuenta",
-                  "preferencias-1",
-                  "workspace-2",
-                  "suscripcion",
+                  "es/account",
+                  "es/preferences",
+                  "es/workspace",
+                  "es/subscription-page",
                   "upgrade-y-downgrade",
                   "monitoreo-de-uso",
                   "base-de-conocimientos",

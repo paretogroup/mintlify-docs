@@ -746,10 +746,10 @@
                     "group": "Colecciones de Memoria",
                     "icon": "atom",
                     "pages": [
-                      "listar-colecciones-de-memoria",
-                      "create-memory-collection-copied-2",
-                      "update-memory-collection-copied-2",
-                      "delete-memory-collection-copied-2"
+                      "es/list-collections",
+                      "es/create-collection",
+                      "es/update-collection",
+                      "es/delete-collection"
                     ]
                   },
                   {

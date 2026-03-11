@@ -140,8 +140,8 @@
                     "group": "Document Processing",
                     "icon": "folder-open",
                     "pages": [
-                      "ai-step-google-ocr-pdf-and-image",
-                      "ai-step-read-pdf-selected-pages-1"
+                      "en/ocr-pdf",
+                      "en/pdf-pages"
                     ]
                   }
                 ]

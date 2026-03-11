@@ -756,11 +756,11 @@
                     "group": "Archivos",
                     "icon": "file",
                     "pages": [
-                      "list-files-copied-2",
-                      "upload-file-copied-2",
-                      "get-file-copied-2",
-                      "delete-file-copied-2",
-                      "process-file-copied-2"
+                      "es/list-files",
+                      "es/upload-file",
+                      "es/get-file",
+                      "es/delete-file",
+                      "es/process-file"
                     ]
                   },
                   {

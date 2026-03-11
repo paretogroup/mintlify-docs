@@ -141,6 +141,7 @@
                     "icon": "folder-open",
                     "pages": [
                       "en/ocr-pdf",
+                      "en/pdf-extract",
                       "en/pdf-pages"
                     ]
                   }

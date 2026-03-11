@@ -767,8 +767,8 @@
                     "group": "Webhooks",
                     "icon": "webhook",
                     "pages": [
-                      "list-webhooks-copied-2",
-                      "delete-webhook-copied-2"
+                      "es/list-webhooks",
+                      "es/delete-webhook"
                     ]
                   }
                 ]
@@ -776,16 +776,16 @@
               {
                 "group": "Integraciones",
                 "pages": [
-                  "integration-with-make-copied-2",
-                  "integration-with-zapier-copied-2",
-                  "integration-with-whats-app-via-make-copied-2",
-                  "integration-with-n8n-copied-2"
+                  "es/make",
+                  "es/zapier",
+                  "es/whatsapp-make",
+                  "es/n8n"
                 ]
               },
               {
                 "group": "Protocolo de Contexto de Modelo (MCP)",
                 "pages": [
-                  "mcp-copied-2"
+                  "es/api-mcp"
                 ]
               }
             ]

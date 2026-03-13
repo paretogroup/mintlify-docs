@@ -2,97 +2,97 @@
 title: "Visión General"
 ---
 
-¡Bienvenido a la documentación de la API de Tess AI! Esta guía te ayudará a comenzar con nuestra API y entender cómo integrar las poderosas capacidades de Tess AI en tus aplicaciones.
+¡Bienvenido a la documentación de la API de Tess AI! Esta guía te ayudará a empezar a usar nuestra API y a comprender cómo integrar las potentes capacidades de Tess AI en tus aplicaciones.
 
-### **URL Base**
+### **URL base**
 
-Todas las solicitudes de API deben hacerse a la siguiente URL base:
+Todas las solicitudes a la API deben realizarse a la siguiente URL base:
 
-```
+```text theme={null}
 https://api.tess.im
 ```
 
-### **Autenticación**
+## **Autenticación**
 
-Todas las solicitudes de API requieren autenticación usando una clave de API. Puedes obtener tu clave de API desde el [Panel de Tess AI](https://tess.im/dashboard).
+Todas las solicitudes a la API requieren autenticación mediante una clave API. Puede obtener su clave API en el [Panel de control de Tess AI](https://tess.im/dashboard).
 
-Para autenticar tus solicitudes, incluye tu clave de API en el encabezado `Authorization`:
+Para autenticar sus solicitudes, incluya su clave API en el encabezado `Authorization`:
 
+```text theme={null}
+Autorización: Portador TU_CLAVE_API
 ```
-Authorization: Bearer YOUR_API_KEY
-```
 
-## **Endpoints de la API**
+## **Puntos finales de la API**
 
-La API de Tess AI proporciona las siguientes categorías principales de endpoints:
+La API de Tess AI proporciona las siguientes categorías principales de puntos finales:
 
 #### **Agentes**
 
-| **Endpoint**            | **Método** | **Descripción**                           | **Documentación**                                                                         |
-| :---------------------- | :--------- | :---------------------------------------- | :---------------------------------------------------------------------------------------- |
-| `/agents`               | GET        | Listar todos los agentes                  | [Listar Agentes](https://docs.tess.im/es/api/endpoints/agents/list)                       |
-| `/agents/{id}`          | GET        | Obtener un agente específico              | [Obtener Agente](https://docs.tess.im/es/api/endpoints/agents/get)                        |
-| `/agents/{id}/execute`  | POST       | Ejecutar un agente                        | [Ejecutar Agente](https://docs.tess.im/es/api/endpoints/agents/execute)                   |
-| `/agent-responses/{id}` | GET        | Obtener respuesta de ejecución del agente | [Obtener Respuesta del Agente](https://docs.tess.im/es/api/endpoints/agent-responses/get) |
+| **Punto final** | **Método** | **Descripción** | **Documentación** |
+| :---------------------- | :--------- | :--------------------------- | :----------------------------------------------------------- |
+| `/agents` | GET | Listar todos los agentes | [Listar agentes](https://docs.tess.im/es/list-agents) |
+| `/agents/{id}` | GET | Obtener un agente específico | [Obtener agente](https://docs.tess.im/es/get-agent) |
+| `/agents/{id}/execute` | POST | Ejecutar un agente | [Ejecutar agente](https://docs.tess.im/es/execute-agent) |
+| `/agent-responses/{id}` | GET | Obtener respuesta de ejecución del agente | [Obtener respuesta del agente](https://docs.tess.im/es/agent-response) |
 
-#### **Archivos del Agente**
+#### **Archivos del agente**
 
-| **Endpoint**                       | **Método** | **Descripción**             | **Documentación**                                                                        |
-| :--------------------------------- | :--------- | :-------------------------- | :--------------------------------------------------------------------------------------- |
-| `/agents/{agentId}/files`          | GET        | Listar archivos del agente  | [Listar Archivos del Agente](https://docs.tess.im/es/api/endpoints/agents/files/list)    |
-| `/agents/{agentId}/files`          | POST       | Vincular archivos al agente | [Vincular Archivos al Agente](https://docs.tess.im/es/api/endpoints/agents/files/link)   |
-| `/agents/{agentId}/files/{fileId}` | DELETE     | Eliminar archivo del agente | [Eliminar Archivo del Agente](https://docs.tess.im/es/api/endpoints/agents/files/delete) |
+| **Punto final** | **Método** | **Descripción** | **Documentación** |
+| :--------------------------------- | :--------- | :------------------ | :------------------------------------------------------------- |
+| `/agents/{agentId}/files` | GET | Listar archivos de agentes | [Listar archivos de agentes](https://docs.tess.im/es/list-agent-files) |
+| `/agents/{agentId}/files` | POST | Vincular archivos al agente | [Vincular archivos al agente](https://docs.tess.im/es/link-files) |
+| `/agents/{agentId}/files/{fileId}` | ELIMINAR | Eliminar archivo de agente | [Eliminar archivo de agente](https://docs.tess.im/es/delete-agent-file) |
 
-#### **Webhooks del Agente**
+#### **Webhooks de agente**
 
-| **Endpoint**            | **Método** | **Descripción**            | **Documentación**                                                                        |
-| :---------------------- | :--------- | :------------------------- | :--------------------------------------------------------------------------------------- |
-| `/agents/{id}/webhooks` | GET        | Listar webhooks del agente | [Listar Webhooks del Agente](https://docs.tess.im/es/api/endpoints/agents/webhooks/list) |
-| `/agents/{id}/webhooks` | POST       | Crear webhook del agente   | [Crear Webhook del Agente](https://docs.tess.im/es/api/endpoints/agents/webhooks/create) |
+| **Punto final** | **Método** | **Descripción** | **Documentación** |
+| :---------------------- | :--------- | :------------------- | :------------------------------------------------------------------- |
+| `/agents/{id}/webhooks` | GET | Listar webhooks de agentes | [Listar webhooks de agentes](https://docs.tess.im/es/list-agent-webhooks) |
+| `/agents/{id}/webhooks` | POST | Crear webhook de agente | [Crear webhook de agente](https://docs.tess.im/es/create-agent-webhook) |
 
-#### **Memorias**
+#### **Recuerdos**
 
-| **Endpoint**           | **Método** | **Descripción**           | **Documentación**                                                           |
-| :--------------------- | :--------- | :------------------------ | :-------------------------------------------------------------------------- |
-| `/memories`            | GET        | Listar todas las memorias | [Listar Memorias](https://docs.tess.im/es/api/endpoints/memories/list)      |
-| `/memories`            | POST       | Crear una memoria         | [Crear Memoria](https://docs.tess.im/es/api/endpoints/memories/create)      |
-| `/memories/{memoryId}` | PATCH      | Actualizar una memoria    | [Actualizar Memoria](https://docs.tess.im/es/api/endpoints/memories/update) |
-| `/memories/{memoryId}` | DELETE     | Eliminar una memoria      | [Eliminar Memoria](https://docs.tess.im/es/api/endpoints/memories/delete)   |
+| **Punto final** | **Método** | **Descripción** | **Documentación** |
+| :--------------------- | :--------- | :---------------- | :----------------------------------------------------- |
+| `/memories` | OBTENER | Listar todos los recuerdos | [Listar recuerdos](https://docs.tess.im/es/list-memories) |
+| `/memories` | POST | Crear un recuerdo | [Crear recuerdo](https://docs.tess.im/es/create-memory) |
+| `/memories/{memoryId}` | PARCHE | Actualizar una memoria | [Actualizar memoria](https://docs.tess.im/es/update-memory) |
+| `/memories/{memoryId}` | ELIMINAR | Eliminar un recuerdo | [Eliminar recuerdo](https://docs.tess.im/es/delete-memory) |
 
-#### **Colecciones de Memoria**
+#### **Colecciones de recuerdos**
 
-| **Endpoint**                          | **Método** | **Descripción**              | **Documentación**                                                                       |
-| :------------------------------------ | :--------- | :--------------------------- | :-------------------------------------------------------------------------------------- |
-| `/memory-collections`                 | GET        | Listar todas las colecciones | [Listar Colecciones](https://docs.tess.im/es/api/endpoints/memory-collections/list)     |
-| `/memory-collections`                 | POST       | Crear una colección          | [Crear Colección](https://docs.tess.im/es/api/endpoints/memory-collections/create)      |
-| `/memory-collections/{collection_id}` | PUT        | Actualizar una colección     | [Actualizar Colección](https://docs.tess.im/es/api/endpoints/memory-collections/update) |
-| `/memory-collections/{collection_id}` | DELETE     | Eliminar una colección       | [Eliminar Colección](https://docs.tess.im/es/api/endpoints/memory-collections/delete)   |
+| **Punto final** | **Método** | **Descripción** | **Documentación** |
+| :------------------------------------ | :--------- | :------------------- | :------------------------------------------------------------- |
+| `/memory-collections` | GET | Listar todas las colecciones | [Listar colecciones](https://docs.tess.im/es/list-collections) |
+| `/memory-collections` | POST | Crear una colección | [Crear colección](https://docs.tess.im/es/create-collection) |
+| `/memory-collections/{collection_id}` | PUT | Actualizar una colección | [Actualizar colección](https://docs.tess.im/es/update-collection) |
+| `/memory-collections/{collection_id}` | ELIMINAR | Eliminar una colección | [Eliminar colección](https://docs.tess.im/es/delete-collection) |
 
 #### **Archivos**
 
-| **Endpoint**              | **Método** | **Descripción**              | **Documentación**                                                       |
-| :------------------------ | :--------- | :--------------------------- | :---------------------------------------------------------------------- |
-| `/files`                  | GET        | Listar todos los archivos    | [Listar Archivos](https://docs.tess.im/es/api/endpoints/files/list)     |
-| `/files`                  | POST       | Subir un archivo             | [Subir Archivo](https://docs.tess.im/es/api/endpoints/files/upload)     |
-| `/files/{fileId}`         | GET        | Obtener detalles del archivo | [Obtener Archivo](https://docs.tess.im/es/api/endpoints/files/get)      |
-| `/files/{fileId}`         | DELETE     | Eliminar un archivo          | [Eliminar Archivo](https://docs.tess.im/es/api/endpoints/files/delete)  |
-| `/files/{fileId}/process` | POST       | Procesar un archivo          | [Procesar Archivo](https://docs.tess.im/es/api/endpoints/files/process) |
+| **Punto final** | **Método** | **Descripción** | **Documentación** |
+| :------------------------ | :--------- | :--------------- | :--------------------------------------------------- |
+| `/files` | GET | Listar todos los archivos | [Listar archivos](https://docs.tess.im/es/list-files) |
+| `/files` | POST | Subir un archivo | [Subir archivo](https://docs.tess.im/es/upload-file) |
+| `/files/{fileId}` | GET | Obtener detalles del archivo | [Obtener archivo](https://docs.tess.im/es/get-file) |
+| `/files/{fileId}` | ELIMINAR | Eliminar un archivo | [Eliminar archivo](https://docs.tess.im/es/delete-file) |
+| `/files/{fileId}/process` | POST | Procesar un archivo | [Procesar archivo](https://docs.tess.im/es/process-file) |
 
 #### **Webhooks**
 
-| **Endpoint**     | **Método** | **Descripción**           | **Documentación**                                                         |
-| :--------------- | :--------- | :------------------------ | :------------------------------------------------------------------------ |
-| `/webhooks`      | GET        | Listar todos los webhooks | [Listar Webhooks](https://docs.tess.im/es/api/endpoints/webhooks/list)    |
-| `/webhooks/{id}` | DELETE     | Eliminar un webhook       | [Eliminar Webhook](https://docs.tess.im/es/api/endpoints/webhooks/delete) |
+| **Punto final** | **Método** | **Descripción** | **Documentación** |
+| :--------------- | :--------- | :---------------- | :------------------------------------------------------- |
+| `/webhooks` | GET | Listar todos los webhooks | [Listar webhooks](https://docs.tess.im/es/list-webhooks) |
+| `/webhooks/{id}` | ELIMINAR | Eliminar un webhook | [Eliminar webhook](https://docs.tess.im/es/delete-webhook) |
 
-## **Formato de Solicitud**
+## **Formato de solicitud**
 
-La mayoría de los endpoints de la API aceptan cuerpos de solicitud codificados en JSON. Asegúrate de incluir el siguiente encabezado en tus solicitudes:
+La mayoría de los puntos finales de la API aceptan cuerpos de solicitud codificados en JSON. Asegúrese de incluir el siguiente encabezado en sus solicitudes:
 
+```text theme={null}
+Tipo de contenido: aplicación/json
 ```
-Content-Type: application/json
-```
 
-## **Formato de Respuesta**
+## **Formato de respuesta**
 
-Todas las respuestas de la API se devuelven en formato JSON. Una respuesta exitosa normalmente tendrá un código de estado HTTP `2xx` y contendrá los datos solicitados. Las respuestas de error tendrán un código de estado `4xx` o `5xx` e incluirán un mensaje de error.
+Todas las respuestas de la API se devuelven en formato JSON. Una respuesta exitosa generalmente tendrá un código de estado HTTP `2xx` y contendrá los datos solicitados. Las respuestas de error tendrán un código de estado `4xx` o `5xx` e incluirán un mensaje de error.

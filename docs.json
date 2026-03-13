@@ -56,7 +56,8 @@
                   "en/chat",
                   "en/auto-mode",
                   "en/chat/kb",
-                  "en/history"
+                  "en/history",
+                  "en/models-and-cost"
                 ]
               },
               {
@@ -338,7 +339,8 @@
                   "pt/chat",
                   "pt/auto-mode",
                   "pt/chat/kb",
-                  "pt/history"
+                  "pt/history",
+                  "pt/modelos-e-custos"
                 ]
               },
               {

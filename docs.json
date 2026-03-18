@@ -619,7 +619,8 @@
                   "es/chat",
                   "es/auto-mode",
                   "es/chat/kb",
-                  "es/history"
+                  "es/history",
+                  "es/models-and-cost"
                 ]
               },
               {

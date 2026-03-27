@@ -136,7 +136,8 @@
                       "en/app-integrations",
                       "en/sheets-read",
                       "en/sheets-write",
-                      "en/box"
+                      "en/box",
+                      "en/google-calendar"
                     ]
                   },
                   {

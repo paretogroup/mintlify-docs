@@ -139,7 +139,8 @@
                       "en/box",
                       "en/google-calendar",
                       "en/google-drive",
-                      "en/google-slides"
+                      "en/google-slides",
+                      "en/hubspot"
                     ]
                   },
                   {
@@ -711,7 +712,8 @@
                       "es/box",
                       "es/google-calendar",
                       "es/google-drive",
-                      "es/google-slides"
+                      "es/google-slides",
+                      "es/hubspot"
                     ]
                   },
                   {

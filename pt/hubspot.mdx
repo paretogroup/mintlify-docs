@@ -8,42 +8,103 @@ O step HubSpot permite que seus agentes interajam diretamente com o CRM, criando
 
 Essa integração conecta seu agente ao HubSpot, permitindo quatro ações principais:
 
-- Create Deal: Cria uma nova oportunidade (negócio) no CRM
-- Get Deal: Busca um negócio específico
-- Search Deals: Lista negócios com base em filtros
-- Search Contacts: Busca contatos no CRM
-
-Na prática, isso permite que o agente:
-
-- Alimente o CRM automaticamente
-- Consulte pipeline de vendas
-- Enriqueça respostas com dados reais
-- Automatize fluxos comerciais
+1. Create Deal (Criar Negócio): Abre uma nova oportunidade no funil de vendas.
+2. Get Deal (Buscar Negócio): Consulta as informações detalhadas de uma oportunidade específica.
+3. Search Contacts (Buscar Contatos): Filtra e localiza leads/clientes no seu banco de dados.
+4. Search Deals (Buscar Negócios): Varre seu funil em busca de oportunidades com base em estágios, datas ou propriedades.
 
 <Frame>
   ![Image](/images/image-174.png)
 </Frame>
 
-create
+### **Como usar (Quickstart por ação)**
 
-<Frame>
-  ![Image](/images/image-175.png)
-</Frame>
+<Card title="Create Deal (Criando uma Oportunidade)" icon="1">
+  Ideal para qualificação automática. A IA insere o lead direto no pipeline correto.
 
-get
+  - \*_Deal Name :_ O título do negócio (ex: `Novo Lead - {{Nome_Empresa}}`).
+  - \*_Deal Stage ID :_ O código exato da coluna/estágio do funil onde ele deve cair (ex: `1234567`).
+  - \*_Pipeline ID :_ O ID do seu funil comercial (ex: `default` ou o ID numérico).
+  - HubSpot Owner ID: O ID do vendedor/atendente dono da oportunidade.
+  - Close Date: Data prevista de fechamento no formato `YYYY-MM-DD`.
+  - \*_Deal Value :_ O valor monetário da negociação (ex: `5000.00`).
 
-<Frame>
-  ![Image](/images/image-176.png)
-</Frame>
+  <Frame>
+    <img
+      src="/images/image-175.png"
+      alt="Image"
+      style={{ width:"67%" }}
+    />
+  </Frame>
+</Card>
 
-search
+<Card title="Get Deal (Consultando Oportunidade Específica)" icon="2">
+  Baixa todo o contexto do negócio e injeta na memória do agente.
 
-<Frame>
-  ![Image](/images/image-177.png)
-</Frame>
+  - \*_Deal ID :_ O código único da oportunidade. Geralmente vem repassado por uma integração prévia.
+    <Frame>
+      ![Image](/images/image-176.png)
+    </Frame>
+</Card>
 
-search deal
+<Card title="Search Contacts (Procurando Clientes)" icon="3">
+  Útil para enriquecimento de atendimento (ex: o cliente chama no WhatsApp e a Tess já verifica no HubSpot quem ele é).
 
-<Frame>
-  ![Image](/images/image-178.png)
-</Frame>
+  - Start Date / End Date: Estabelece um período de criação ou modificação do lead (`YYYY-MM-DD` ou `YYYY-MM-DDT00:00:00Z`).
+  - Email Contains: Filtra leads por domínio corporativo ou e-mail exato (ex: `@empresa.com`).
+  - Lead Status: O ciclo de vida do contato (ex: `New`, `In Progress`, `Qualified`).
+
+  <Frame>
+    ![Image](/images/image-177.png)
+  </Frame>
+</Card>
+
+<Card title="Search Deals (Auditoria de Funil)" icon="4">
+  Busca negócios em lote baseando-se em critérios específicos, excelente para análises gerenciais.
+
+  - Start Date: Data a partir da qual buscar.
+  - Deal Stage ID: Para buscar todos os deals travados em uma coluna específica, por exemplo.
+  - Pipeline ID: Em qual funil realizar a busca.
+  - Deal Properties: Informa à Tess quais dados ela deve "puxar" do HubSpot (separados por vírgula). Ex: `dealname,amount,closedate`. Assim você não sobrecarrega a IA com dados inúteis.
+    <Frame>
+      ![Image](/images/image-178.png)
+    </Frame>
+</Card>
+
+### **Navegando pelos IDs**
+
+Para que a conexão funcione, o HubSpot não usa "Nomes" (como "Funil de Vendas"), mas sim IDs (valores numéricos e textuais exatos).
+
+- Como achar Pipeline ID e Stage ID? No seu HubSpot, clique no ícone de engrenagem (Configurações) \> _Data Management_ \> _Deals_ \> Aba _Pipelines_. Lá você consegue visualizar ou via exportação de dados para obter as tags de identificação internas.
+
+### **Exemplos práticos**
+
+**Caso de Uso 1: Agente para Qualificação Automática de Leads**
+
+1. O lead entra no seu site ou WhatsApp e responde a 3 perguntas de um formulário pré-chat (User Inputs).
+2. O step Create Deal pega as variáveis desse formulário e abre o negócio imediatamente no HubSpot com o status de "MQL" e o valor estimado inserido pelo lead.
+3. O agente assume a conversa já com o lead garantido no CRM, focado apenas em conduzir a venda.
+
+**Caso de Uso 2: Avaliação de Renovações de Contratos (Previsão de Churn)**
+
+1. Um fluxo Make/Zapier aciona o agente da Tess uma vez por mês.
+2. O step Search Deals puxa todos os negócios na coluna "Clientes Ativos", usando a _Deal Property_ `closedate`.
+3. O prompt do agente analisa as datas e formula relatórios ou redige e-mails automáticos focados naqueles próximos da data de vencimento.
+
+---
+
+<Tip>
+  **Boas práticas**
+
+  - _Atenção aos campos com asterisco ():_\* Eles são pré-requisitos lógicos do HubSpot. Sem eles, a inserção irá falhar.
+  - Cuidado com as Datas: Respeite rigorosamente o formato exigido nos campos (escreva sempre no padrão `YYYY-MM-DD`, ou seja, `2024-12-31`).
+  - Otimize com "Deal Properties": No step _Search Deals_, se você deixar vazio, a IA pode puxar excesso de dados em branco das oportunidades. Sempre especifique campos relevantes como valor, nome e status.
+</Tip>
+
+### Observações importantes
+
+- Autenticação Obrigatória: Seu Workspace da Tess AI precisa estar logado na sua conta HubSpot via OAuth (nas configurações de Integrações no próprio agente).
+- Consumo de Créditos: Além dos tokens de conversação, realizar ações constantes de busca múltipla (Search Deals) consome créditos proporcionais do seu plano.
+- Permissões de Usuário: A credencial logada na Tess precisa ter perfil de acesso para gravar e ler negócios no CRM original.
+
+Mais do que apenas uma assistente de comunicação, a integração entre Tess e HubSpot transforma sua IA em um operador ativo de Revenue. Elimine trabalhos braçais, garanta que todo atendimento vire um card no CRM e mantenha seu time focado exclusivamente no fechamento.

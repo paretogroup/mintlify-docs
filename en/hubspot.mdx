@@ -1,0 +1,110 @@
+---
+title: "AI Step | Hubspot"
+---
+
+The HubSpot step allows your agents to interact directly with the CRM, creating deals, querying opportunities, and searching for contacts. With this, Tess goes beyond just analyzing data and starts operating within the sales funnel, automating commercial processes.
+
+### **What it is**
+
+This integration connects your agent to HubSpot, enabling four main actions:
+
+1. Create Deal: Opens a new opportunity in the sales funnel.
+2. Get Deal: Retrieves detailed information about a specific opportunity.
+3. Search Contacts: Filters and locates leads/clients in your database.
+4. Search Deals: Scans your funnel for opportunities based on stages, dates, or properties.
+
+<Frame>
+  ![Image](/images/image-174.png)
+</Frame>
+
+### **How to use (Quickstart by action)**
+
+<Card title="Create Deal (Creating an Opportunity)" icon="1">
+  Ideal for automatic qualification. The AI inserts the lead directly into the correct pipeline.
+
+  - \*_Deal Name:_ The deal title (e.g., `New Lead - {{Nome_Empresa}}`).
+  - \*_Deal Stage ID:_ The exact code of the funnel column/stage where it should land (e.g., `1234567`).
+  - \*_Pipeline ID:_ Your commercial funnel ID (e.g., `default` or the numeric ID).
+  - HubSpot Owner ID: The ID of the salesperson/agent who owns the opportunity.
+  - Close Date: Expected closing date in `YYYY-MM-DD` format.
+  - \*_Deal Value:_ The monetary value of the deal (e.g., `5000.00`).
+
+  <Frame>
+    <img
+      src="/images/image-175.png"
+      alt="Image"
+      style={{ width:"67%" }}
+    />
+  </Frame>
+</Card>
+
+<Card title="Get Deal (Querying a Specific Opportunity)" icon="2">
+  Downloads all deal context and injects it into the agent's memory.
+
+  - \*_Deal ID:_ The unique code of the opportunity. Usually passed through a prior integration.
+    <Frame>
+      ![Image](/images/image-176.png)
+    </Frame>
+</Card>
+
+<Card title="Search Contacts (Finding Clients)" icon="3">
+  Useful for enriching support (e.g., the client reaches out on WhatsApp and Tess already checks in HubSpot who they are).
+
+  - Start Date / End Date: Sets a creation or modification period for the lead (`YYYY-MM-DD` or `YYYY-MM-DDT00:00:00Z`).
+  - Email Contains: Filters leads by corporate domain or exact email (e.g., `@company.com`).
+  - Lead Status: The contact's lifecycle stage (e.g., `New`, `In Progress`, `Qualified`).
+
+  <Frame>
+    ![Image](/images/image-177.png)
+  </Frame>
+</Card>
+
+<Card title="Search Deals (Funnel Audit)" icon="4">
+  Searches for deals in bulk based on specific criteria, great for managerial analysis.
+
+  - Start Date: The date from which to search.
+  - Deal Stage ID: To search all deals stuck in a specific column, for example.
+  - Pipeline ID: Which funnel to search in.
+  - Deal Properties: Tells Tess which data it should "pull" from HubSpot (separated by commas). E.g., `dealname,amount,closedate`. This prevents overloading the AI with irrelevant data.
+    <Frame>
+      ![Image](/images/image-178.png)
+    </Frame>
+</Card>
+
+### **Navigating IDs**
+
+For the connection to work, HubSpot does not use "Names" (like "Sales Funnel"), but rather IDs (exact numeric and textual values).
+
+- How to find the Pipeline ID and Stage ID? In your HubSpot, click the gear icon (Settings) \> _Data Management_ \> _Deals_ \> _Pipelines_ tab. There you can view them or export the data to obtain the internal identification tags.
+
+### **Practical examples**
+
+**Use Case 1: Agent for Automatic Lead Qualification**
+
+1. The lead enters your website or WhatsApp and answers 3 questions on a pre-chat form (User Inputs).
+2. The Create Deal step takes the variables from this form and immediately opens the deal in HubSpot with the status "MQL" and the estimated value entered by the lead.
+3. The agent takes over the conversation with the lead already registered in the CRM, focused solely on driving the sale.
+
+**Use Case 2: Contract Renewal Assessment (Churn Prediction)**
+
+1. A Make/Zapier flow triggers the Tess agent once a month.
+2. The Search Deals step pulls all deals in the "Active Clients" column, using the `closedate` _Deal Property_.
+3. The agent's prompt analyzes the dates and generates reports or drafts automated emails focused on those nearing the expiration date.
+
+---
+
+<Tip>
+  **Best practices**
+
+  - _Pay attention to fields marked with an asterisk (\*):_ They are logical prerequisites in HubSpot. Without them, the insertion will fail.
+  - Be careful with Dates: Strictly follow the required format in the fields (always use the `YYYY-MM-DD` standard, i.e., `2024-12-31`).
+  - Optimize with "Deal Properties": In the _Search Deals_ step, if left empty, the AI may pull excessive blank data from opportunities. Always specify relevant fields such as value, name, and status.
+</Tip>
+
+### Important notes
+
+- Mandatory Authentication: Your Tess AI Workspace must be logged into your HubSpot account via OAuth (in the Integrations settings within the agent itself).
+- Credit Consumption: In addition to conversation tokens, performing constant multiple search actions (Search Deals) consumes proportional credits from your plan.
+- User Permissions: The credential logged into Tess must have access permissions to read and write deals in the original CRM.
+
+More than just a communication assistant, the integration between Tess and HubSpot transforms your AI into an active Revenue operator. Eliminate manual work, ensure every interaction becomes a card in the CRM, and keep your team focused exclusively on closing deals.

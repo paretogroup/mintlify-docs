@@ -703,7 +703,8 @@
                       "es/app-integrations",
                       "es/sheets-read",
                       "es/sheets-write",
-                      "es/box"
+                      "es/box",
+                      "es/google-calendar"
                     ]
                   },
                   {

@@ -1,0 +1,157 @@
+---
+title: "AI Step | Google Calendar"
+---
+
+El step Google Calendar conecta tus agentes directamente con Google Calendar, permitiéndoles listar eventos de un período o crear nuevos eventos automáticamente. Con él, Tess ejecuta acciones reales en tu agenda sin necesidad de intervención manual.
+
+### **¿Qué es este Step?**
+
+Esta integración ofrece dos acciones dentro de AI Studio:
+
+- <u>Get Events:</u> Lee los eventos de un período específico de la agenda y trae esta información al contexto del agente.
+- <u>Create Event:</u> Crea un nuevo evento en la agenda con todos los detalles: título, descripción, fecha, hora, invitados y notificaciones.
+
+<Frame>
+  ![Image](/images/image-162.png)
+</Frame>
+
+### **Cómo funcionan los Steps en Tess: lee antes de configurar**
+
+Este es el punto más importante para usar la integración correctamente: Todos los steps de App Integration se ejecutan antes de cualquier interacción con el usuario.
+
+Esto significa que, cuando abres el chat y comienzas a hablar con el agente, los steps ya fueron ejecutados. Por lo tanto, el agente no puede:
+
+- Esperar tu aprobación para crear el evento
+- Usar información dada a mitad de la conversación para ejecutar el step
+
+Lo que el agente sí puede hacer:
+
+1. Usar User Inputs que fueron completados antes de que la conversación comience
+2. Usar información fija preconfigurada en el step
+3. Usar User Decision, que también recopila los datos necesarios antes de la conversación
+
+### **Resumen práctico:**
+
+| **Escenario** | **Funciona** |
+| --- | --- |
+| El step crea evento con datos de User Inputs (completados antes del chat) | SÍ |
+| El step crea evento con URL o datos fijos configurados | SÍ |
+| El step espera aprobación del usuario en el chat para actuar | NO |
+| El step usa una respuesta dada a mitad de la conversación para crear un evento | NO |
+
+### **Dónde encontrarlo**
+
+1. Accede a AI Studio
+2. Haz clic en Add AI Step
+3. En Select Step Category, elige App Integration
+4. En Choose an App, selecciona Google Calendar
+5. En Select Step Type, elige Create Event o Get Events
+
+### **Cómo usar (Quickstart)**
+
+<u>Acción: Create Event</u>
+
+Configura los siguientes campos:
+
+| **Campo** | **Qué completar** |
+| :-- | :-- |
+| **Step Name** | Nombre interno del step (ej: `Crear reunión de onboarding`) |
+| **Event Title** | Título del evento (ej: variable `{{nome_cliente}}`) |
+| **Event Description** | Agenda o descripción de la reunión |
+| **Start Date / Start Time** | Fecha y hora de inicio (DD/MM/YYYY y HH:MM) |
+| **End Date / End Time** | Fecha y hora de fin |
+| **Timezone** | Zona horaria (ej: `UTC-03:00` para Brasília) |
+| **Send Notifications** | `Yes` para enviar invitaciones por correo a los participantes |
+| **Calendar Owner Email** | Correo de la cuenta de Google que recibirá el evento |
+| **Guest Emails** | Correos de los invitados separados por comas |
+
+<Info>
+  **NOTA:**
+
+  Todos los campos marcados con User Decision pueden completarse dinámicamente mediante inputs o fijarse en la configuración del step.
+</Info>
+
+<Frame>
+  ![Image](/images/image-163.png)
+</Frame>
+
+<u>Acción: Get Events</u>
+
+Configura los siguientes campos:
+
+| **Campo** | **Qué completar** |
+| :-- | :-- |
+| **Step Name** | Nombre interno del step (ej: `Buscar agenda semanal`) |
+| **Start Date** | Fecha de inicio del período a consultar |
+| **End Date** | Fecha de fin del período |
+| **Timezone** | Zona horaria de la agenda |
+| **Calendar Owner Email** | Correo de la agenda a consultar |
+
+<Info>
+  Los eventos encontrados en este período estarán disponibles en el contexto del agente para usarse en la respuesta o en otros steps.
+</Info>
+
+<Frame>
+  ![Image](/images/image-164.png)
+</Frame>
+
+### **Explicación más profunda**
+
+Como los steps se ejecutan antes de la conversación, la lógica de uso cambia. El agente no crea eventos “a mitad del chat” — inicia la conversación con el evento ya creado (o con los datos ya recopilados).
+
+El diseño correcto es:
+
+```text
+User Inputs (recopilados antes)
+        ↓
+   El step se ejecuta
+(Create Event o Get Events)
+        ↓
+   El agente inicia la conversación
+ ya con el evento creado o
+  con los datos de la agenda
+  ```
+**Combinando Get Events \+ Create Event:**\
+Si quieres un agente que “revise la agenda y programe el mejor horario”, lo ideal es que ambos steps se ejecuten en secuencia con datos predefinidos — por ejemplo, consultando los eventos de la semana actual y luego creando el evento en el primer espacio disponible.
+
+Este tipo de lógica funciona bien en Agentes de Texto activados de forma programada o mediante integración con otra plataforma (ej: Zapier, Make o N8N).
+
+---
+
+### **Ejemplos prácticos**
+
+<Card title="Agente de onboarding que agenda reunión automáticamente" icon="1">
+  - Completas los datos al inicio (User Inputs): nombre, correo, fecha y horario disponibles.
+  - El step Create Event usa estas variables y crea el evento antes de que el chat comience.
+  - El agente inicia la conversación confirmando: _"¡Hola! Tu reunión de onboarding fue agendada para \[fecha\] a las \[hora\]. Esto es lo que veremos..."_
+</Card>
+
+<Card title="Resumen diario de agenda" icon="2">
+  - Un Agente de Texto se activa automáticamente (vía Make, por ejemplo) cada mañana.
+  - El step Get Events obtiene todos los eventos del día.
+  - El agente genera un resumen estructurado de la agenda y lo envía por correo o Slack.
+</Card>
+
+<Card title="Disparo vía formulario externo" icon="3">
+  - Una integración vía N8N o Zapier activa el Agente de Texto de Tess con los datos del formulario como inputs.
+  - El step Create Event crea el evento y envía la invitación automáticamente.
+  - No se requiere interacción humana en el proceso.
+</Card>
+
+<Tip>
+  **Buenas prácticas**
+
+  - User Inputs son tus aliados: Siempre que los datos del evento sean variables (nombre, fecha, correo), crea un User Input correspondiente y mapéalo en el step.
+  - User Decision es para casos simples: Úsalo cuando necesites que el usuario proporcione el dato antes de que el agente inicie — ideal para Agentes de Texto.
+  - Define siempre el Timezone: Eventos sin zona horaria correcta pueden crearse con horario incorrecto, especialmente si la agenda está en otro país o región.
+  - Separa correctamente los correos en Guest Emails: Sin espacios después de la coma. Ejemplo:  Ex: `{{email_cliente}},gestor@empresa.com`
+  - Nombra bien tu step: Con múltiples steps en el agente, nombres claros evitan confusiones en el mantenimiento.
+</Tip>
+
+### Ten en cuenta los siguientes puntos:
+
+- Autenticación obligatoria: Google Calendar debe estar integrado a tu cuenta en Tess antes de usar el step.
+- El step siempre se ejecuta: Independientemente del contexto de la conversación, el step se ejecutará al iniciar el agente. Asegúrate de que los datos estén disponibles.
+- Consumo de créditos: Cada ejecución del step consume créditos de tu plan.
+
+Google Calendar convierte a Tess en un motor de agendamiento inteligente — pero la clave está en entender cuándo actúa. Con los datos correctos disponibles antes de que comience la conversación, tu agente crea eventos, consulta agendas y confirma reuniones sin intervención manual.

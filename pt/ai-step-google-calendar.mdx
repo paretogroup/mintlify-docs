@@ -11,6 +11,10 @@ Esta integração disponibiliza duas ações dentro do AI Studio:
 - <u>Get Events:</u> Lê os eventos de um período específico da agenda e traz essas informações para dentro do contexto do agente.
 - <u>Create Event:</u> Cria um novo compromisso na agenda com todos os detalhes: título, descrição, data, horário, convidados e notificações.
 
+<Frame>
+  ![Image](/images/image-162.png)
+</Frame>
+
 ### **Como os Steps funcionam na Tess: leia antes de configurar**
 
 Esse é o ponto mais importante para usar a integração corretamente: Todos os steps de App Integration rodam antes de qualquer interação com o usuário.
@@ -41,7 +45,7 @@ O que o agente pode fazer:
 2. Clique em Add AI Step
 3. Em Select Step Category, escolha App Integration
 4. Em Choose an App, selecione Google Calendar
-5. Em Select Step Type, escolha Create Event ou Get Events\
+5. Em Select Step Type, escolha Create Event ou Get Events
 
 ### **Como usar (Quickstart)**
 
@@ -67,6 +71,10 @@ Configure os seguintes campos:
   Todos os campos marcados com User Decision podem ser preenchidos dinamicamente via inputs ou fixados na configuração do step.
 </Info>
 
+<Frame>
+  ![Image](/images/image-163.png)
+</Frame>
+
 <u>Ação: Get Events</u>
 
 Configure os seguintes campos:
@@ -82,6 +90,10 @@ Configure os seguintes campos:
 <Info>
   Os eventos encontrados nesse período estarão disponíveis no contexto do agente para serem usados na resposta ou em outros steps.
 </Info>
+
+<Frame>
+  ![Image](/images/image-164.png)
+</Frame>
 
 ### **Explicação mais profunda**
 
@@ -101,7 +113,7 @@ User Inputs (coletados antes)
 ```
 
 **Combinando Get Events \+ Create Event:**\
-Se você quiser um agente que "consulta a agenda e marca o melhor horário", o ideal é que os dois steps rodem em sequência com dados pré-definidos — por exemplo, buscando os eventos da semana atual e, em seguida, criando o evento no primeiro slot livre. 
+Se você quiser um agente que "consulta a agenda e marca o melhor horário", o ideal é que os dois steps rodem em sequência com dados pré-definidos — por exemplo, buscando os eventos da semana atual e, em seguida, criando o evento no primeiro slot livre.
 
 Esse tipo de lógica funciona bem em Agentes de Texto acionados de forma programada ou via integração com outra plataforma (ex: Zapier, Make ou N8N).
 

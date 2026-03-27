@@ -420,7 +420,7 @@
                       "pt/sheets-read",
                       "pt/sheets-write",
                       "pt/box",
-                      "pt/ai-step-google-calendar"
+                      "pt/google-calendar"
                     ]
                   },
                   {

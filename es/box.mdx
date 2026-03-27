@@ -1,0 +1,108 @@
+---
+title: "AI Step | BOX"
+---
+
+El step Box – Download File te permite descargar archivos directamente desde Box mediante una URL y usar ese contenido dentro del flujo de Tess. Esto convierte al agente en un consumidor activo de documentos externos, permitiendo análisis, resúmenes y automatizaciones basadas en archivos.
+
+### **¿Qué es el Step?**
+
+Este step conecta Tess con Box para descargar archivos a partir de una URL compartida.
+
+En la práctica, descarga el archivo de Box e inyecta el contenido en el contexto del agente, además de permitir que el archivo se use en:
+
+- Otros steps
+- Respuestas del agente
+- Procesamientos (resumen, análisis, extracción, etc.)
+
+### **Dónde encontrarlo**
+
+1. Accede a AI Studio
+2. Haz clic en Add AI Step
+3. En Select Step Category, elige App Integration
+4. En Choose an App, selecciona Box
+5. En Select Step Type, elige Download File
+
+<Frame>
+  ![Image](/images/image-158.png)
+</Frame>
+
+### Cómo usar (Quickstart)
+
+1. Agrega el step\
+   Elige App Integration → Box → Download File y define un nombre para el step. \
+   \
+   _Ej: Descargar contrato, Descargar briefing, etc._
+
+<Frame>
+  ![Image](/images/image-159.png)
+</Frame>
+
+2. Configura la URL del archivo\
+   Aquí tienes 3 opciones:\
+   \
+   <u>2.1 URL fija (preconfigurada):</u> Pega directamente el enlace compartido de Box. Ideal para archivos estándar\
+   <u>2.2 Vía entrada del usuario:</u> Crea un campo de input (texto corto) para que el usuario ingrese la URL y referencia esta variable en el campo de URL\
+   <u>2.3 User Decision activado:</u> El agente te pedirá la URL durante la ejecución. Funciona similar al input, pero ya está activado en el step como campo obligatorio.
+
+<Frame>
+  ![Image](/images/image-160.png)
+</Frame>
+
+3. Guarda el step
+
+Este step funciona como un punto de ingestión de datos externos. Con el step funcionando, el contenido ya estará disponible en el contexto del agente.
+
+Usa el archivo en los siguientes steps o en la respuesta para complementar el entrenamiento del agente.
+
+<Tip>
+  Observaciones importantes:
+
+  - El Step no analiza el archivo por sí solo
+  - Solo trae el archivo al contexto
+
+  \
+  El análisis ocurre después, mediante:
+
+  1. Prompt del agente
+  2. Otros steps (ej: procesamiento de texto)
+
+  Es decir:
+
+  Box (Download) → trae el dato
+
+  Agente / otros steps → usan el dato
+</Tip>
+
+### Ejemplos Prácticos:
+
+1. **Análisis automático de contrato**
+
+Prompt: "Con base en el siguiente contrato, identifica cláusulas de riesgo, plazos y obligaciones principales y puntúalas para el solicitante"
+
+Aquí también puedes incluir otro Step de Procesamiento de Archivos o agregar asistentes para el análisis o la acción siguiente después de la descarga.
+
+<Frame>
+  ![Image](/images/image-161.png)
+</Frame>
+
+2. **Resumen de briefing de cliente**
+
+Prompt: "Resume el briefing y destaca objetivos, público objetivo y entregables."
+
+Uso:
+
+- URL fija o enviada por el usuario
+- Ideal para equipos de marketing
+
+2. **Extracción de datos estructurados**
+
+<Info>
+  ¡Importante!
+
+  - Es necesario que Box esté integrado con tu cuenta en Tess
+  - El step consume créditos (descarga + procesamiento posterior)
+  - El archivo entra en la ventana de contexto del agente
+  - El step no edita ni envía archivos, solo realiza la descarga
+</Info>
+
+Box – Download File es la puerta de entrada para usar documentos externos dentro de Tess. Con él, tu agente deja de depender solo de inputs directos y pasa a trabajar con archivos reales, abriendo espacio para automatizaciones más robustas e inteligentes.

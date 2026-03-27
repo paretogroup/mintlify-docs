@@ -135,7 +135,8 @@
                     "pages": [
                       "en/app-integrations",
                       "en/sheets-read",
-                      "en/sheets-write"
+                      "en/sheets-write",
+                      "en/box"
                     ]
                   },
                   {
@@ -417,7 +418,9 @@
                     "pages": [
                       "pt/app-integrations",
                       "pt/sheets-read",
-                      "pt/sheets-write"
+                      "pt/sheets-write",
+                      "pt/box",
+                      "pt/ai-step-google-calendar"
                     ]
                   },
                   {
@@ -698,7 +701,8 @@
                     "pages": [
                       "es/app-integrations",
                       "es/sheets-read",
-                      "es/sheets-write"
+                      "es/sheets-write",
+                      "es/box"
                     ]
                   },
                   {

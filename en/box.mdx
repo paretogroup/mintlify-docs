@@ -1,0 +1,108 @@
+---
+title: "AI Step | BOX"
+---
+
+The Box step – Download File allows your agent to download files directly from Box via URL and use this content within the Tess flow. This turns the agent into an active consumer of external documents, enabling analyses, summaries, and automations based on files.
+
+### **What is the Step?**
+
+This step connects Tess to Box to download files from a shared URL.
+
+In practice, it downloads the file from Box and injects the content into the agent’s context, also allowing the file to be used in:
+
+- Other steps
+- Agent responses
+- Processing (summary, analysis, extraction, etc.)
+
+### **Where to find it**
+
+1. Go to AI Studio
+2. Click Add AI Step
+3. In Select Step Category, choose App Integration
+4. In Choose an App, select Box
+5. In Select Step Type, choose Download File
+
+<Frame>
+  ![Image](/images/image-158.png)
+</Frame>
+
+### How to use (Quickstart)
+
+1. Add the step\
+   Choose App Integration → Box → Download File and define a name for the step. \
+   \
+   _Ex: Download contract, Download briefing, etc._
+
+<Frame>
+  ![Image](/images/image-159.png)
+</Frame>
+
+2. Configure the file URL\
+   Here you have 3 options:\
+   \
+   <u>2.1 Fixed URL (pre-configured):</u> Paste the shared Box link directly. Ideal for standard files\
+   <u>2.2 Via user input:</u> Create an input field (short text) for the user to enter the URL and reference this variable in the URL field\
+   <u>2.3 User Decision enabled:</u> The agent will request the URL during execution. It works similarly to input, but is already enabled in the step as a required field.
+
+<Frame>
+  ![Image](/images/image-160.png)
+</Frame>
+
+3. Save the step
+
+This step works as an external data ingestion point. With the step working, the content will already be available in the agent’s context.
+
+Use the file in the next steps or in the response to complement the agent’s training.
+
+<Tip>
+  Important notes:
+
+  - The Step does not analyze the file by itself
+  - It only brings the file into the context
+
+  \
+  The analysis happens afterward, via:
+
+  1. Agent Prompt
+  2. Other steps (e.g., text processing)
+
+  In other words:
+
+  Box (Download) → brings the data
+
+  Agent / other steps → use the data
+</Tip>
+
+### Practical Examples:
+
+1. **Automatic contract analysis**
+
+Prompt: "Based on the following contract, identify risk clauses, deadlines, and main obligations, and score them for the requester"
+
+Here you can also include another File Processing Step or add assistants for analysis or the next action after download.
+
+<Frame>
+  ![Image](/images/image-161.png)
+</Frame>
+
+2. **Client briefing summary**
+
+Prompt: "Summarize the briefing and highlight objectives, target audience, and deliverables."
+
+Usage:
+
+- Fixed URL or provided by the user
+- Ideal for marketing teams
+
+2. **Structured data extraction**
+
+<Info>
+  Important!
+
+  - Box must be integrated with your Tess account
+  - The step consumes credits (download + subsequent processing)
+  - The file enters the agent’s context window
+  - The step does not edit or send files, it only downloads
+</Info>
+
+Box – Download File is the gateway to using external documents within Tess. With it, your agent no longer depends only on direct inputs and starts working with real files, opening space for more robust and intelligent automations.

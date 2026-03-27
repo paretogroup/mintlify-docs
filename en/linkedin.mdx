@@ -1,0 +1,104 @@
+---
+title: "AI Step | LinkedIn Ads"
+---
+
+The LinkedIn Ads – Change Campaign Budget step allows your agent to automatically adjust the budget of active campaigns on LinkedIn. With this, Tess starts acting directly in paid media management, allowing budget optimizations based on rules, data, or strategies defined in the prompt.
+
+### **What is the step?**
+
+This integration allows modifying the budget of a specific campaign in LinkedIn Ads.
+
+In practice, the agent is able to:
+
+- Update the daily budget (Daily Budget)
+- Update the total budget (Total Budget)
+- Set the campaign currency
+
+This action directly impacts media investment — meaning it is a real execution on active campaigns.
+
+<Frame>
+  <img
+    src="/images/image-179.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"62%" }}
+  />
+</Frame>
+
+### Where to find it
+
+1. AI Studio
+2. Add AI Step
+3. App Integration
+4. LinkedIn Ads
+5. Change Campaign Budget
+
+### How to use (Quickstart)
+
+Fill in the following fields:
+
+- Step Name: Internal name (e.g., Adjust ABM campaign budget)
+- LinkedIn Ad Account ID: Ad account ID - Numbers only
+- Campaign ID: ID of the campaign to be changed - Numbers only
+- New Daily Budget: New daily budget (e.g., 100.00)
+- New Total Budget: New total campaign budget (e.g., 1000.00)
+- Currency Code: Official currency code (e.g., BRL, USD)
+
+### **Daily Budget vs Total Budget**
+
+You can use:
+
+- Daily Budget → daily spend control
+- Total Budget → total campaign limit
+
+<Info>
+  Depending on the campaign configuration on LinkedIn, one may be mandatory, or both can coexist.
+</Info>
+
+### **Practical examples**
+
+**1. Automatic campaign optimization**
+
+- Integration analyzes performance (CTR, CPL, conversion)
+- If campaign is performing well: → increases budget automatically
+
+**2. Spend reduction on poorly performing campaigns**
+
+- Underperforming campaigns
+- Step reduces daily budget
+
+_Example prompt:_ \
+_"Adjust the budget to 50% if the CPL is above the defined limit."_
+
+**3. Control by schedule or calendar**
+
+- During business hours → higher budget
+- Outside business hours → reduces investment
+
+**4. A/B testing strategy**
+
+- Different campaigns receive dynamic budgets
+- Agent redistributes investment automatically
+
+---
+
+<Tip>
+  **Best practices**
+
+  - Always validate IDs: Account ID and Campaign ID are mandatory
+  - Avoid budget conflicts: Do not set inconsistent values between daily and total budgets
+  - Use correct numerical values: E.g., `100.00` (do not use text)
+  - Set the currency correctly: Prevents API errors
+  - Control via external logic: Ideal to combine with dashboards or business rules
+</Tip>
+
+### **Important notes**
+
+- Integration with LinkedIn Ads is mandatory
+- The account must have edit permissions for the campaigns
+- Changes impact real media spending
+- The step does not ask for confirmation
+- Consumes credits \+ executes external action
+- Changes are applied immediately to the campaign
+
+The LinkedIn Ads step allows Tess to go beyond analysis and act directly in campaign optimization. When well configured, it enables advanced paid media strategies with automatic and data-driven adjustments, reducing manual effort and increasing efficiency.

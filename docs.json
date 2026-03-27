@@ -706,7 +706,8 @@
                       "es/sheets-read",
                       "es/sheets-write",
                       "es/box",
-                      "es/google-calendar"
+                      "es/google-calendar",
+                      "es/google-drive"
                     ]
                   },
                   {

@@ -1,0 +1,96 @@
+---
+title: "AI Step | Google Slides"
+---
+
+O step Google Slides permite que seu agente reescreva e adapte apresentações inteiras de forma autônoma. Através do uso de inteligência artificial (LLM), a Tess lê o conteúdo atual de um slide-deck e o substitui por um novo texto baseado nas instruções do seu prompt, economizando horas de trabalho na personalização de propostas comerciais ou materiais de treinamento.
+
+### **O que é**
+
+A integração conta com uma ação superpoderosa chamada Replace Content Using LLM (Substituir Conteúdo Usando LLM).
+
+Na prática, o agente:
+
+1. Acessa a URL da apresentação informada.
+2. Analisa o texto existente em todos os slides.
+3. Processa um prompt (diretriz) definindo o novo tema ou contexto.
+4. Sobrescreve o texto antigo com o novo conteúdo gerado pela IA, mantendo o design e as caixas de texto originais intactos.
+
+### Regra de Ouro dos Steps
+
+Lembre-se: Este step roda ANTES da interação com o usuário.\
+Isso significa que a apresentação já será alterada antes de o chat começar. Para que funcione perfeitamente, a URL e o Prompt devem vir de User Inputs prévios, da chave User Decision ativada ou estarem pré-configurados no step.
+
+### Onde encontrar
+
+1. Acesse o AI Studio.
+2. Clique em Add AI Step.
+3. Em Select Step Category, selecione App Integration.
+4. Em Choose an App, escolha Google Slides.
+5. Em Select Step Type, escolha Replace Content Using LLM.
+
+<Frame>
+  <img
+    src="/images/image-173.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"46%" }}
+    className="mr-auto"
+  />
+</Frame>
+
+### **Como usar (Quickstart)**
+
+Para configurar a substituição inteligente, você precisará preencher os seguintes campos:
+
+- Step Name: Nome interno do seu step (ex: `Adaptar Pitch Deck`).
+- Google Slides URL: O link completo da apresentação que será modificada (ex: `https://docs.google.com/presentation/d/...`).
+- Presentation Theme Prompt: O comando que guiará a IA na reescrita. É aqui que está o cérebro da operação.
+  - _Exemplo:_ "Reescreva esta apresentação sobre energia renovável focando 100% em energia solar para o estado de Minas Gerais. Inclua benefícios econômicos locais."
+
+<Tip>
+  **_Dica:_**
+
+  _Você pode ativar a chave User Decision em qualquer um desses campos para que o agente colete essa informação com o usuário antes de executar a ação_
+</Tip>
+
+### **Design vs. Texto**
+
+É fundamental entender como a Tess manipula os slides:
+
+- O que ela FAZ: Substitui títulos, tópicos e parágrafos estruturando a nova mensagem no mesmo espaço.
+- O que ela NÃO FAZ: Não cria novos slides do zero, não deleta slides, não altera imagens de fundo, cores, fontes ou a estrutura de design.
+
+A inteligência trabalha exclusivamente com as caixas de texto. Portanto, o cenário ideal é ter um "Template" visualmente pronto, cujos textos servem de marcação para que a IA faça o trabalho pesado de adequação de copy.
+
+---
+
+### Exemplos práticos
+
+**Caso de Uso 1: Máquina de Propostas Comerciais**
+
+- Ação prévia: O seu sistema (ex: Make/N8N) duplica um "Template de Vendas" genérico e gera uma URL nova para um cliente específico.
+- O Step: O agente da Tess pega essa URL nova, recebe os Inputs de nome da empresa e setor, e aplica no campo _Presentation Theme Prompt_: `"Reescreva este pitch deck adaptando a linguagem para o setor de {{Setor_do_Cliente}} e mencione a empresa {{Nome_da_Empresa}} nas propostas de valor."`
+- Resultado: O representante de vendas recebe um deck 100% personalizado e pronto para enviar, com zero esforço manual.
+
+**Caso de Uso 2: Adaptação de Aulas e Treinamentos**
+
+- O Step: Você fornece a URL de um treinamento de "Gestão de Tempo" que foi feito para a área de TI.
+- O Prompt: `"Reescreva todos os exemplos práticos e dicas desta apresentação para que se apliquem à realidade de uma equipe de Customer Success que atende tickets diários."`
+
+---
+
+<Tip>
+  **Boas práticas**
+
+  - Cuidado com Templates Originais: O step _Replace Content_ sobrescreve o arquivo da URL enviada. Nunca coloque a URL do seu "Template Oficial Intocável", caso contrário, a IA irá alterá-lo diretamente. Trabalhe sempre com links de cópias da apresentação.
+  - Prompts Direcionais: Seja claro no campo _Presentation Theme Prompt_. Quanto mais específico for o pedido (ex: "mantenha o tom formal, liste 3 vantagens em vez de bullets longos"), melhor será o encaixe do texto nas caixas originais do slide.
+  - User Inputs combinados: Passe variáveis do usuário (como `{{nome}}`, `{{desafio}}`) para dentro do Prompt do step, para garantir extrema personalização.
+</Tip>
+
+### Observações importantes
+
+- Autenticação: A sua conta do Google deve estar integrada nas configurações do seu Workspace na Tess AI.
+- Permissão de Edição: O e-mail autenticado na Tess precisa ter permissão de _Editor_ na URL do Google Slides fornecida, caso contrário o step falhará.
+- Consumo de Créditos: A leitura de uma apresentação inteira e a formulação de uma reescrita consomem uma quantidade considerável do contexto (tokens) do LLM, impactando o saldo de créditos. Recomenda-se cautela em slides com dezenas de páginas cheias de texto bruto.
+
+Com o step de Google Slides, a Tess AI deixa de ser apenas uma redatora de textos corridos e passa a atuar como uma analista de apresentações. É a ponte perfeita para escalar a criação de propostas e materiais corporativos, mantendo o seu padrão de design intocado.

@@ -137,7 +137,8 @@
                       "en/sheets-read",
                       "en/sheets-write",
                       "en/box",
-                      "en/google-calendar"
+                      "en/google-calendar",
+                      "en/google-drive"
                     ]
                   },
                   {
@@ -421,7 +422,8 @@
                       "pt/sheets-read",
                       "pt/sheets-write",
                       "pt/box",
-                      "pt/google-calendar"
+                      "pt/google-calendar",
+                      "pt/google-drive"
                     ]
                   },
                   {

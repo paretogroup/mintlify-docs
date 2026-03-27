@@ -1,0 +1,187 @@
+---
+title: "AI Step | Google Drive"
+---
+
+O step Google Drive transforma seu agente inteligente em um assistente de documentação e organização de arquivos. Ele permite que a Tess crie documentos (textos, imagens, áudios e URLs base), atualize materiais, leia o conteúdo via download ou exclua arquivos diretamente nas suas pastas na nuvem. Tudo isso rodando automaticamente dentro dos seus fluxos.
+
+### **O que é o Step?**
+
+Esta integração conecta seu agente ao seu ecossistema do Google Drive, disponibilizando ações de criação, leitura, atualização e exclusão.
+
+Na prática, o Drive atua como a camada de armazenamento da inteligência do seu agente, permitindo que os dados processados na conversa sejam persistidos no mundo real.
+
+### **Regra de Ouro: Conforme funcionamento dos Steps**
+
+Como todo fluxo de App Integration na Tess, os steps rodam ANTES da interação com o usuário no chat. O agente não executa ações "no meio" da conversa. Os dados precisam estar disponíveis logo no início através de:
+
+- User Inputs (Entradas preenchidas pelo usuário antes do chat).
+- Chave User Decision (O agente pede ativamente esses dados necessários antes de rodar o step).
+- Variáveis Fixas ou repassadas via integrações de bastidores (Make, Zapier, N8N).
+
+### **Onde encontrar**
+
+1. Acesse o AI Studio.
+2. Clique em Add AI Step.
+3. Em Select Step Category, escolha App Integration.
+4. Em Choose an App, selecione Google Drive.
+5. Em Select Step Type, opte pela ação que deseja configurar.
+
+---
+
+### **Como usar (Quickstart por ação)**
+
+Todas as opções abaixo possuem a chave User Decision. Se ativada, ela força o fluxo a perguntar aquela informação antes de rodar, caso não esteja definida.
+
+<Card title="Create Audio File" icon="1">
+  Similar à imagem, pega o link de um arquivo de áudio e injeta no seu Google Drive.
+
+  - Audio File URL: A URL pública de onde o áudio se encontra (ex: `.../audio.mp3`).
+  - File Name in Drive: O nome do arquivo salvo.
+  - Destination Folder ID: ID da pasta de destino.
+
+  <Frame>
+    <img
+      src="/images/image-165.png"
+      alt="Image"
+      title="Image"
+      style={{ width:"54%" }}
+    />
+  </Frame>
+</Card>
+
+<Card title="Create File From Text" icon="2">
+  Cria um documento de texto a partir de um bloco de conteúdo (como um relatório ou transcrição gerada pela IA).
+
+  - File Name in Drive: Nome do arquivo (ex: `Relatorio_{{cliente}}.txt`).
+  - File Content: O conteúdo que vai dentro do arquivo.
+  - Content Type (MIME): O formato do arquivo de texto (ex: `text/plain`).
+  - Destination Folder ID: O ID da pasta onde o arquivo será salvo.
+
+  <Frame>
+    <Frame>
+      <img
+        src="/images/image-166.png"
+        alt="Image"
+        title="Image"
+        style={{ width:"43%" }}
+      />
+    </Frame>
+  </Frame>
+</Card>
+
+<Card title="Create File From URL" icon="3">
+  Cria um documento de texto a partir de um bloco de conteúdo (como um relatório ou transcrição gerada pela IA).
+
+  - File Name in Drive: Nome do arquivo (ex: `Relatorio_{{cliente}}.txt`).
+  - File Content: O conteúdo que vai dentro do arquivo.
+  - Content Type (MIME): O formato do arquivo de texto (ex: `text/plain`).
+  - Destination Folder ID: O ID da pasta onde o arquivo será salvo.
+
+  <Frame>
+    <img
+      src="/images/image-167.png"
+      alt="Image"
+      title="Image"
+      style={{ width:"44%" }}
+    />
+  </Frame>
+</Card>
+
+<Card title="Create Image File" icon="4">
+  Transfere uma imagem gerada ou hospedada na web direto para o seu Drive. _(Dica: Use em conjunto com um step gerador de imagem anterior)_.
+
+  - Image File URL: A URL raiz de onde a imagem está localizada.
+  - File Name in Drive: O nome do arquivo (ex: `Imagem_Campanha.jpg`).
+  - Destination Folder ID: ID da pasta de destino.
+
+  <Frame>
+    <Frame>
+      <img
+        src="/images/image-168.png"
+        alt="Image"
+        title="Image"
+        style={{ width:"61%" }}
+      />
+    </Frame>
+  </Frame>
+</Card>
+
+<Card title="Delete File" icon="5">
+  Remove um documento "inútil" ou temporário da sua pasta.
+
+  - File ID: O ID exato do arquivo que será excluído.
+
+  <Frame>
+    <Frame>
+      ![Image](/images/image-170.png)
+    </Frame>
+  </Frame>
+</Card>
+
+<Card title="Download File" icon="6">
+  Baixa o arquivo da nuvem e injeta as informações dele _dentro do contexto do agente_, preparando-o para a conversa.
+
+  - File ID: O ID do documento a ser lido.
+
+  <Frame>
+    <Frame>
+      ![Image](/images/image-170.png)
+    </Frame>
+  </Frame>
+</Card>
+
+<Card title="Update File Content" icon="7">
+  Adiciona informações ou sobrescreve um arquivo de texto já existente na nuvem.
+
+  - File ID: O ID específico do documento.
+  - File Name in Drive: Possibilidade de também renomear o arquivo durante a atualização.
+  - File Content: O novo texto/conteúdo a ser atualizado.
+
+  <Frame>
+    <Frame>
+      <Frame>
+        ![Image](/images/image-171.png)
+      </Frame>
+    </Frame>
+  </Frame>
+</Card>
+
+### Explicação mais profunda: File ID vs Folder ID
+
+Para configurar qualquer ação, você precisará dos IDs do Drive. Onde achar?\
+Abra a pasta ou o arquivo no Drive e olhe para o link (URL) no seu navegador. O ID é o código longo, formado por letras e números.
+
+- Folder ID (Usado nas ações de _Create_): `drive.google.com/drive/folders/`\[ID\_DA\_PASTA\]
+- File ID (Usado em _Update_, _Delete_ e _Download_): `drive.google.com/file/d/`\[ID\_DO\_ARQUIVO\]`/view`
+
+---
+
+### Exemplos práticos
+
+**Caso de Uso 1: Esteira Automática de Criativos (Create Image File)**
+
+1. Você configura o primeiro AI Step do seu agente para gerar uma imagem publicitária via Prompt.
+2. O resultado desse primeiro step é uma URL temporária de imagem.
+3. Você passa essa variável para o campo _Image File URL_ do Step Google Drive.
+4. Sem você tocar em nada, a imagem é gerada e salva diretamente na pasta da sua equipe de Marketing e o agente avisa no chat: _"Sua imagem já está salva no Drive!"_
+
+**Caso de Uso 2: Log Contínuo de Feedbacks (Update File Content)**
+
+- Seu agente capta dados de clientes em pesquisas de satisfação e atendimento no WhatsApp (via N8N/Zapier). O step _Update File content_ adiciona as respostas sempre em um único arquivo `.txt` mantido no Drive do CS, empilhando o histórico.
+
+---
+
+<Tip>
+  **Boas práticas**
+
+  - Nomenclaturas em Lote: Em ações de criação, coloque variáveis atreladas a datas ou clientes no `File Name in Drive` (ex: `Contrato_{{nome}}_{{data}}.pdf`) para não gerar vários arquivos com o nome de exemplo `ImportDocument.pdf`.
+  - MIME Types: Se for criar arquivos de texto, respeite a taxonomia padrão da internet se a plataforma pedir o tipo do arquivo — `text/plain` garante que seja gerado um arquivo universal de leitura.
+</Tip>
+
+### Observações importantes
+
+- Autenticação Obrigatória: O respectivo e-mail do Google (Gmail ou Workspace) precisa estar previamente conectado em suas integrações na plataforma Tess AI.
+- Permissões: O acesso via API da Tess precisa de poderes de "Edição" nas pastas em que as ações modificarão ou adicionarão itens. Pastas onde você é apenas "Leitor" apresentarão erro.
+- Consumo de Créditos: Além dos processamentos de IA, os downloads e uploads via sistema gastam montantes calculados na sua precificação ou assinatura.
+
+Ao dominar os inputs de Google Drive (especialmente as variáveis de origem de URLs), seus agentes ganham a capacidade vital de construir o acervo de conhecimento da sua equipe, eliminando downloads locais e transferências manuais de arquivos entre plataformas.

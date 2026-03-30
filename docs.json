@@ -140,8 +140,12 @@
                       "en/google-calendar",
                       "en/google-drive",
                       "en/google-slides",
+                      "en/google-ads",
                       "en/hubspot",
-                      "en/linkedin"
+                      "en/linkedin",
+                      "en/meta-ads",
+                      "en/microsoft",
+                      "en/microsoft-one-drive"
                     ]
                   },
                   {
@@ -428,8 +432,12 @@
                       "pt/google-calendar",
                       "pt/google-drive",
                       "pt/google-slides",
+                      "pt/google-ads",
                       "pt/hubspot",
-                      "pt/linkedin"
+                      "pt/linkedin",
+                      "pt/meta-ads",
+                      "pt/microsoft",
+                      "pt/microsoft-one-drive"
                     ]
                   },
                   {
@@ -716,7 +724,11 @@
                       "es/google-drive",
                       "es/google-slides",
                       "es/hubspot",
-                      "es/linkedin"
+                      "es/linkedin",
+                      "es/meta-ads",
+                      "es/microsoft",
+                      "es/microsoft-one-drive",
+                      "es/google-ads"
                     ]
                   },
                   {

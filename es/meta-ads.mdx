@@ -1,0 +1,150 @@
+---
+title: "AI Step | MetaAds"
+---
+
+El step Meta Ads permite que tus agentes analicen el rendimiento, identifiquen presupuestos desperdiciados y redistribuyan la inversión automáticamente en campañas de Facebook e Instagram. Con esto, Tess actúa como un optimizador de medios pagos orientado por datos.
+
+### **¿Qué es el Step?**
+
+La integración con Meta Ads ofrece 6 acciones, divididas en:
+
+### Acciones (ejecución)
+
+- Change Campaign Daily Budget → cambia el presupuesto diario
+- Change Campaign Status → activa o pausa campañas
+- Budget Shift Campaigns → redistribuye el presupuesto automáticamente
+
+### Análisis (insights)
+
+- Creative Image Analysis → analiza creativos (imágenes)
+- Identify Overactive Ads → identifica la fatiga de anuncios
+- Metrics Trend Report → analiza tendencias de rendimiento
+
+## **Cómo usar (Campos por acción)**
+
+### 1. Change Campaign Daily Budget
+
+| Campo | Descripción |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Ad Account ID \* | ID de la cuenta de anuncios en Meta |
+| Campaign ID \* | ID de la campaña a modificar |
+| Budget Change Method \* | Método: `Set Exact Amount` o `Adjust by Percentage` |
+| Budget Change Value \* | Valor del cambio (ej: `100.00`, `30`, `-20`) |
+
+<Frame>
+  <img
+    src="/images/image-191.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"45%" }}
+  />
+</Frame>
+
+---
+
+### 2. Change Campaign Status
+
+| Campo | Descripción |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Ad Account ID \* | ID de la cuenta de anuncios |
+| Campaign ID \* | ID de la campaña |
+| New Campaign Status \* | Nuevo estado (`ACTIVE`, `PAUSED`) |
+
+<Frame>
+  <img
+    src="/images/image-192.png"
+    alt="Image"
+    style={{ width:"68%" }}
+  />
+</Frame>
+
+---
+
+### 3. Budget Shift Campaigns
+
+| Campo | Descripción |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Meta Ads Account ID \* | ID de la cuenta de anuncios |
+| Analysis Period (Days) \* | Período de análisis (ej: `30`) |
+| Has New Budget Allocation \* | Define si habrá un nuevo presupuesto (`Yes` o `No`) |
+| New Budget | Nuevo valor total (ej: `2500.00`) |
+| Percent Adjust | Ajuste porcentual (ej: `20` o `20%`) |
+| Excluded Campaigns ID | IDs de campañas excluidas |
+| Excluded Adsets ID | IDs de conjuntos de anuncios excluidos |
+
+---
+
+### 4. Creative Image Analysis
+
+| Campo | Descripción |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Meta Ads Account ID \* | ID de la cuenta de anuncios |
+| Analysis Period (Days) \* | Período analizado |
+
+<Frame>
+  <img
+    src="/images/image-194.png"
+    alt="Image"
+    style={{ width:"70%" }}
+  />
+</Frame>
+
+---
+
+### **5. Identify Overactive Ads**
+
+| Campo | Descripción |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Account ID \* | ID de la cuenta |
+| Limit (Days) \* | Límite de días para considerarlo “overactive” |
+
+<Frame>
+  <img
+    src="/images/image-195.png"
+    alt="Image"
+    style={{ width:"63%" }}
+  />
+</Frame>
+
+---
+
+### 6. Metrics Trend Report
+
+| Campo | Descripción |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Meta Ads Account ID \* | ID de la cuenta |
+| Analysis Period (Days) \* | Período analizado |
+| Report Segment \* | Segmento (ej: `campaigns`, `adsets`) |
+| Key Performance Indicator (KPI) \* | Métrica principal (ej: `cpa`, `cpr`, `roas`) |
+
+---
+
+## Ejemplos prácticos
+
+- Reducir el presupuesto automáticamente en campañas con bajo rendimiento
+- Identificar creativos saturados
+- Redistribuir el presupuesto entre campañas
+- Generar informes automáticos de rendimiento
+
+<Tip>
+  Buenas prácticas
+
+  - Siempre valida los IDs
+  - Usa períodos consistentes (ej: 30 días)
+  - Define KPIs claros
+  - Ten cuidado con las automatizaciones de presupuesto
+</Tip>
+
+## Observaciones importantes
+
+- La integración con Meta Ads es obligatoria
+- Las acciones impactan campañas reales
+- No hay confirmación antes de la ejecución
+
+Meta Ads transforma a Tess en un operador completo de medios pagos, capaz de analizar, detectar problemas y ejecutar optimizaciones automáticamente.

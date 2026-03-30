@@ -1,0 +1,113 @@
+---
+title: "AI Step | Microsoft OneDrive"
+---
+
+O step Microsoft OneDrive permite que seu agente baixe arquivos tanto do OneDrive quanto do SharePoint, utilizando links compartilhados. Isso possibilita usar documentos corporativos como base para análise, automação e respostas inteligentes dentro da Tess.
+
+### **O que é o Step?**
+
+Essa integração permite que o agente acesse arquivos hospedados no ecossistema Microsoft e traga esses dados para dentro do contexto.
+
+Ações disponíveis:
+
+- Download OneDrive File → arquivos via link `1drv.ms`
+- Download SharePoint File → arquivos via link `sharepoint.com`
+
+Ambas funcionam da mesma forma: fazem o download e disponibilizam o conteúdo para o agente.
+
+## Como usar (Quickstart)
+
+### Download OneDrive File
+
+Campos:
+
+- Step Name
+- Sharing URL \*\
+  Ex: `https://1drv.ms/...`
+
+<Frame>
+  <img
+    src="/images/image-183.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"59%" }}
+  />
+</Frame>
+
+---
+
+### **Download SharePoint File**
+
+Campos:
+
+- Step Name
+- Sharing URL\
+  Ex: `https://company.sharepoint.com/...`
+
+<Frame>
+  <img
+    src="/images/image-184.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"60%" }}
+  />
+</Frame>
+
+### Como configurar a URL
+
+Você pode usar:
+
+- URL fixa - deixando pré configurado no step
+- User Input (campo de texto)
+- User Decision (coleta antes da execução)
+
+Ambos os steps funcionam como entrada de dados externos (file ingestion).
+
+<Card title="Fluxo">
+  URL fornecida → Arquivo é baixado
+
+        ↓
+
+  Conteúdo entra no contexto →  Agente usa para responder ou processar
+</Card>
+
+### **Exemplos práticos**
+
+**1. Análise de documentos corporativos (SharePoint)**
+
+- contrato, proposta, política interna
+- agente extrai riscos, cláusulas ou resumo
+
+**2. Leitura de arquivos enviados por clientes**
+
+- cliente envia link do OneDrive
+- agente processa automaticamente
+
+**3. Base dinâmica de conhecimento**
+
+- usar arquivos do SharePoint como fonte atualizada
+- evitar manutenção manual de RAG
+
+**4. Processamento de anexos comerciais**
+
+- propostas, briefings, apresentações
+- transformar em insights ou dados estruturados
+
+---
+
+<Tip>
+  **Boas práticas**
+
+  - Garanta permissões corretas: especialmente no SharePoint (mais restritivo)
+  - Use links diretos:  links inválidos ou protegidos podem falhar
+  - Padronize origem dos arquivos: evita inconsistência no fluxo
+  - Combine com prompts claros: define o que será feito com o conteúdo
+</Tip>
+
+## Observações importantes
+
+- Integração com Microsoft é obrigatória
+- SharePoint exige permissões adequadas da organização
+- O step apenas lê arquivos (não edita)
+
+Com suporte a OneDrive e SharePoint, esse step permite que seus agentes trabalhem diretamente com documentos reais da operação, seja em nível individual ou corporativo. Isso elimina uploads manuais e viabiliza automações baseadas em arquivos atualizados.

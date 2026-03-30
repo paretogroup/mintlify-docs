@@ -1,0 +1,218 @@
+---
+title: "AI Step | Microsoft"
+---
+
+El step Microsoft Excel permite que tus agentes lean datos de hojas de cálculo y escriban nueva información directamente en archivos .xlsx. Con esto, Tess puede consultar bases operacionales, alimentar planillas automáticamente e integrar flujos que dependen de datos estructurados.
+
+## **¿Qué es el Step?**
+
+Esta integración conecta Tess al ecosistema Microsoft para ejecutar acciones en archivos Excel. Hoy, las acciones disponibles son:
+
+- Get Values: lee valores de una hoja de cálculo
+- Write Values: escribe valores en una hoja de cálculo
+
+En la práctica, esto permite usar Excel como fuente de consulta o como destino de salida para automatizaciones de IA.
+
+## **Dónde encontrarlo**
+
+1. Accede al AI Studio
+2. Haz clic en Add AI Step
+3. En Select Step Category, elige App Integration
+4. En Choose an App, selecciona Microsoft
+5. En Select Step Type, elige:
+   - Excel Get Values
+   - Excel Write Values
+
+<Frame>
+  <img
+    src="/images/image-182.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"71%" }}
+  />
+</Frame>
+
+## ¿Cómo funcionan los steps?
+
+Punto importante: los steps de App Integration se ejecutan antes de la interacción con el usuario.
+
+Esto significa que:
+
+- la lectura de la planilla ocurre antes de que comience el chat
+- la escritura en la planilla también ocurre antes de la conversación
+- los datos deben estar definidos previamente a través de:
+  - User Inputs
+  - User Decision
+  - Variables provenientes de integraciones externas
+
+El step no espera una respuesta en medio del chat para consultar o escribir en Excel.
+
+## Cómo usar (Quickstart)
+
+### 1. Excel Get Values
+
+Usa esta acción para leer datos de una hoja de cálculo.
+
+<Columns cols={2}>
+  <Column>
+    <Card title="Campos">
+      - Step Name: nombre interno del step
+      - File Path: ruta del archivo Excel (ejemplo: FolderName/FileName.xlsx o FileName.xlsx)
+      - Data Range: rango o pestaña a leer (ejemplo: Sheet1!A1:D4 o Sheet1)
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Cómo Funciona">
+      1. Ingresa la ruta del archivo
+      2. Define la pestaña o el rango con el que quieres trabajar en el Step
+      3. Guarda el step
+      4. Los valores leídos quedan disponibles en el contexto del agente
+    </Card>
+  </Column>
+</Columns>
+
+<Info>
+  Los campos de Ruta e Intervalo pueden ser indicados por el usuario al momento del uso, solo selecciona User Decision.
+</Info>
+
+<Frame>
+  <img
+    src="/images/image-180.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"71%" }}
+  />
+</Frame>
+
+### 2. Excel Write Values
+
+Usa esta acción para escribir datos en una hoja de cálculo.
+
+<Columns cols={2}>
+  <Column>
+    <Card title="Campos">
+      - Step Name: nombre interno del step
+      - File Path: ruta del archivo Excel (ejemplo: FolderName/FileName.xlsx o FileName.xlsx)
+      - Cell Range: rango donde se escribirán los datos (ejemplo: Sheet1!A1:D4)
+      - Data Values: matriz de valores en formato de lista (ejemplo: \[\["Col1","Col2"\],\["Data1","Data2"\]\])
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Cómo Funciona">
+      1. Ingresa la ruta del archivo
+      2. Define el rango exacto de escritura con el que el Step deberá interactuar
+      3. Completa los valores en el formato esperado
+      4. Guarda el step
+      5. La planilla se actualizará automáticamente
+    </Card>
+  </Column>
+</Columns>
+
+<Info>
+  Los campos de Ruta e Intervalo pueden ser indicados por el usuario al momento del uso, solo selecciona User Decision.
+</Info>
+
+Cómo funciona
+
+<Frame>
+  <img
+    src="/images/image-181.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"66%" }}
+  />
+</Frame>
+
+## **¿Qué es cada campo?**
+
+<AccordionGroup>
+  <Accordion title="File Path">
+    El File Path apunta al archivo Excel que será leído o actualizado. Puede ser:
+
+    - solo el nombre del archivo, si está en la raíz
+    - carpeta + nombre del archivo, si está dentro de una subcarpeta
+
+    Ejemplos:
+
+    - Relatorio.xlsx
+    - Financeiro/Forecast.xlsx
+    - Operacao/Clientes/Base.xlsx
+  </Accordion>
+
+  <Accordion title="Range">
+    El range define exactamente dónde actuará Tess.
+
+    Ejemplos:
+
+    - Sheet1
+      - lee la pestaña completa \[CONFIRMAR comportamiento exacto\]
+    - Sheet1!A1:D4
+      - lee o escribe en el rango entre A1 y D4
+  </Accordion>
+
+  <Accordion title="Data Values">
+    En Write Values, los datos deben enviarse en estructura de matriz.
+
+    Ejemplo simple:\
+    \[\["Nombre","Email"\],\["Ana","[ana@empresa.com](mailto:ana@empresa.com)"\],\["Bruno","[bruno@empresa.com](mailto:bruno@empresa.com)"\]\]
+
+    En la práctica:
+
+    - cada lista interna representa una fila
+    - cada elemento representa una celda
+  </Accordion>
+</AccordionGroup>
+
+## Ejemplos prácticos
+
+### 1. Consultar base de clientes
+
+Acción: Excel Get Values
+
+Uso: el agente lee una planilla con datos de clientes antes de la conversación y luego responde preguntas basándose en esa información.
+
+Ejemplo de Prompt:\
+"Usa los datos de la planilla para identificar clientes con renovación este mes y resume los puntos principales."
+
+### 2. Registrar leads automáticamente
+
+Acción: Excel Write Values
+
+Uso: un formulario envía nombre, correo electrónico y empresa, y el step escribe esos datos en la planilla comercial
+
+Ejemplo de Data Values:\
+\[\["Nombre","[nombre@empresa.com](mailto:camy@empresa.com)","Tess AI"\]\]
+
+### 3. Actualizar controles internos
+
+Acción: Excel Write Values
+
+Uso: alimentar una planilla de seguimiento de onboarding, soporte o ventas. Ideal para equipos que aún operan parte de sus procesos a través de Excel
+
+### 4. Leer métricas operacionales
+
+Acción: Excel Get Values
+
+Uso: extraer datos de una planilla de indicadores y pedirle al agente que resuma cuellos de botella, tendencias o desvíos.
+
+Ejemplo de Prompt:\
+"Analiza los datos de la planilla y destaca las 3 principales alertas operacionales."
+
+<Tip>
+  **Buenas prácticas**
+
+  - Define rangos específicos: evita lecturas excesivas y escrituras fuera del lugar esperado
+  - Estandariza los nombres de las pestañas: reduce errores de configuración
+  - Revisa el formato de Data Values: debe estar en una matriz válida
+  - Usa archivos organizados por carpeta: facilita el mantenimiento del step
+  - Prueba primero en planillas de ejemplo: especialmente en Write Values
+</Tip>
+
+## Observaciones importantes
+
+- La cuenta Microsoft debe estar integrada a Tess — este proceso se realiza antes de usar el agente
+- El usuario que vaya a usar el agente debe tener permiso de acceso al archivo
+- Escrituras incorrectas pueden sobrescribir celdas equivocadas
+- Lecturas muy amplias pueden traer más contexto del necesario
+
+El step Microsoft Excel permite transformar planillas en fuente de consulta y destino de automatizaciones dentro de Tess. Cuando está bien configurado, ayuda a integrar la IA con operaciones reales, manteniendo los datos estructurados actualizados sin trabajo manual.

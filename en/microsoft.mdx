@@ -1,0 +1,218 @@
+---
+title: "AI Step | Microsoft"
+---
+
+The Microsoft Excel step allows your agents to read data from spreadsheets and write new information directly into .xlsx files. With this, Tess can query operational databases, automatically populate spreadsheets, and integrate workflows that depend on structured data.
+
+## **What is the Step?**
+
+This integration connects Tess to the Microsoft ecosystem to perform actions on Excel files. Currently, the available actions are:
+
+- Get Values: reads values from a spreadsheet
+- Write Values: writes values to a spreadsheet
+
+In practice, this allows Excel to be used as a query source or as an output destination for AI automations.
+
+## **Where to find it**
+
+1. Go to AI Studio
+2. Click on Add AI Step
+3. In Select Step Category, choose App Integration
+4. In Choose an App, select Microsoft
+5. In Select Step Type, choose:
+   - Excel Get Values
+   - Excel Write Values
+
+<Frame>
+  <img
+    src="/images/image-182.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"71%" }}
+  />
+</Frame>
+
+## How do the steps work?
+
+Important note: App Integration steps run before the user interaction.
+
+This means that:
+
+- the spreadsheet is read before the chat starts
+- writing to the spreadsheet also happens before the conversation
+- data must already be defined via:
+  - User Inputs
+  - User Decision
+  - Variables coming from external integrations
+
+The step does not wait for a mid-chat response to then query or write to Excel.
+
+## How to use (Quickstart)
+
+### 1. Excel Get Values
+
+Use this action to read data from a spreadsheet.
+
+<Columns cols={2}>
+  <Column>
+    <Card title="Fields">
+      - Step Name: internal name of the step
+      - File Path: path to the Excel file (example: FolderName/FileName.xlsx or FileName.xlsx)
+      - Data Range: range or sheet to be read (example: Sheet1!A1:D4 or Sheet1)
+    </Card>
+  </Column>
+  <Column>
+    <Card title="How It Works">
+      1. Enter the file path
+      2. Define the sheet or range you want to work with in the Step
+      3. Save the step
+      4. The read values become available in the agent's context
+    </Card>
+  </Column>
+</Columns>
+
+<Info>
+  The Path and Range fields can be specified by the user at the time of use — just select it as User Decision.
+</Info>
+
+<Frame>
+  <img
+    src="/images/image-180.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"71%" }}
+  />
+</Frame>
+
+### 2. Excel Write Values
+
+Use this action to write data to a spreadsheet.
+
+<Columns cols={2}>
+  <Column>
+    <Card title="Fields">
+      - Step Name: internal name of the step
+      - File Path: path to the Excel file (example: FolderName/FileName.xlsx or FileName.xlsx)
+      - Cell Range: range where the data will be written (example: Sheet1!A1:D4)
+      - Data Values: matrix of values in list format (example: \[\["Col1","Col2"\],\["Data1","Data2"\]\])
+    </Card>
+  </Column>
+  <Column>
+    <Card title="How It Works">
+      1. Enter the file path
+      2. Define the exact write range the Step will need to interact with
+      3. Fill in the values in the expected format
+      4. Save the step
+      5. The spreadsheet will be updated automatically
+    </Card>
+  </Column>
+</Columns>
+
+<Info>
+  The Path and Range fields can be specified by the user at the time of use — just select it as User Decision.
+</Info>
+
+How it works
+
+<Frame>
+  <img
+    src="/images/image-181.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"66%" }}
+  />
+</Frame>
+
+## **What is each field?**
+
+<AccordionGroup>
+  <Accordion title="File Path">
+    The File Path points to the Excel file that will be read or updated. It can be:
+
+    - just the file name, if it is at the root
+    - folder + file name, if it is inside a subfolder
+
+    Examples:
+
+    - Relatorio.xlsx
+    - Financeiro/Forecast.xlsx
+    - Operacao/Clientes/Base.xlsx
+  </Accordion>
+
+  <Accordion title="Range">
+    The range defines exactly where Tess will act.
+
+    Examples:
+
+    - Sheet1
+      - reads the entire sheet \[CONFIRM exact behavior\]
+    - Sheet1!A1:D4
+      - reads or writes in the range between A1 and D4
+  </Accordion>
+
+  <Accordion title="Data Values">
+    In Write Values, data must be sent in a matrix structure.
+
+    Simple example:\
+    \[\["Name","Email"\],\["Ana","[ana@company.com](mailto:ana@company.com)"\],\["Bruno","[bruno@company.com](mailto:bruno@company.com)"\]\]
+
+    In practice:
+
+    - each inner list represents a row
+    - each item represents a cell
+  </Accordion>
+</AccordionGroup>
+
+## Practical examples
+
+### 1. Query a customer database
+
+Action: Excel Get Values
+
+Usage: the agent reads a spreadsheet with customer data before the conversation, then answers questions based on that information.
+
+Example prompt:\
+"Use the spreadsheet data to identify customers with renewals this month and summarize the key points."
+
+### 2. Automatically register leads
+
+Action: Excel Write Values
+
+Usage: a form submits name, email, and company — and the step writes that data to the sales spreadsheet
+
+Example Data Values:\
+\[\["Name","[name@company.com](mailto:camy@empresa.com)","Tess AI"\]\]
+
+### 3. Update internal controls
+
+Action: Excel Write Values
+
+Usage: populate an onboarding, support, or sales tracking spreadsheet. Ideal for teams that still run part of their processes through Excel
+
+### 4. Read operational metrics
+
+Action: Excel Get Values
+
+Usage: pull data from a metrics spreadsheet and ask the agent to summarize bottlenecks, trends, or deviations.
+
+Example prompt:\
+"Analyze the spreadsheet data and highlight the 3 main operational alerts."
+
+<Tip>
+  **Best practices**
+
+  - Define specific ranges: avoids excessive reading and writing outside the expected location
+  - Standardize sheet names: reduces configuration errors
+  - Review the Data Values format: it must be a valid matrix
+  - Use files organized by folder: makes step maintenance easier
+  - Test first on sample spreadsheets: especially for Write Values
+</Tip>
+
+## Important notes
+
+- The Microsoft account must be integrated with Tess — this process is done before using the agent
+- The user who will use the agent must have access permission to the file
+- Incorrect writes can overwrite the wrong cells
+- Very broad reads may bring more context than necessary
+
+The Microsoft Excel step allows spreadsheets to become a query source and automation destination within Tess. When properly configured, it helps integrate AI with real operations, keeping structured data up to date without manual effort.

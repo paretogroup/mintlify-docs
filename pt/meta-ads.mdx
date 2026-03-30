@@ -1,0 +1,150 @@
+---
+title: "AI Step | Meta Ads"
+---
+
+O step Meta Ads permite que seus agentes analisem performance, identifiquem desperdícios de orçamento e redistribuam investimento automaticamente em campanhas do Facebook e Instagram. Com isso, a Tess atua como um otimizador de mídia paga orientado por dados.
+
+### **O que é o Step?**
+
+A integração com Meta Ads disponibiliza 6 ações, divididas em:
+
+### Ações (execução)
+
+- Change Campaign Daily Budget → altera orçamento diário
+- Change Campaign Status → ativa ou pausa campanhas
+- Budget Shift Campaigns → redistribui orçamento automaticamente
+
+### Análises (insights)
+
+- Creative Image Analysis → analisa criativos (imagens)
+- Identify Overactive Ads → identifica fadiga de anúncios
+- Metrics Trend Report → analisa tendências de performance
+
+## **Como usar (Campos por ação)**
+
+### 1. Change Campaign Daily Budget
+
+| Campo | Descrição |
+| :-- | :-- |
+| Step Name | Nome interno do step |
+| Ad Account ID \* | ID da conta de anúncios no Meta |
+| Campaign ID \* | ID da campanha que será alterada |
+| Budget Change Method \* | Método: `Set Exact Amount` ou `Adjust by Percentage` |
+| Budget Change Value \* | Valor da alteração (ex: `100.00`, `30`, `-20`) |
+
+<Frame>
+  <img
+    src="/images/image-191.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"45%" }}
+  />
+</Frame>
+
+---
+
+### 2. Change Campaign Status
+
+| Campo | Descrição |
+| :-- | :-- |
+| Step Name | Nome interno do step |
+| Ad Account ID \* | ID da conta de anúncios |
+| Campaign ID \* | ID da campanha |
+| New Campaign Status \* | Novo status (`ACTIVE`, `PAUSED`) |
+
+<Frame>
+  <img
+    src="/images/image-192.png"
+    alt="Image"
+    style={{ width:"68%" }}
+  />
+</Frame>
+
+---
+
+### 3. Budget Shift Campaigns
+
+| Campo | Descrição |
+| :-- | :-- |
+| Step Name | Nome interno do step |
+| Meta Ads Account ID \* | ID da conta de anúncios |
+| Analysis Period (Days) \* | Período de análise (ex: `30`) |
+| Has New Budget Allocation \* | Define se haverá novo budget (`Yes` ou `No`) |
+| New Budget | Novo valor total (ex: `2500.00`) |
+| Percent Adjust | Ajuste percentual (ex: `20` ou `20%`) |
+| Excluded Campaigns ID | IDs de campanhas excluídas |
+| Excluded Adsets ID | IDs de conjuntos de anúncios excluídos |
+
+---
+
+### 4. Creative Image Analysis
+
+| Campo | Descrição |
+| :-- | :-- |
+| Step Name | Nome interno do step |
+| Meta Ads Account ID \* | ID da conta de anúncios |
+| Analysis Period (Days) \* | Período analisado |
+
+<Frame>
+  <img
+    src="/images/image-194.png"
+    alt="Image"
+    style={{ width:"70%" }}
+  />
+</Frame>
+
+---
+
+### **5. Identify Overactive Ads**
+
+| Campo | Descrição |
+| :-- | :-- |
+| Step Name | Nome interno do step |
+| Account ID \* | ID da conta |
+| Limit (Days) \* | Limite de dias para considerar “overactive” |
+
+<Frame>
+  <img
+    src="/images/image-195.png"
+    alt="Image"
+    style={{ width:"63%" }}
+  />
+</Frame>
+
+---
+
+### 6. Metrics Trend Report
+
+| Campo | Descrição |
+| :-- | :-- |
+| Step Name | Nome interno do step |
+| Meta Ads Account ID \* | ID da conta |
+| Analysis Period (Days) \* | Período analisado |
+| Report Segment \* | Segmento (ex: `campaigns`, `adsets`) |
+| Key Performance Indicator (KPI) \* | Métrica principal (ex: `cpa`, `cpr`, `roas`) |
+
+---
+
+## Exemplos práticos
+
+- Reduzir orçamento automaticamente em campanhas com baixa performance
+- Identificar criativos saturados
+- Redistribuir verba entre campanhas
+- Gerar relatórios automáticos de performance
+
+<Tip>
+  Boas práticas
+
+  - Sempre validar IDs
+  - Usar períodos consistentes (ex: 30 dias)
+  - Definir KPIs claros
+  - Ter cuidado com automações de budget
+</Tip>
+
+## Observações importantes
+
+- Integração com Meta Ads é obrigatória
+- Ações impactam campanhas reais
+- Não há confirmação antes da execução
+
+O Meta Ads transforma a Tess em um operador completo de mídia paga, capaz de analisar, detectar problemas e executar otimizações automaticamente.

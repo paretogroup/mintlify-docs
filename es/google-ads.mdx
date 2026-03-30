@@ -1,0 +1,240 @@
+---
+title: "AI Step | Google Ads"
+---
+
+El step Google Ads permite que tus agentes gestionen campañas directamente desde Tess. Esto incluye desde ajustes de presupuesto y estado hasta informes completos de rendimiento. Con esto, la IA pasa a actuar como un gestor de medios pagos autónomo, ejecutando acciones y generando insights sin intervención manual.
+
+### **¿Qué es el Step?**
+
+Esta integración conecta Tess con Google Ads y ofrece seis acciones divididas en dos categorías:
+
+Acciones (ejecutan cambios en campañas)
+
+- Change Campaign Budget → cambia el presupuesto de una campaña específica
+- Change Campaign Status → activa o pausa una campaña
+- Budget Shift Campaigns → redistribuye el presupuesto entre campañas según el rendimiento
+
+Reportes (recogen y analizan datos)
+
+- Keyword Performance Report → analiza palabras clave
+- Metrics Trend Report → analiza tendencias de métricas en el tiempo
+- Search Term Performance Report → analiza términos de búsqueda que activaron campañas
+
+### **Dónde encontrarlo**
+
+1. AI Studio
+2. Add AI Step
+3. App Integration
+4. Google Ads
+5. Elige la acción deseada
+
+## **Cómo usar (Quickstart por acción)**
+
+### **1. Change Campaign Budget**
+
+Cambia el presupuesto de una campaña específica con control sobre el método de cambio.
+
+| **Campo** | **Descripción** |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Google Ads Account ID \* | ID de la cuenta de anuncios. Ej: `1234567890` |
+| Campaign ID \* | ID de la campaña a modificar. Ej: `1234567890` |
+| Budget Change Method \* | Método de cambio. Opción: `Set Exact Amount` |
+| Budget Change Value \* | Valor a aplicar. Ej: `100.00` (fijo), `30` (porcentaje) o `-20` (reducción) |
+
+<Frame>
+  <img
+    src="/images/image-185.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"65%" }}
+  />
+</Frame>
+
+<Info>
+  Este step permite definir un valor exacto o aplicar un ajuste relativo, según la lógica del Budget Change Method.
+</Info>
+
+---
+
+### 2. Change Campaign Status
+
+Activa o pausa una campaña directamente a través del agente.
+
+| **Campo** | **Descripción** |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Google Ads Account ID \* | ID de la cuenta de anuncios |
+| Campaign ID \* | ID de la campaña |
+| New Campaign Status \* | `enabled` para activar o `paused` para pausar |
+
+<Frame>
+  <img
+    src="/images/image-186.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"66%" }}
+  />
+</Frame>
+
+<Warning>
+  Atención: esta acción impacta campañas reales y activas. Asegúrate de que los IDs sean correctos antes de guardar.
+</Warning>
+
+---
+
+### 3. Budget Shift Campaigns
+
+Redistribuye el presupuesto entre campañas según el análisis de rendimiento.
+
+| **Campo** | **Descripción** |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Google Ads MCC ID \* | ID de la cuenta administradora |
+| Google Ads Account ID \* | ID de la cuenta de anuncios |
+| Analysis Period (Days) \* | Período de análisis. Ej: `30` |
+| Has New Budget Allocation \* | `Yes` o `No` |
+| New Budget | Nuevo valor de presupuesto. Ej: `2500.00` |
+| Percent Adjust | Ajuste porcentual. Ej: `20` o `20%` |
+| Excluded Campaigns ID | IDs de campañas a excluir en la redistribución. Ej: `123, 456` |
+
+---
+
+### **4. Keyword Performance Report**
+
+Analiza el rendimiento de las palabras clave en un período.
+
+| Campo | Descripción |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Google Ads MCC ID \* | ID de la cuenta administradora |
+| Google Ads Account ID \* | ID de la cuenta de anuncios |
+| Analysis Period (Days) \* | Período analizado. Ej: `30` |
+
+<Frame>
+  <img
+    src="/images/image-187.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"71%" }}
+  />
+</Frame>
+
+---
+
+### **5. Metrics Trend Report**
+
+Analiza la tendencia de una métrica a lo largo del tiempo por segmento.
+
+| **Campo** | **Descripción** |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Google Ads MCC ID \* | ID de la cuenta administradora |
+| Google Ads Account ID \* | ID de la cuenta de anuncios |
+| Analysis Period (Days) \* | Período analizado. Ej: `30` |
+| Report Segment \* | Segmento del reporte. Ej: `campaigns` |
+| Key Performance Indicator (KPI) \* | Métrica principal. Ej: `cpa`, `roas` |
+
+<Frame>
+  <img
+    src="/images/image-189.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"76%" }}
+  />
+</Frame>
+
+---
+
+### **6. Search Term Performance Report**
+
+Analiza los términos de búsqueda que activaron campañas y evalúa su rendimiento.
+
+| **Campo** | **Descripción** |
+| :-- | :-- |
+| Step Name | Nombre interno del step |
+| Google Ads MCC ID \* | ID de la cuenta administradora |
+| Google Ads Account ID \* | ID de la cuenta de anuncios |
+| Analysis Period (Days) \* | Período analizado. Ej: `30` |
+| Campaigns for Analysis \* | Nombres de campañas. Ej: `Campaña 1, Campaña 2` |
+| KPIs for Analysis \* | Selecciona: `CPA`, `ROAS`, `Clicks`, `CPC`, `Conversions`, `Cost` |
+
+<Frame>
+  <img
+    src="/images/image-190.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"90%" }}
+  />
+
+  \
+</Frame>
+
+---
+
+## **Detalles importantes de las variables**
+
+<Card title="MCC ID vs Account ID" icon="1">
+  - MCC ID → cuenta administradora (manager)
+  - Account ID → cuenta específica de anuncios
+
+  Ambos son necesarios para acceder correctamente a los datos.
+</Card>
+
+<Card title="Analysis Period" icon="2">
+  - Define el período analizado:
+    - `7` → última semana
+    - `30` → último mes
+    - `90` → visión más estratégica
+</Card>
+
+<Card title="Analysis Period" icon="3">
+  - El step puede funcionar de dos formas:
+    - Con nuevo presupuesto definido
+    - Con ajuste porcentual
+    Esto permite crear estrategias como:
+    - aumentar 20% en campañas con buen rendimiento
+    - redistribuir presupuesto automáticamente
+</Card>
+
+### Ejemplos prácticos
+
+**1. Optimización automática de medios**
+
+- campañas con mejor ROAS reciben más presupuesto
+- campañas con bajo rendimiento pierden inversión
+
+**2. Reporte automático de marketing**
+
+Prompt:\
+"Analiza las tendencias de CPA e identifica los principales desvíos."
+
+**3. Descubrimiento de nuevas oportunidades**
+
+- análisis de search terms
+- identificar palabras clave con alto potencial
+
+**4. Auditoría de campañas**
+
+- identificar desperdicio de presupuesto
+- encontrar cuellos de botella
+
+<Tip>
+  Buenas prácticas
+
+  - Siempre valida MCC y Account ID
+  - Usa períodos consistentes (ej: 30 días)
+  - Evita mezclar campañas muy diferentes en el análisis
+  - Define KPIs claros: evita análisis genéricos
+  - Cuidado con Budget Shift: impacto directo en la inversión
+</Tip>
+
+### Observaciones importantes
+
+- La integración con Google Ads es obligatoria
+- Se requieren permisos de la cuenta
+- Los datos dependen de la estructura de la cuenta
+- Budget Shift impacta inversión real
+- Los resultados varían según el volumen de datos
+
+Google Ads dentro de Tess convierte a tu agente en un analista y optimizador de medios pagos. Permite identificar patrones, generar insights e incluso ajustar presupuestos automáticamente, aportando más eficiencia y escala a la operación de marketing.

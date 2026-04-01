@@ -1,0 +1,144 @@
+---
+title: "AI Step | Marker Document Processing"
+---
+
+The Marker Document Processing step converts complex files (PDF, DOCX, PPTX, images, etc.) into structured Markdown, preserving content organization. It is ideal for transforming rich materials into clean, usable data for AI agents.
+
+### What is the Step?
+
+This step acts as a universal document converter, translating different formats into structured text.
+
+In practice, it:
+
+- Reads files such as PDFs, Word documents, presentations, and images
+- Interprets structure (headings, lists, tables, etc.)
+- Converts everything into Markdown
+- Delivers organized content ready for AI use
+
+<Info>
+  Unlike other steps:
+
+  - It does not generate only raw text
+  - It preserves the document’s logical structure
+</Info>
+
+### Where to find it
+
+1. Go to AI Studio
+2. Click on Add AI Step
+3. Select Document Processing
+4. Choose Marker Document Processing
+
+<Frame>
+  ![Image](/images/image-199.png)
+</Frame>
+
+---
+
+## How to use?
+
+### Configuration fields
+
+| Field | Required | Description |
+| :-- | :-- | :-- |
+| Step Name | Yes | Internal step name (alphanumeric). Used as a reference in the agent |
+| File URL | Yes | Direct file URL (must end with extension: `.pdf`, `.docx`, `.jpg`, etc.) |
+| Processing Mode | Yes | Defines quality vs speed: `Fast`, `Balanced`, `Accurate` |
+| Use LLM | No | `Yes/No`. Improves accuracy (tables, layout, forms), but increases processing time |
+| Max Pages | No | Maximum number of pages to process |
+| Page Range | No | Page interval (e.g.: `0,2-4`) |
+
+<Warning>
+  **Important configuration rules**
+
+  - Max Pages and Page Range are mutually exclusive
+  - File URL must be direct (cannot be a preview page)
+  - Use LLM increases cost and processing time
+</Warning>
+
+## Deeper explanation
+
+This step works as a document translator into structured language (Markdown).
+
+<Card title="Flow">
+  Document (PDF, DOCX, image...) → Step interprets structure
+
+          ↓
+
+  Converts to Markdown → Agent receives organized content
+</Card>
+
+### Markdown vs plain text
+
+Practical comparison:
+
+- Extract Text (DOCX, TXT, etc.) → raw linear text
+- Marker Document Processing → structured text (with hierarchy)
+
+Example:
+
+`# Title`
+
+`## Subtitle`
+
+`- Item 1`
+
+`- Item 2`
+
+`| Column A | Column B |`
+
+`|----------|----------|`
+
+## Practical examples
+
+<AccordionGroup>
+  <Accordion title="Centralizing marketing materials">
+    - PDFs, presentations, and e-books
+    - Convert everything to Markdown
+    - Use as a base for content generation
+  </Accordion>
+
+  <Accordion title="Commercial proposal extraction">
+    - Process contracts or proposals
+    - Enable Use LLM for better table reading
+    - Extract:
+      - values
+      - deadlines
+      - clauses
+  </Accordion>
+
+  <Accordion title="Resume screening (multi-format)">
+    - PDFs, images, DOCX
+    - Standardize everything into Markdown
+    - Agent compares with job requirements automatically
+  </Accordion>
+
+  <Accordion title="Knowledge base creation">
+    - Internal documents → Markdown
+    - Feed support or FAQ agents
+  </Accordion>
+
+  <Accordion title="Tabular data extraction">
+    Prompt:\
+    "Extract all tables and organize the data into a structured format."
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Best practices**
+
+  - Use “Balanced” as default: best cost-benefit, but evaluate if it’s the best result for your case
+  - Use more robust LLMs for complex documents, especially: tables, forms, and broken layouts
+  - Use Page Range for large documents: avoids unnecessary consumption
+  - Ensure direct URLs: e.g., `.pdf`, `.docx` (not Google Drive preview)
+  - Combine with other steps: Marker → analysis → save to Drive/Sheets
+</Tip>
+
+## Important notes
+
+- Links requiring login or preview pages do not work
+- Use LLM increases time and cost
+- Large files impact performance
+- Structure is preserved, but not perfect in all cases
+
+Marker Document Processing is the most powerful step for handling complex documents. By converting multiple formats into structured Markdown, it enables AI agents to work with organized data while preserving context and hierarchy — essential for more accurate analysis and robust automations.

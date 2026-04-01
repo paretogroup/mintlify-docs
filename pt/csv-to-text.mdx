@@ -1,0 +1,128 @@
+---
+title: "AI Step | CSV to Text"
+---
+
+O step CSV to Text converte arquivos de planilha (.csv) em texto estruturado e legível por modelos de linguagem. Com ele, seus agentes passam a consumir dados tabulares diretamente, sem necessidade de softwares de planilha ou intervenção humana para tratar o arquivo.
+
+### O que é o Step?
+
+Este step pertence ao grupo Document Processing — uma categoria dedicada a transformar formatos de arquivo em conteúdo utilizável pela IA.
+
+Na prática, o CSV to Text:
+
+- Lê arquivos CSV hospedados online ou enviados pelo usuário
+- Identifica automaticamente delimitadores (vírgula, ponto e vírgula, etc.)
+- Converte o conteúdo tabular em texto puro e contínuo
+- Injeta esse texto no contexto do agente antes da conversa começar
+
+O output é um bloco de texto bruto, perfeitamente formatado para ser usado em prompts como base de análise, geração de relatórios ou respostas contextualizadas.
+
+### Onde encontrar
+
+1. Acesse o AI Studio
+2. Clique em Add AI Step
+3. Em Select Step Category, escolha Document Processing
+4. Selecione CSV to Text
+
+<Frame>
+  <img
+    src="/images/image-196.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"53%" }}
+  />
+</Frame>
+
+### Como usar?
+
+Campos de configuração:
+
+| Campo | Obrigatório | Descrição |
+| :-- | :-- | :-- |
+| Step Name | Sim | Nome interno do step. Use apenas caracteres alfanuméricos. Esse nome é usado para referenciar o resultado em outros steps ou prompts |
+| Upload de Arquivo | Sim | URL direta de um arquivo CSV hospedado online ou variável de entrada de arquivo do usuário (ex: `{{csvfile}}`) |
+
+O step funciona como uma ponte entre dados tabulares e linguagem natural.
+
+<Card title="Fluxo">
+  CSV (URL ou upload) → Step processa e converte
+
+  ↓
+
+  Texto puro entra no contexto → Agente usa os dados para responder
+</Card>
+
+Sobre o output:
+
+- O conteúdo é apresentado de forma linear — sem formatação visual de tabela
+- A estrutura de linhas e colunas é convertida em sequência textual
+- Deve ser tratado como dado bruto injetado no prompt
+
+<Tip>
+  **Dica de qualidade:**\
+  Arquivos CSV com uma linha de cabeçalho (header) geram contextos muito mais precisos para o agente. Sem cabeçalho, o modelo pode ter dificuldade em identificar o que cada coluna representa.
+</Tip>
+
+### Exemplos práticos
+
+<AccordionGroup>
+  <Accordion title="Análise de campanhas e leads">
+    Prompt:\
+    "Analise os dados da planilha de leads. Identifique padrões de conversão, compare performance por canal e gere um relatório de desempenho semanal com sugestões de otimização de orçamento."
+
+    Uso:
+
+    - Exportar CSV do CRM ou plataforma de tráfego
+    - Hospedar online ou usar como User Input
+    - Step converte e agente analisa automaticamente
+  </Accordion>
+
+  <Accordion title="Triagem automática de candidatos">
+    Prompt:\
+    "Avalie os candidatos listados no arquivo. Cruze as habilidades e o tempo de experiência com os requisitos da vaga abaixo e gere um ranking dos 5 perfis mais adequados com resumo individual."
+
+    Uso:
+
+    - CSV exportado de plataforma de recrutamento
+    - Agente processa e classifica sem intervenção humana
+  </Accordion>
+
+  <Accordion title="Monitoramento de churn e feedback">
+    Prompt:\
+    "Analise os dados de satisfação e uso dos clientes. Categorize as principais reclamações, identifique clientes com alto risco de cancelamento e sugira ações preventivas para cada perfil."
+
+    Uso:
+
+    - CSV exportado de CRM ou pesquisa de satisfação
+    - Agente gera insights acionáveis para o time de retenção
+  </Accordion>
+
+  <Accordion title="Consolidação de dados operacionais">
+    Prompt:\
+    "Leia os dados da planilha e monte um resumo executivo com os principais indicadores, desvios e alertas operacionais do período."
+
+    Uso:
+
+    - Relatórios de operação em CSV
+    - Ideal para Agentes de Texto acionados automaticamente
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Boas práticas**
+
+  - Use arquivos com cabeçalho: a primeira linha com nomes de colunas melhora muito a precisão do agente
+  - Prefira arquivos limpos e organizados: Colunas mescladas, formatações especiais ou dados inconsistentes reduzem a qualidade da conversão
+  - Referencie o step no prompt: Use o nome do step para indicar ao agente onde estão os dados. Ex: _"Use os dados do step `analise_leads` para..."_
+  - Combine com outros steps: CSV to Text → análise → Google Sheets Write Values (para exportar resultado)
+  - Evite arquivos muito grandes: Planilhas com muitas colunas e milhares de linhas podem estourar a janela de contexto do agente
+</Tip>
+
+### Observações importantes
+
+- O step roda antes da interação com o usuário
+- A URL do arquivo precisa ser pública e acessível
+- O resultado é texto bruto, não uma tabela formatada
+- A qualidade da análise depende da organização do arquivo original
+
+O CSV to Text é a porta de entrada para dados estruturados dentro da Tess. Ele democratiza o acesso a planilhas sem necessidade de ferramentas externas, permitindo que qualquer agente leia, interprete e gere insights a partir de dados tabulares de forma autônoma e escalável.

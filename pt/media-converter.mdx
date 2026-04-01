@@ -1,0 +1,168 @@
+---
+title: "AI Step | Media Converter"
+---
+
+O step Media Converter permite converter arquivos de áudio e vídeo entre diferentes formatos diretamente dentro da Tess. Ele garante compatibilidade entre plataformas, reduz tamanho de arquivos e possibilita extrações como transformar vídeo em áudio.
+
+### O que é o Step?
+
+O Media Converter atua como um conversor universal de mídia, integrado ao fluxo do agente.
+
+Na prática, ele:
+
+- Recebe um arquivo de áudio ou vídeo via URL ou step anterior
+- Converte para um novo formato
+- Retorna uma URL do arquivo convertido
+
+<Check>
+  Isso permite automatizar processos multimídia sem depender de ferramentas externas.
+</Check>
+
+### Onde encontrar
+
+1. Acesse o AI Studio
+2. Clique em Add AI Step
+3. Selecione Document Processing
+4. Escolha Media Converter
+
+<Frame>
+  ![Image](/images/image-200.png)
+</Frame>
+
+---
+
+## Como usar?
+
+### Campos de configuração
+
+| Campo | Obrigatório | Descrição |
+| :-- | :-- | :-- |
+| Step Name | Sim | Nome interno do step (alfanumérico). Usado como referência no agente |
+| File URL | Sim | URL direta do arquivo de áudio ou vídeo, ou variável de saída de outro step |
+| Convert To | Sim | Formato de saída desejado (ex: `.mp3`, `.mp4`, `.wav`) |
+
+## Formatos suportados
+
+<Columns cols={2}>
+  <Column>
+    <Card title="Áudio">
+      `.mp3`
+
+      `.wav`
+
+      `.aac`
+
+      `.flac`
+
+      `.ogg`
+
+      `.wma`
+
+      `.m4a`
+
+      `.opus`
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Vídeo">
+      `.mp4`
+
+      `.avi`
+
+      `.mkv`
+
+      `.mov`
+
+      `.wmv`
+
+      `.flv`
+
+      `.webm`
+
+      `.mpeg`
+
+      `.3gp`
+
+      `.ogv`
+
+      `.m4v`
+    </Card>
+  </Column>
+</Columns>
+
+### Sobre o Output
+
+O resultado é:
+
+- Uma URL direta do arquivo convertido
+- Conteúdo preservado (mesmo áudio/vídeo, novo formato)
+- Pronto para: download; envio e/ou uso em outros steps
+
+### Explicação mais profunda
+
+Esse step funciona como uma etapa de transformação de mídia dentro do fluxo.
+
+<Card title="Fluxo">
+  Arquivo original (áudio/vídeo) → Conversão de formato
+
+          ↓
+
+  Nova URL gerada → Usado em próximos steps
+</Card>
+
+<Info>
+   Ele não analisa conteúdo — apenas transforma formato.
+</Info>
+
+## Exemplos práticos
+
+<AccordionGroup>
+  <Accordion title="Padronização de campanhas multimídia">
+    - Receber vídeos em `.mov` ou `.mkv`
+    - Converter para `.mp4`
+    - Garantir compatibilidade com redes sociais
+  </Accordion>
+
+  <Accordion title="Extração de áudio de vídeos">
+    - Converter `.mp4` → `.mp3`
+    - Usar em:
+      - transcrição
+      - podcasts internos
+      - treinamento
+  </Accordion>
+
+  <Accordion title="Otimização de envio para clientes">
+    - Converter `.avi` → `.mp4`
+    - Reduzir peso e aumentar compatibilidade
+  </Accordion>
+
+  <Accordion title="Pipeline de conteúdo automatizado">
+    Fluxo exemplo:
+
+    Vídeo → Media Converter → MP3 → Transcription → Texto
+  </Accordion>
+
+  <Accordion title="Processamento de reuniões gravadas">
+    - Extrair áudio
+    - Gerar resumo automático com IA
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Boas práticas**
+
+  - Use formatos padrão: `.mp4` (vídeo) ou `.mp3` (áudio)
+  - Garanta URL direta: Links de preview podem falhar
+  - Combine com outros steps: Media Converter → Transcription → Analysis
+  - Padronize formatos no fluxo: Evita problemas downstream
+  - Use nomes claros no Step Name: Ex: `video_para_mp3`
+</Tip>
+
+## Observações importantes
+
+- O step não analisa conteúdo, apenas converte
+- A URL deve ser pública e acessível
+- Arquivos grandes podem impactar tempo de processamento
+- Conversão pode variar levemente em qualidade dependendo do formato
+
+O Media Converter elimina problemas de compatibilidade e prepara arquivos multimídia para uso em automações. Ele é essencial para fluxos que envolvem áudio e vídeo, permitindo transformar, padronizar e encadear mídias dentro da Tess de forma simples e escalável.

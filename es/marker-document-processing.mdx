@@ -1,0 +1,144 @@
+---
+title: "AI Step | Marker Document Processing"
+---
+
+El step Marker Document Processing convierte archivos complejos (PDF, DOCX, PPTX, imágenes, etc.) en Markdown estructurado, preservando la organización del contenido. Es ideal para transformar materiales ricos en datos limpios y utilizables por agentes de IA.
+
+### ¿Qué es el Step?
+
+Este step actúa como un conversor universal de documentos, traduciendo diferentes formatos a texto estructurado.
+
+En la práctica:
+
+- Lee archivos como PDF, Word, presentaciones e imágenes
+- Interpreta la estructura (títulos, listas, tablas, etc.)
+- Convierte todo a Markdown
+- Entrega contenido organizado y listo para uso en IA
+
+<Info>
+  A diferencia de otros steps:
+
+  - No genera solo texto bruto
+  - Preserva la estructura lógica del documento
+</Info>
+
+### Dónde encontrarlo
+
+1. Accede al AI Studio
+2. Haz clic en Add AI Step
+3. Selecciona Document Processing
+4. Elige Marker Document Processing
+
+<Frame>
+  ![Image](/images/image-199.png)
+</Frame>
+
+---
+
+## ¿Cómo usar?
+
+### Campos de configuración
+
+| Campo | Obligatorio | Descripción |
+| :-- | :-- | :-- |
+| Step Name | Sí | Nombre interno del step (alfanumérico). Se usa como referencia en el agente |
+| File URL | Sí | URL directa del archivo (debe terminar en: `.pdf`, `.docx`, `.jpg`, etc.) |
+| Processing Mode | Sí | Define calidad vs velocidad: `Fast`, `Balanced`, `Accurate` |
+| Use LLM | No | `Yes/No`. Mejora la precisión (tablas, layout, formularios), pero aumenta el tiempo de procesamiento |
+| Max Pages | No | Número máximo de páginas a procesar |
+| Page Range | No | Rango de páginas (ej: `0,2-4`) |
+
+<Warning>
+  **Reglas importantes de configuración**
+
+  - Max Pages y Page Range son mutuamente excluyentes
+  - File URL debe ser directo (no puede ser una página de vista previa)
+  - Use LLM aumenta el costo y el tiempo de procesamiento
+</Warning>
+
+## Explicación más profunda
+
+Este step funciona como un traductor de documentos a lenguaje estructurado (Markdown).
+
+<Card title="Flujo">
+  Documento (PDF, DOCX, imagen...) → Step interpreta la estructura
+
+          ↓
+
+  Convierte a Markdown → El agente recibe contenido organizado
+</Card>
+
+### Markdown vs texto plano
+
+Comparación práctica:
+
+- Extract Text (DOCX, TXT, etc.) → texto lineal bruto
+- Marker Document Processing → texto estructurado (con jerarquía)
+
+Ejemplo:
+
+`# Título`
+
+`## Subtítulo`
+
+`- Item 1`
+
+`- Item 2`
+
+`| Columna A | Columna B |`
+
+`|----------|----------|`
+
+## Ejemplos prácticos
+
+<AccordionGroup>
+  <Accordion title="Centralización de materiales de marketing">
+    - PDFs, presentaciones y e-books
+    - Convertir todo a Markdown
+    - Usar como base para generación de contenido
+  </Accordion>
+
+  <Accordion title="Extracción de propuestas comerciales">
+    - Procesar contratos o propuestas
+    - Activar Use LLM para mejor lectura de tablas
+    - Extraer:
+      - valores
+      - plazos
+      - cláusulas
+  </Accordion>
+
+  <Accordion title="Filtrado de currículums (multiformato)">
+    - PDFs, imágenes, DOCX
+    - Estandarizar todo en Markdown
+    - El agente compara con la vacante automáticamente
+  </Accordion>
+
+  <Accordion title="Creación de base de conocimiento">
+    - Documentos internos → Markdown
+    - Alimentar agentes de soporte o FAQ
+  </Accordion>
+
+  <Accordion title="Extracción de datos tabulares">
+    Prompt:\
+    "Extrae todas las tablas y organiza los datos en formato estructurado."
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Buenas prácticas**
+
+  - Usa “Balanced” como estándar: mejor relación costo-beneficio, pero evalúa según tu caso
+  - Usa LLMs más robustos para documentos complejos, especialmente: tablas, formularios y layouts rotos
+  - Usa Page Range en documentos grandes: evita consumo innecesario
+  - Asegura URLs directas: ej: `.pdf`, `.docx` (no vista previa de Google Drive)
+  - Combina con otros steps: Marker → análisis → guardar en Drive/Sheets
+</Tip>
+
+## Observaciones importantes
+
+- Links con login o vista previa no funcionan
+- Use LLM aumenta tiempo y costo
+- Archivos grandes afectan el rendimiento
+- La estructura se preserva, pero no es perfecta en todos los casos
+
+Marker Document Processing es el step más potente para manejar documentos complejos. Al convertir múltiples formatos en Markdown estructurado, permite que los agentes de IA trabajen con datos organizados, preservando contexto y jerarquía — clave para análisis más precisos y automatizaciones robustas.

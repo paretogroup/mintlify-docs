@@ -1,0 +1,150 @@
+---
+title: "AI Step | Extract Text from TXT, XML, RSS, JSON"
+---
+
+El step Extract Text from TXT, XML, RSS, and JSON convierte archivos estructurados o en bruto en texto plano, eliminando elementos técnicos como etiquetas, claves y sintaxis. Con esto, Tess transforma datos complejos en contenido legible y listo para ser analizado por agentes de IA.
+
+### ¿Qué es el Step?
+
+Este step forma parte de la categoría Document Processing, y es responsable de limpiar y simplificar datos provenientes de distintos formatos.
+
+En la práctica:
+
+- Lee archivos TXT, XML, RSS y JSON
+- Elimina:
+  - etiquetas XML
+  - estructuras JSON (claves, arrays)
+  - metadatos de RSS
+- Conserva solo el contenido semántico relevante
+- Entrega un bloque de texto limpio en el contexto del agente
+
+### Dónde encontrarlo
+
+1. Accede al AI Studio
+2. Haz clic en Add AI Step
+3. Selecciona Document Processing
+4. Elige Extract Text from TXT, XML, RSS, and JSON
+
+<Frame>
+  ![Image](/images/image-198.png)
+</Frame>
+
+---
+
+## ¿Cómo usar?
+
+### Campos de configuración
+
+| Campo | Obligatorio | Descripción |
+| :-- | :-- | :-- |
+| Step Name | Sí | Nombre interno del step (solo caracteres alfanuméricos). Se usa para referenciar el output en los prompts |
+| File URL | Sí | URL directa del archivo (TXT, XML, RSS o JSON) o variable de entrada (ej: `{{json}}`) |
+
+## Sobre el Output
+
+El resultado es un bloque continuo de texto plano, sin ninguna estructura técnica original.
+
+<Columns cols={2}>
+  <Column>
+    <Card title="Qué se conserva:">
+      - Contenido semántico (nombres, descripciones, valores)
+      - Todo el texto relevante para lectura humana
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Qué se elimina:">
+      - Etiquetas XML (`<tag>`)
+      - Estructuras JSON (`{}`, `[]`)
+      - Metadatos de RSS
+      - Sintaxis técnica
+    </Card>
+  </Column>
+</Columns>
+
+<Warning>
+  Importante:
+
+  La estructura original (jerarquía, anidamiento) se pierde — el contenido se vuelve lineal.
+</Warning>
+
+## Explicación más profunda
+
+Este step actúa como un normalizador de datos técnicos a lenguaje natural.
+
+<Card title="Flujo">
+  Archivo (TXT / XML / RSS / JSON) → El step elimina la estructura técnica
+
+          ↓
+
+  Se genera texto limpio → El agente interpreta semánticamente
+</Card>
+
+<Note>
+  Atención:
+
+  - La IA se enfoca en el contenido, no en la estructura
+  - Ideal para inputs que originalmente no fueron diseñados para lectura humana
+</Note>
+
+## Ejemplos prácticos
+
+<AccordionGroup>
+  <Accordion title="Monitoreo automatizado de noticias (RSS)">
+    Prompt:\
+    "Resume las principales noticias del día e identifica tendencias relevantes para el mercado."
+
+    Uso:
+
+    - Feed RSS de portales de noticias
+    - El agente genera curación automática
+  </Accordion>
+
+  <Accordion title="Análisis de logs de atención (TXT)">
+    Prompt:\
+    "Analiza los logs e identifica los principales motivos de contacto y el sentimiento de los clientes."
+
+    Uso:
+
+    - Logs de chat o soporte
+    - Clasificación automática de problemas
+  </Accordion>
+
+  <Accordion title="Integración con CRM (JSON)">
+    Prompt:\
+    "Con base en los datos extraídos, genera un correo de prospección personalizado para cada lead."
+
+    Uso:
+
+    - Export JSON de CRM
+    - La IA transforma los datos en acción comercial
+  </Accordion>
+
+  <Accordion title="Procesamiento de APIs y datos técnicos">
+    Prompt:\
+    "Organiza la información extraída y destaca los principales indicadores."
+
+    Uso:
+
+    - Respuestas de APIs
+    - Transformar datos técnicos en insights
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Buenas prácticas
+
+  - Usa URLs directas de archivos: evita enlaces que abren páginas web (HTML)
+  - Combina con prompts estructurados: ej., "extrae nombre, cargo y empresa"
+  - Cuidado con la pérdida de estructura: JSON anidado puede perder contexto lógico
+  - Usa el Step Name en el prompt: ej., _"Con base en los datos del step _`dados_crm`_..."_
+  - Combina con otros steps: Extract → análisis → guardar en Sheets/Drive
+</Tip>
+
+## Observaciones importantes
+
+- La URL debe ser pública y directa (sin inicio de sesión)
+- La estructura jerárquica original se pierde
+- El step no conserva el formato ni la organización de los datos
+- Los archivos grandes pueden afectar la ventana de contexto
+
+Extract Text from TXT, XML, RSS, and JSON es el puente entre los datos técnicos y la inteligencia artificial. Permite transformar APIs, feeds y archivos estructurados en información utilizable, desbloqueando análisis, automatizaciones y generación de contenido a partir de datos que antes requerían tratamiento manual.

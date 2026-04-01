@@ -1,0 +1,145 @@
+---
+title: "AI Step | Extract Text from Docx"
+---
+
+O step Extract Text from DOCX isola e extrai o conteúdo textual de arquivos Microsoft Word (.docx), entregando um bloco de texto limpo e pronto para ser processado por agentes de IA. Com ele, documentos complexos se tornam dados acessíveis sem necessidade de softwares específicos ou intervenção manual.
+
+### O que é
+
+Este step pertence ao grupo Document Processing — categoria dedicada a transformar formatos de arquivo em conteúdo utilizável pela IA.
+
+Na prática, o Extract Text from DOCX:
+
+- Lê a estrutura interna do arquivo .docx
+- Extrai texto de parágrafos, tabelas, listas, cabeçalhos e rodapés
+- Descarta elementos visuais (imagens, gráficos, formatação)
+- Entrega um bloco de texto puro no contexto do agente
+
+### Onde encontrar
+
+1. Acesse o AI Studio
+2. Clique em Add AI Step
+3. Em Select Step Category, escolha Document Processing
+4. Selecione Extract Text from DOCX
+
+<Frame>
+  ![Image](/images/image-197.png)
+</Frame>
+
+### Como usar?
+
+Campos de configuração:
+
+| Campo | Obrigatório | Descrição |
+| :-- | :-- | :-- |
+| Step Name | Sim | Nome interno do step. Use apenas caracteres alfanuméricos. Utilizado para referenciar o resultado em outros steps ou prompts |
+| File URL | Sim | URL pública direta do arquivo .docx ou variável de entrada de arquivo do usuário (ex: `{{docxfile}}`) |
+
+### Sobre o Output
+
+O resultado gerado é um bloco contínuo de texto simples (plain text) contendo todo o conteúdo extraído do documento.
+
+<Columns cols={2}>
+  <Column>
+    <Card title="O que é extraído:">
+      - Parágrafos
+      - Itens de lista
+      - Dados de tabelas (linearizados)
+      - Cabeçalhos e rodapés
+    </Card>
+  </Column>
+  <Column>
+    <Card title="O que NÃO é extraído:">
+      - Imagens e fotos
+      - Gráficos e elementos
+      - Formatação visual do documento (cores, negrito, itálico, fontes)
+    </Card>
+  </Column>
+</Columns>
+
+<Warning>
+  Importante:
+
+  Tabelas são lidas de forma linear, seguindo a ordem das células. Um prompt bem estruturado ajuda o agente a interpretar corretamente dados tabulares extraídos dessa forma.
+</Warning>
+
+### Explicação mais profunda
+
+O step funciona como uma camada de decodificação de documentos.
+
+<Card title="Fluxo">
+  Arquivo .docx (URL ou variável) → Step extrai o texto puro
+
+          ↓
+
+  Conteúdo entra no contexto → Agente usa para analisar, resumir ou extrair dados
+</Card>
+
+O output deve ser tratado como dado bruto injetado no prompt. A qualidade da análise depende diretamente de:
+
+- Organização do documento original
+- Clareza do prompt que usa o resultado
+
+---
+
+### Exemplos práticos
+
+<AccordionGroup>
+  <Accordion title="Análise de contratos e propostas comerciais">
+    Prompt:\
+    "Analise o contrato extraído. Identifique cláusulas de risco, resumo dos termos de pagamento e dados do cliente."
+
+    Uso:
+
+    - Contratos jurídicos ou propostas comerciais em .docx
+    - Agente identifica pontos críticos sem leitura manual
+  </Accordion>
+
+  <Accordion title="Triagem automática de currículos">
+    Prompt:\
+    "Extraia as habilidades, experiências e formação do candidato. Compare com os requisitos da vaga abaixo e avalie o fit."
+
+    Uso:
+
+    - CVs enviados em .docx
+    - Agente classifica e resume perfis automaticamente
+  </Accordion>
+
+  <Accordion title="Resumo de relatórios internos">
+    Prompt:\
+    "Resuma os principais pontos deste relatório em até 5 tópicos executivos."
+
+    Uso:
+
+    - Relatórios mensais, atas de reunião ou documentos de gestão
+  </Accordion>
+
+  <Accordion title="Extração de dados estruturados">
+    Prompt:\
+    "Extraia do documento: nome da empresa, CNPJ, valor total, prazo de entrega e responsável técnico."
+
+    Uso:
+
+    - Documentos padronizados com campos fixos
+    - Alimentar CRM ou planilhas automaticamente
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Boas práticas**
+
+  - Prefira documentos bem estruturados: Títulos, parágrafos claros e tabelas organizadas geram extrações mais precisas
+  - Referencie o step no prompt: Use o nome definido no Step Name para indicar ao agente de onde vêm os dados. Ex: _"Com base nos dados do step _`extracao_contrato`_..."_
+  - Oriente o agente sobre tabelas: Informe no prompt que tabelas podem aparecer linearizadas, para que o modelo interprete corretamente
+  - Combine com outros steps: Ex: Extract Text → análise → Google Drive (salvar resultado)
+  - Evite documentos muito extensos: Arquivos com muitas páginas podem saturar a janela de contexto do agente
+</Tip>
+
+### Observações importantes
+
+- O step roda antes da interação com o usuário
+- A URL do arquivo precisa ser pública e acessível
+- Elementos visuais são completamente ignorados na extração
+- O output é texto bruto, sem formatação visual
+
+O Extract Text from DOCX elimina a barreira entre documentos Word e inteligência artificial. Com ele, contratos, currículos, relatórios e manuais se tornam dados processáveis em segundos, permitindo análises, resumos e extrações automáticas sem qualquer intervenção humana.

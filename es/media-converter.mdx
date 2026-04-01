@@ -1,0 +1,168 @@
+---
+title: "AI Step | Media Converter"
+---
+
+El step Media Converter te permite convertir archivos de audio y video entre diferentes formatos directamente dentro de Tess. Garantiza compatibilidad entre plataformas, reduce el tamaño de los archivos y permite extracciones como convertir video en audio.
+
+### ¿Qué es el Step?
+
+Media Converter actúa como un conversor universal de medios, integrado en el flujo del agente.
+
+En la práctica:
+
+- Recibe un archivo de audio o video vía URL o desde un step anterior
+- Lo convierte a un nuevo formato
+- Devuelve una URL del archivo convertido
+
+<Check>
+  Esto permite automatizar procesos multimedia sin depender de herramientas externas.
+</Check>
+
+### Dónde encontrarlo
+
+1. Accede al AI Studio
+2. Haz clic en Add AI Step
+3. Selecciona Document Processing
+4. Elige Media Converter
+
+<Frame>
+  ![Image](/images/image-200.png)
+</Frame>
+
+---
+
+## ¿Cómo usar?
+
+### Campos de configuración
+
+| Campo | Obligatorio | Descripción |
+| :-- | :-- | :-- |
+| Step Name | Sí | Nombre interno del step (alfanumérico). Se usa como referencia en el agente |
+| File URL | Sí | URL directa del archivo de audio o video, o variable de salida de otro step |
+| Convert To | Sí | Formato de salida deseado (ej: `.mp3`, `.mp4`, `.wav`) |
+
+## Formatos soportados
+
+<Columns cols={2}>
+  <Column>
+    <Card title="Audio">
+      `.mp3`
+
+      `.wav`
+
+      `.aac`
+
+      `.flac`
+
+      `.ogg`
+
+      `.wma`
+
+      `.m4a`
+
+      `.opus`
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Video">
+      `.mp4`
+
+      `.avi`
+
+      `.mkv`
+
+      `.mov`
+
+      `.wmv`
+
+      `.flv`
+
+      `.webm`
+
+      `.mpeg`
+
+      `.3gp`
+
+      `.ogv`
+
+      `.m4v`
+    </Card>
+  </Column>
+</Columns>
+
+### Sobre el Output
+
+El resultado es:
+
+- Una URL directa del archivo convertido
+- Contenido preservado (mismo audio/video, nuevo formato)
+- Listo para: descarga; envío y/o uso en otros steps
+
+### Explicación más profunda
+
+Este step funciona como una etapa de transformación de medios dentro del flujo.
+
+<Card title="Flujo">
+  Archivo original (audio/video) → Conversión de formato
+
+          ↓
+
+  Nueva URL generada → Usada en los siguientes steps
+</Card>
+
+<Info>
+   No analiza contenido — solo transforma el formato.
+</Info>
+
+## Ejemplos prácticos
+
+<AccordionGroup>
+  <Accordion title="Estandarización de campañas multimedia">
+    - Recibir videos en `.mov` o `.mkv`
+    - Convertir a `.mp4`
+    - Garantizar compatibilidad con redes sociales
+  </Accordion>
+
+  <Accordion title="Extracción de audio de videos">
+    - Convertir `.mp4` → `.mp3`
+    - Usar en:
+      - transcripción
+      - podcasts internos
+      - entrenamiento
+  </Accordion>
+
+  <Accordion title="Optimización de entrega a clientes">
+    - Convertir `.avi` → `.mp4`
+    - Reducir tamaño y mejorar compatibilidad
+  </Accordion>
+
+  <Accordion title="Pipeline de contenido automatizado">
+    Flujo ejemplo:
+
+    Video → Media Converter → MP3 → Transcription → Texto
+  </Accordion>
+
+  <Accordion title="Procesamiento de reuniones grabadas">
+    - Extraer audio
+    - Generar resúmenes automáticos con IA
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Buenas prácticas**
+
+  - Usa formatos estándar: `.mp4` (video) o `.mp3` (audio)
+  - Asegura URLs directas: enlaces de vista previa pueden fallar
+  - Combina con otros steps: Media Converter → Transcription → Analysis
+  - Estandariza formatos en el flujo: evita problemas posteriores
+  - Usa nombres claros en Step Name: ej: `video_a_mp3`
+</Tip>
+
+## Observaciones importantes
+
+- El step no analiza contenido, solo convierte
+- La URL debe ser pública y accesible
+- Archivos grandes pueden afectar el tiempo de procesamiento
+- La conversión puede variar levemente en calidad según el formato
+
+Media Converter elimina problemas de compatibilidad y prepara archivos multimedia para automatizaciones. Es esencial para flujos que involucran audio y video, permitiendo transformar, estandarizar y encadenar medios dentro de Tess de forma simple y escalable.

@@ -1,0 +1,150 @@
+---
+title: "AI Step | Extract Text from TXT, XML, RSS, JSON"
+---
+
+The Extract Text from TXT, XML, RSS, and JSON step converts structured or raw files into plain text, removing technical elements such as tags, keys, and syntax. With this, Tess transforms complex data into readable content ready for analysis by AI agents.
+
+### What is the Step?
+
+This step is part of the Document Processing category, responsible for cleaning and simplifying data from different formats.
+
+In practice, it:
+
+- Reads TXT, XML, RSS, and JSON files
+- Removes:
+  - XML tags
+  - JSON structures (keys, arrays)
+  - RSS metadata
+- Keeps only the relevant semantic content
+- Delivers a clean block of text in the agent's context
+
+### Where to find it
+
+1. Go to AI Studio
+2. Click on Add AI Step
+3. Select Document Processing
+4. Choose Extract Text from TXT, XML, RSS, and JSON
+
+<Frame>
+  ![Image](/images/image-198.png)
+</Frame>
+
+---
+
+## How to use?
+
+### Configuration fields
+
+| Field | Required | Description |
+| :-- | :-- | :-- |
+| Step Name | Yes | Internal step name (alphanumeric characters only). Used to reference the output in prompts |
+| File URL | Yes | Direct URL of the file (TXT, XML, RSS, or JSON) or input variable (e.g.: `{{json}}`) |
+
+## About the Output
+
+The result is a continuous block of plain text, without any original technical structure.
+
+<Columns cols={2}>
+  <Column>
+    <Card title="What is kept:">
+      - Semantic content (names, descriptions, values)
+      - All text relevant for human reading
+    </Card>
+  </Column>
+  <Column>
+    <Card title="What is removed:">
+      - XML tags (`<tag>`)
+      - JSON structures (`{}`, `[]`)
+      - RSS metadata
+      - Technical syntax
+    </Card>
+  </Column>
+</Columns>
+
+<Warning>
+  Important:
+
+  The original structure (hierarchy, nesting) is lost — the content becomes linear.
+</Warning>
+
+## Deeper explanation
+
+This step acts as a normalizer of technical data into natural language.
+
+<Card title="Flow">
+  File (TXT / XML / RSS / JSON) → Step removes technical structure
+
+          ↓
+
+  Clean text is generated → Agent interprets semantically
+</Card>
+
+<Note>
+  Note:
+
+  - The AI focuses on the content, not the structure
+  - Ideal for inputs that were not originally designed for human reading
+</Note>
+
+## Practical examples
+
+<AccordionGroup>
+  <Accordion title="Automated news monitoring (RSS)">
+    Prompt:\
+    "Summarize the main news of the day and identify relevant market trends."
+
+    Usage:
+
+    - RSS feed from news portals
+    - Agent generates automatic curation
+  </Accordion>
+
+  <Accordion title="Support log analysis (TXT)">
+    Prompt:\
+    "Analyze the logs and identify the main contact reasons and customer sentiment."
+
+    Usage:
+
+    - Chat or support logs
+    - Automatic issue classification
+  </Accordion>
+
+  <Accordion title="CRM integration (JSON)">
+    Prompt:\
+    "Based on the extracted data, generate a personalized prospecting email for each lead."
+
+    Usage:
+
+    - JSON export from CRM
+    - AI transforms into a commercial action
+  </Accordion>
+
+  <Accordion title="API and technical data processing">
+    Prompt:\
+    "Organize the extracted information and highlight the main indicators."
+
+    Usage:
+
+    - API responses
+    - Transform technical data into insights
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Best practices
+
+  - Use direct file URLs: avoid links that open web pages (HTML)
+  - Combine with structured prompts: e.g., "extract name, role, and company"
+  - Be careful with structure loss: nested JSON may lose logical context
+  - Use the Step Name in the prompt: e.g., _"Based on the data from step _`dados_crm`_..."_
+  - Combine with other steps: Extract → analysis → save to Sheets/Drive
+</Tip>
+
+## Important notes
+
+- The URL must be public and direct (no login required)
+- Original hierarchical structure is lost
+- The step does not preserve data formatting or organization
+- Large files may impact the context window
+
+Extract Text from TXT, XML, RSS, and JSON is the bridge between technical data and artificial intelligence. It enables transforming APIs, feeds, and structured files into usable information, unlocking analysis, automations, and content generation based on data that previously required manual processing.

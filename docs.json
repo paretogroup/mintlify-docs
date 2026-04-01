@@ -152,8 +152,13 @@
                     "group": "Document Processing",
                     "icon": "folder-open",
                     "pages": [
-                      "en/ocr-pdf",
+                      "en/csv-to-text",
+                      "en/text-from-docx",
                       "en/pdf-extract",
+                      "en/text-from-txt-xml-rss-json",
+                      "en/ocr-pdf",
+                      "en/marker-document-processing",
+                      "en/media-converter",
                       "en/pdf-pages"
                     ]
                   }
@@ -443,8 +448,13 @@
                   {
                     "group": "Document Processing",
                     "pages": [
-                      "pt/ocr-pdf",
+                      "pt/csv-to-text",
+                      "pt/text-from-docx",
                       "pt/pdf-extract",
+                      "pt/text-from-txt-xml-rss-json",
+                      "pt/ocr-pdf",
+                      "pt/marker-document-processing",
+                      "pt/media-converter",
                       "pt/pdf-pages"
                     ]
                   }
@@ -734,9 +744,14 @@
                   {
                     "group": "Document Processing",
                     "pages": [
-                      "es/ocr-pdf",
+                      "es/csv-to-text",
+                      "es/text-from-docx",
                       "es/pdf-extract",
-                      "es/pdf-pages"
+                      "es/text-from-txt-xml-rss-json",
+                      "es/ocr-pdf",
+                      "es/pdf-pages",
+                      "es/marker-document-processing",
+                      "es/media-converter"
                     ]
                   }
                 ]

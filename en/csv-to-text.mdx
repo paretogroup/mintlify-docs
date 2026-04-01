@@ -1,0 +1,126 @@
+---
+title: "AI Step | CSV to Text"
+---
+
+The CSV to Text step converts spreadsheet files (.csv) into structured, readable text for language models. With it, your agents can directly consume tabular data without needing spreadsheet software or manual file processing.
+
+### What is the Step?
+
+This step belongs to the Document Processing group — a category dedicated to transforming file formats into content usable by AI.
+
+In practice, CSV to Text:
+
+- Reads CSV files hosted online or uploaded by the user
+- Automatically detects delimiters (comma, semicolon, etc.)
+- Converts tabular content into plain, continuous text
+- Injects this text into the agent’s context before the conversation starts
+
+The output is a block of raw text, properly formatted to be used in prompts as a basis for analysis, report generation, or contextual responses.
+
+### Where to find it
+
+1. Go to AI Studio
+2. Click on Add AI Step
+3. In Select Step Category, choose Document Processing
+4. Select CSV to Text
+
+<Frame>
+  <img
+    src="/images/image-196.png"
+    alt="Image"
+    title="Image"
+    style={{ width:"53%" }}
+  />
+</Frame>
+
+### How to use (Quickstart)
+
+Configuration fields:
+
+| Field | Required | Description |
+| :-- | :-- | :-- |
+| Step Name | Yes | Internal step name. Use only alphanumeric characters. This name is used to reference the result in other steps or prompts |
+| File Upload | Yes | Direct URL of a CSV file hosted online or a user file input variable (e.g.: `{{csvfile}}`) |
+
+The step acts as a bridge between tabular data and natural language.
+
+<Card title="Flow">
+  CSV (URL or upload) → Step processes and converts
+
+          ↓
+
+  Plain text enters the context → Agent uses the data to respond
+</Card>
+
+About the output:
+
+- The content is presented linearly — without visual table formatting
+- The row and column structure is converted into a textual sequence
+- It should be treated as raw data injected into the prompt
+
+<Tip>
+  **Quality tip:**\
+  CSV files with a header row generate much more accurate context for the agent. Without headers, the model may struggle to identify what each column represents.
+</Tip>
+
+### Practical examples
+
+**1. Campaign and lead analysis**
+
+Prompt:\
+"Analyze the lead spreadsheet data. Identify conversion patterns, compare performance by channel, and generate a weekly performance report with budget optimization suggestions."
+
+Usage:
+
+- Export CSV from CRM or traffic platform
+- Host it online or use as User Input
+- Step converts and agent analyzes automatically
+
+**2. Automated candidate screening**
+
+Prompt:\
+"Evaluate the candidates listed in the file. Cross-reference skills and years of experience with the job requirements below and generate a ranking of the top 5 most suitable profiles with individual summaries."
+
+Usage:
+
+- CSV exported from a recruitment platform
+- Agent processes and ranks without human intervention
+
+**3. Churn and feedback monitoring**
+
+Prompt:\
+"Analyze customer satisfaction and usage data. Categorize main complaints, identify customers at high risk of churn, and suggest preventive actions for each profile."
+
+Usage:
+
+- CSV exported from CRM or survey tools
+- Agent generates actionable insights for the retention team
+
+**4. Operational data consolidation**
+
+Prompt:\
+"Read the spreadsheet data and create an executive summary with the main KPIs, deviations, and operational alerts for the period."
+
+Usage:
+
+- Operational reports in CSV format
+- Ideal for Text Agents triggered automatically
+
+<Tip>
+  **Best practices**
+
+  - Use files with headers: the first row with column names greatly improves agent accuracy
+  - Prefer clean and organized files: merged columns, special formatting, or inconsistent data reduce conversion quality
+  - Reference the step in the prompt: use the step name to tell the agent where the data is. Example: _"Use the data from step _`analise_leads`_ to..."_
+  - Combine with other steps: CSV to Text → analysis → Google Sheets Write Values (to export results)
+  - Avoid very large files: spreadsheets with many columns and thousands of rows may exceed the agent’s context window
+</Tip>
+
+### Important notes
+
+- The step runs before user interaction
+- The file URL must be public and accessible
+- The result is raw text, not a formatted table
+- Analysis quality depends on the organization of the original file
+
+CSV to Text is the gateway for structured data within Tess. It democratizes access to spreadsheets without requiring external tools, allowing any agent to read, interpret, and generate insights from tabular data in an autonomous and scalable way.

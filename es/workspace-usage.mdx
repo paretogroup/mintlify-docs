@@ -1,0 +1,310 @@
+---
+title: "Uso del workspace"
+description: "Lista el historial de ejecuciones de agentes de un workspace con filtros, paginación y campos enriquecidos."
+openapi: "GET /workspaces/usage"
+---
+
+`GET /workspaces/usage`
+
+Devuelve el **historial de ejecuciones de agentes** de un workspace. Los resultados combinan ejecuciones actuales, filas archivadas y chats editados (consulta **Campos de cada elemento**). El orden es por `created_at` descendente y, a continuación, `id` descendente.
+
+Tu token de API debe poder **usar agentes** (`use_agents`), y debes tener acceso al workspace: mismas capas que el resto de rutas de agentes y archivos (autenticación Sanctum, comprobación de acceso al workspace).
+
+### **Ejemplos de código**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/workspaces/usage?range=7d&page=1&per_page=20' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Accept: application/json' \
+  --header 'x-workspace-id: YOUR_WORKSPACE_ID'
+```
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/workspaces/usage',
+  params: {
+    range: '7d',
+    page: 1,
+    per_page: 20
+  },
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Accept': 'application/json',
+    'x-workspace-id': 'YOUR_WORKSPACE_ID'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+```python Python
+import requests
+
+url = "https://api.tess.im/workspaces/usage"
+params = {
+    "range": "7d",
+    "page": 1,
+    "per_page": 20
+}
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Accept": "application/json",
+    "x-workspace-id": "YOUR_WORKSPACE_ID"
+}
+
+response = requests.get(url, params=params, headers=headers)
+print(response.json())
+```
+
+```php PHP
+<?php
+$curl = curl_init();
+$query = http_build_query([
+  'range' => '7d',
+  'page' => 1,
+  'per_page' => 20
+]);
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/workspaces/usage?" . $query,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY",
+    "Accept: application/json",
+    "x-workspace-id: YOUR_WORKSPACE_ID"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/workspaces/usage?range=7d&page=1&per_page=20"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .header("Accept", "application/json")
+    .header("x-workspace-id", "YOUR_WORKSPACE_ID")
+    .GET()
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    client := &http.Client{}
+    req, err := http.NewRequest("GET", "https://api.tess.im/workspaces/usage?range=7d&page=1&per_page=20", nil)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+    req.Header.Add("Accept", "application/json")
+    req.Header.Add("x-workspace-id", "YOUR_WORKSPACE_ID")
+
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println(string(body))
+}
+```
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+            client.DefaultRequestHeaders.Add("x-workspace-id", "YOUR_WORKSPACE_ID");
+
+            try
+            {
+                var response = await client.GetAsync("https://api.tess.im/workspaces/usage?range=7d&page=1&per_page=20");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("Excepción: " + e.Message);
+            }
+        }
+    }
+}
+```
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+
+uri = URI('https://api.tess.im/workspaces/usage?range=7d&page=1&per_page=20')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+request['Accept'] = 'application/json'
+request['x-workspace-id'] = 'YOUR_WORKSPACE_ID'
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Encabezados**
+
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción** |
+| :------------ | :------- | :------------ | :-------------- |
+| Authorization | string | Sí | Token `Bearer` (clave API). El token debe incluir la ability **`use_agents`**. |
+| x-workspace-id | integer | Sí | ID numérico del workspace. Valores inválidos o ausentes devuelven **422**. Debes pertenecer a ese workspace; si no, **403**. |
+| Accept | string | No | Usa `application/json` si el cliente debe declarar JSON explícitamente. |
+
+### **Parámetros de consulta**
+
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción** | **Predeterminado / reglas** |
+| :------------ | :------- | :------------ | :-------------- | :------------------------- |
+| range | string | No | Ventana relativa: `1d`, `7d` o `30d`. Se ignora si se envían `start_date` y `end_date`. | Si no se envía ninguna fecha, el valor efectivo por defecto es **`30d`**. |
+| start_date | date (`YYYY-MM-DD`) | Condicional | Inicio del rango (inclusivo). | **Requerido con** `end_date`. |
+| end_date | date (`YYYY-MM-DD`) | Condicional | Fin del rango (inclusivo). Debe ser `>= start_date`. | **Requerido con** `start_date`. El rango **no puede superar 90 días**; si no, **422**. |
+| user_id | integer | No | Filtra por el usuario que ejecutó el agente. | Sin permiso para ver la actividad de otros en el workspace, solo ves **tus** ejecuciones; filtrar por otro usuario devuelve **403**. |
+| type | string | No | Tipo de agente: `all`, `chat`, `image`, `text`, `voiceover`, `video`, `code`. | `all` u omitido = sin filtro de tipo. |
+| page | integer | No | Número de página. | Predeterminado **1**, mínimo **1**. |
+| per_page | integer | No | Tamaño de página. | Predeterminado **20**, entre **1** y **100**. |
+
+**Ventanas de fechas**
+
+- Con **`start_date` + `end_date`**: el rango inclusivo tiene un máximo de **90 días**.
+- Con **`range`**: la ventana es relativa al **fin del día actual** (`1d` = últimas 24 h desde ese instante; `7d` / `30d` = últimos 7 o 30 días naturales desde ese fin).
+- Si el flag **`usage_history_min_date`** está activo en la configuración, el inicio efectivo no será anterior a esa fecha (recorte silencioso).
+
+**Caché**
+
+- El listado se guarda en caché unos **60 segundos** por workspace, filtros y página. Las peticiones idénticas en ese intervalo pueden devolver el mismo cuerpo.
+
+### **Respuesta**
+
+```json
+{
+  "items": [
+    {
+      "id": "183450",
+      "created_at": "2026-04-07 16:17:09",
+      "user_id": 16643,
+      "type": "chat",
+      "status": "succeeded",
+      "email": "user@example.com",
+      "credits": 1.5,
+      "name": "Mi asistente personal",
+      "slug": "9b4994e3-07e9-4163-b5c0-9c4f18945eda-my-personal-assistant",
+      "output": "This content is only available on Tess",
+      "root_id": null,
+      "execution_origin": "Platform",
+      "source": "current",
+      "used_model": "gpt-4o-mini",
+      "tokens": {
+        "input": 1240,
+        "output": 320,
+        "total": 1560
+      },
+      "link": "/dashboard/user/ai/chat/ai-chat/9b4994e3-07e9-4163-b5c0-9c4f18945eda-my-personal-assistant?_chat_id=183450"
+    }
+  ],
+  "pagination": {
+    "current_page": 1,
+    "per_page": 20,
+    "has_more": false
+  }
+}
+```
+
+La paginación usa **`has_more`**: el servicio pide `per_page + 1` filas; si existe la fila extra, **`has_more`** es `true` y solo las primeras **`per_page`** aparecen en **`items`**.
+
+### **Campos de cada elemento**
+
+| **Campo** | **Descripción** |
+| :-------- | :-------------- |
+| id | ID de ejecución o ID sintético como `chat-edited-{user_openai_id}` para chats editados. |
+| created_at | Marca de tiempo de la ejecución. |
+| user_id | Usuario que ejecutó el agente. |
+| type | Tipo de agente (por ejemplo `chat`, `image`, `text`, `voiceover`, `video`, `code`). |
+| status | `succeeded` o `failed` (los estados distintos de éxito se mapean a `failed`). |
+| email | Correo del usuario que ejecutó. |
+| credits | Créditos cobrados; **0** cuando el estado no es `succeeded`. |
+| name | Título del agente. |
+| slug | Slug del agente. |
+| output | **current:** en `image`, `video` y `voiceover` es la salida real; en otros tipos, el texto fijo **`This content is only available on Tess`**. **archived:** **`This item was deleted.`** **edited:** **`This item was edited.`** |
+| root_id | Raíz de la conversación (chat), si existe. |
+| execution_origin | Origen en los metadatos de ejecución, si existe. |
+| source | `current`, `archived` o `edited`. |
+| used_model | Nombre del modelo cuando está almacenado; **`null`** para filas **edited** en la lógica actual. |
+| tokens | Objeto `{ "input", "output", "total" }` cuando `detailed_credits` indica facturación por **token**; si no, **`null`** (habitual en image, video, voiceover). |
+| link | URL o ruta en la app para abrir el recurso cuando aplica; **`null`** en `archived` y `edited` y en tipos sin enlace. **Chat (current):** ruta `/dashboard/user/ai/chat/ai-chat/{slug}?_chat_id={id}` con **`root_id`** si está definido; si no, el **`id`** de la fila. **Image / video / voiceover (current):** URL firmada o pública en el almacenamiento cuando `output` sea utilizable; si no, **`null`**. |
+
+### **Errores**
+
+| **Estado** | **Cuándo** |
+| :--------- | :--------- |
+| 401 | Autenticación ausente o inválida (Sanctum). |
+| 403 | Sin acceso al workspace, o **`user_id`** de otro usuario sin permiso para ver esas ejecuciones. |
+| 422 | Parámetros inválidos (validación Laravel), workspace inválido o ausente, fechas inválidas o rango personalizado mayor de **90 días**. |
+
+Los errores de validación usan el payload estándar de Laravel; algunos errores de workspace devuelven JSON `{ "message": "..." }` con mensaje traducible.

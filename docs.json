@@ -249,6 +249,13 @@
                       "en/list-webhooks",
                       "en/delete-webhook"
                     ]
+                  },
+                  {
+                    "group": "Workspaces",
+                    "icon": "network-wired",
+                    "pages": [
+                      "en/workspace-usage"
+                    ]
                   }
                 ]
               },

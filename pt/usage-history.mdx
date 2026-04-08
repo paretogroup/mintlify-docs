@@ -1,0 +1,169 @@
+---
+title: "Histórico de uso"
+description: "Recupere uma lista paginada de registros de uso do workspace com opções de filtragem"
+---
+
+`GET /usage/history`
+
+Recupere uma lista paginada de registros de uso de um workspace. Você pode filtrar por período, tipo de uso e usuário. Os resultados são ordenados por data de criação em ordem decrescente.
+
+### **Exemplos de código**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/usage/history?range=7d&per_page=10' \
+  --header 'Authorization: Bearer SUA_CHAVE_API' \
+  --header 'x-workspace-id: SEU_WORKSPACE_ID'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/usage/history',
+  params: {
+    range: '7d',
+    per_page: 10
+  },
+  headers: {
+    'Authorization': 'Bearer SUA_CHAVE_API',
+    'x-workspace-id': 'SEU_WORKSPACE_ID'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/usage/history"
+headers = {
+    "Authorization": "Bearer SUA_CHAVE_API",
+    "x-workspace-id": "SEU_WORKSPACE_ID"
+}
+params = {
+    "range": "7d",
+    "per_page": 10
+}
+
+response = requests.get(url, headers=headers, params=params)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/usage/history?range=7d&per_page=10",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer SUA_CHAVE_API",
+    "x-workspace-id: SEU_WORKSPACE_ID"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Erro: " . $err;
+} else {
+  echo $response;
+}
+```
+
+</CodeGroup>
+
+### **Parâmetros de consulta**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição** |
+| :------------ | :------- | :-------------- | :------------ |
+| range | string | Não | Período predefinido. Opções: `1d`, `7d`, `15d`, `30d`, `60d`, `90d`. Padrão: `30d`. Ignorado se `start_date` e `end_date` forem fornecidos. |
+| start_date | string | Não | Data de início personalizada no formato `YYYY-MM-DD`. Sobrepõe `range` quando usado com `end_date`. |
+| end_date | string | Não | Data de fim personalizada no formato `YYYY-MM-DD`. Sobrepõe `range` quando usado com `start_date`. |
+| type | string | Não | Filtrar por tipo de uso (ex.: `image`, `text`, `video`). |
+| user_id | integer | Não | Filtrar por um ID de usuário específico dentro do workspace. |
+| per_page | integer | Não | Número de itens por página (padrão: 15). |
+| page | integer | Não | Número da página para paginação (padrão: 1). |
+
+<Warning>
+  O período não pode exceder 90 dias. Requisições com um período superior a 90 dias retornarão um erro `422`.
+</Warning>
+
+### **Cabeçalhos**
+
+| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição** |
+| :------------- | :------- | :-------------- | :------------ |
+| x-workspace-id | integer  | Sim             | ID do workspace para recuperar os dados de uso. |
+
+### **Permissões necessárias**
+
+- **`WORKSPACE_DOCUMENTS_READ`**: Usuários com esta permissão podem visualizar dados de uso de todos os membros do workspace.
+- Sem esta permissão, os usuários só podem ver seus próprios dados de uso.
+
+### **Resposta**
+
+Uma resposta bem-sucedida retorna um código de status `200` com uma lista paginada de registros de uso:
+
+```json
+{
+  "data": [
+    {
+      "id": 12345,
+      "name": "Briefing de Campanha de Marketing",
+      "type": "text",
+      "email": "usuario@exemplo.com",
+      "credits": 1.5,
+      "created_at": "2025-04-01T14:30:00+00:00",
+      "execution_origin": "chat",
+      "link": "https://tess.im/...",
+      "status": "completed",
+      "slug": "briefing-campanha-marketing"
+    }
+  ],
+  "has_more": true
+}
+```
+
+#### Campos da resposta
+
+| **Campo** | **Tipo** | **Descrição** |
+| :-------- | :------- | :------------ |
+| id | integer | Identificador único do registro de uso. |
+| name | string | Nome do recurso executado. |
+| type | string | Tipo de uso (ex.: `text`, `image`, `video`). |
+| email | string | Email do usuário que realizou a execução. |
+| credits | number | Número de créditos consumidos. |
+| created_at | string | Timestamp ISO 8601 de quando a execução ocorreu. |
+| execution_origin | string | Origem da execução (ex.: `chat`, `api`, `agent`). |
+| link | string | URL para o resultado da execução. |
+| status | string | Status da execução (ex.: `completed`). |
+| slug | string | Identificador amigável para URL do recurso. |
+| has_more | boolean | Se há mais páginas de resultados disponíveis. |
+
+### **Respostas de erro**
+
+| **Código de status** | **Descrição** |
+| :------------------- | :------------ |
+| 401 | Não autenticado. Chave de API inválida ou ausente. |
+| 422 | Erro de validação. Cabeçalho `x-workspace-id` ausente ou período superior a 90 dias. |

@@ -249,6 +249,13 @@
                       "en/list-webhooks",
                       "en/delete-webhook"
                     ]
+                  },
+                  {
+                    "group": "Usage",
+                    "icon": "chart-line",
+                    "pages": [
+                      "en/usage-history"
+                    ]
                   }
                 ]
               },
@@ -545,6 +552,13 @@
                       "pt/list-webhooks",
                       "pt/delete-webhook"
                     ]
+                  },
+                  {
+                    "group": "Uso",
+                    "icon": "chart-line",
+                    "pages": [
+                      "pt/usage-history"
+                    ]
                   }
                 ]
               },
@@ -840,6 +854,13 @@
                     "pages": [
                       "es/list-webhooks",
                       "es/delete-webhook"
+                    ]
+                  },
+                  {
+                    "group": "Uso",
+                    "icon": "chart-line",
+                    "pages": [
+                      "es/usage-history"
                     ]
                   }
                 ]

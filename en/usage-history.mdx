@@ -1,0 +1,169 @@
+---
+title: "Usage history"
+description: "Retrieve a paginated list of workspace usage records with filtering options"
+---
+
+`GET /usage/history`
+
+Retrieve a paginated list of usage records for a workspace. You can filter by date range, usage type, and user. Results are sorted by creation date in descending order.
+
+### **Code examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/usage/history?range=7d&per_page=10' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'x-workspace-id: YOUR_WORKSPACE_ID'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/usage/history',
+  params: {
+    range: '7d',
+    per_page: 10
+  },
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'x-workspace-id': 'YOUR_WORKSPACE_ID'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/usage/history"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "x-workspace-id": "YOUR_WORKSPACE_ID"
+}
+params = {
+    "range": "7d",
+    "per_page": 10
+}
+
+response = requests.get(url, headers=headers, params=params)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/usage/history?range=7d&per_page=10",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY",
+    "x-workspace-id: YOUR_WORKSPACE_ID"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+</CodeGroup>
+
+### **Query parameters**
+
+| **Parameter** | **Type** | **Required** | **Description** |
+| :------------ | :------- | :----------- | :-------------- |
+| range | string | No | Predefined date range. Options: `1d`, `7d`, `15d`, `30d`, `60d`, `90d`. Defaults to `30d`. Ignored if `start_date` and `end_date` are provided. |
+| start_date | string | No | Custom start date in `YYYY-MM-DD` format. Overrides `range` when used with `end_date`. |
+| end_date | string | No | Custom end date in `YYYY-MM-DD` format. Overrides `range` when used with `start_date`. |
+| type | string | No | Filter by usage type (e.g., `image`, `text`, `video`). |
+| user_id | integer | No | Filter by a specific user ID within the workspace. |
+| per_page | integer | No | Number of items per page (default: 15). |
+| page | integer | No | Page number for pagination (default: 1). |
+
+<Warning>
+  The date range cannot exceed 90 days. Requests with a range greater than 90 days will return a `422` error.
+</Warning>
+
+### **Headers**
+
+| **Parameter**  | **Type** | **Required** | **Description** |
+| :------------- | :------- | :----------- | :-------------- |
+| x-workspace-id | integer  | Yes          | ID of the workspace to retrieve usage data for. |
+
+### **Required permissions**
+
+- **`WORKSPACE_DOCUMENTS_READ`**: Users with this permission can view usage data for all workspace members.
+- Without this permission, users can only see their own usage data.
+
+### **Response**
+
+A successful response returns a `200` status code with a paginated list of usage records:
+
+```json
+{
+  "data": [
+    {
+      "id": 12345,
+      "name": "Marketing Campaign Brief",
+      "type": "text",
+      "email": "user@example.com",
+      "credits": 1.5,
+      "created_at": "2025-04-01T14:30:00+00:00",
+      "execution_origin": "chat",
+      "link": "https://tess.im/...",
+      "status": "completed",
+      "slug": "marketing-campaign-brief"
+    }
+  ],
+  "has_more": true
+}
+```
+
+#### Response fields
+
+| **Field** | **Type** | **Description** |
+| :-------- | :------- | :-------------- |
+| id | integer | Unique identifier of the usage record. |
+| name | string | Name of the executed resource. |
+| type | string | Type of usage (e.g., `text`, `image`, `video`). |
+| email | string | Email of the user who performed the execution. |
+| credits | number | Number of credits consumed. |
+| created_at | string | ISO 8601 timestamp of when the execution occurred. |
+| execution_origin | string | Where the execution originated from (e.g., `chat`, `api`, `agent`). |
+| link | string | URL to the execution result. |
+| status | string | Status of the execution (e.g., `completed`). |
+| slug | string | URL-friendly identifier of the resource. |
+| has_more | boolean | Whether there are more pages of results available. |
+
+### **Error responses**
+
+| **Status code** | **Description** |
+| :-------------- | :-------------- |
+| 401 | Unauthenticated. Invalid or missing API key. |
+| 422 | Validation error. Missing `x-workspace-id` header or date range exceeds 90 days. |

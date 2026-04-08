@@ -2,12 +2,18 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
+    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification. Workspace usage endpoints document the Tess agent execution history API.",
     "license": {
       "name": "MIT"
     },
     "version": "1.0.0"
   },
+  "tags": [
+    {
+      "name": "Usage",
+      "description": "Workspace agent execution history and usage reporting."
+    }
+  ],
   "servers": [
     {
       "url": "http://sandbox.mintlify.com"
@@ -19,6 +25,171 @@
     }
   ],
   "paths": {
+    "/api/workspaces/usage": {
+      "get": {
+        "tags": [
+          "Usage"
+        ],
+        "summary": "List workspace agent execution history",
+        "description": "Returns a paginated list of agent executions for a workspace (current `user_openai` rows, archived executions, and edited chats), with optional filters for date range, agent type, and user. Results are cached for 60 seconds per query key. Pagination uses a `has_more` pattern (one extra row is fetched to detect the next page).\n\n**Auth stack (pre-production):** Sanctum (`auth:sanctum`), Tess workspace API access (`checkApiWorkspaceAccess`), and token ability `use_agents`.\n\n**Workspace header:** Send numeric workspace id in `x-workspace-id`. Missing or invalid values yield **422** with a JSON `message`.\n\n**Filtering by another user's `user_id`:** Only allowed if the authenticated user has the workspace permission configured in `WORKSPACE_DOCUMENTS_READ`. Otherwise the scope is forced to the current user only; supplying another user's id returns **403**.\n\n**Date rules:** Either use `range` (`1d`, `7d`, `30d`) when `start_date`/`end_date` are omitted (default effective range is **30d**), or send both `start_date` and `end_date` (`YYYY-MM-DD`) with `end_date` ≥ `start_date` and span ≤ **90** days. With `range`, the window is relative to the end of the current day. A feature flag may clamp the effective start to a configured minimum date (silent adjustment).\n\n**Data sources:** UNION of current executions, `user_openai_archives`, and `user_openai_edits`, ordered by `created_at` desc, then `id` desc.",
+        "parameters": [
+          {
+            "name": "x-workspace-id",
+            "in": "header",
+            "required": true,
+            "description": "Numeric workspace id. Required for business logic; invalid or missing values produce **422**.",
+            "schema": {
+              "type": "string",
+              "example": "42"
+            }
+          },
+          {
+            "name": "range",
+            "in": "query",
+            "description": "Relative window: `1d`, `7d`, or `30d`. Used only when **both** `start_date` and `end_date` are omitted. If no date parameters are sent, behavior defaults to **30d**.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1d",
+                "7d",
+                "30d"
+              ]
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "description": "Start of inclusive date range (`YYYY-MM-DD`). Must be sent together with `end_date` (`required_with`).",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2026-01-01"
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "description": "End of inclusive date range (`YYYY-MM-DD`). Must be ≥ `start_date`. Range span must not exceed 90 days.",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2026-01-31"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "Filter executions by user. Filtering by another user requires `WORKSPACE_DOCUMENTS_READ` for the workspace; otherwise **403**.",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Agent type filter. `all` or omitted = no type filter.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "all",
+                "chat",
+                "image",
+                "text",
+                "voiceover",
+                "video",
+                "code"
+              ],
+              "default": "all"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (1-based).",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Page size. Between 1 and 100; default 20.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated execution history.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceUsageResponse"
+                },
+                "examples": {
+                  "sample": {
+                    "summary": "Example page",
+                    "value": {
+                      "items": [
+                        {
+                          "id": 1001,
+                          "created_at": "2026-04-07T14:22:00.000000Z",
+                          "user_id": 55,
+                          "type": "chat",
+                          "status": "succeeded",
+                          "email": "user@example.com",
+                          "credits": 12,
+                          "name": "Support agent",
+                          "slug": "support-agent",
+                          "output": "This content is only available on Tess",
+                          "root_id": 900,
+                          "execution_origin": "dashboard",
+                          "source": "current",
+                          "used_model": "gpt-4o",
+                          "tokens": {
+                            "input": 1200,
+                            "output": 400,
+                            "total": 1600
+                          },
+                          "link": "/dashboard/user/ai/chat/ai-chat/support-agent?_chat_id=900"
+                        }
+                      ],
+                      "pagination": {
+                        "current_page": 1,
+                        "per_page": 20,
+                        "has_more": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated (Sanctum)."
+          },
+          "403": {
+            "description": "JSON `{\"message\": \"...\"}` — user not associated with the workspace, or `user_id` targets another user without `WORKSPACE_DOCUMENTS_READ`. Message may be empty depending on the exception."
+          },
+          "422": {
+            "description": "Laravel validation errors for query parameters; or JSON `{\"message\": \"...\"}` for invalid/missing workspace, invalid dates, or date range exceeding 90 days."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/plants": {
       "get": {
         "description": "Returns all plants from the system that the user has access to",
@@ -154,6 +325,172 @@
   },
   "components": {
     "schemas": {
+      "WorkspaceUsageResponse": {
+        "type": "object",
+        "required": [
+          "items",
+          "pagination"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkspaceUsageItem"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/WorkspaceUsagePagination"
+          }
+        }
+      },
+      "WorkspaceUsagePagination": {
+        "type": "object",
+        "required": [
+          "current_page",
+          "per_page",
+          "has_more"
+        ],
+        "properties": {
+          "current_page": {
+            "type": "integer",
+            "description": "Current page (1-based)."
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Requested page size."
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "True if another page exists. The API requests `per_page + 1` rows; if the extra row exists, `has_more` is true and only the first `per_page` rows are returned in `items`."
+          }
+        }
+      },
+      "UsageTokens": {
+        "type": "object",
+        "description": "Present only when `detailed_credits` decodes to `metric === \"token\"`. Otherwise `tokens` is null.",
+        "required": [
+          "input",
+          "output",
+          "total"
+        ],
+        "properties": {
+          "input": {
+            "type": "integer"
+          },
+          "output": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer",
+            "description": "Sum of input and output."
+          }
+        }
+      },
+      "WorkspaceUsageItem": {
+        "type": "object",
+        "description": "Single execution row after enrichment. Base fields align with `ExportExecutionsByWorkspaceJob::getExecutionsData`; `used_model`, `tokens`, and `link` are added by `WorkspaceUsageService`.",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "description": "Synthetic id for edited chats, e.g. `chat-edited-{user_openai_id}`."
+              }
+            ],
+            "description": "Execution id, archive id from JSON, or synthetic `chat-edited-*` for edits."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user_id": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "string",
+            "description": "OpenAI agent type from `openai.type` (e.g. chat, image, text, voiceover, video, code)."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "succeeded",
+              "failed"
+            ],
+            "description": "`succeeded` when `user_openai.status` indicates success; otherwise `failed` (including empty status)."
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Email of the user who ran the execution."
+          },
+          "credits": {
+            "type": "number",
+            "description": "Credits for the execution; **0** if status is not `succeeded`."
+          },
+          "name": {
+            "type": "string",
+            "description": "Agent title (`openai.title`)."
+          },
+          "slug": {
+            "type": "string",
+            "description": "Agent slug."
+          },
+          "output": {
+            "type": "string",
+            "description": "**current:** for `image`, `video`, `voiceover`, the real output; for other types, fixed text `This content is only available on Tess`. **archived:** `This item was deleted.` **edited:** `This item was edited.`"
+          },
+          "root_id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Conversation root id when applicable."
+          },
+          "execution_origin": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "From `metadata.execution_origin` (or equivalent in archived/edited payloads)."
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "current",
+              "archived",
+              "edited"
+            ]
+          },
+          "used_model": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "**current:** `user_openai.used_model` when column exists. **archived:** `data.used_model` in archive JSON. **edited:** always null in current logic."
+          },
+          "tokens": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UsageTokens"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Token breakdown when billing metric is token-based; often null for image/video/voiceover."
+          },
+          "link": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "**archived** / **edited:** always null. **current chat:** app path `/dashboard/user/ai/chat/ai-chat/{slug}?_chat_id={id}` using `root_id` when set, else row `id`; omitted for invalid ids or ids starting with `chat-edited-`. **current image/video/voiceover:** signed/public URL from storage when `output` is non-empty and does not contain “content is only available” (case insensitive). Other types: null."
+          }
+        }
+      },
       "Plant": {
         "required": [
           "name"

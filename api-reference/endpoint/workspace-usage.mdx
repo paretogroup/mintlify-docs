@@ -1,0 +1,39 @@
+---
+title: 'List workspace usage'
+description: 'Paginated agent execution history for a workspace, with filters and enrichment (model, tokens, links).'
+openapi: 'GET /api/workspaces/usage'
+---
+
+## When to use this endpoint
+
+Use **GET /api/workspaces/usage** when you need the **history of agent executions** for a workspace: live rows, archived runs, and edited chats in one list, sorted by newest first. The API applies **60 seconds** of caching per query key and uses **`has_more` pagination** (no total count).
+
+## Authentication and headers
+
+You must be authenticated with **Laravel Sanctum** and use a token that includes the **`use_agents`** ability. The route also runs Tess **`checkApiWorkspaceAccess`** like other agent API endpoints.
+
+Send the numeric workspace identifier in **x-workspace-id**. The server validates it; missing or invalid values return **422** with a JSON `message`.
+
+## Permissions and `user_id`
+
+| Your situation | Effect |
+| --- | --- |
+| You belong to the workspace | You can list executions scoped to the resolved filters. |
+| You do **not** belong to the workspace | **403** — not authorized for that workspace. |
+| You omit `user_id` or filter **your own** id | Allowed (subject to workspace membership). |
+| You set `user_id` to **another** user | Allowed **only** if you have **`WORKSPACE_DOCUMENTS_READ`** for that workspace (from `config('feature.WORKSPACE_DOCUMENTS_READ')`). Otherwise the service restricts results to **you**, and requesting another user’s id yields **403**. |
+
+## Date range behavior
+
+- **Default:** If you send **no** date parameters, the effective window is the last **30 days** (same as `range=30d`).
+- **`range`:** `1d`, `7d`, or `30d` — used **only** when **both** `start_date` and `end_date` are absent. The window is anchored to the **end of the current day**.
+- **Absolute range:** `start_date` and `end_date` together (`YYYY-MM-DD`), with `end_date` ≥ `start_date` and span ≤ **90 days**. Exceeding 90 days returns **422**.
+- **Minimum date:** If the `feature_usage_history_min_date_enabled` toggle and `usage_history_min_date` are set, the **start** of the range is clamped to that minimum (silent adjustment). Settings may be cached (~1 hour) in the service.
+
+## What each item represents
+
+Rows come from a **UNION** of **current** `user_openai`, **archived** snapshots, and **edited** chat records (`source` is `current`, `archived`, or `edited`). Enrichment adds **`used_model`**, **`tokens`**, and **`link`** when the backend can resolve them; see the response schema in the reference panel for nullability and type-specific rules.
+
+## Implementation references (backend)
+
+Aligned with **`origin/pre-production`** / **TESS-29**: `WorkspaceUsageController`, `WorkspaceUsageService`, `ExportExecutionsByWorkspaceJob::getExecutionsData`, and `routes/api.php` under the workspaces group.

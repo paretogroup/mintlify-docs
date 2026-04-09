@@ -1,86 +1,39 @@
 /*
-  API endpoint pages — all screen sizes:
-  - Content area (Try it + body) stays on the left, full available width
-  - On this page (TOC) stays on the right at its normal width
-  - Code examples block always drops below the main content, full-width
-  - Empty side container shells are hidden
+  API operation pages:
+  - Keep TOC in right sidebar
+  - Show code examples directly below Try it on ALL breakpoints
+  - Hide duplicate code panel in sidebar
 */
 
-/* Allow wrapping so code examples can drop to a second row */
-#content-container:has(#api-playground-2-operation-page) {
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-/* Main content area: stays first, takes all available space */
-#content-container:has(#api-playground-2-operation-page) #content-area {
-  order: 1;
-  flex: 1;
-  min-width: 0;
-}
-
-/*
-  Flatten the side layout so its children (code block + TOC)
-  participate directly in the parent flex flow.
-  Use !important to override Mintlify's xl-specific flex/grid on this element.
-*/
+/* Keep TOC visible on the right */
 #content-container:has(#api-playground-2-operation-page) #content-side-layout {
-  display: contents !important;
-}
-
-/* TOC stays on the right, same row as content area — all screen sizes */
-#content-container:has(#api-playground-2-operation-page) #table-of-contents-layout {
-  order: 1;
   display: block !important;
-  visibility: visible !important;
-  align-self: flex-start;
-  position: sticky;
-  top: 4rem;
 }
 
+#content-container:has(#api-playground-2-operation-page) #table-of-contents-layout,
 #content-container:has(#api-playground-2-operation-page) #table-of-contents {
   display: block !important;
   visibility: visible !important;
 }
 
-/* Code examples: always drop to second row, full width — all screen sizes */
-#content-container:has(#api-playground-2-operation-page) #content-side-layout > div:not(#table-of-contents-layout) {
-  order: 10;
-  flex: 0 0 100% !important;
+#content-container:has(#api-playground-2-operation-page) #table-of-contents-layout {
+  position: sticky;
+  top: 6rem;
+}
+
+/* Show inline examples container under Try it (Mintlify hides it at xl by default) */
+#api-playground-2-operation-page > .mt-6 > .mt-8 {
+  display: flex !important;
   width: 100% !important;
-  max-width: none !important;
   max-height: none !important;
-  min-height: 0 !important;
-  /* Override Mintlify's xl:w-[28rem] fixed width */
-  --tw-w: 100% !important;
 }
 
-/* Reinforce at xl breakpoint where Mintlify switches to sidebar layout */
-@media (min-width: 1280px) {
-  #content-container:has(#api-playground-2-operation-page) {
-    flex-wrap: wrap !important;
-  }
-
-  #content-container:has(#api-playground-2-operation-page) #content-side-layout {
-    display: contents !important;
-  }
-
-  #content-container:has(#api-playground-2-operation-page) #content-side-layout > div:not(#table-of-contents-layout) {
-    order: 10 !important;
-    flex: 0 0 100% !important;
-    width: 100% !important;
-    max-width: none !important;
-    max-height: none !important;
-    min-height: 0 !important;
-  }
-
-  /* Reduce code block inner min-height from 18rem to 9rem */
-  #content-container:has(#api-playground-2-operation-page) #content-side-layout > div:not(#table-of-contents-layout) .grid-rows {
-    min-height: 9rem !important;
-  }
+/* Reduce examples panel minimum height */
+#api-playground-2-operation-page > .mt-6 > .mt-8 .grid-rows {
+  min-height: 9rem !important;
 }
 
-/* Hide empty side containers */
-#content-container:has(#api-playground-2-operation-page) #content-side-layout > div:empty {
-  display: none;
+/* Hide duplicated examples panel from the right sidebar */
+#content-container:has(#api-playground-2-operation-page) #content-side-layout > div:not(#table-of-contents-layout) {
+  display: none !important;
 }

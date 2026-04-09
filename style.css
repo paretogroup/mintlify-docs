@@ -1,0 +1,17 @@
+/* Keep default Mintlify layout and hide only empty side shells on API pages */
+#content-container:has(#api-playground-2-operation-page) #content-side-layout > div:empty {
+  display: none;
+}
+
+/* Keep examples below Try it inside operation pages */
+#api-playground-2-operation-page > .mt-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+#api-playground-2-operation-page > .mt-6 > .mt-8 {
+  order: 2;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+}

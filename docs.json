@@ -6,9 +6,6 @@
     "playground": {
       "display": "interactive"
     },
-    "examples": {
-      "autogenerate": false
-    },
     "mdx": {
       "server": "https://api.tess.im",
       "auth": {

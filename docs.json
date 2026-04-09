@@ -2,9 +2,16 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "aspen",
   "name": "Tess AI Docs",
-  "openapi": "api-reference/openapi.json",
-  "playground": {
-    "display": "interactive"
+  "api": {
+    "mdx": {
+      "server": "https://api.tess.im",
+      "auth": {
+        "method": "bearer"
+      }
+    },
+    "playground": {
+      "display": "interactive"
+    }
   },
   "colors": {
     "primary": "#272727",

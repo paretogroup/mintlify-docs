@@ -210,7 +210,9 @@
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
-        "scheme": "bearer"
+        "scheme": "bearer",
+        "bearerFormat": "API token",
+        "description": "Create a token in Tess AI (User menu → API Tokens) and paste it here. Requests use Authorization: Bearer <token>."
       }
     }
   }

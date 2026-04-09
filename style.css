@@ -1,17 +1,47 @@
-/* Keep default Mintlify layout and hide only empty side shells on API pages */
+/*
+  API endpoint pages:
+  - Content area stays full-width on the left
+  - On this page (TOC) stays on the right at its normal width
+  - Code examples block moves to below the main content, full-width
+  - Empty side container shells are hidden
+*/
+
+/* Allow wrapping so code examples can drop to a second row */
+#content-container:has(#api-playground-2-operation-page) {
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Main content area: stays first, takes all available space */
+#content-container:has(#api-playground-2-operation-page) #content-area {
+  order: 1;
+  flex: 1;
+  min-width: 0;
+}
+
+/*
+  Flatten the side layout so its children (code block + TOC)
+  participate directly in the parent flex flow.
+*/
+#content-container:has(#api-playground-2-operation-page) #content-side-layout {
+  display: contents;
+}
+
+/* TOC stays on the right, same row as content area */
+#content-container:has(#api-playground-2-operation-page) #table-of-contents-layout {
+  order: 1;
+}
+
+/* Code examples: drop to second row, full width */
+#content-container:has(#api-playground-2-operation-page) #content-side-layout > div:not(#table-of-contents-layout) {
+  order: 10;
+  flex: 0 0 100%;
+  max-width: none !important;
+  max-height: none !important;
+  min-height: 0 !important;
+}
+
+/* Hide empty side containers */
 #content-container:has(#api-playground-2-operation-page) #content-side-layout > div:empty {
   display: none;
-}
-
-/* Keep examples below Try it inside operation pages */
-#api-playground-2-operation-page > .mt-6 {
-  display: flex;
-  flex-direction: column;
-}
-
-#api-playground-2-operation-page > .mt-6 > .mt-8 {
-  order: 2;
-  width: 100%;
-  max-width: none;
-  max-height: none;
 }

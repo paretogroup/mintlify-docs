@@ -3,7 +3,6 @@
   "theme": "aspen",
   "name": "Tess AI Docs",
   "api": {
-    "openapi": "api-reference/openapi.json",
     "playground": {
       "display": "interactive"
     },

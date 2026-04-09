@@ -204,6 +204,15 @@
                     ]
                   },
                   {
+                    "group": "Agent Versions",
+                    "icon": "clock-rotate-left",
+                    "pages": [
+                      "en/list-agent-versions",
+                      "en/get-agent-version",
+                      "en/rollback-agent-version"
+                    ]
+                  },
+                  {
                     "group": "Agent Webhooks",
                     "icon": "tower-broadcast",
                     "pages": [
@@ -495,6 +504,15 @@
                       "pt/stream-agent",
                       "pt/open-ai-compat",
                       "pt/agent-response"
+                    ]
+                  },
+                  {
+                    "group": "Versões do Agente",
+                    "icon": "clock-rotate-left",
+                    "pages": [
+                      "pt/list-agent-versions",
+                      "pt/get-agent-version",
+                      "pt/rollback-agent-version"
                     ]
                   },
                   {
@@ -791,6 +809,15 @@
                       "es/stream-agent",
                       "es/open-ai-compat",
                       "es/agent-response"
+                    ]
+                  },
+                  {
+                    "group": "Versiones del Agente",
+                    "icon": "clock-rotate-left",
+                    "pages": [
+                      "es/list-agent-versions",
+                      "es/get-agent-version",
+                      "es/rollback-agent-version"
                     ]
                   },
                   {

@@ -1,0 +1,276 @@
+---
+title: "Rollback Agent Version"
+openapi: "POST /agents/{id}/versions/{version_number}/rollback"
+---
+
+`POST /agents/{id}/versions/{version_id}/rollback`
+
+Restores a specific agent version by creating a new version whose snapshot matches the target. The version history is preserved — no versions are deleted. The rollback is recorded as an audit trail entry. Requires the `agent:version:read` permission.
+
+<Note>
+  Attempting to roll back to the currently active version returns a `422` error.
+</Note>
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request POST \
+  --url 'https://api.tess.im/agents/8794/versions/2/rollback' \
+  --header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'post',
+  url: 'https://api.tess.im/agents/8794/versions/2/rollback',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/agents/8794/versions/2/rollback"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+response = requests.post(url, headers=headers)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/agents/8794/versions/2/rollback",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/agents/8794/versions/2/rollback"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .POST(HttpRequest.BodyPublishers.noBody())
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    client := &http.Client{}
+    req, err := http.NewRequest("POST", "https://api.tess.im/agents/8794/versions/2/rollback", nil)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+
+            try
+            {
+                var response = await client.PostAsync(
+                    "https://api.tess.im/agents/8794/versions/2/rollback",
+                    null
+                );
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch(HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/agents/8794/versions/2/rollback')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Headers**
+
+| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
+| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+
+<Note>
+  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+</Note>
+
+### **Path Parameters**
+
+| **Parameter** | **Type** | **Required** | **Description**                        |
+| :------------ | :------- | :----------- | :------------------------------------- |
+| id            | integer  | Yes          | The agent ID                           |
+| version_id    | integer  | Yes          | The version ID to roll back to         |
+
+### **Response**
+
+```json
+{
+  "version": {
+    "version_id": 10,
+    "published_at": "2026-04-09T15:00:00+00:00",
+    "published_by": "user@example.com",
+    "rollback_from_version": 8,
+    "snapshot": {
+      "agent_name": "Customer Support Agent",
+      "instructions": "You are a helpful customer support assistant.",
+      "ask_user_questions": [],
+      "steps": [],
+      "knowledge_base_files": [],
+      "type": "chat",
+      "subtype": "All LLM Models",
+      "advanced_settings": {
+        "model": "auto",
+        "temperature": "1"
+      },
+      "visibility": "private"
+    }
+  },
+  "message": "Agent rolled back to version 8. New version 10 is now active."
+}
+```
+
+### **Response Fields**
+
+| **Field**                         | **Type**         | **Description**                                                                    |
+| :-------------------------------- | :--------------- | :--------------------------------------------------------------------------------- |
+| message                           | string           | Confirmation message indicating the source version and the new active version      |
+| version.version_id                | integer          | The new version ID created by this rollback                                        |
+| version.published_by              | string           | Email of the user who performed the rollback                                       |
+| version.published_at              | string (ISO8601) | Timestamp when the rollback version was created                                    |
+| version.rollback_from_version     | integer          | The `version_id` used as the source for this rollback                             |
+| version.snapshot                  | object           | Complete agent state restored by this rollback (same structure as Get Agent Version) |
+
+### **Error Responses**
+
+#### **Already Active Version (422)**
+
+```json
+{
+  "message": "Cannot roll back to the current active version."
+}
+```
+
+#### **Not Found (404)**
+
+```json
+{
+  "message": "Version not found."
+}
+```
+
+#### **Forbidden (403)**
+
+```json
+{
+  "message": "You do not have permission to roll back agent versions."
+}
+```

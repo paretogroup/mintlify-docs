@@ -1,0 +1,275 @@
+---
+title: "Obtener Versión del Agente"
+openapi: "GET /agents/{id}/versions/{version_number}"
+---
+
+`GET /agents/{id}/versions/{version_id}`
+
+Devuelve el snapshot completo de una versión específica del agente, incluyendo todos los campos de configuración en el momento en que esa versión fue guardada. Requiere el permiso `agent:version:read`.
+
+### **Ejemplos de Código**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/agents/8794/versions/2' \
+  --header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/agents/8794/versions/2',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/agents/8794/versions/2"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/agents/8794/versions/2",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/agents/8794/versions/2"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .GET()
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    client := &http.Client{}
+    req, err := http.NewRequest("GET", "https://api.tess.im/agents/8794/versions/2", nil)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+
+            try
+            {
+                var response = await client.GetAsync("https://api.tess.im/agents/8794/versions/2");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch(HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/agents/8794/versions/2')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Headers**
+
+| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                             |
+| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------ |
+| x-workspace-id | integer  | No            | ID del workspace. Si no se proporciona, se usará el workspace seleccionado por el usuario.  |
+
+<Note>
+  **Nota:** Este campo será obligatorio en una versión futura de la API. Se recomienda establecerlo ahora para garantizar compatibilidad con futuras actualizaciones.
+</Note>
+
+### **Parámetros de Ruta**
+
+| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                     |
+| :------------ | :------- | :------------ | :---------------------------------- |
+| id            | integer  | Sí            | El ID del agente                    |
+| version_id    | integer  | Sí            | El ID de la versión a consultar     |
+
+### **Respuesta**
+
+```json
+{
+  "version": {
+    "version_id": 7,
+    "published_at": "2026-04-06T13:52:19+00:00",
+    "published_by": "usuario@ejemplo.com",
+    "rollback_from_version": 2,
+    "snapshot": {
+      "agent_name": "Agente de Soporte al Cliente",
+      "instructions": "Eres un asistente de soporte al cliente.",
+      "ask_user_questions": [
+        {
+          "name": "tema",
+          "type": "text",
+          "description": "¿Con qué tema necesitas ayuda?",
+          "required": true,
+          "tooltip": ""
+        }
+      ],
+      "steps": [],
+      "knowledge_base_files": [],
+      "type": "chat",
+      "subtype": "All LLM Models",
+      "advanced_settings": {
+        "model": "auto",
+        "temperature": "1"
+      },
+      "visibility": "private"
+    }
+  }
+}
+```
+
+### **Campos de la Respuesta**
+
+| **Campo**                         | **Tipo**         | **Descripción**                                                                         |
+| :-------------------------------- | :--------------- | :-------------------------------------------------------------------------------------- |
+| version.version_id                | integer          | Identificador secuencial único de esta versión                                          |
+| version.published_by              | string           | Email del usuario que guardó esta versión                                               |
+| version.published_at              | string (ISO8601) | Timestamp de cuándo se creó esta versión                                                |
+| version.rollback_from_version     | integer \| null  | Si fue creada por un rollback, el `version_id` de origen; de lo contrario `null`       |
+| version.snapshot.agent_name       | string           | Nombre del agente en el momento en que se guardó esta versión                           |
+| version.snapshot.instructions     | string           | Prompt / instrucciones del sistema en el momento en que se guardó esta versión          |
+| version.snapshot.ask_user_questions | array          | Campos de entrada del usuario configurados en el momento en que se guardó esta versión  |
+| version.snapshot.steps            | array            | Steps de automatización configurados en el momento en que se guardó esta versión        |
+| version.snapshot.knowledge_base_files | array        | Archivos de base de conocimiento vinculados en el momento en que se guardó esta versión |
+| version.snapshot.type             | string           | Tipo del agente (ej: `chat`)                                                            |
+| version.snapshot.subtype          | string           | Subtipo del agente (ej: `All LLM Models`)                                               |
+| version.snapshot.advanced_settings | object          | Configuración de modelo y temperatura en el momento en que se guardó esta versión       |
+| version.snapshot.visibility       | string           | Visibilidad del agente (`private` o `public`) en el momento en que se guardó esta versión |
+
+### **Respuestas de Error**
+
+#### **No Encontrado (404)**
+
+```json
+{
+  "message": "Version not found."
+}
+```
+
+#### **Prohibido (403)**
+
+```json
+{
+  "message": "You do not have permission to view agent versions."
+}
+```

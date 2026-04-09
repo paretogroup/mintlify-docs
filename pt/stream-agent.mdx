@@ -435,18 +435,33 @@ sleep
 
 ### **Parâmetros de Rota**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**  |
-| :------------ | :------- | :-------------- | :------------- |
-| id            | integer  | Sim             | O ID do agente |
+<ParamField path="id" type="integer" required>
+  O ID do agente
+</ParamField>
 
 ### **Corpo da Solicitação**
 
-| **Parâmetro** | **Tipo** | **Obrigatório**            | **Descrição**                                                          |
-| :------------ | :------- | :------------------------- | :--------------------------------------------------------------------- |
-| stream        | boolean  | Não                        | Transmite a saída usando o formato Server-Sent Events. Padrão: `false` |
-| answers       | object   | Sim                        | As respostas do agente                                                 |
-| messages      | array    | Apenas para Agente de Chat | As mensagens do agente                                                 |
-| file_ids      | array    | Não                        | Array de IDs de arquivos para anexar à execução.                       |
+<ParamField body="stream" type="boolean">
+  Transmite a saída usando o formato Server-Sent Events. Padrão: `false`
+</ParamField>
+<ParamField body="temperature" type="string">
+  Temperatura de amostragem entre 0 e 2. Valores maiores geram resultados mais criativos (padrão: `"1"`).
+</ParamField>
+<ParamField body="model" type="string">
+  Identificador do modelo a ser utilizado (ex.: `"tess-6"`).
+</ParamField>
+<ParamField body="tools" type="string">
+  Configuração de ferramentas do agente (ex.: `"agent"`, `"no-tools"`).
+</ParamField>
+<ParamField body="root_id" type="integer">
+  ID de uma execução existente para continuar um thread de conversa.
+</ParamField>
+<ParamField body="messages" type="array">
+  As mensagens do agente. Obrigatório para modelos do tipo Chat. Suporta os papéis `user`, `assistant` e `developer`.
+</ParamField>
+<ParamField body="file_ids" type="array">
+  Array de IDs de arquivo para anexar à execução.
+</ParamField>
 
 ### **Resposta**
 

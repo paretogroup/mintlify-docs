@@ -442,7 +442,19 @@ sleep
 ### **Cuerpo de la Solicitud**
 
 <ParamField body="stream" type="boolean">
-  Transmite la salida usando el formato Server-Sent Events. Predeterminado: false
+  Transmite la salida usando el formato Server-Sent Events. Predeterminado: `false`
+</ParamField>
+<ParamField body="temperature" type="string">
+  Temperatura de muestreo entre 0 y 2. Valores más altos generan resultados más creativos (predeterminado: `"1"`).
+</ParamField>
+<ParamField body="model" type="string">
+  Identificador del modelo a utilizar (p. ej., `"tess-6"`).
+</ParamField>
+<ParamField body="tools" type="string">
+  Configuración de herramientas del agente (p. ej., `"agent"`, `"no-tools"`).
+</ParamField>
+<ParamField body="root_id" type="integer">
+  ID de una ejecución existente para continuar un hilo de conversación.
 </ParamField>
 <ParamField body="messages" type="array">
   Los mensajes del agente. Requerido para plantillas de tipo Chat. Admite los roles `user`, `assistant` y `developer`.

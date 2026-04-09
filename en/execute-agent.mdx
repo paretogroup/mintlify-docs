@@ -23,7 +23,7 @@ curl --request POST \
         { "role": "user", "content": "Hello, how can you help me today?" }
     ],
     "tools": "no-tools",
-    "wait_execution": false,
+    "waitExecution": false,
     "file_ids": [123, 321]
   }'
 ```
@@ -39,7 +39,7 @@ const data = {
         { "role": "user", "content": "Hello, how can you help me today?" }
     ],
     "tools": "no-tools",
-    "wait_execution": false,
+    "waitExecution": false,
     "file_ids": [123, 321]
   };
 
@@ -78,7 +78,7 @@ data = {
         { "role": "user", "content": "Hello, how can you help me today?" }
     ],
     "tools": "no-tools",
-    "wait_execution": false,
+    "waitExecution": false,
     "file_ids": [123, 321]
   }
 
@@ -98,7 +98,7 @@ $data = [
         [ "role" => "user", "content" => "Hello, how can you help me today?" ]
     ],
     "tools" => "no-tools",
-    "wait_execution" => false,
+    "waitExecution" => false,
     "file_ids": [123, 321]
 ];
 
@@ -148,7 +148,7 @@ public class Main {
             "model", "tess-5",
             "messages", List.of(Map.of("role", "user", "content", "Hello, how can you help me today?")),
             "tools", "no-tools",
-            "wait_execution", false,
+            "waitExecution", false,
             "file_ids", List.of(123, 321)
         );
 
@@ -188,7 +188,7 @@ func main() {
             { "role": "user", "content": "Hello, how can you help me today?" }
         ],
         "tools": "no-tools",
-        "wait_execution": false,
+        "waitExecution": false,
         "file_ids": [123, 321]
     }`
 
@@ -242,7 +242,7 @@ class Program
                 model = "tess-5",
                 messages = new List<object> { new { role = "user", content = "Hello, how can you help me today?" } },
                 tools = "no-tools",
-                wait_execution = false,
+                waitExecution = false,
                 file_ids = new List<int> { 123, 321 }
             };
 
@@ -286,7 +286,7 @@ request.body = {
         { "role": "user", "content": "Hello, how can you help me today?" }
     ],
     "tools": "no-tools",
-    "wait_execution": false,
+    "waitExecution": false,
     "file_ids": [123, 321]
 }.to_json
 
@@ -314,11 +314,23 @@ puts response.read_body
 
 ### **Request Body**
 
+<ParamField body="temperature" type="string">
+  Sampling temperature between 0 and 2. Higher values produce more creative outputs (default: `"1"`).
+</ParamField>
+<ParamField body="model" type="string">
+  Model identifier to use for execution (e.g., `"tess-6"`).
+</ParamField>
+<ParamField body="tools" type="string">
+  Tool configuration for the agent (e.g., `"agent"`, `"no-tools"`).
+</ParamField>
+<ParamField body="root_id" type="integer">
+  ID of an existing execution to continue a conversation thread.
+</ParamField>
 <ParamField body="messages" type="array">
   The agent messages. Required for Chat Agent type templates. Supports `user`, `assistant`, and `developer` roles.
 </ParamField>
-<ParamField body="wait_execution" type="boolean">
-  Indicates whether the execution should wait until completion. The timeout is 100 seconds. For longer executions, use `wait_execution=false` in combination with the Get Agent Response endpoint with a polling strategy (default: false).
+<ParamField body="waitExecution" type="boolean">
+  If `true`, waits for the execution to finish before returning (timeout: 100 s). For longer executions set `waitExecution: false` and poll the Get Agent Response endpoint (default: `false`).
 </ParamField>
 <ParamField body="file_ids" type="array">
   Array of file IDs to attach to the execution.

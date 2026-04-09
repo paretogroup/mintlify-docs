@@ -293,10 +293,12 @@ puts response.read_body
 
 ### **Parâmetros do Corpo**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                                             |
-| :------------ | :------- | :-------------- | :-------------------------------------------------------- |
-| file          | file     | Sim             | O arquivo a ser enviado                                   |
-| process       | boolean  | Não             | Se deve processar o arquivo após o upload (padrão: false) |
+<ParamField form="file" type="file" required>
+  O arquivo a ser enviado
+</ParamField>
+<ParamField form="process" type="boolean">
+  Se deve processar o arquivo após o upload (padrão: false). O processamento consome créditos (true).
+</ParamField>
 
 ### **Resposta**
 

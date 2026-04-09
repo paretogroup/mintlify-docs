@@ -314,11 +314,8 @@ puts response.read_body
 
 ### **Corpo da Requisição**
 
-<ParamField body="answers" type="object">
-  As respostas do agente
-</ParamField>
 <ParamField body="messages" type="array">
-  As mensagens do agente
+  As mensagens do agente. Obrigatório para modelos do tipo Chat. Suporta os papéis `user`, `assistant` e `developer`.
 </ParamField>
 <ParamField body="wait_execution" type="boolean">
   Indica se a execução deve aguardar até a conclusão. O timeout é de 100 segundos. Para execuções mais longas, use wait_execution=false em combinação com o endpoint Obter Resposta do Agente com uma estratégia de polling (padrão: false).

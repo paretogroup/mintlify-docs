@@ -314,11 +314,8 @@ puts response.read_body
 
 ### **Cuerpo de la Solicitud**
 
-<ParamField body="answers" type="object">
-  Las respuestas del agente
-</ParamField>
 <ParamField body="messages" type="array">
-  Los mensajes del agente
+  Los mensajes del agente. Requerido para plantillas de tipo Chat. Admite los roles `user`, `assistant` y `developer`.
 </ParamField>
 <ParamField body="wait_execution" type="boolean">
   Indica si la ejecución debe esperar hasta completarse. El tiempo de espera es de 100 segundos. Para ejecuciones más largas, use wait_execution=false en combinación con el endpoint Obtener Respuesta del Agente con una estrategia de sondeo (predeterminado: false).

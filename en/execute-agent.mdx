@@ -314,14 +314,11 @@ puts response.read_body
 
 ### **Request Body**
 
-<ParamField body="answers" type="object" required>
-  The agent answers
-</ParamField>
 <ParamField body="messages" type="array">
-  The agent messages
+  The agent messages. Required for Chat Agent type templates. Supports `user`, `assistant`, and `developer` roles.
 </ParamField>
 <ParamField body="wait_execution" type="boolean">
-  Indicates whether the execution should wait until completion. The timeout is 100 seconds. For longer executions, use wait_execution=false in combination with the Get Agent Response endpoint with a polling strategy (default: false).
+  Indicates whether the execution should wait until completion. The timeout is 100 seconds. For longer executions, use `wait_execution=false` in combination with the Get Agent Response endpoint with a polling strategy (default: false).
 </ParamField>
 <ParamField body="file_ids" type="array">
   Array of file IDs to attach to the execution.

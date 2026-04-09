@@ -302,16 +302,18 @@ puts response.read_body
 
 ### **Parâmetros de Rota**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**   |
-| :------------ | :------- | :-------------- | :-------------- |
-| id            | string   | Sim             | O ID da memória |
+<ParamField path="id" type="integer" required>
+  O ID da memória
+</ParamField>
 
 ### **Parâmetros do Corpo**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                    |
-| :------------ | :------- | :-------------- | :------------------------------- |
-| content       | string   | Não             | O conteúdo atualizado da memória |
-| metadata      | object   | Não             | Metadados atualizados da memória |
+<ParamField body="content" type="string">
+  O conteúdo atualizado da memória
+</ParamField>
+<ParamField body="metadata" type="object">
+  Metadados atualizados da memória
+</ParamField>
 
 ### **Resposta**
 

@@ -211,14 +211,8 @@ puts response.read_body
 
 ### **Encabezados**
 
-<ParamField header="Authorization" type="string">
-  Token Bearer (clave API). El token debe incluir la ability use_agents.
-</ParamField>
-<ParamField header="x-workspace-id" type="integer">
+<ParamField header="x-workspace-id" type="integer" required>
   ID numérico del workspace. Valores inválidos o ausentes devuelven 422. Debes pertenecer a ese workspace; si no, 403.
-</ParamField>
-<ParamField header="Accept" type="string">
-  Usa application/json si el cliente debe declarar JSON explícitamente.
 </ParamField>
 
 ### **Parámetros de consulta**

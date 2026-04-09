@@ -237,11 +237,11 @@ puts response.read_body
 
 </CodeGroup>
 
-### **URL Parameters**
+### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**  |
-| :------------ | :------- | :----------- | :--------------- |
-| memoryId      | integer  | Yes          | ID of the memory |
+<ParamField path="memoryId" type="integer" required>
+  ID of the memory to update
+</ParamField>
 
 ### **Request Body**
 

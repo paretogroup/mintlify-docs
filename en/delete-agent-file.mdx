@@ -1,7 +1,7 @@
 ---
 title: "Delete Agent File"
 description: "Deletes a specific file associated with an agent."
-api: "DELETE https://api.tess.im/{agentId}/files/{fileId}"
+api: "DELETE https://api.tess.im/agents/{agentId}/files/{fileId}"
 authMethod: "bearer"
 playground: "interactive"
 ---
@@ -197,12 +197,14 @@ puts response.read_body
   **Note:** This field will be required in a future API release. It is highly recommended to set it now to ensure compatibility with future updates.
 </Note>
 
-### **Parâmetros de Rota**
+### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**                |
-| :------------ | :------- | :-------------- | :--------------------------- |
-| agentId       | string   | Yes             | The agent ID              |
-| fileId        | string   | Yes             | The ID of the file to delete |
+<ParamField path="agentId" type="integer" required>
+  The agent ID
+</ParamField>
+<ParamField path="fileId" type="integer" required>
+  The ID of the file to delete
+</ParamField>
 
 ### **Resposta**
 

@@ -211,14 +211,8 @@ puts response.read_body
 
 ### **Headers**
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token (API key). The token must include the use_agents ability.
-</ParamField>
 <ParamField header="x-workspace-id" type="integer" required>
   Numeric workspace ID. Invalid or missing values produce a 422 error. You must belong to this workspace or the API returns 403.
-</ParamField>
-<ParamField header="Accept" type="string">
-  Use application/json if your client needs an explicit JSON accept header.
 </ParamField>
 
 ### **Query parameters**

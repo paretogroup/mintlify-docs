@@ -444,11 +444,8 @@ sleep
 <ParamField body="stream" type="boolean">
   Streams the output using the Server-Sent Events format. Default: false
 </ParamField>
-<ParamField body="answers" type="object" required>
-  The agent answers
-</ParamField>
 <ParamField body="messages" type="array">
-  The agent messages
+  The agent messages. Required for Chat Agent type templates. Supports `user`, `assistant`, and `developer` roles.
 </ParamField>
 <ParamField body="file_ids" type="array">
   Array of file IDs to attach to the execution.

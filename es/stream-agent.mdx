@@ -444,11 +444,8 @@ sleep
 <ParamField body="stream" type="boolean">
   Transmite la salida usando el formato Server-Sent Events. Predeterminado: false
 </ParamField>
-<ParamField body="answers" type="object">
-  Las respuestas del agente
-</ParamField>
 <ParamField body="messages" type="array">
-  Los mensajes del agente
+  Los mensajes del agente. Requerido para plantillas de tipo Chat. Admite los roles `user`, `assistant` y `developer`.
 </ParamField>
 <ParamField body="file_ids" type="array">
   Array de IDs de archivos para adjuntar a la ejecución.

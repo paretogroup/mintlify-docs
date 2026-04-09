@@ -291,11 +291,15 @@ puts response.read_body
 
 ### **Request Body**
 
-<ParamField form="file" type="file" required>
-  The file to upload
+<Warning>
+  The playground does not support `multipart/form-data` uploads directly. Use the **Code Examples** above (cURL, Python, Node.js, etc.) to send the actual file. The fields below are shown for documentation purposes only.
+</Warning>
+
+<ParamField body="file" type="file" required>
+  The file to upload (multipart/form-data)
 </ParamField>
-<ParamField form="process" type="boolean">
-  Whether to process the file after upload (default: false). The file processing consume credits (true).
+<ParamField body="process" type="boolean">
+  Whether to process the file after upload (default: false). File processing consumes credits (true).
 </ParamField>
 
 ### **Response**

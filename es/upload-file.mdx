@@ -291,10 +291,14 @@ puts response.read_body
 
 ### **Parámetros del Cuerpo**
 
-<ParamField form="file" type="file" required>
-  El archivo a subir
+<Warning>
+  El playground no soporta uploads `multipart/form-data` directamente. Use los **Ejemplos de Código** anteriores (cURL, Python, Node.js, etc.) para enviar el archivo. Los campos a continuación se muestran solo con fines de documentación.
+</Warning>
+
+<ParamField body="file" type="file" required>
+  El archivo a subir (multipart/form-data)
 </ParamField>
-<ParamField form="process" type="boolean">
+<ParamField body="process" type="boolean">
   Si debe procesar el archivo después de subirlo (predeterminado: false). El procesamiento consume créditos (true).
 </ParamField>
 

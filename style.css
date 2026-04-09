@@ -1,8 +1,8 @@
 /*
-  API endpoint pages:
-  - Content area stays full-width on the left
+  API endpoint pages — all screen sizes:
+  - Content area (Try it + body) stays on the left, full available width
   - On this page (TOC) stays on the right at its normal width
-  - Code examples block moves to below the main content, full-width
+  - Code examples block always drops below the main content, full-width
   - Empty side container shells are hidden
 */
 
@@ -22,23 +22,62 @@
 /*
   Flatten the side layout so its children (code block + TOC)
   participate directly in the parent flex flow.
+  Use !important to override Mintlify's xl-specific flex/grid on this element.
 */
 #content-container:has(#api-playground-2-operation-page) #content-side-layout {
-  display: contents;
+  display: contents !important;
 }
 
-/* TOC stays on the right, same row as content area */
+/* TOC stays on the right, same row as content area — all screen sizes */
 #content-container:has(#api-playground-2-operation-page) #table-of-contents-layout {
   order: 1;
+  display: block !important;
+  visibility: visible !important;
+  align-self: flex-start;
+  position: sticky;
+  top: 4rem;
 }
 
-/* Code examples: drop to second row, full width */
+#content-container:has(#api-playground-2-operation-page) #table-of-contents {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Code examples: always drop to second row, full width — all screen sizes */
 #content-container:has(#api-playground-2-operation-page) #content-side-layout > div:not(#table-of-contents-layout) {
   order: 10;
-  flex: 0 0 100%;
+  flex: 0 0 100% !important;
+  width: 100% !important;
   max-width: none !important;
   max-height: none !important;
   min-height: 0 !important;
+  /* Override Mintlify's xl:w-[28rem] fixed width */
+  --tw-w: 100% !important;
+}
+
+/* Reinforce at xl breakpoint where Mintlify switches to sidebar layout */
+@media (min-width: 1280px) {
+  #content-container:has(#api-playground-2-operation-page) {
+    flex-wrap: wrap !important;
+  }
+
+  #content-container:has(#api-playground-2-operation-page) #content-side-layout {
+    display: contents !important;
+  }
+
+  #content-container:has(#api-playground-2-operation-page) #content-side-layout > div:not(#table-of-contents-layout) {
+    order: 10 !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    min-height: 0 !important;
+  }
+
+  /* Reduce code block inner min-height from 18rem to 9rem */
+  #content-container:has(#api-playground-2-operation-page) #content-side-layout > div:not(#table-of-contents-layout) .grid-rows {
+    min-height: 9rem !important;
+  }
 }
 
 /* Hide empty side containers */

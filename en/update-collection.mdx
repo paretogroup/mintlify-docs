@@ -241,15 +241,15 @@ puts response.read_body
 
 ### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| collectionId  | integer  | Yes          | Collection ID   |
+<ParamField path="collectionId" type="integer" required>
+  Collection ID
+</ParamField>
 
 ### **Request Body**
 
-| **Parameter** | **Type** | **Required** | **Description**        |
-| :------------ | :------- | :----------- | :--------------------- |
-| name          | string   | Yes          | Name of the collection |
+<ParamField body="name" type="string" required>
+  Name of the collection
+</ParamField>
 
 ### **Response**
 

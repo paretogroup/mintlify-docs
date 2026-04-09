@@ -298,9 +298,9 @@ puts response.read_body
 
 ### **Encabezados**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
-| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
-| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
+<ParamField header="x-workspace-id" type="integer">
+  ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
@@ -308,18 +308,24 @@ puts response.read_body
 
 ### **Parámetros de Ruta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**  |
-| :------------ | :------- | :------------ | :--------------- |
-| id            | integer  | Sí            | El ID del agente |
+<ParamField path="id" type="integer" required>
+  El ID del agente
+</ParamField>
 
 ### **Cuerpo de la Solicitud**
 
-| **Parámetro**  | **Tipo** | **Requerido**            | **Descripción**                                                                                                                                                                                                                                                          |
-| :------------- | :------- | :----------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| answers        | object   | Sí                       | Las respuestas del agente                                                                                                                                                                                                                                                |
-| messages       | array    | Solo para Agente de Chat | Los mensajes del agente                                                                                                                                                                                                                                                  |
-| wait_execution | boolean  | No                       | Indica si la ejecución debe esperar hasta completarse. El tiempo de espera es de 100 segundos. Para ejecuciones más largas, use `wait_execution=false` en combinación con el endpoint Obtener Respuesta del Agente con una estrategia de sondeo (predeterminado: false). |
-| file_ids       | array    | No                       | Array de IDs de archivos para adjuntar a la ejecución.                                                                                                                                                                                                                   |
+<ParamField body="answers" type="object">
+  Las respuestas del agente
+</ParamField>
+<ParamField body="messages" type="array">
+  Los mensajes del agente
+</ParamField>
+<ParamField body="wait_execution" type="boolean">
+  Indica si la ejecución debe esperar hasta completarse. El tiempo de espera es de 100 segundos. Para ejecuciones más largas, use wait_execution=false en combinación con el endpoint Obtener Respuesta del Agente con una estrategia de sondeo (predeterminado: false).
+</ParamField>
+<ParamField body="file_ids" type="array">
+  Array de IDs de archivos para adjuntar a la ejecución.
+</ParamField>
 
 #### **Roles de Mensajes (Plantillas de Tipo Chat)**
 

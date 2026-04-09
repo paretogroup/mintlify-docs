@@ -298,9 +298,9 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                       |
-| :------------- | :------- | :-------------- | :---------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será usado. |
+<ParamField header="x-workspace-id" type="integer">
+  ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será usado.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendado defini-lo agora para garantir compatibilidade com atualizações futuras.
@@ -308,18 +308,24 @@ puts response.read_body
 
 ### **Parâmetros de Caminho**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**  |
-| :------------ | :------- | :-------------- | :------------- |
-| id            | integer  | Sim             | O ID do agente |
+<ParamField path="id" type="integer" required>
+  O ID do agente
+</ParamField>
 
 ### **Corpo da Requisição**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório**         | **Descrição**                                                                                                                                                                                                                                |
-| :------------- | :------- | :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| answers        | object   | Sim                     | As respostas do agente                                                                                                                                                                                                                       |
-| messages       | array    | Apenas para Agente Chat | As mensagens do agente                                                                                                                                                                                                                       |
-| wait_execution | boolean  | Não                     | Indica se a execução deve aguardar até a conclusão. O timeout é de 100 segundos. Para execuções mais longas, use `wait_execution=false` em combinação com o endpoint Obter Resposta do Agente com uma estratégia de polling (padrão: false). |
-| file_ids       | array    | Não                     | Array de IDs de arquivo para anexar à execução.                                                                                                                                                                                              |
+<ParamField body="answers" type="object">
+  As respostas do agente
+</ParamField>
+<ParamField body="messages" type="array">
+  As mensagens do agente
+</ParamField>
+<ParamField body="wait_execution" type="boolean">
+  Indica se a execução deve aguardar até a conclusão. O timeout é de 100 segundos. Para execuções mais longas, use wait_execution=false em combinação com o endpoint Obter Resposta do Agente com uma estratégia de polling (padrão: false).
+</ParamField>
+<ParamField body="file_ids" type="array">
+  Array de IDs de arquivo para anexar à execução.
+</ParamField>
 
 #### **Funções das Mensagens (Modelos do Tipo Chat)**
 

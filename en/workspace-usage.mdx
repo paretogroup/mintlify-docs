@@ -211,23 +211,39 @@ puts response.read_body
 
 ### **Headers**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| Authorization | string | Yes | `Bearer` token (API key). The token must include the **`use_agents`** ability. |
-| x-workspace-id | integer | Yes | Numeric workspace ID. Invalid or missing values produce a **422** error. You must belong to this workspace or the API returns **403**. |
-| Accept | string | No | Use `application/json` if your client needs an explicit JSON accept header. |
+<ParamField header="Authorization" type="string" required>
+  Bearer token (API key). The token must include the use_agents ability.
+</ParamField>
+<ParamField header="x-workspace-id" type="integer" required>
+  Numeric workspace ID. Invalid or missing values produce a 422 error. You must belong to this workspace or the API returns 403.
+</ParamField>
+<ParamField header="Accept" type="string">
+  Use application/json if your client needs an explicit JSON accept header.
+</ParamField>
 
 ### **Query parameters**
 
-| **Parameter** | **Type** | **Required** | **Description** | **Default / rules** |
-| :------------ | :------- | :----------- | :-------------- | :------------------ |
-| range | string | No | Relative window: `1d`, `7d`, or `30d`. Ignored if both `start_date` and `end_date` are sent. | If no date parameters are sent, the effective default is **`30d`**. |
-| start_date | date (`YYYY-MM-DD`) | Conditional | Start of a custom range (inclusive). | **Required with** `end_date`. |
-| end_date | date (`YYYY-MM-DD`) | Conditional | End of a custom range (inclusive). Must be greater than or equal to `start_date`. | **Required with** `start_date`. The span **cannot exceed 90 days**; otherwise **422**. |
-| user_id | integer | No | Filter by the user who ran the agent. | Without workspace permission to read other users' activity, you only see **your own** executions; filtering by another user's id returns **403**. |
-| type | string | No | Agent type filter: `all`, `chat`, `image`, `text`, `voiceover`, `video`, `code`. | `all` or omitted means no type filter. |
-| page | integer | No | Page number. | Default **1**, minimum **1**. |
-| per_page | integer | No | Page size. | Default **20**, between **1** and **100**. |
+<ParamField query="range" type="string">
+  Relative window: 1d, 7d, or 30d. Ignored if both start_date and end_date are sent. If no date parameters are sent, the effective default is 30d.
+</ParamField>
+<ParamField query="start_date" type="date (YYYY-MM-DD)">
+  Start of a custom range (inclusive). Required with end_date.
+</ParamField>
+<ParamField query="end_date" type="date (YYYY-MM-DD)">
+  End of a custom range (inclusive). Must be greater than or equal to start_date. Required with start_date. The span cannot exceed 90 days; otherwise 422.
+</ParamField>
+<ParamField query="user_id" type="integer">
+  Filter by the user who ran the agent. Without workspace permission to read other users' activity, you only see your own executions; filtering by another user's id returns 403.
+</ParamField>
+<ParamField query="type" type="string">
+  Agent type filter: all, chat, image, text, voiceover, video, code. all or omitted means no type filter.
+</ParamField>
+<ParamField query="page" type="integer">
+  Page number. Default 1, minimum 1.
+</ParamField>
+<ParamField query="per_page" type="integer">
+  Page size. Default 20, between 1 and 100.
+</ParamField>
 
 **Date windows**
 

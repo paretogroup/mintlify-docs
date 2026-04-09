@@ -281,9 +281,9 @@ puts response.read_body
 
 ### **Headers**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+<ParamField header="x-workspace-id" type="integer">
+  ID of the workspace. If not provided, the user's selected workspace will be used.
+</ParamField>
 
 <Note>
   **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
@@ -291,10 +291,12 @@ puts response.read_body
 
 ### **Request Body**
 
-| **Parameter** | **Type** | **Required** | **Description**                                                                                        |
-| :------------ | :------- | :----------- | :----------------------------------------------------------------------------------------------------- |
-| file          | binary   | Yes          | The file to upload                                                                                     |
-| process       | boolean  | No           | Whether to process the file after upload (default: false). The file processing consume credits (true). |
+<ParamField body="file" type="binary" required>
+  The file to upload
+</ParamField>
+<ParamField body="process" type="boolean">
+  Whether to process the file after upload (default: false). The file processing consume credits (true).
+</ParamField>
 
 ### **Response**
 

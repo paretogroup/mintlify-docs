@@ -196,11 +196,15 @@ puts response.read_body
 
 ### **Query Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**                   | **Default** | **Min** | **Max** |
-| :------------ | :------- | :----------- | :-------------------------------- | :---------- | :------ | :------ |
-| page          | integer  | No           | Page number                       | 1           | -       | -       |
-| per_page      | integer  | No           | Items per page                    | 10          | 1       | 50      |
-| search        | string   | No           | Search term to filter collections | -           | -       | -       |
+<ParamField query="page" type="integer">
+  Page number 1 - -
+</ParamField>
+<ParamField query="per_page" type="integer">
+  Items per page 10 1 50
+</ParamField>
+<ParamField query="search" type="string">
+  Search term to filter collections - - -
+</ParamField>
 
 ### **Response**
 

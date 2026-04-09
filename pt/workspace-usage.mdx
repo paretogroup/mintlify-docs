@@ -211,23 +211,39 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição** |
-| :------------ | :------- | :-------------- | :------------ |
-| Authorization | string | Sim | Token `Bearer` (chave de API). O token deve incluir a ability **`use_agents`**. |
-| x-workspace-id | integer | Sim | ID numérico do workspace. Valores inválidos ou ausentes geram **422**. Você precisa pertencer a esse workspace; caso contrário, **403**. |
-| Accept | string | Não | Use `application/json` se o cliente precisar declarar explicitamente JSON. |
+<ParamField header="Authorization" type="string">
+  Token Bearer (chave de API). O token deve incluir a ability use_agents.
+</ParamField>
+<ParamField header="x-workspace-id" type="integer">
+  ID numérico do workspace. Valores inválidos ou ausentes geram 422. Você precisa pertencer a esse workspace; caso contrário, 403.
+</ParamField>
+<ParamField header="Accept" type="string">
+  Use application/json se o cliente precisar declarar explicitamente JSON.
+</ParamField>
 
 ### **Parâmetros de consulta**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição** | **Padrão / regras** |
-| :------------ | :------- | :-------------- | :------------ | :------------------ |
-| range | string | Não | Janela relativa: `1d`, `7d` ou `30d`. Ignorado se `start_date` e `end_date` forem enviados. | Se nenhum parâmetro de data for enviado, o padrão efetivo é **`30d`**. |
-| start_date | date (`AAAA-MM-DD`) | Condicional | Início do intervalo (inclusivo). | **Obrigatório com** `end_date`. |
-| end_date | date (`AAAA-MM-DD`) | Condicional | Fim do intervalo (inclusivo). Deve ser `>= start_date`. | **Obrigatório com** `start_date`. O intervalo **não pode ultrapassar 90 dias**; senão **422**. |
-| user_id | integer | Não | Filtra pelo usuário que executou o agente. | Sem permissão de leitura de atividade de outros no workspace, você vê só **suas** execuções; filtrar por outro usuário retorna **403**. |
-| type | string | Não | Tipo de agente: `all`, `chat`, `image`, `text`, `voiceover`, `video`, `code`. | `all` ou omitido = sem filtro de tipo. |
-| page | integer | Não | Número da página. | Padrão **1**, mínimo **1**. |
-| per_page | integer | Não | Tamanho da página. | Padrão **20**, entre **1** e **100**. |
+<ParamField query="range" type="string">
+  Janela relativa: 1d, 7d ou 30d. Ignorado se start_date e end_date forem enviados. Se nenhum parâmetro de data for enviado, o padrão efetivo é 30d.
+</ParamField>
+<ParamField query="start_date" type="date (AAAA-MM-DD)">
+  Início do intervalo (inclusivo). Obrigatório com end_date.
+</ParamField>
+<ParamField query="end_date" type="date (AAAA-MM-DD)">
+  Fim do intervalo (inclusivo). Deve ser >= start_date. Obrigatório com start_date. O intervalo não pode ultrapassar 90 dias; senão 422.
+</ParamField>
+<ParamField query="user_id" type="integer">
+  Filtra pelo usuário que executou o agente. Sem permissão de leitura de atividade de outros no workspace, você vê só suas execuções; filtrar por outro usuário retorna 403.
+</ParamField>
+<ParamField query="type" type="string">
+  Tipo de agente: all, chat, image, text, voiceover, video, code. all ou omitido = sem filtro de tipo.
+</ParamField>
+<ParamField query="page" type="integer">
+  Número da página. Padrão 1, mínimo 1.
+</ParamField>
+<ParamField query="per_page" type="integer">
+  Tamanho da página. Padrão 20, entre 1 e 100.
+</ParamField>
 
 **Janelas de data**
 

@@ -245,10 +245,12 @@ puts response.read_body
 
 ### **Request Body**
 
-| **Parameter** | **Type** | **Required** | **Description**                       |
-| :------------ | :------- | :----------- | :------------------------------------ |
-| memory        | string   | Yes          | New memory content                    |
-| collection_id | integer  | No           | Collection ID to associate the memory |
+<ParamField body="memory" type="string" required>
+  New memory content
+</ParamField>
+<ParamField body="collection_id" type="integer">
+  Collection ID to associate the memory
+</ParamField>
 
 ```json
 {

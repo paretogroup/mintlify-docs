@@ -189,9 +189,9 @@ puts response.read_body
 
 ### **Encabezados**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
-| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
-| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
+<ParamField header="x-workspace-id" type="integer">
+  ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
@@ -199,9 +199,9 @@ puts response.read_body
 
 ### **Parámetros de Ruta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                 |
-| :------------ | :------- | :------------ | :------------------------------ |
-| fileId        | string   | Sí            | El ID del archivo para eliminar |
+<ParamField path="fileId" type="string" required>
+  El ID del archivo para eliminar
+</ParamField>
 
 ### **Respuesta**
 

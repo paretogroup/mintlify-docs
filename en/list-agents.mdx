@@ -189,9 +189,9 @@ puts response.read_body
 
 ### **Headers**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+<ParamField header="x-workspace-id" type="integer">
+  ID of the workspace. If not provided, the user's selected workspace will be used.
+</ParamField>
 
 <Note>
   **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
@@ -199,12 +199,18 @@ puts response.read_body
 
 ### **Query Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**                                          |
-| :------------ | :------- | :----------- | :------------------------------------------------------- |
-| q             | string   | No           | Search agents by title, description and long description |
-| type          | string   | No           | Filter by agents type (chat, image, text, video)         |
-| page          | integer  | No           | Current page (default: 1)                                |
-| per_page      | integer  | No           | Number of items per page (default: 15)                   |
+<ParamField query="q" type="string">
+  Search agents by title, description and long description
+</ParamField>
+<ParamField query="type" type="string">
+  Filter by agents type (chat, image, text, video)
+</ParamField>
+<ParamField query="page" type="integer">
+  Current page (default: 1)
+</ParamField>
+<ParamField query="per_page" type="integer">
+  Number of items per page (default: 15)
+</ParamField>
 
 ### **Response**
 

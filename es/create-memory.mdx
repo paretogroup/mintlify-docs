@@ -224,9 +224,9 @@ puts response.body
 
 ### **Encabezados**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
-| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
-| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
+<ParamField header="x-workspace-id" type="integer">
+  ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.

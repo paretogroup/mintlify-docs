@@ -195,9 +195,9 @@ puts response.read_body
 
 ### **Headers**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+<ParamField header="x-workspace-id" type="integer">
+  ID of the workspace. If not provided, the user's selected workspace will be used.
+</ParamField>
 
 <Note>
   **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
@@ -205,10 +205,12 @@ puts response.read_body
 
 ### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**                        |
-| :------------ | :------- | :----------- | :------------------------------------- |
-| id            | integer  | Yes          | The agent ID                           |
-| version_id    | integer  | Yes          | The version ID to roll back to         |
+<ParamField path="id" type="integer" required>
+  The agent ID
+</ParamField>
+<ParamField path="version_id" type="integer" required>
+  The version ID to roll back to
+</ParamField>
 
 ### **Response**
 

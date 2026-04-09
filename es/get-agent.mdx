@@ -190,9 +190,9 @@ puts response.read_body
 
 ### **Encabezados**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                            |
-| :------------- | :------- | :------------ | :----------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No            | ID del workspace. Si no se proporciona, se usará el workspace seleccionado por el usuario. |
+<ParamField header="x-workspace-id" type="integer">
+  ID del workspace. Si no se proporciona, se usará el workspace seleccionado por el usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obligatorio en una versión futura de la API. Es altamente recomendado definirlo ahora para garantizar compatibilidad con actualizaciones futuras.
@@ -200,9 +200,9 @@ puts response.read_body
 
 ### **Parámetros de Ruta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**  |
-| :------------ | :------- | :------------ | :--------------- |
-| id            | integer  | Sí            | El ID del agente |
+<ParamField path="id" type="integer" required>
+  El ID del agente
+</ParamField>
 
 ### **Respuesta**
 

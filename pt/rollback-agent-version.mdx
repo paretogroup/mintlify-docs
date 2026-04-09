@@ -195,9 +195,9 @@ puts response.read_body
 
 ### **Headers**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                              |
-| :------------- | :------- | :-------------- | :----------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será utilizado.    |
+<ParamField header="x-workspace-id" type="integer">
+  ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será utilizado.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendado defini-lo agora para garantir compatibilidade com atualizações futuras.
@@ -205,10 +205,12 @@ puts response.read_body
 
 ### **Parâmetros de Caminho**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                                 |
-| :------------ | :------- | :-------------- | :-------------------------------------------- |
-| id            | integer  | Sim             | O ID do agente                                |
-| version_id    | integer  | Sim             | O ID da versão para a qual fazer rollback     |
+<ParamField path="id" type="integer" required>
+  O ID do agente
+</ParamField>
+<ParamField path="version_id" type="integer" required>
+  O ID da versão para a qual fazer rollback
+</ParamField>
 
 ### **Resposta**
 

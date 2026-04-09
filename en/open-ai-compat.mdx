@@ -71,9 +71,9 @@ chat_completion = client.chat.completions.create(
 
 ### **Headers**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+<ParamField header="x-workspace-id" type="integer">
+  ID of the workspace. If not provided, the user's selected workspace will be used.
+</ParamField>
 
 <Note>
   **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
@@ -81,9 +81,9 @@ chat_completion = client.chat.completions.create(
 
 ### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The agent ID    |
+<ParamField path="id" type="integer" required>
+  The agent ID
+</ParamField>
 
 ### **Request Body**
 

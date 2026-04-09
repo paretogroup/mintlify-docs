@@ -189,9 +189,9 @@ puts response.read_body
 
 ### **Headers**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                                       |
-| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No             | Workspace ID. If not provided, the user's selected Workspace will be used. |
+<ParamField header="x-workspace-id" type="integer">
+  Workspace ID. If not provided, the user's selected Workspace will be used.
+</ParamField>
 
 <Note>
   **Note:** This field will be required in a future API release. It is highly recommended to set it now to ensure compatibility with future updates.

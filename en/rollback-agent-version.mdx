@@ -1,11 +1,11 @@
 ---
 title: "Rollback Agent Version"
-api: "POST /agents/{id}/versions/{version_number}/rollback"
+description: "Restores a specific agent version by creating a new version whose snapshot matches the target. The version history is preserved — no versions are deleted. The rollback is recorded as an audit trail entry. Requires the `agent:version:read` permission."
+api: "POST https://api.tess.im/agents/{id}/versions/{version_number}/rollback"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`POST /agents/{id}/versions/{version_id}/rollback`
-
-Restores a specific agent version by creating a new version whose snapshot matches the target. The version history is preserved — no versions are deleted. The rollback is recorded as an audit trail entry. Requires the `agent:version:read` permission.
 
 <Note>
   Attempting to roll back to the currently active version returns a `422` error.

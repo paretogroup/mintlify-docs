@@ -28,6 +28,12 @@
   max-height: none !important;
 }
 
+/* Force code block children to stretch to full container width */
+#api-playground-2-operation-page > .mt-6 > .mt-8 > * {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
 /* Reduce examples panel minimum height */
 #api-playground-2-operation-page > .mt-6 > .mt-8 .grid-rows {
   min-height: 9rem !important;

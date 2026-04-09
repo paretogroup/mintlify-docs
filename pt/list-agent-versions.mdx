@@ -1,11 +1,11 @@
 ---
 title: "Listar Versões do Agente"
-api: "GET /agents/{id}/versions"
+description: "Retorna uma lista paginada de todas as versões salvas de um agente específico, incluindo o diff campo a campo e o `change_summary` de cada versão em relação à anterior. Requer a permissão `agent:version:read`."
+api: "GET https://api.tess.im/agents/{id}/versions"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /agents/{id}/versions`
-
-Retorna uma lista paginada de todas as versões salvas de um agente específico, incluindo o diff campo a campo e o `change_summary` de cada versão em relação à anterior. Requer a permissão `agent:version:read`.
 
 ### **Exemplos de Código**
 

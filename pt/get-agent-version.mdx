@@ -1,11 +1,11 @@
 ---
 title: "Obter Versão do Agente"
-api: "GET /agents/{id}/versions/{version_number}"
+description: "Retorna o snapshot completo de uma versão específica do agente, incluindo todos os campos de configuração no momento em que aquela versão foi salva. Requer a permissão `agent:version:read`."
+api: "GET https://api.tess.im/agents/{id}/versions/{version_number}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /agents/{id}/versions/{version_id}`
-
-Retorna o snapshot completo de uma versão específica do agente, incluindo todos os campos de configuração no momento em que aquela versão foi salva. Requer a permissão `agent:version:read`.
 
 ### **Exemplos de Código**
 

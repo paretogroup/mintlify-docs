@@ -1,12 +1,11 @@
 ---
 title: "Uso del workspace"
 description: "Lista el historial de ejecuciones de agentes de un workspace con filtros, paginación y campos enriquecidos."
-api: "GET /workspaces/usage"
+api: "GET https://api.tess.im/workspaces/usage"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /workspaces/usage`
-
-Devuelve el **historial de ejecuciones de agentes** de un workspace. Los resultados combinan ejecuciones actuales, filas archivadas y chats editados (consulta **Campos de cada elemento**). El orden es por `created_at` descendente y, a continuación, `id` descendente.
 
 Tu token de API debe poder **usar agentes** (`use_agents`), y debes tener acceso al workspace: mismas capas que el resto de rutas de agentes y archivos (autenticación Sanctum, comprobación de acceso al workspace).
 

@@ -1,9 +1,7 @@
 ---
 title: "Upload File"
 description: "Upload a new file to the system and optionally process it."
-api: "POST https://api.tess.im/files"
-authMethod: "bearer"
-playground: "interactive"
+openapi: "api-reference/upload-file.openapi.json POST /files"
 ---
 
 
@@ -278,29 +276,6 @@ puts response.read_body
 ```
 
 </CodeGroup>
-
-### **Headers**
-
-<ParamField header="x-workspace-id" type="integer">
-  ID of the workspace. If not provided, the user's selected workspace will be used.
-</ParamField>
-
-<Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
-</Note>
-
-### **Request Body**
-
-<Warning>
-  The playground does not support `multipart/form-data` uploads directly. Use the **Code Examples** above (cURL, Python, Node.js, etc.) to send the actual file. The fields below are shown for documentation purposes only.
-</Warning>
-
-<ParamField body="file" type="file" required>
-  The file to upload (multipart/form-data)
-</ParamField>
-<ParamField body="process" type="boolean">
-  Whether to process the file after upload (default: false). File processing consumes credits (true).
-</ParamField>
 
 ### **Response**
 

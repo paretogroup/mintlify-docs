@@ -265,9 +265,9 @@ puts response.read_body
 
 ### **Parâmetros do Corpo**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                               |
-| :------------ | :------- | :-------------- | :------------------------------------------ |
-| file_ids      | array    | Sim             | Os IDs dos arquivos para vincular ao agente |
+<ParamField body="file_ids" type="integer[]" required>
+  Os IDs dos arquivos para vincular ao agente
+</ParamField>
 
 ### **Resposta**
 

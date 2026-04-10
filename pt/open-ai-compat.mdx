@@ -69,23 +69,19 @@ chat_completion = client.chat.completions.create(
 
 ### **Cabeçalhos**
 
-<ParamField header="x-workspace-id" type="integer">
-  ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado.
-</ParamField>
-
-<Note>
-  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
-</Note>
+| **Parâmetro**    | **Tipo** | **Obrigatório** | **Descrição**                                                                                        |
+| :--------------- | :------- | :-------------- | :--------------------------------------------------------------------------------------------------- |
+| `x-workspace-id` | integer  | Não             | ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será usado. Será obrigatório em uma versão futura. |
 
 ### **Parâmetros de Rota**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**  |
-| :------------ | :------- | :-------------- | :------------- |
-| id            | integer  | Sim             | O ID do agente |
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**   |
+| :------------ | :------- | :-------------- | :-------------- |
+| `id`          | integer  | Sim             | O ID do agente. |
 
 ### **Corpo da Solicitação**
 
-Veja a documentação da [API OpenAI](https://platform.openai.com/docs/api-reference/chat/create) para os parâmetros do corpo da solicitação. No momento, nossa API suporta apenas os parâmetros de modelo `temperature` e `messages` (funções `system`, `user` e `assistant`). Além disso, o parâmetro `tools` é um enum de `string`. Para verificar os parâmetros de modelo de um agente específico, consulte o endpoint [Obter Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/get).
+Veja a documentação da [API OpenAI](https://platform.openai.com/docs/api-reference/chat/create) para a referência completa de parâmetros. No momento, nossa API suporta apenas os parâmetros de modelo `temperature` e `messages` (funções `system`, `user` e `assistant`). Além disso, o parâmetro `tools` é um enum de `string`. Para verificar os parâmetros de modelo de um agente específico, consulte o endpoint [Obter Agente](https://docs.tess.im/pt-BR/api/endpoints/agents/get).
 
 ### **Resposta**
 

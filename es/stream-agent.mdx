@@ -423,43 +423,28 @@ sleep
 
 ### **Encabezados**
 
-<ParamField header="x-workspace-id" type="integer">
-  ID del espacio de trabajo. Si no se proporciona, se utilizar? el espacio de trabajo seleccionado del usuario.
-</ParamField>
-
-<Note>
-  **Nota:** Este campo ser? requerido en una futura versi?n de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
-</Note>
+| **Par?metro**    | **Tipo** | **Requerido** | **Descripci?n**                                                                                             |
+| :--------------- | :------- | :------------ | :---------------------------------------------------------------------------------------------------------- |
+| `x-workspace-id` | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se usar? el espacio de trabajo seleccionado. Ser? requerido en una versi?n futura. |
 
 ### **Par?metros de Ruta**
 
-<ParamField path="id" type="integer" required>
-  El ID del agente
-</ParamField>
+| **Par?metro** | **Tipo** | **Requerido** | **Descripci?n**  |
+| :------------ | :------- | :------------ | :--------------- |
+| `id`          | integer  | S?            | El ID del agente. |
 
 ### **Cuerpo de la Solicitud**
 
-<ParamField body="stream" type="boolean">
-  Transmite la salida usando el formato Server-Sent Events. Predeterminado: `false`
-</ParamField>
-<ParamField body="temperature" type="string">
-  Campo de Chat Agent. Temperatura de muestreo entre 0 y 2. Valores m?s altos generan resultados m?s creativos (predeterminado: `"1"`).
-</ParamField>
-<ParamField body="model" type="string">
-  Campo de Chat Agent. Identificador del modelo a utilizar (p. ej., `"tess-6"`).
-</ParamField>
-<ParamField body="tools" type="string">
-  Campo de Chat Agent. Configuraci?n de herramientas del agente (p. ej., `"agent"`, `"no-tools"`).
-</ParamField>
-<ParamField body="root_id" type="integer">
-  Campo de Chat Agent. ID de una ejecuci?n existente para continuar un hilo de conversaci?n.
-</ParamField>
-<ParamField body="messages" type="array">
-  Campo de Chat Agent. Los mensajes del agente. Requerido para plantillas de tipo Chat. Admite los roles `user`, `assistant` y `developer`.
-</ParamField>
-<ParamField body="file_ids" type="array">
-  Array de IDs de archivos para adjuntar a la ejecuci?n.
-</ParamField>
+| **Par?metro**       | **Tipo** | **Requerido** | **Descripci?n**                                                                                                              |
+| :------------------ | :------- | :------------ | :--------------------------------------------------------------------------------------------------------------------------- |
+| `stream`            | boolean  | No            | Transmite la salida usando el formato Server-Sent Events (SSE). Predeterminado: `false`.                                     |
+| `temperature`       | string   | No            | Campo de Chat Agent. Temperatura de muestreo entre 0 y 2. Valores m?s altos generan resultados m?s creativos (pred.: `"1"`). |
+| `model`             | string   | No            | Campo de Chat Agent. Identificador del modelo a utilizar (p. ej., `"tess-6"`).                                               |
+| `tools`             | string   | No            | Campo de Chat Agent. Configuraci?n de herramientas del agente (p. ej., `"agent"`, `"no-tools"`).                             |
+| `root_id`           | integer  | No            | Campo de Chat Agent. ID de una ejecuci?n existente para continuar un hilo de conversaci?n.                                   |
+| `messages`          | array    | No            | Campo de Chat Agent. Los mensajes del agente. Admite los roles `user`, `assistant` y `developer`.                            |
+| `file_ids`          | array    | No            | Array de IDs de archivos para adjuntar a la ejecuci?n.                                                                       |
+| *(campos custom)*   | any      | No            | Inputs din?micos espec?ficos del agente. Los campos adicionales se pasan directamente al agente.                              |
 
 ### **Respuesta**
 

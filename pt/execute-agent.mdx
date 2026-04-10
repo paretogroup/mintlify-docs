@@ -296,43 +296,28 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-<ParamField header="x-workspace-id" type="integer">
-  ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será usado.
-</ParamField>
-
-<Note>
-  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendado defini-lo agora para garantir compatibilidade com atualizações futuras.
-</Note>
+| **Parâmetro**    | **Tipo** | **Obrigatório** | **Descrição**                                                                                        |
+| :--------------- | :------- | :-------------- | :--------------------------------------------------------------------------------------------------- |
+| `x-workspace-id` | integer  | Não             | ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será usado. Será obrigatório em uma versão futura. |
 
 ### **Parâmetros de Caminho**
 
-<ParamField path="id" type="integer" required>
-  O ID do agente
-</ParamField>
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**   |
+| :------------ | :------- | :-------------- | :-------------- |
+| `id`          | integer  | Sim             | O ID do agente. |
 
 ### **Corpo da Requisição**
 
-<ParamField body="temperature" type="string">
-  Campo de Chat Agent. Temperatura de amostragem entre 0 e 2. Valores maiores geram resultados mais criativos (padrão: `"1"`).
-</ParamField>
-<ParamField body="model" type="string">
-  Campo de Chat Agent. Identificador do modelo a ser utilizado (ex.: `"tess-6"`).
-</ParamField>
-<ParamField body="tools" type="string">
-  Campo de Chat Agent. Configuração de ferramentas do agente (ex.: `"agent"`, `"no-tools"`).
-</ParamField>
-<ParamField body="root_id" type="integer">
-  Campo de Chat Agent. ID de uma execução existente para continuar um thread de conversa.
-</ParamField>
-<ParamField body="messages" type="array">
-  Campo de Chat Agent. As mensagens do agente. Obrigatório para modelos do tipo Chat. Suporta os papéis `user`, `assistant` e `developer`.
-</ParamField>
-<ParamField body="waitExecution" type="boolean">
-  Se `true`, aguarda a execução terminar antes de retornar (timeout: 100 s). Para execuções mais longas, use `waitExecution: false` e faça polling no endpoint Obter Resposta do Agente (padrão: `false`).
-</ParamField>
-<ParamField body="file_ids" type="array">
-  Array de IDs de arquivo para anexar à execução.
-</ParamField>
+| **Parâmetro**      | **Tipo** | **Obrigatório** | **Descrição**                                                                                                               |
+| :----------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------------------------------- |
+| `temperature`      | string   | Não             | Campo de Chat Agent. Temperatura de amostragem entre 0 e 2. Valores maiores geram resultados mais criativos (padrão: `"1"`). |
+| `model`            | string   | Não             | Campo de Chat Agent. Identificador do modelo a ser utilizado (ex.: `"tess-6"`).                                             |
+| `tools`            | string   | Não             | Campo de Chat Agent. Configuração de ferramentas do agente (ex.: `"agent"`, `"no-tools"`).                                  |
+| `root_id`          | integer  | Não             | Campo de Chat Agent. ID de uma execução existente para continuar um thread de conversa.                                     |
+| `messages`         | array    | Não             | Campo de Chat Agent. As mensagens do agente. Suporta os papéis `user`, `assistant` e `developer`.                           |
+| `waitExecution`    | boolean  | Não             | Se `true`, aguarda a execução terminar antes de retornar (timeout: 100 s). Padrão: `false`.                                 |
+| `file_ids`         | array    | Não             | Array de IDs de arquivo para anexar à execução.                                                                             |
+| *(campos custom)*  | any      | Não             | Inputs dinâmicos específicos do agente. Campos adicionais são repassados diretamente ao agente.                             |
 
 #### **Funções das Mensagens (Modelos do Tipo Chat)**
 

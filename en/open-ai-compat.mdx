@@ -69,24 +69,20 @@ chat_completion = client.chat.completions.create(
 
 ### **Headers**
 
-<ParamField header="x-workspace-id" type="integer">
-  ID of the workspace. If not provided, the user's selected workspace will be used.
-</ParamField>
-
-<Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
-</Note>
+| **Parameter**    | **Type** | **Required** | **Description**                                                                   |
+| :--------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| `x-workspace-id` | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. Will be required in a future release. |
 
 ### **Path Parameters**
 
-<ParamField path="id" type="integer" required>
-  The agent ID
-</ParamField>
+| **Parameter** | **Type** | **Required** | **Description** |
+| :------------ | :------- | :----------- | :-------------- |
+| `id`          | integer  | Yes          | The agent ID.   |
 
 ### **Request Body**
 
-See the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat/create) for request body parameters. At the moment, our API only supports the `temperature` and `messages` (roles `system`, `user` and `assistant`) model parameters. Additionally, the `tools` parameter is a `string` enum. To verify the model parameters of a specific agent, see the [Get Agent](https://docs.tess.im/api/endpoints/agents/get) endpoint.
+See the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat/create) for the full parameter reference. At the moment, our API only supports the `temperature` and `messages` (roles `system`, `user` and `assistant`) model parameters. Additionally, the `tools` parameter is a `string` enum. To verify the model parameters of a specific agent, see the [Get Agent](https://docs.tess.im/api/endpoints/agents/get) endpoint.
 
 ### **Response**
 
-See the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat/object) for response format.
+See the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat/object) for the response format.

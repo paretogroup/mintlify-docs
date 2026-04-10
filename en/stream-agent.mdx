@@ -423,43 +423,28 @@ sleep
 
 ### **Headers**
 
-<ParamField header="x-workspace-id" type="integer">
-  ID of the workspace. If not provided, the user's selected workspace will be used.
-</ParamField>
-
-<Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
-</Note>
+| **Parameter**    | **Type** | **Required** | **Description**                                                                   |
+| :--------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| `x-workspace-id` | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. Will be required in a future release. |
 
 ### **Path Parameters**
 
-<ParamField path="id" type="integer" required>
-  The agent ID
-</ParamField>
+| **Parameter** | **Type** | **Required** | **Description** |
+| :------------ | :------- | :----------- | :-------------- |
+| `id`          | integer  | Yes          | The agent ID.   |
 
 ### **Request Body**
 
-<ParamField body="stream" type="boolean">
-  Streams the output using the Server-Sent Events format. Default: `false`
-</ParamField>
-<ParamField body="temperature" type="string">
-  Chat Agent field. Sampling temperature between 0 and 2. Higher values produce more creative outputs (default: `"1"`).
-</ParamField>
-<ParamField body="model" type="string">
-  Chat Agent field. Model identifier to use for execution (e.g., `"tess-6"`).
-</ParamField>
-<ParamField body="tools" type="string">
-  Chat Agent field. Tool configuration for the agent (e.g., `"agent"`, `"no-tools"`).
-</ParamField>
-<ParamField body="root_id" type="integer">
-  Chat Agent field. ID of an existing execution to continue a conversation thread.
-</ParamField>
-<ParamField body="messages" type="array">
-  Chat Agent field. The agent messages. Required for Chat Agent type templates. Supports `user`, `assistant`, and `developer` roles.
-</ParamField>
-<ParamField body="file_ids" type="array">
-  Array of file IDs to attach to the execution.
-</ParamField>
+| **Parameter**     | **Type** | **Required** | **Description**                                                                                                          |
+| :---------------- | :------- | :----------- | :----------------------------------------------------------------------------------------------------------------------- |
+| `stream`          | boolean  | No           | Streams the output using the Server-Sent Events (SSE) format. Default: `false`.                                          |
+| `temperature`     | string   | No           | Chat Agent field. Sampling temperature between 0 and 2. Higher values produce more creative outputs (default: `"1"`).   |
+| `model`           | string   | No           | Chat Agent field. Model identifier to use for execution (e.g., `"tess-6"`).                                             |
+| `tools`           | string   | No           | Chat Agent field. Tool configuration for the agent (e.g., `"agent"`, `"no-tools"`).                                     |
+| `root_id`         | integer  | No           | Chat Agent field. ID of an existing execution to continue a conversation thread.                                         |
+| `messages`        | array    | No           | Chat Agent field. The agent messages. Required for Chat Agent templates. Supports `user`, `assistant`, `developer` roles. |
+| `file_ids`        | array    | No           | Array of file IDs to attach to the execution.                                                                            |
+| *(custom fields)* | any      | No           | Additional agent-specific inputs. Any extra fields are passed through to the agent.                                      |
 
 ### **Response**
 

@@ -14,106 +14,35 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "API token",
-        "description": "Create a token in Tess AI (User menu -> API Tokens) and paste it here. Requests use Authorization: Bearer <token>."
+        "bearerFormat": "JWT"
       }
     },
-    "schemas": {
-      "ChatMessage": {
-        "type": "object",
-        "properties": {
-          "role": {
-            "type": "string",
-            "enum": [
-              "user",
-              "assistant",
-              "developer",
-              "system"
-            ]
-          },
-          "content": {
-            "type": "string"
-          }
+    "parameters": {
+      "agentId": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
         },
-        "required": [
-          "role",
-          "content"
-        ],
-        "additionalProperties": true
+        "description": "The agent ID."
       },
-      "ExecuteAgentBody": {
-        "type": "object",
-        "properties": {
-          "temperature": {
-            "type": "string",
-            "description": "Chat Agent field. Sampling temperature."
-          },
-          "model": {
-            "type": "string",
-            "description": "Chat Agent field. Model identifier to use."
-          },
-          "tools": {
-            "type": "string",
-            "description": "Chat Agent field. Tool configuration."
-          },
-          "root_id": {
-            "type": "integer",
-            "description": "Chat Agent field. Existing execution ID to continue a thread."
-          },
-          "messages": {
-            "type": "array",
-            "description": "Chat Agent field. Conversation messages.",
-            "items": {
-              "$ref": "#/components/schemas/ChatMessage"
-            }
-          },
-          "waitExecution": {
-            "type": "boolean",
-            "description": "If true, waits for completion before returning."
-          },
-          "stream": {
-            "type": "boolean",
-            "description": "If true, returns Server-Sent Events stream."
-          },
-          "file_ids": {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            }
-          }
+      "workspaceId": {
+        "name": "x-workspace-id",
+        "in": "header",
+        "required": false,
+        "schema": {
+          "type": "integer"
         },
-        "additionalProperties": true
-      },
-      "OpenAiCompatibleBody": {
-        "type": "object",
-        "properties": {
-          "temperature": {
-            "type": "string"
-          },
-          "model": {
-            "type": "string"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChatMessage"
-            }
-          },
-          "tools": {
-            "type": "string"
-          },
-          "stream": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": true
+        "description": "ID of the workspace. If not provided, the user's selected workspace will be used. **This field will be required in a future release.**"
       }
     }
   },
   "paths": {
     "/agents/{id}/execute": {
       "post": {
-        "summary": "Execute agent",
+        "operationId": "executeAgent",
+        "summary": "Execute Agent",
         "description": "Execute a specific agent by ID.",
         "security": [
           {
@@ -122,44 +51,84 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
+            "$ref": "#/components/parameters/agentId"
           },
           {
-            "name": "x-workspace-id",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Workspace ID."
+            "$ref": "#/components/parameters/workspaceId"
           }
         ],
         "requestBody": {
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ExecuteAgentBody"
+                "type": "object",
+                "additionalProperties": true,
+                "description": "Agent inputs. Known fields are listed below. Additional custom fields accepted by the agent can be included at the root level.",
+                "properties": {
+                  "temperature": {
+                    "type": "string",
+                    "description": "Chat Agent field. Sampling temperature between 0 and 2. Higher values produce more creative outputs (default: `\"1\"`)."
+                  },
+                  "model": {
+                    "type": "string",
+                    "description": "Chat Agent field. Model identifier to use for execution (e.g., `\"tess-6\"`)."
+                  },
+                  "tools": {
+                    "type": "string",
+                    "description": "Chat Agent field. Tool configuration for the agent (e.g., `\"agent\"`, `\"no-tools\"`)."
+                  },
+                  "root_id": {
+                    "type": "integer",
+                    "description": "Chat Agent field. ID of an existing execution to continue a conversation thread."
+                  },
+                  "messages": {
+                    "type": "array",
+                    "description": "Chat Agent field. The agent messages. Required for Chat Agent type templates. Supports `user`, `assistant`, and `developer` roles.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "type": "string",
+                          "enum": ["user", "assistant", "developer"],
+                          "description": "Message role."
+                        },
+                        "content": {
+                          "type": "string",
+                          "description": "Message content."
+                        }
+                      },
+                      "required": ["role", "content"]
+                    }
+                  },
+                  "waitExecution": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If `true`, waits for the execution to finish before returning (timeout: 100 s). For longer executions set `waitExecution: false` and poll the Get Agent Response endpoint."
+                  },
+                  "file_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "Array of file IDs to attach to the execution."
+                  }
+                }
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Execution accepted."
+            "description": "Execution started (or completed if `waitExecution: true`)."
           }
         }
       }
     },
     "/agents/{id}/openai/chat/completions": {
       "post": {
-        "summary": "Execute OpenAI compatible",
-        "description": "Execute a specific chat agent by ID using OpenAI-compatible format.",
+        "operationId": "executeOpenAICompatible",
+        "summary": "Execute OpenAI Compatible",
+        "description": "Execute a specific chat agent by ID using the OpenAI-compatible API.",
         "security": [
           {
             "bearerAuth": []
@@ -167,36 +136,64 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
+            "$ref": "#/components/parameters/agentId"
           },
           {
-            "name": "x-workspace-id",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Workspace ID."
+            "$ref": "#/components/parameters/workspaceId"
           }
         ],
         "requestBody": {
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OpenAiCompatibleBody"
+                "type": "object",
+                "additionalProperties": true,
+                "description": "OpenAI-compatible request body. At the moment only `temperature`, `messages`, `tools`, and `stream` are supported.",
+                "properties": {
+                  "temperature": {
+                    "type": "number",
+                    "description": "Sampling temperature between 0 and 2."
+                  },
+                  "model": {
+                    "type": "string",
+                    "description": "Model identifier (e.g., `\"tess-6\"`)."
+                  },
+                  "messages": {
+                    "type": "array",
+                    "description": "Array of messages. Supports `system`, `user`, and `assistant` roles.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "type": "string",
+                          "enum": ["system", "user", "assistant"],
+                          "description": "Message role."
+                        },
+                        "content": {
+                          "type": "string",
+                          "description": "Message content."
+                        }
+                      },
+                      "required": ["role", "content"]
+                    }
+                  },
+                  "tools": {
+                    "type": "string",
+                    "description": "Tool configuration for the agent (e.g., `\"agent\"`, `\"no-tools\"`)."
+                  },
+                  "stream": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If `true`, streams the response using SSE."
+                  }
+                }
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Execution accepted."
+            "description": "Chat completion response."
           }
         }
       }

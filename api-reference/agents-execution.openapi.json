@@ -63,29 +63,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": {
-                  "description": "Custom root-level value. You can use string, number, boolean, object, or array.",
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "type": "object"
-                    },
-                    {
-                      "type": "array"
-                    }
-                  ]
-                },
+                "additionalProperties": true,
                 "description": "Free-form JSON object. Send known fields and any custom agent fields directly at the root level."
               },
               "example": {
@@ -171,29 +149,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": {
-                  "description": "Custom root-level value. You can use string, number, boolean, object, or array.",
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "type": "object"
-                    },
-                    {
-                      "type": "array"
-                    }
-                  ]
-                },
+                "additionalProperties": true,
                 "description": "Free-form JSON object in OpenAI-compatible format. Custom fields can also be sent at the root level."
               },
               "example": {

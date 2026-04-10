@@ -63,54 +63,38 @@
               "schema": {
                 "type": "object",
                 "additionalProperties": true,
-                "description": "Agent inputs. Known fields are listed below. Additional custom fields accepted by the agent can be included at the root level.",
-                "properties": {
-                  "temperature": {
-                    "type": "string",
-                    "description": "Chat Agent field. Sampling temperature between 0 and 2. Higher values produce more creative outputs (default: `\"1\"`)."
-                  },
-                  "model": {
-                    "type": "string",
-                    "description": "Chat Agent field. Model identifier to use for execution (e.g., `\"tess-6\"`)."
-                  },
-                  "tools": {
-                    "type": "string",
-                    "description": "Chat Agent field. Tool configuration for the agent (e.g., `\"agent\"`, `\"no-tools\"`)."
-                  },
-                  "root_id": {
-                    "type": "integer",
-                    "description": "Chat Agent field. ID of an existing execution to continue a conversation thread."
-                  },
-                  "messages": {
-                    "type": "array",
-                    "description": "Chat Agent field. The agent messages. Required for Chat Agent type templates. Supports `user`, `assistant`, and `developer` roles.",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "role": {
-                          "type": "string",
-                          "enum": ["user", "assistant", "developer"],
-                          "description": "Message role."
-                        },
-                        "content": {
-                          "type": "string",
-                          "description": "Message content."
-                        }
-                      },
-                      "required": ["role", "content"]
-                    }
-                  },
-                  "waitExecution": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If `true`, waits for the execution to finish before returning (timeout: 100 s). For longer executions set `waitExecution: false` and poll the Get Agent Response endpoint."
-                  },
-                  "file_ids": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    },
-                    "description": "Array of file IDs to attach to the execution."
+                "description": "Free-form JSON object. Send known fields and any custom agent fields directly at the root level."
+              },
+              "examples": {
+                "defaultExecution": {
+                  "summary": "Default execution payload",
+                  "value": {
+                    "temperature": "1",
+                    "model": "tess-6",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Summarize the latest ticket updates."
+                      }
+                    ],
+                    "tools": "no-tools",
+                    "waitExecution": false,
+                    "file_ids": [123, 321]
+                  }
+                },
+                "customFieldsAtRoot": {
+                  "summary": "Execution with custom root-level fields",
+                  "value": {
+                    "temperature": "1",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Generate a status report."
+                      }
+                    ],
+                    "department": "finance",
+                    "reporting_period": "2026-Q1",
+                    "include_risks": true
                   }
                 }
               }
@@ -148,43 +132,36 @@
               "schema": {
                 "type": "object",
                 "additionalProperties": true,
-                "description": "OpenAI-compatible request body. At the moment only `temperature`, `messages`, `tools`, and `stream` are supported.",
-                "properties": {
-                  "temperature": {
-                    "type": "number",
-                    "description": "Sampling temperature between 0 and 2."
-                  },
-                  "model": {
-                    "type": "string",
-                    "description": "Model identifier (e.g., `\"tess-6\"`)."
-                  },
-                  "messages": {
-                    "type": "array",
-                    "description": "Array of messages. Supports `system`, `user`, and `assistant` roles.",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "role": {
-                          "type": "string",
-                          "enum": ["system", "user", "assistant"],
-                          "description": "Message role."
-                        },
-                        "content": {
-                          "type": "string",
-                          "description": "Message content."
-                        }
-                      },
-                      "required": ["role", "content"]
-                    }
-                  },
-                  "tools": {
-                    "type": "string",
-                    "description": "Tool configuration for the agent (e.g., `\"agent\"`, `\"no-tools\"`)."
-                  },
-                  "stream": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If `true`, streams the response using SSE."
+                "description": "Free-form JSON object in OpenAI-compatible format. Custom fields can also be sent at the root level."
+              },
+              "examples": {
+                "defaultChatCompletion": {
+                  "summary": "Default OpenAI-compatible payload",
+                  "value": {
+                    "temperature": 1,
+                    "model": "tess-6",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Create a short release note."
+                      }
+                    ],
+                    "tools": "no-tools",
+                    "stream": false
+                  }
+                },
+                "customFieldsAtRoot": {
+                  "summary": "OpenAI-compatible payload with custom fields",
+                  "value": {
+                    "temperature": 1,
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Suggest improvements for onboarding."
+                      }
+                    ],
+                    "tenant": "enterprise-a",
+                    "persona": "manager"
                   }
                 }
               }

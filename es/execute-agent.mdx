@@ -317,6 +317,7 @@ puts response.read_body
 | `messages`          | array    | No            | Campo de Chat Agent. Los mensajes del agente. Admite los roles `user`, `assistant` y `developer`.                            |
 | `waitExecution`     | boolean  | No            | Si `true`, espera que la ejecución termine antes de retornar (timeout: 100 s). Predeterminado: `false`.                      |
 | `file_ids`          | array    | No            | Array de IDs de archivos para adjuntar a la ejecución.                                                                       |
+| `custom_fields`     | object   | No            | Campos personalizados definidos por el usuario. Envíe inputs adicionales específicos del agente en la raíz de la solicitud.   |
 
 #### **Roles de Mensajes (Plantillas de Tipo Chat)**
 

@@ -1,7 +1,7 @@
 ---
 title: "Ejecutar Agente en Stream"
 description: "Ejecuta un agente de **chat** espec?fico por ID."
-openapi: "api-reference/agents-execution.openapi.json POST /agents/{id}/execute"
+openapi: "api-reference/agents-stream.openapi.json POST /agents/{id}/execute"
 ---
 
 
@@ -437,13 +437,14 @@ sleep
 
 | **Par?metro**       | **Tipo** | **Requerido** | **Descripci?n**                                                                                                              |
 | :------------------ | :------- | :------------ | :--------------------------------------------------------------------------------------------------------------------------- |
-| `stream`            | boolean  | No            | Transmite la salida usando el formato Server-Sent Events (SSE). Predeterminado: `false`.                                     |
+| `stream`            | boolean  | S?            | Debe ser `true` para este endpoint de streaming.                                                                              |
 | `temperature`       | string   | No            | Campo de Chat Agent. Temperatura de muestreo entre 0 y 2. Valores m?s altos generan resultados m?s creativos (pred.: `"1"`). |
 | `model`             | string   | No            | Campo de Chat Agent. Identificador del modelo a utilizar (p. ej., `"tess-6"`).                                               |
 | `tools`             | string   | No            | Campo de Chat Agent. Configuraci?n de herramientas del agente (p. ej., `"agent"`, `"no-tools"`).                             |
 | `root_id`           | integer  | No            | Campo de Chat Agent. ID de una ejecuci?n existente para continuar un hilo de conversaci?n.                                   |
 | `messages`          | array    | No            | Campo de Chat Agent. Los mensajes del agente. Admite los roles `user`, `assistant` y `developer`.                            |
 | `file_ids`          | array    | No            | Array de IDs de archivos para adjuntar a la ejecuci?n.                                                                       |
+| `custom_fields`     | object   | No            | Campos personalizados definidos por el usuario. Env?e inputs adicionales espec?ficos del agente en la ra?z de la solicitud.   |
 
 ### **Respuesta**
 

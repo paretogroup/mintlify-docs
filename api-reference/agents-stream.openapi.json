@@ -1,0 +1,126 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Tess API - Agent Stream Execution",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.tess.im"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "parameters": {
+      "agentId": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        },
+        "description": "The agent ID."
+      },
+      "workspaceId": {
+        "name": "x-workspace-id",
+        "in": "header",
+        "required": false,
+        "schema": {
+          "type": "integer"
+        },
+        "description": "ID of the workspace. If not provided, the user's selected workspace will be used. **This field will be required in a future release.**"
+      }
+    }
+  },
+  "paths": {
+    "/agents/{id}/execute": {
+      "post": {
+        "operationId": "executeAgentStream",
+        "summary": "Execute Agent Stream",
+        "description": "Execute a specific chat agent by ID with streaming response.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/agentId"
+          },
+          {
+            "$ref": "#/components/parameters/workspaceId"
+          }
+        ],
+        "requestBody": {
+          "description": "Send a JSON object. For this endpoint, `stream` is required and fixed to `true`.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "required": [
+                  "stream"
+                ],
+                "properties": {
+                  "stream": {
+                    "type": "boolean",
+                    "const": true,
+                    "description": "Must be `true` for streaming responses."
+                  }
+                },
+                "description": "Free-form JSON object. Add known fields and custom agent fields directly at the root level."
+              },
+              "examples": {
+                "streamExecution": {
+                  "summary": "Streaming payload",
+                  "value": {
+                    "stream": true,
+                    "temperature": "1",
+                    "model": "tess-6",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Generate a concise status update."
+                      }
+                    ],
+                    "tools": "no-tools",
+                    "file_ids": [
+                      123,
+                      321
+                    ]
+                  }
+                },
+                "streamWithCustomFields": {
+                  "summary": "Streaming payload with custom root fields",
+                  "value": {
+                    "stream": true,
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "List critical blockers."
+                      }
+                    ],
+                    "department": "operations",
+                    "priority_filter": "high"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Server-Sent Events stream."
+          }
+        }
+      }
+    }
+  }
+}

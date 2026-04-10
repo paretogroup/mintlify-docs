@@ -317,6 +317,7 @@ puts response.read_body
 | `messages`         | array    | Não             | Campo de Chat Agent. As mensagens do agente. Suporta os papéis `user`, `assistant` e `developer`.                           |
 | `waitExecution`    | boolean  | Não             | Se `true`, aguarda a execução terminar antes de retornar (timeout: 100 s). Padrão: `false`.                                 |
 | `file_ids`         | array    | Não             | Array de IDs de arquivo para anexar à execução.                                                                             |
+| `custom_fields`    | object   | Não             | Campos personalizados definidos pelo usuário. Envie inputs específicos adicionais do agente na raiz da requisição.           |
 
 #### **Funções das Mensagens (Modelos do Tipo Chat)**
 

@@ -1,7 +1,7 @@
 ---
 title: "Execute Agent Stream"
 description: "Execute a specific **chat** agent by ID."
-openapi: "api-reference/agents-execution.openapi.json POST /agents/{id}/execute"
+openapi: "api-reference/agents-stream.openapi.json POST /agents/{id}/execute"
 ---
 
 
@@ -437,13 +437,14 @@ sleep
 
 | **Parameter**     | **Type** | **Required** | **Description**                                                                                                          |
 | :---------------- | :------- | :----------- | :----------------------------------------------------------------------------------------------------------------------- |
-| `stream`          | boolean  | No           | Streams the output using the Server-Sent Events (SSE) format. Default: `false`.                                          |
+| `stream`          | boolean  | Yes          | Must be `true` for this streaming endpoint.                                                                               |
 | `temperature`     | string   | No           | Chat Agent field. Sampling temperature between 0 and 2. Higher values produce more creative outputs (default: `"1"`).   |
 | `model`           | string   | No           | Chat Agent field. Model identifier to use for execution (e.g., `"tess-6"`).                                             |
 | `tools`           | string   | No           | Chat Agent field. Tool configuration for the agent (e.g., `"agent"`, `"no-tools"`).                                     |
 | `root_id`         | integer  | No           | Chat Agent field. ID of an existing execution to continue a conversation thread.                                         |
 | `messages`        | array    | No           | Chat Agent field. The agent messages. Required for Chat Agent templates. Supports `user`, `assistant`, `developer` roles. |
 | `file_ids`        | array    | No           | Array of file IDs to attach to the execution.                                                                            |
+| `custom_fields`   | object   | No           | Custom user-defined fields. Send any additional agent-specific inputs at the request root.                              |
 
 ### **Response**
 

@@ -58,6 +58,7 @@
           }
         ],
         "requestBody": {
+          "description": "Send a JSON object. Known fields are supported, and you can add custom fields directly at the root (for example: `department`, `reporting_period`, `include_risks`).",
           "content": {
             "application/json": {
               "schema": {
@@ -127,6 +128,7 @@
           }
         ],
         "requestBody": {
+          "description": "Send a JSON object in OpenAI-compatible format. You can also include custom root-level fields when needed by your agent configuration.",
           "content": {
             "application/json": {
               "schema": {

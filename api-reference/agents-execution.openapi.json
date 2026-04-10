@@ -63,8 +63,46 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": true,
+                "additionalProperties": {
+                  "description": "Custom root-level value. You can use string, number, boolean, object, or array.",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "object"
+                    },
+                    {
+                      "type": "array"
+                    }
+                  ]
+                },
                 "description": "Free-form JSON object. Send known fields and any custom agent fields directly at the root level."
+              },
+              "example": {
+                "temperature": "1",
+                "model": "tess-6",
+                "messages": [
+                  {
+                    "role": "user",
+                    "content": "Summarize the latest ticket updates."
+                  }
+                ],
+                "tools": "no-tools",
+                "waitExecution": false,
+                "file_ids": [
+                  123,
+                  321
+                ]
               },
               "examples": {
                 "defaultExecution": {
@@ -133,8 +171,42 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": true,
+                "additionalProperties": {
+                  "description": "Custom root-level value. You can use string, number, boolean, object, or array.",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "object"
+                    },
+                    {
+                      "type": "array"
+                    }
+                  ]
+                },
                 "description": "Free-form JSON object in OpenAI-compatible format. Custom fields can also be sent at the root level."
+              },
+              "example": {
+                "temperature": 1,
+                "model": "tess-6",
+                "messages": [
+                  {
+                    "role": "user",
+                    "content": "Create a short release note."
+                  }
+                ],
+                "tools": "no-tools",
+                "stream": false
               },
               "examples": {
                 "defaultChatCompletion": {

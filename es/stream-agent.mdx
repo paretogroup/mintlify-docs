@@ -444,7 +444,7 @@ sleep
 | `root_id`           | integer  | No            | Campo de Chat Agent. ID de una ejecuci?n existente para continuar un hilo de conversaci?n.                                   |
 | `messages`          | array    | No            | Campo de Chat Agent. Los mensajes del agente. Admite los roles `user`, `assistant` y `developer`.                            |
 | `file_ids`          | array    | No            | Array de IDs de archivos para adjuntar a la ejecuci?n.                                                                       |
-| `custom_fields`     | object   | No            | Campos personalizados definidos por el usuario. Env?e inputs adicionales espec?ficos del agente en la ra?z de la solicitud.   |
+| Otros campos en la ra?z | any | Depende del agente | Esto no es un nombre de campo fijo. Puede enviar otros campos requeridos por su agente directamente en la ra?z de la solicitud. Consulte qu? campos son obligatorios en [Obtener Agente por ID](https://docs.tess.im/es/api/endpoints/agents/get). |
 
 ### **Respuesta**
 

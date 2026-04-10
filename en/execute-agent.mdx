@@ -317,7 +317,7 @@ puts response.read_body
 | `messages`        | array    | No           | Chat Agent field. The agent messages. Required for Chat Agent templates. Supports `user`, `assistant`, `developer` roles. |
 | `waitExecution`   | boolean  | No           | If `true`, waits for execution to finish before returning (timeout: 100 s). Default: `false`.                            |
 | `file_ids`        | array    | No           | Array of file IDs to attach to the execution.                                                                            |
-| `custom_fields`   | object   | No           | Custom user-defined fields. Send any additional agent-specific inputs at the request root.                              |
+| Other root-level fields | any | Depends on agent | This is not a fixed field name. You can send additional fields required by your specific agent directly at the request root. Check which fields are required in [Get Agent by ID](https://docs.tess.im/api/endpoints/agents/get). |
 
 #### **Messages Roles (Chat Type Templates)**
 

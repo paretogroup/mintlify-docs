@@ -317,7 +317,7 @@ puts response.read_body
 | `messages`          | array    | No            | Campo de Chat Agent. Los mensajes del agente. Admite los roles `user`, `assistant` y `developer`.                            |
 | `waitExecution`     | boolean  | No            | Si `true`, espera que la ejecución termine antes de retornar (timeout: 100 s). Predeterminado: `false`.                      |
 | `file_ids`          | array    | No            | Array de IDs de archivos para adjuntar a la ejecución.                                                                       |
-| `custom_fields`     | object   | No            | Campos personalizados definidos por el usuario. Envíe inputs adicionales específicos del agente en la raíz de la solicitud.   |
+| Otros campos en la raíz | any | Depende del agente | Esto no es un nombre de campo fijo. Puede enviar otros campos requeridos por su agente directamente en la raíz de la solicitud. Consulte qué campos son obligatorios en [Obtener Agente por ID](https://docs.tess.im/es/api/endpoints/agents/get). |
 
 #### **Roles de Mensajes (Plantillas de Tipo Chat)**
 

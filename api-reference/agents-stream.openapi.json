@@ -58,24 +58,52 @@
           }
         ],
         "requestBody": {
-          "description": "Send a JSON object. For this endpoint, `stream` is required and fixed to `true`.",
+          "description": "Send a JSON object. Keep `stream: true` in this endpoint and add any custom fields directly at the root.",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": true,
-                "required": [
-                  "stream"
-                ],
-                "properties": {
-                  "stream": {
-                    "type": "boolean",
-                    "const": true,
-                    "description": "Must be `true` for streaming responses."
-                  }
+                "additionalProperties": {
+                  "description": "Custom root-level value. You can use string, number, boolean, object, or array.",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "object"
+                    },
+                    {
+                      "type": "array"
+                    }
+                  ]
                 },
-                "description": "Free-form JSON object. Add known fields and custom agent fields directly at the root level."
+                "description": "Free-form JSON object. Use `stream: true` and add known or custom fields at the root level."
+              },
+              "example": {
+                "stream": true,
+                "temperature": "1",
+                "model": "tess-6",
+                "messages": [
+                  {
+                    "role": "user",
+                    "content": "Summarize the latest ticket updates."
+                  }
+                ],
+                "tools": "no-tools",
+                "file_ids": [
+                  123,
+                  321
+                ]
               },
               "examples": {
                 "streamExecution": {

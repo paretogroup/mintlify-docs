@@ -1,11 +1,11 @@
 ---
 title: "Rollback de Versión del Agente"
-openapi: "POST /agents/{id}/versions/{version_number}/rollback"
+description: "Restaura una versión específica del agente creando una nueva versión cuyo snapshot coincide con el objetivo. El historial de versiones se preserva — no se elimina ninguna versión. El rollback se registra como una entrada de auditoría. Requiere el permiso `agent:version:read`."
+api: "POST https://api.tess.im/agents/{id}/versions/{version_number}/rollback"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`POST /agents/{id}/versions/{version_id}/rollback`
-
-Restaura una versión específica del agente creando una nueva versión cuyo snapshot coincide con el objetivo. El historial de versiones se preserva — no se elimina ninguna versión. El rollback se registra como una entrada de auditoría. Requiere el permiso `agent:version:read`.
 
 <Note>
   Intentar hacer rollback a la versión actualmente activa devuelve un error `422`.
@@ -195,9 +195,9 @@ puts response.read_body
 
 ### **Headers**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                             |
-| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------ |
-| x-workspace-id | integer  | No            | ID del workspace. Si no se proporciona, se usará el workspace seleccionado por el usuario.  |
+<ParamField header="x-workspace-id" type="integer">
+  ID del workspace. Si no se proporciona, se usará el workspace seleccionado por el usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obligatorio en una versión futura de la API. Se recomienda establecerlo ahora para garantizar compatibilidad con futuras actualizaciones.
@@ -205,10 +205,12 @@ puts response.read_body
 
 ### **Parámetros de Ruta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                                 |
-| :------------ | :------- | :------------ | :---------------------------------------------- |
-| id            | integer  | Sí            | El ID del agente                                |
-| version_id    | integer  | Sí            | El ID de la versión a la que hacer rollback     |
+<ParamField path="id" type="integer" required>
+  El ID del agente
+</ParamField>
+<ParamField path="version_id" type="integer" required>
+  El ID de la versión a la que hacer rollback
+</ParamField>
 
 ### **Respuesta**
 

@@ -1,11 +1,11 @@
 ---
 title: "Listar Versiones del Agente"
-openapi: "GET /agents/{id}/versions"
+description: "Devuelve una lista paginada de todas las versiones guardadas de un agente específico, incluyendo el diff campo a campo y el `change_summary` de cada versión respecto a la anterior. Requiere el permiso `agent:version:read`."
+api: "GET https://api.tess.im/agents/{id}/versions"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /agents/{id}/versions`
-
-Devuelve una lista paginada de todas las versiones guardadas de un agente específico, incluyendo el diff campo a campo y el `change_summary` de cada versión respecto a la anterior. Requiere el permiso `agent:version:read`.
 
 ### **Ejemplos de Código**
 
@@ -188,9 +188,9 @@ puts response.read_body
 
 ### **Headers**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                             |
-| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------ |
-| x-workspace-id | integer  | No            | ID del workspace. Si no se proporciona, se usará el workspace seleccionado por el usuario.  |
+<ParamField header="x-workspace-id" type="integer">
+  ID del workspace. Si no se proporciona, se usará el workspace seleccionado por el usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obligatorio en una versión futura de la API. Se recomienda establecerlo ahora para garantizar compatibilidad con futuras actualizaciones.
@@ -198,9 +198,9 @@ puts response.read_body
 
 ### **Parámetros de Ruta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**    |
-| :------------ | :------- | :------------ | :----------------- |
-| id            | integer  | Sí            | El ID del agente   |
+<ParamField path="id" type="integer" required>
+  El ID del agente
+</ParamField>
 
 ### **Parámetros de Query**
 

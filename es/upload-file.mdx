@@ -1,11 +1,11 @@
 ---
 title: "Subir Archivo"
-openapi: "POST /files"
+description: "Sube un nuevo archivo al sistema y opcionalmente lo procesa."
+api: "POST https://api.tess.im/files"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`POST /files`
-
-Sube un nuevo archivo al sistema y opcionalmente lo procesa.
 
 ### **Archivos soportados**
 
@@ -281,9 +281,9 @@ puts response.read_body
 
 ### **Encabezados**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
-| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
-| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
+<ParamField header="x-workspace-id" type="integer">
+  ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
@@ -291,10 +291,16 @@ puts response.read_body
 
 ### **Parámetros del Cuerpo**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                                                        |
-| :------------ | :------- | :------------ | :--------------------------------------------------------------------- |
-| file          | file     | Sí            | El archivo a subir                                                     |
-| process       | boolean  | No            | Si debe procesar el archivo después de subirlo (predeterminado: false) |
+<Warning>
+  El playground no soporta uploads `multipart/form-data` directamente. Use los **Ejemplos de Código** anteriores (cURL, Python, Node.js, etc.) para enviar el archivo. Los campos a continuación se muestran solo con fines de documentación.
+</Warning>
+
+<ParamField body="file" type="file" required>
+  El archivo a subir (multipart/form-data)
+</ParamField>
+<ParamField body="process" type="boolean">
+  Si debe procesar el archivo después de subirlo (predeterminado: false). El procesamiento consume créditos (true).
+</ParamField>
 
 ### **Respuesta**
 

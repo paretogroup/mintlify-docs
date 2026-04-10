@@ -1,11 +1,9 @@
 ---
 title: "Execute Agent Stream"
-openapi: "POST /agents/{id}/execute"
+description: "Execute a specific **chat** agent by ID."
+openapi: "api-reference/agents-stream.openapi.json POST /agents/{id}/execute"
 ---
 
-`POST /agents/{id}/execute`
-
-Execute a specific **chat** agent by ID.
 
 ### **Code Examples**
 
@@ -425,28 +423,28 @@ sleep
 
 ### **Headers**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
-
-<Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
-</Note>
+| **Parameter**    | **Type** | **Required** | **Description**                                                                   |
+| :--------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
+| `x-workspace-id` | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. Will be required in a future release. |
 
 ### **Path Parameters**
 
 | **Parameter** | **Type** | **Required** | **Description** |
 | :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The agent ID    |
+| `id`          | integer  | Yes          | The agent ID.   |
 
 ### **Request Body**
 
-| **Parameter** | **Type** | **Required**        | **Description**                                                          |
-| :------------ | :------- | :------------------ | :----------------------------------------------------------------------- |
-| stream        | boolean  | No                  | Streams the output using the Server-Sent Events format. Default: `false` |
-| answers       | object   | Yes                 | The agent answers                                                        |
-| messages      | array    | Only for Chat Agent | The agent messages                                                       |
-| file_ids      | array    | No                  | Array of file IDs to attach to the execution.                            |
+| **Parameter**     | **Type** | **Required** | **Description**                                                                                                          |
+| :---------------- | :------- | :----------- | :----------------------------------------------------------------------------------------------------------------------- |
+| `stream`          | boolean  | Yes          | Must be `true` for this streaming endpoint.                                                                               |
+| `temperature`     | string   | No           | Chat Agent field. Sampling temperature between 0 and 2. Higher values produce more creative outputs (default: `"1"`).   |
+| `model`           | string   | No           | Chat Agent field. Model identifier to use for execution (e.g., `"tess-6"`).                                             |
+| `tools`           | string   | No           | Chat Agent field. Tool configuration for the agent (e.g., `"agent"`, `"no-tools"`).                                     |
+| `root_id`         | integer  | No           | Chat Agent field. ID of an existing execution to continue a conversation thread.                                         |
+| `messages`        | array    | No           | Chat Agent field. The agent messages. Required for Chat Agent templates. Supports `user`, `assistant`, `developer` roles. |
+| `file_ids`        | array    | No           | Array of file IDs to attach to the execution.                                                                            |
+| Other root-level fields | any | Depends on agent | This is not a fixed field name. You can send additional fields required by your specific agent directly at the request root. Check which fields are required in [Get Agent by ID](https://docs.tess.im/en/get-agent). |
 
 ### **Response**
 

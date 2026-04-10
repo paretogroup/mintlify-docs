@@ -1,11 +1,11 @@
 ---
 title: "Create Memory Collection"
-openapi: "POST /memory-collections"
+description: "Creates a new memory collection."
+api: "POST https://api.tess.im/memory-collections"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`POST /memory-collections`
-
-Creates a new memory collection.
 
 ### **Code Examples**
 
@@ -241,9 +241,9 @@ puts response.read_body
 
 ### **Request Body**
 
-| **Parameter** | **Type** | **Required** | **Description**        |
-| :------------ | :------- | :----------- | :--------------------- |
-| name          | string   | Yes          | Name of the collection |
+<ParamField body="name" type="string" required>
+  Name of the collection
+</ParamField>
 
 ### **Response**
 

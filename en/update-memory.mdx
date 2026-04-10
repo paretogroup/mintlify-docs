@@ -1,11 +1,11 @@
 ---
 title: "Update Memory"
-openapi: "PATCH /memories/{memoryId}"
+description: "Updates an existing memory."
+api: "PATCH https://api.tess.im/memories/{memoryId}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`PATCH /memories/{memoryId}`
-
-Updates an existing memory.
 
 ### **Code Examples**
 
@@ -237,18 +237,20 @@ puts response.read_body
 
 </CodeGroup>
 
-### **URL Parameters**
+### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**  |
-| :------------ | :------- | :----------- | :--------------- |
-| memoryId      | integer  | Yes          | ID of the memory |
+<ParamField path="memoryId" type="integer" required>
+  ID of the memory to update
+</ParamField>
 
 ### **Request Body**
 
-| **Parameter** | **Type** | **Required** | **Description**                       |
-| :------------ | :------- | :----------- | :------------------------------------ |
-| memory        | string   | Yes          | New memory content                    |
-| collection_id | integer  | No           | Collection ID to associate the memory |
+<ParamField body="memory" type="string" required>
+  New memory content
+</ParamField>
+<ParamField body="collection_id" type="integer">
+  Collection ID to associate the memory
+</ParamField>
 
 ```json
 {

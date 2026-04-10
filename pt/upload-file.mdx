@@ -1,6 +1,8 @@
 ---
 title: "Upload de Arquivo "
-openapi: "POST /files"
+api: "POST https://api.tess.im/files"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
 ### `POST /files`
@@ -281,9 +283,9 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
-| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
+<ParamField header="x-workspace-id" type="integer">
+  ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
@@ -291,10 +293,16 @@ puts response.read_body
 
 ### **Parâmetros do Corpo**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                                             |
-| :------------ | :------- | :-------------- | :-------------------------------------------------------- |
-| file          | file     | Sim             | O arquivo a ser enviado                                   |
-| process       | boolean  | Não             | Se deve processar o arquivo após o upload (padrão: false) |
+<Warning>
+  O playground não suporta uploads `multipart/form-data` diretamente. Use os **Exemplos de Código** acima (cURL, Python, Node.js, etc.) para enviar o arquivo. Os campos abaixo são exibidos apenas para documentação.
+</Warning>
+
+<ParamField body="file" type="file" required>
+  O arquivo a ser enviado (multipart/form-data)
+</ParamField>
+<ParamField body="process" type="boolean">
+  Se deve processar o arquivo após o upload (padrão: false). O processamento consome créditos (true).
+</ParamField>
 
 ### **Resposta**
 

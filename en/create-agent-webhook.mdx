@@ -1,11 +1,11 @@
 ---
 title: "Create Agent Webhook"
-openapi: "POST /agents/{id}/webhooks"
+description: "Create a new webhook for a specific agent."
+api: "POST https://api.tess.im/agents/{id}/webhooks"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`POST /agents/{id}/webhooks`
-
-Create a new webhook for a specific agent.
 
 ### **Code Examples**
 
@@ -248,9 +248,9 @@ puts response.read_body
 
 ### **Headers**
 
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
+<ParamField header="x-workspace-id" type="integer">
+  ID of the workspace. If not provided, the user's selected workspace will be used.
+</ParamField>
 
 <Note>
   **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
@@ -258,17 +258,21 @@ puts response.read_body
 
 ### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The agent ID    |
+<ParamField path="id" type="integer" required>
+  The agent ID
+</ParamField>
 
 ### **Body Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**                                 |
-| :------------ | :------- | :----------- | :---------------------------------------------- |
-| url           | string   | Yes          | The URL that will receive webhook notifications |
-| method        | string   | Yes          | The HTTP method to use for the webhook (POST)   |
-| status        | string   | No           | The status of the webhook (active or inactive)  |
+<ParamField body="url" type="string" required>
+  The URL that will receive webhook notifications
+</ParamField>
+<ParamField body="method" type="string" required>
+  The HTTP method to use for the webhook (POST)
+</ParamField>
+<ParamField body="status" type="string">
+  The status of the webhook (active or inactive)
+</ParamField>
 
 ### **Response**
 

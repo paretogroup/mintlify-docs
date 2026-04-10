@@ -1,11 +1,11 @@
 ---
 title: "Atualizar Coleção de Memória "
-openapi: "PUT /memory-collections/{collectionId}"
+description: "Atualiza uma coleção de memória existente."
+api: "PUT https://api.tess.im/memory-collections/{collectionId}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`PUT /memory-collections/{collectionId}`
-
-Atualiza uma coleção de memória existente.
 
 ### **Exemplos de Código**
 
@@ -241,9 +241,9 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
-| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
+<ParamField header="x-workspace-id" type="integer">
+  ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.

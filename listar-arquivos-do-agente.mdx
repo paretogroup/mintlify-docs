@@ -1,11 +1,11 @@
 ---
 title: "Listar Arquivos do Agente"
-openapi: "GET /agents/{agentId}/files"
+description: "Recupera uma lista de arquivos associados a um agente específico."
+api: "GET https://api.tess.im/agents/{agentId}/files"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /agents/{agentId}/files`
-
-Recupera uma lista de arquivos associados a um agente específico.
 
 ### **Exemplos de Código**
 
@@ -188,9 +188,9 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
-| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
+<ParamField header="x-workspace-id" type="integer">
+  ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.

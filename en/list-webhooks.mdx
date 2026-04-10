@@ -1,11 +1,11 @@
 ---
 title: "List Webhooks"
-openapi: "GET /webhooks"
+description: "Returns a paginated list of webhooks."
+api: "GET https://api.tess.im/webhooks"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /webhooks`
-
-Returns a paginated list of webhooks.
 
 ### **Code Examples**
 
@@ -188,10 +188,12 @@ puts response.read_body
 
 ### **Query Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**                        |
-| :------------ | :------- | :----------- | :------------------------------------- |
-| page          | integer  | No           | Current page (default: 1)              |
-| per_page      | integer  | No           | Number of items per page (default: 15) |
+<ParamField query="page" type="integer">
+  Current page (default: 1)
+</ParamField>
+<ParamField query="per_page" type="integer">
+  Number of items per page (default: 15)
+</ParamField>
 
 ### **Response**
 

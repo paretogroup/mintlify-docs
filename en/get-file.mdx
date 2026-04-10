@@ -1,11 +1,11 @@
 ---
 title: "Get File"
-openapi: "GET /files/{fileId}"
+description: "Retrieve a specific file by its ID."
+api: "GET https://api.tess.im/files/{fileId}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /files/{fileId}`
-
-Retrieve a specific file by its ID.
 
 ### **Code Examples**
 
@@ -188,9 +188,9 @@ puts response.read_body
 
 ### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**                |
-| :------------ | :------- | :----------- | :----------------------------- |
-| fileId        | string   | Yes          | The ID of the file to retrieve |
+<ParamField path="fileId" type="string" required>
+  The ID of the file to retrieve
+</ParamField>
 
 ### **Response**
 

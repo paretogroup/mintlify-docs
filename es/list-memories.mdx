@@ -1,11 +1,11 @@
 ---
 title: "Listar Memorias"
-openapi: "GET /memories"
+description: "Recupera una lista paginada de memorias para el usuario autenticado."
+api: "GET https://api.tess.im/memories"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /memories`
-
-Recupera una lista paginada de memorias para el usuario autenticado.
 
 ### **Ejemplos de Código**
 
@@ -188,9 +188,9 @@ puts response.read_body
 
 ### **Encabezados**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
-| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
-| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
+<ParamField header="x-workspace-id" type="integer">
+  ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
@@ -198,10 +198,12 @@ puts response.read_body
 
 ### **Parámetros de Consulta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**                                                         |
-| :------------ | :------- | :------------ | :---------------------------------------------------------------------- |
-| limit         | integer  | No            | Número máximo de elementos por página (predeterminado: 25, máximo: 100) |
-| offset        | integer  | No            | Número de elementos para saltar (predeterminado: 0)                     |
+<ParamField query="limit" type="integer">
+  Número máximo de elementos por página (predeterminado: 25, máximo: 100)
+</ParamField>
+<ParamField query="offset" type="integer">
+  Número de elementos para saltar (predeterminado: 0)
+</ParamField>
 
 ### **Respuesta**
 

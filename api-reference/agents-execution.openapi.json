@@ -1,0 +1,209 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Tess API - Agent Execution",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.tess.im"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "parameters": {
+      "agentId": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        },
+        "description": "The agent ID."
+      },
+      "workspaceId": {
+        "name": "x-workspace-id",
+        "in": "header",
+        "required": false,
+        "schema": {
+          "type": "integer"
+        },
+        "description": "ID of the workspace. If not provided, the user's selected workspace will be used. **This field will be required in a future release.**"
+      }
+    }
+  },
+  "paths": {
+    "/agents/{id}/execute": {
+      "post": {
+        "operationId": "executeAgent",
+        "summary": "Execute Agent",
+        "description": "Execute a specific agent by ID.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/agentId"
+          },
+          {
+            "$ref": "#/components/parameters/workspaceId"
+          }
+        ],
+        "requestBody": {
+          "description": "Send a JSON object. Known fields are supported, and you can add custom fields directly at the root (for example: `department`, `reporting_period`, `include_risks`).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "Free-form JSON object. Send known fields and any custom agent fields directly at the root level."
+              },
+              "example": {
+                "temperature": "1",
+                "model": "tess-6",
+                "messages": [
+                  {
+                    "role": "user",
+                    "content": "Summarize the latest ticket updates."
+                  }
+                ],
+                "tools": "no-tools",
+                "waitExecution": false,
+                "file_ids": [
+                  123,
+                  321
+                ]
+              },
+              "examples": {
+                "defaultExecution": {
+                  "summary": "Default execution payload",
+                  "value": {
+                    "temperature": "1",
+                    "model": "tess-6",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Summarize the latest ticket updates."
+                      }
+                    ],
+                    "tools": "no-tools",
+                    "waitExecution": false,
+                    "file_ids": [123, 321]
+                  }
+                },
+                "customFieldsAtRoot": {
+                  "summary": "Execution with custom root-level fields",
+                  "value": {
+                    "temperature": "1",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Generate a status report."
+                      }
+                    ],
+                    "department": "finance",
+                    "reporting_period": "2026-Q1",
+                    "include_risks": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Execution started (or completed if `waitExecution: true`)."
+          }
+        }
+      }
+    },
+    "/agents/{id}/openai/chat/completions": {
+      "post": {
+        "operationId": "executeOpenAICompatible",
+        "summary": "Execute OpenAI Compatible",
+        "description": "Execute a specific chat agent by ID using the OpenAI-compatible API.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/agentId"
+          },
+          {
+            "$ref": "#/components/parameters/workspaceId"
+          }
+        ],
+        "requestBody": {
+          "description": "Send a JSON object in OpenAI-compatible format. You can also include custom root-level fields when needed by your agent configuration.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "Free-form JSON object in OpenAI-compatible format. Custom fields can also be sent at the root level."
+              },
+              "example": {
+                "temperature": 1,
+                "model": "tess-6",
+                "messages": [
+                  {
+                    "role": "user",
+                    "content": "Create a short release note."
+                  }
+                ],
+                "tools": "no-tools",
+                "stream": false
+              },
+              "examples": {
+                "defaultChatCompletion": {
+                  "summary": "Default OpenAI-compatible payload",
+                  "value": {
+                    "temperature": 1,
+                    "model": "tess-6",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Create a short release note."
+                      }
+                    ],
+                    "tools": "no-tools",
+                    "stream": false
+                  }
+                },
+                "customFieldsAtRoot": {
+                  "summary": "OpenAI-compatible payload with custom fields",
+                  "value": {
+                    "temperature": 1,
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Suggest improvements for onboarding."
+                      }
+                    ],
+                    "tenant": "enterprise-a",
+                    "persona": "manager"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat completion response."
+          }
+        }
+      }
+    }
+  }
+}

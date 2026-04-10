@@ -1,9 +1,7 @@
 ---
 title: "Execute Agent"
 description: "Execute a specific agent by ID."
-api: "POST https://api.tess.im/agents/{id}/execute"
-authMethod: "bearer"
-playground: "interactive"
+openapi: "api-reference/agents-execution.openapi.json POST /agents/{id}/execute"
 ---
 
 
@@ -315,19 +313,19 @@ puts response.read_body
 ### **Request Body**
 
 <ParamField body="temperature" type="string">
-  Sampling temperature between 0 and 2. Higher values produce more creative outputs (default: `"1"`).
+  Chat Agent field. Sampling temperature between 0 and 2. Higher values produce more creative outputs (default: `"1"`).
 </ParamField>
 <ParamField body="model" type="string">
-  Model identifier to use for execution (e.g., `"tess-6"`).
+  Chat Agent field. Model identifier to use for execution (e.g., `"tess-6"`).
 </ParamField>
 <ParamField body="tools" type="string">
-  Tool configuration for the agent (e.g., `"agent"`, `"no-tools"`).
+  Chat Agent field. Tool configuration for the agent (e.g., `"agent"`, `"no-tools"`).
 </ParamField>
 <ParamField body="root_id" type="integer">
-  ID of an existing execution to continue a conversation thread.
+  Chat Agent field. ID of an existing execution to continue a conversation thread.
 </ParamField>
 <ParamField body="messages" type="array">
-  The agent messages. Required for Chat Agent type templates. Supports `user`, `assistant`, and `developer` roles.
+  Chat Agent field. The agent messages. Required for Chat Agent type templates. Supports `user`, `assistant`, and `developer` roles.
 </ParamField>
 <ParamField body="waitExecution" type="boolean">
   If `true`, waits for the execution to finish before returning (timeout: 100 s). For longer executions set `waitExecution: false` and poll the Get Agent Response endpoint (default: `false`).

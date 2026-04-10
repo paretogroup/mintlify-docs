@@ -1,13 +1,11 @@
 ---
 title: "Ejecutar Agente en Stream"
-description: "Ejecuta un agente de **chat** específico por ID."
-api: "POST https://api.tess.im/agents/{id}/execute"
-authMethod: "bearer"
-playground: "interactive"
+description: "Ejecuta un agente de **chat** espec?fico por ID."
+openapi: "api-reference/agents-execution.openapi.json POST /agents/{id}/execute"
 ---
 
 
-### **Ejemplos de Código**
+### **Ejemplos de C?digo**
 
 <CodeGroup>
 
@@ -426,14 +424,14 @@ sleep
 ### **Encabezados**
 
 <ParamField header="x-workspace-id" type="integer">
-  ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario.
+  ID del espacio de trabajo. Si no se proporciona, se utilizar? el espacio de trabajo seleccionado del usuario.
 </ParamField>
 
 <Note>
-  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
+  **Nota:** Este campo ser? requerido en una futura versi?n de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
 </Note>
 
-### **Parámetros de Ruta**
+### **Par?metros de Ruta**
 
 <ParamField path="id" type="integer" required>
   El ID del agente
@@ -445,28 +443,28 @@ sleep
   Transmite la salida usando el formato Server-Sent Events. Predeterminado: `false`
 </ParamField>
 <ParamField body="temperature" type="string">
-  Temperatura de muestreo entre 0 y 2. Valores más altos generan resultados más creativos (predeterminado: `"1"`).
+  Campo de Chat Agent. Temperatura de muestreo entre 0 y 2. Valores m?s altos generan resultados m?s creativos (predeterminado: `"1"`).
 </ParamField>
 <ParamField body="model" type="string">
-  Identificador del modelo a utilizar (p. ej., `"tess-6"`).
+  Campo de Chat Agent. Identificador del modelo a utilizar (p. ej., `"tess-6"`).
 </ParamField>
 <ParamField body="tools" type="string">
-  Configuración de herramientas del agente (p. ej., `"agent"`, `"no-tools"`).
+  Campo de Chat Agent. Configuraci?n de herramientas del agente (p. ej., `"agent"`, `"no-tools"`).
 </ParamField>
 <ParamField body="root_id" type="integer">
-  ID de una ejecución existente para continuar un hilo de conversación.
+  Campo de Chat Agent. ID de una ejecuci?n existente para continuar un hilo de conversaci?n.
 </ParamField>
 <ParamField body="messages" type="array">
-  Los mensajes del agente. Requerido para plantillas de tipo Chat. Admite los roles `user`, `assistant` y `developer`.
+  Campo de Chat Agent. Los mensajes del agente. Requerido para plantillas de tipo Chat. Admite los roles `user`, `assistant` y `developer`.
 </ParamField>
 <ParamField body="file_ids" type="array">
-  Array de IDs de archivos para adjuntar a la ejecución.
+  Array de IDs de archivos para adjuntar a la ejecuci?n.
 </ParamField>
 
 ### **Respuesta**
 
 ```json
-data: {"id": 123, "status": "running", "output": "¡Hola!", "error": null, "credits": null, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
+data: {"id": 123, "status": "running", "output": "?Hola!", "error": null, "credits": null, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
 
 data: {"id": 123, "status": "completed", "output": "", "error": null, "credits": 10, "root_id": 123, "created_at": "2025-01-01T10:00:00.000000Z", "updated_at": "2025-01-01T10:00:00.000000Z", "template_id": 10}
 ```

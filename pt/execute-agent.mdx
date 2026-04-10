@@ -1,9 +1,7 @@
 ---
 title: "Executar Agente"
 description: "Executar um agente específico por ID."
-api: "POST https://api.tess.im/agents/{id}/execute"
-authMethod: "bearer"
-playground: "interactive"
+openapi: "api-reference/agents-execution.openapi.json POST /agents/{id}/execute"
 ---
 
 
@@ -315,19 +313,19 @@ puts response.read_body
 ### **Corpo da Requisição**
 
 <ParamField body="temperature" type="string">
-  Temperatura de amostragem entre 0 e 2. Valores maiores geram resultados mais criativos (padrão: `"1"`).
+  Campo de Chat Agent. Temperatura de amostragem entre 0 e 2. Valores maiores geram resultados mais criativos (padrão: `"1"`).
 </ParamField>
 <ParamField body="model" type="string">
-  Identificador do modelo a ser utilizado (ex.: `"tess-6"`).
+  Campo de Chat Agent. Identificador do modelo a ser utilizado (ex.: `"tess-6"`).
 </ParamField>
 <ParamField body="tools" type="string">
-  Configuração de ferramentas do agente (ex.: `"agent"`, `"no-tools"`).
+  Campo de Chat Agent. Configuração de ferramentas do agente (ex.: `"agent"`, `"no-tools"`).
 </ParamField>
 <ParamField body="root_id" type="integer">
-  ID de uma execução existente para continuar um thread de conversa.
+  Campo de Chat Agent. ID de uma execução existente para continuar um thread de conversa.
 </ParamField>
 <ParamField body="messages" type="array">
-  As mensagens do agente. Obrigatório para modelos do tipo Chat. Suporta os papéis `user`, `assistant` e `developer`.
+  Campo de Chat Agent. As mensagens do agente. Obrigatório para modelos do tipo Chat. Suporta os papéis `user`, `assistant` e `developer`.
 </ParamField>
 <ParamField body="waitExecution" type="boolean">
   Se `true`, aguarda a execução terminar antes de retornar (timeout: 100 s). Para execuções mais longas, use `waitExecution: false` e faça polling no endpoint Obter Resposta do Agente (padrão: `false`).

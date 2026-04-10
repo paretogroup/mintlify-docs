@@ -1,0 +1,205 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Tess API - Agent Execution",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.tess.im"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API token",
+        "description": "Create a token in Tess AI (User menu -> API Tokens) and paste it here. Requests use Authorization: Bearer <token>."
+      }
+    },
+    "schemas": {
+      "ChatMessage": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "user",
+              "assistant",
+              "developer",
+              "system"
+            ]
+          },
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "role",
+          "content"
+        ],
+        "additionalProperties": true
+      },
+      "ExecuteAgentBody": {
+        "type": "object",
+        "properties": {
+          "temperature": {
+            "type": "string",
+            "description": "Chat Agent field. Sampling temperature."
+          },
+          "model": {
+            "type": "string",
+            "description": "Chat Agent field. Model identifier to use."
+          },
+          "tools": {
+            "type": "string",
+            "description": "Chat Agent field. Tool configuration."
+          },
+          "root_id": {
+            "type": "integer",
+            "description": "Chat Agent field. Existing execution ID to continue a thread."
+          },
+          "messages": {
+            "type": "array",
+            "description": "Chat Agent field. Conversation messages.",
+            "items": {
+              "$ref": "#/components/schemas/ChatMessage"
+            }
+          },
+          "waitExecution": {
+            "type": "boolean",
+            "description": "If true, waits for completion before returning."
+          },
+          "stream": {
+            "type": "boolean",
+            "description": "If true, returns Server-Sent Events stream."
+          },
+          "file_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "OpenAiCompatibleBody": {
+        "type": "object",
+        "properties": {
+          "temperature": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChatMessage"
+            }
+          },
+          "tools": {
+            "type": "string"
+          },
+          "stream": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "paths": {
+    "/agents/{id}/execute": {
+      "post": {
+        "summary": "Execute agent",
+        "description": "Execute a specific agent by ID.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Workspace ID."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecuteAgentBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Execution accepted."
+          }
+        }
+      }
+    },
+    "/agents/{id}/openai/chat/completions": {
+      "post": {
+        "summary": "Execute OpenAI compatible",
+        "description": "Execute a specific chat agent by ID using OpenAI-compatible format.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Workspace ID."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpenAiCompatibleBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Execution accepted."
+          }
+        }
+      }
+    }
+  }
+}

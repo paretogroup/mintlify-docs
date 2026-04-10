@@ -1,8 +1,8 @@
 /*
   API operation pages:
   - Keep TOC in right sidebar
-  - Show code examples directly below Try it on ALL breakpoints
-  - Hide duplicate code panel in sidebar
+  - Hide inline code examples outside the modal
+  - Keep only the modal code panel experience
 */
 
 /* Keep TOC visible on the right */
@@ -21,22 +21,9 @@
   top: 6rem;
 }
 
-/* Show inline examples container under Try it (Mintlify hides it at xl by default) */
+/* Hide inline examples container under Try it on page body */
 #api-playground-2-operation-page > .mt-6 > .mt-8 {
-  display: flex !important;
-  width: 100% !important;
-  max-height: none !important;
-}
-
-/* Force code block children to stretch to full container width */
-#api-playground-2-operation-page > .mt-6 > .mt-8 > * {
-  width: 100% !important;
-  min-width: 0 !important;
-}
-
-/* Reduce examples panel minimum height */
-#api-playground-2-operation-page > .mt-6 > .mt-8 .grid-rows {
-  min-height: 9rem !important;
+  display: none !important;
 }
 
 /* Hide duplicated examples panel from the right sidebar */

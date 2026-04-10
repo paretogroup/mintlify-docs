@@ -16,34 +16,6 @@
         "scheme": "bearer",
         "bearerFormat": "JWT"
       }
-    },
-    "schemas": {
-      "UploadedFile": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "object": {
-            "type": "string"
-          },
-          "bytes": {
-            "type": "integer"
-          },
-          "created_at": {
-            "type": "string"
-          },
-          "filename": {
-            "type": "string"
-          },
-          "credits": {
-            "type": "number"
-          },
-          "status": {
-            "type": "string"
-          }
-        }
-      }
     }
   },
   "paths": {
@@ -94,14 +66,7 @@
         },
         "responses": {
           "200": {
-            "description": "File uploaded successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UploadedFile"
-                }
-              }
-            }
+            "description": "File uploaded successfully."
           }
         }
       }

@@ -552,6 +552,13 @@
                       "pt/list-webhooks",
                       "pt/delete-webhook"
                     ]
+                  },
+                  {
+                    "group": "Workspaces",
+                    "icon": "network-wired",
+                    "pages": [
+                      "pt/workspace-usage"
+                    ]
                   }
                 ]
               },
@@ -847,6 +854,13 @@
                     "pages": [
                       "es/list-webhooks",
                       "es/delete-webhook"
+                    ]
+                  },
+                  {
+                    "group": "Workspaces",
+                    "icon": "network-wired",
+                    "pages": [
+                      "es/workspace-usage"
                     ]
                   }
                 ]

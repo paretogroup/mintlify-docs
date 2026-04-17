@@ -1,12 +1,11 @@
 ---
 title: "Uso del workspace"
 description: "Lista el historial de ejecuciones de agentes de un workspace con filtros, paginación y campos enriquecidos."
-openapi: "GET /workspaces/usage"
+api: "GET https://api.tess.im/workspaces/usage"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /workspaces/usage`
-
-Devuelve el **historial de ejecuciones de agentes** de un workspace. Los resultados combinan ejecuciones actuales, filas archivadas y chats editados (consulta **Campos de cada elemento**). El orden es por `created_at` descendente y, a continuación, `id` descendente.
 
 Tu token de API debe poder **usar agentes** (`use_agents`), y debes tener acceso al workspace: mismas capas que el resto de rutas de agentes y archivos (autenticación Sanctum, comprobación de acceso al workspace).
 
@@ -212,23 +211,33 @@ puts response.read_body
 
 ### **Encabezados**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción** |
-| :------------ | :------- | :------------ | :-------------- |
-| Authorization | string | Sí | Token `Bearer` (clave API). El token debe incluir la ability **`use_agents`**. |
-| x-workspace-id | integer | Sí | ID numérico del workspace. Valores inválidos o ausentes devuelven **422**. Debes pertenecer a ese workspace; si no, **403**. |
-| Accept | string | No | Usa `application/json` si el cliente debe declarar JSON explícitamente. |
+<ParamField header="x-workspace-id" type="integer" required>
+  ID numérico del workspace. Valores inválidos o ausentes devuelven 422. Debes pertenecer a ese workspace; si no, 403.
+</ParamField>
 
 ### **Parámetros de consulta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción** | **Predeterminado / reglas** |
-| :------------ | :------- | :------------ | :-------------- | :------------------------- |
-| range | string | No | Ventana relativa: `1d`, `7d` o `30d`. Se ignora si se envían `start_date` y `end_date`. | Si no se envía ninguna fecha, el valor efectivo por defecto es **`30d`**. |
-| start_date | date (`YYYY-MM-DD`) | Condicional | Inicio del rango (inclusivo). | **Requerido con** `end_date`. |
-| end_date | date (`YYYY-MM-DD`) | Condicional | Fin del rango (inclusivo). Debe ser `>= start_date`. | **Requerido con** `start_date`. El rango **no puede superar 90 días**; si no, **422**. |
-| user_id | integer | No | Filtra por el usuario que ejecutó el agente. | Sin permiso para ver la actividad de otros en el workspace, solo ves **tus** ejecuciones; filtrar por otro usuario devuelve **403**. |
-| type | string | No | Tipo de agente: `all`, `chat`, `image`, `text`, `voiceover`, `video`, `code`. | `all` u omitido = sin filtro de tipo. |
-| page | integer | No | Número de página. | Predeterminado **1**, mínimo **1**. |
-| per_page | integer | No | Tamaño de página. | Predeterminado **20**, entre **1** y **100**. |
+<ParamField query="range" type="string">
+  Ventana relativa: 1d, 7d o 30d. Se ignora si se envían start_date y end_date. Si no se envía ninguna fecha, el valor efectivo por defecto es 30d.
+</ParamField>
+<ParamField query="start_date" type="date (YYYY-MM-DD)">
+  Inicio del rango (inclusivo). Requerido con end_date.
+</ParamField>
+<ParamField query="end_date" type="date (YYYY-MM-DD)">
+  Fin del rango (inclusivo). Debe ser >= start_date. Requerido con start_date. El rango no puede superar 90 días; si no, 422.
+</ParamField>
+<ParamField query="user_id" type="integer">
+  Filtra por el usuario que ejecutó el agente. Sin permiso para ver la actividad de otros en el workspace, solo ves tus ejecuciones; filtrar por otro usuario devuelve 403.
+</ParamField>
+<ParamField query="type" type="string">
+  Tipo de agente: all, chat, image, text, voiceover, video, code. all u omitido = sin filtro de tipo.
+</ParamField>
+<ParamField query="page" type="integer">
+  Número de página. Predeterminado 1, mínimo 1.
+</ParamField>
+<ParamField query="per_page" type="integer">
+  Tamaño de página. Predeterminado 20, entre 1 y 100.
+</ParamField>
 
 **Ventanas de fechas**
 

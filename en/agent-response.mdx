@@ -1,11 +1,11 @@
 ---
 title: "Get Agent Response"
-openapi: "GET /agent-responses/{id}"
+description: "Retrieve a specific agent response by its ID."
+api: "GET https://api.tess.im/agent-responses/{id}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /agent-responses/{id}`
-
-Retrieve a specific agent response by its ID.
 
 ### **Code Examples**
 
@@ -188,9 +188,9 @@ puts response.read_body
 
 ### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**              |
-| :------------ | :------- | :----------- | :--------------------------- |
-| id            | string   | Yes          | The ID of the agent response |
+<ParamField path="id" type="string" required>
+  The ID of the agent response
+</ParamField>
 
 ### **Response**
 

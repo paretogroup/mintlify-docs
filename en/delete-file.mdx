@@ -1,11 +1,11 @@
 ---
 title: "Delete File"
-openapi: "DELETE /files/{fileId}"
+description: "Delete a specific file by its ID."
+api: "DELETE https://api.tess.im/files/{fileId}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`DELETE /files/{fileId}`
-
-Delete a specific file by its ID.
 
 ### **Code Examples**
 
@@ -189,9 +189,9 @@ puts response.read_body
 
 ### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**              |
-| :------------ | :------- | :----------- | :--------------------------- |
-| fileId        | string   | Yes          | The ID of the file to delete |
+<ParamField path="fileId" type="string" required>
+  The ID of the file to delete
+</ParamField>
 
 ### **Response**
 

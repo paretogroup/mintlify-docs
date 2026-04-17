@@ -1,11 +1,11 @@
 ---
 title: "Listar Webhooks "
-openapi: "GET /webhooks"
+description: "Recupera uma lista paginada de webhooks para o usuário autenticado."
+api: "GET https://api.tess.im/webhooks"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /webhooks`
-
-Recupera uma lista paginada de webhooks para o usuário autenticado.
 
 ### **Exemplos de Código**
 
@@ -188,9 +188,9 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
-| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
+<ParamField header="x-workspace-id" type="integer">
+  ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
@@ -198,10 +198,12 @@ puts response.read_body
 
 ### **Parâmetros de Consulta**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                                               |
-| :------------ | :------- | :-------------- | :---------------------------------------------------------- |
-| limit         | integer  | Não             | Número máximo de itens por página (padrão: 25, máximo: 100) |
-| offset        | integer  | Não             | Número de itens para pular (padrão: 0)                      |
+<ParamField query="limit" type="integer">
+  Número máximo de itens por página (padrão: 25, máximo: 100)
+</ParamField>
+<ParamField query="offset" type="integer">
+  Número de itens para pular (padrão: 0)
+</ParamField>
 
 ### **Resposta**
 

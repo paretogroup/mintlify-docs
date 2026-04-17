@@ -2,9 +2,16 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "aspen",
   "name": "Tess AI Docs",
-  "openapi": "api-reference/openapi.json",
-  "playground": {
-    "display": "interactive"
+  "api": {
+    "playground": {
+      "display": "interactive"
+    },
+    "mdx": {
+      "server": "https://api.tess.im",
+      "auth": {
+        "method": "bearer"
+      }
+    }
   },
   "colors": {
     "primary": "#272727",
@@ -498,6 +505,15 @@
                     ]
                   },
                   {
+                    "group": "Versões do Agente",
+                    "icon": "clock-rotate-left",
+                    "pages": [
+                      "pt/list-agent-versions",
+                      "pt/get-agent-version",
+                      "pt/rollback-agent-version"
+                    ]
+                  },
+                  {
                     "group": "Arquivos do Agente",
                     "icon": "folder-gear",
                     "pages": [
@@ -798,6 +814,15 @@
                       "es/stream-agent",
                       "es/open-ai-compat",
                       "es/agent-response"
+                    ]
+                  },
+                  {
+                    "group": "Versiones del Agente",
+                    "icon": "clock-rotate-left",
+                    "pages": [
+                      "es/list-agent-versions",
+                      "es/get-agent-version",
+                      "es/rollback-agent-version"
                     ]
                   },
                   {

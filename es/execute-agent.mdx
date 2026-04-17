@@ -1,11 +1,9 @@
 ---
 title: "Ejecutar Agente"
-openapi: "POST /agents/{id}/execute"
+description: "Ejecuta un agente específico por ID."
+openapi: "api-reference/agents-execution.openapi.json POST /agents/{id}/execute"
 ---
 
-`POST /agents/{id}/execute`
-
-Ejecuta un agente específico por ID.
 
 ### **Ejemplos de Código**
 
@@ -23,7 +21,7 @@ curl --request POST \
         { "role": "user", "content": "Hello, how can you help me today?" }
     ],
     "tools": "no-tools",
-    "wait_execution": false,
+    "waitExecution": false,
     "file_ids": [123, 321]
   }'
 ```
@@ -39,7 +37,7 @@ const data = {
         { "role": "user", "content": "Hello, how can you help me today?" }
     ],
     "tools": "no-tools",
-    "wait_execution": false,
+    "waitExecution": false,
     "file_ids": [123, 321]
   };
 
@@ -78,7 +76,7 @@ data = {
         { "role": "user", "content": "Hello, how can you help me today?" }
     ],
     "tools": "no-tools",
-    "wait_execution": false,
+    "waitExecution": false,
     "file_ids": [123, 321]
   }
 
@@ -98,7 +96,7 @@ $data = [
         [ "role" => "user", "content" => "Hello, how can you help me today?" ]
     ],
     "tools" => "no-tools",
-    "wait_execution" => false,
+    "waitExecution" => false,
     "file_ids": [123, 321]
 ];
 
@@ -148,7 +146,7 @@ public class Main {
             "model", "tess-5",
             "messages", List.of(Map.of("role", "user", "content", "Hello, how can you help me today?")),
             "tools", "no-tools",
-            "wait_execution", false,
+            "waitExecution", false,
             "file_ids", List.of(123, 321)
         );
 
@@ -188,7 +186,7 @@ func main() {
             { "role": "user", "content": "Hello, how can you help me today?" }
         ],
         "tools": "no-tools",
-        "wait_execution": false,
+        "waitExecution": false,
         "file_ids": [123, 321]
     }`
 
@@ -242,7 +240,7 @@ class Program
                 model = "tess-5",
                 messages = new List<object> { new { role = "user", content = "Hello, how can you help me today?" } },
                 tools = "no-tools",
-                wait_execution = false,
+                waitExecution = false,
                 file_ids = new List<int> { 123, 321 }
             };
 
@@ -286,7 +284,7 @@ request.body = {
         { "role": "user", "content": "Hello, how can you help me today?" }
     ],
     "tools": "no-tools",
-    "wait_execution": false,
+    "waitExecution": false,
     "file_ids": [123, 321]
 }.to_json
 
@@ -298,28 +296,28 @@ puts response.read_body
 
 ### **Encabezados**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
-| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
-| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
-
-<Note>
-  **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
-</Note>
+| **Parámetro**    | **Tipo** | **Requerido** | **Descripción**                                                                                             |
+| :--------------- | :------- | :------------ | :---------------------------------------------------------------------------------------------------------- |
+| `x-workspace-id` | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se usará el espacio de trabajo seleccionado. Será requerido en una versión futura. |
 
 ### **Parámetros de Ruta**
 
 | **Parámetro** | **Tipo** | **Requerido** | **Descripción**  |
 | :------------ | :------- | :------------ | :--------------- |
-| id            | integer  | Sí            | El ID del agente |
+| `id`          | integer  | Sí            | El ID del agente. |
 
 ### **Cuerpo de la Solicitud**
 
-| **Parámetro**  | **Tipo** | **Requerido**            | **Descripción**                                                                                                                                                                                                                                                          |
-| :------------- | :------- | :----------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| answers        | object   | Sí                       | Las respuestas del agente                                                                                                                                                                                                                                                |
-| messages       | array    | Solo para Agente de Chat | Los mensajes del agente                                                                                                                                                                                                                                                  |
-| wait_execution | boolean  | No                       | Indica si la ejecución debe esperar hasta completarse. El tiempo de espera es de 100 segundos. Para ejecuciones más largas, use `wait_execution=false` en combinación con el endpoint Obtener Respuesta del Agente con una estrategia de sondeo (predeterminado: false). |
-| file_ids       | array    | No                       | Array de IDs de archivos para adjuntar a la ejecución.                                                                                                                                                                                                                   |
+| **Parámetro**       | **Tipo** | **Requerido** | **Descripción**                                                                                                              |
+| :------------------ | :------- | :------------ | :--------------------------------------------------------------------------------------------------------------------------- |
+| `temperature`       | string   | No            | Campo de Chat Agent. Temperatura de muestreo entre 0 y 2. Valores más altos generan resultados más creativos (pred.: `"1"`). |
+| `model`             | string   | No            | Campo de Chat Agent. Identificador del modelo a utilizar (p. ej., `"tess-6"`).                                               |
+| `tools`             | string   | No            | Campo de Chat Agent. Configuración de herramientas del agente (p. ej., `"agent"`, `"no-tools"`).                             |
+| `root_id`           | integer  | No            | Campo de Chat Agent. ID de una ejecución existente para continuar un hilo de conversación.                                   |
+| `messages`          | array    | No            | Campo de Chat Agent. Los mensajes del agente. Admite los roles `user`, `assistant` y `developer`.                            |
+| `waitExecution`     | boolean  | No            | Si `true`, espera que la ejecución termine antes de retornar (timeout: 100 s). Predeterminado: `false`.                      |
+| `file_ids`          | array    | No            | Array de IDs de archivos para adjuntar a la ejecución.                                                                       |
+| Otros campos en la raíz | any | Depende del agente | Esto no es un nombre de campo fijo. Puede enviar otros campos requeridos por su agente directamente en la raíz de la solicitud. Consulte qué campos son obligatorios en [Obtener Agente por ID](https://docs.tess.im/es/api/endpoints/agents/get). |
 
 #### **Roles de Mensajes (Plantillas de Tipo Chat)**
 

@@ -1,11 +1,11 @@
 ---
 title: "Excluir Coleção de Memória "
-openapi: "DELETE /memory-collections/{collectionId}"
+description: "Exclui uma coleção de memória pelo seu ID."
+api: "DELETE https://api.tess.im/memory-collections/{collectionId}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`DELETE /memory-collections/{collectionId}`
-
-Exclui uma coleção de memória pelo seu ID.
 
 ### **Exemplos de Código**
 
@@ -188,9 +188,9 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
-| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
+<ParamField header="x-workspace-id" type="integer">
+  ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.

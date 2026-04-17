@@ -1,11 +1,9 @@
 ---
 title: "Upload File"
-openapi: "POST /files"
+description: "Upload a new file to the system and optionally process it."
+openapi: "api-reference/upload-file.openapi.json POST /files"
 ---
 
-`POST /files`
-
-Upload a new file to the system and optionally process it.
 
 ### **Supported files**
 
@@ -278,23 +276,6 @@ puts response.read_body
 ```
 
 </CodeGroup>
-
-### **Headers**
-
-| **Parameter**  | **Type** | **Required** | **Description**                                                                   |
-| :------------- | :------- | :----------- | :-------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | No           | ID of the workspace. If not provided, the user's selected workspace will be used. |
-
-<Note>
-  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
-</Note>
-
-### **Request Body**
-
-| **Parameter** | **Type** | **Required** | **Description**                                                                                        |
-| :------------ | :------- | :----------- | :----------------------------------------------------------------------------------------------------- |
-| file          | binary   | Yes          | The file to upload                                                                                     |
-| process       | boolean  | No           | Whether to process the file after upload (default: false). The file processing consume credits (true). |
 
 ### **Response**
 

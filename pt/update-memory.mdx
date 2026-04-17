@@ -1,11 +1,11 @@
 ---
 title: "Atualizar Memória "
-openapi: "PUT /memories/{id}"
+description: "Atualiza uma memória existente pelo seu ID."
+api: "PUT https://api.tess.im/memories/{id}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`PUT /memories/{id}`
-
-Atualiza uma memória existente pelo seu ID.
 
 ### **Exemplos de Código**
 
@@ -294,24 +294,26 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
-| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
+<ParamField header="x-workspace-id" type="integer">
+  ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado.
+</ParamField>
 
 > **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.
 
 ### **Parâmetros de Rota**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**   |
-| :------------ | :------- | :-------------- | :-------------- |
-| id            | string   | Sim             | O ID da memória |
+<ParamField path="id" type="integer" required>
+  O ID da memória
+</ParamField>
 
 ### **Parâmetros do Corpo**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                    |
-| :------------ | :------- | :-------------- | :------------------------------- |
-| content       | string   | Não             | O conteúdo atualizado da memória |
-| metadata      | object   | Não             | Metadados atualizados da memória |
+<ParamField body="content" type="string">
+  O conteúdo atualizado da memória
+</ParamField>
+<ParamField body="metadata" type="object">
+  Metadados atualizados da memória
+</ParamField>
 
 ### **Resposta**
 

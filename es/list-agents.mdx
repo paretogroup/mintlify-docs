@@ -1,11 +1,11 @@
 ---
 title: "Listar Agentes"
-openapi: "GET /agents"
+description: "Enumera todos los agentes compatibles con búsqueda, filtrado y paginación."
+api: "GET https://api.tess.im/agents"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /agents`
-
-Enumera todos los agentes compatibles con búsqueda, filtrado y paginación.
 
 ### **Ejemplos de código**
 
@@ -189,9 +189,9 @@ puts response.read_body
 
 ### **Encabezados**
 
-| **Parámetro**  | **Tipo** | **Obligatorio** | **Descripción**                                                                                                  |
-| :------------- | :------- | :-------------- | :--------------------------------------------------------------------------------------------------------------- |
-| x-workspace-id | entero   | No              | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado por el usuario. |
+<ParamField header="x-workspace-id" type="entero">
+  ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado por el usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obligatorio en una futura versión de la API. Se recomienda configurarlo ahora para garantizar la compatibilidad con futuras actualizaciones.
@@ -199,12 +199,18 @@ puts response.read_body
 
 ### **Parámetros de consulta**
 
-| **Parámetro** | **Tipo** | **Obligatorio** | **Descripción**                                            |
-| :------------ | :------- | :-------------- | :--------------------------------------------------------- |
-| q             | string   | No              | Buscar agentes por título, descripción y descripción larga |
-| type          | string   | No              | Filtrar por tipo de agente (chat, imagen, texto, vídeo)    |
-| page          | integer  | No              | Página actual (predeterminado: 1)                          |
-| per_page      | integer  | No              | Número de elementos por página (predeterminado: 15)        |
+<ParamField query="q" type="string">
+  Buscar agentes por título, descripción y descripción larga
+</ParamField>
+<ParamField query="type" type="string">
+  Filtrar por tipo de agente (chat, imagen, texto, vídeo)
+</ParamField>
+<ParamField query="page" type="integer">
+  Página actual (predeterminado: 1)
+</ParamField>
+<ParamField query="per_page" type="integer">
+  Número de elementos por página (predeterminado: 15)
+</ParamField>
 
 ### **Resposta**
 

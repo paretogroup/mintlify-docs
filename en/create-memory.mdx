@@ -1,11 +1,11 @@
 ---
 title: "Create Memory"
-openapi: "POST /memories"
+description: "Creates a new memory."
+api: "POST https://api.tess.im/memories"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`POST /memories`
-
-Creates a new memory.
 
 ### **Code Examples**
 
@@ -224,10 +224,12 @@ puts response.body
 
 ### **Request Body Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description**                       |
-| :------------ | :------- | :----------- | :------------------------------------ |
-| collection_id | integer  | No           | Collection ID                         |
-| memory        | string   | Yes          | Memory content (max 32000 characters) |
+<ParamField body="collection_id" type="integer">
+  Collection ID
+</ParamField>
+<ParamField body="memory" type="string" required>
+  Memory content (max 32000 characters)
+</ParamField>
 
 ### **Success Response**
 

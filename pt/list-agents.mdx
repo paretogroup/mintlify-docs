@@ -1,11 +1,11 @@
 ---
 title: "Listar Agentes"
-openapi: "GET /agents"
+description: "Lista todos os agentes com suporte para busca, filtragem e paginação."
+api: "GET https://api.tess.im/agents"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`GET /agents`
-
-Lista todos os agentes com suporte para busca, filtragem e paginação.
 
 ### **Exemplos de Código**
 
@@ -189,9 +189,9 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                       |
-| :------------- | :------- | :-------------- | :---------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será usado. |
+<ParamField header="x-workspace-id" type="integer">
+  ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será usado.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendado defini-lo agora para garantir compatibilidade com atualizações futuras.
@@ -199,12 +199,18 @@ puts response.read_body
 
 ### **Parâmetros de Consulta**
 
-| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                                          |
-| :------------ | :------- | :-------------- | :----------------------------------------------------- |
-| q             | string   | Não             | Buscar agentes por título, descrição e descrição longa |
-| type          | string   | Não             | Filtrar por tipo de agente (chat, image, text, video)  |
-| page          | integer  | Não             | Página atual (padrão: 1)                               |
-| per_page      | integer  | Não             | Número de itens por página (padrão: 15)                |
+<ParamField query="q" type="string">
+  Buscar agentes por título, descrição e descrição longa
+</ParamField>
+<ParamField query="type" type="string">
+  Filtrar por tipo de agente (chat, image, text, video)
+</ParamField>
+<ParamField query="page" type="integer">
+  Página atual (padrão: 1)
+</ParamField>
+<ParamField query="per_page" type="integer">
+  Número de itens por página (padrão: 15)
+</ParamField>
 
 ### **Resposta**
 

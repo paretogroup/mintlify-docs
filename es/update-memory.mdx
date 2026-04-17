@@ -1,11 +1,11 @@
 ---
 title: "Actualizar Memoria"
-openapi: "PUT /memories/{id}"
+description: "Actualiza una memoria existente por su ID."
+api: "PUT https://api.tess.im/memories/{id}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`PUT /memories/{id}`
-
-Actualiza una memoria existente por su ID.
 
 ### **Ejemplos de Código**
 
@@ -242,9 +242,9 @@ puts response.read_body
 
 ### **Encabezados**
 
-| **Parámetro**  | **Tipo** | **Requerido** | **Descripción**                                                                                               |
-| :------------- | :------- | :------------ | :------------------------------------------------------------------------------------------------------------ |
-| x-workspace-id | integer  | No            | ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario. |
+<ParamField header="x-workspace-id" type="integer">
+  ID del espacio de trabajo. Si no se proporciona, se utilizará el espacio de trabajo seleccionado del usuario.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será requerido en una futura versión de la API. Se recomienda encarecidamente configurarlo ahora para asegurar la compatibilidad con futuras actualizaciones.
@@ -252,9 +252,9 @@ puts response.read_body
 
 ### **Parámetros de Ruta**
 
-| **Parámetro** | **Tipo** | **Requerido** | **Descripción**     |
-| :------------ | :------- | :------------ | :------------------ |
-| id            | string   | Sí            | El ID de la memoria |
+<ParamField path="id" type="string" required>
+  El ID de la memoria
+</ParamField>
 
 ### **Parámetros del Cuerpo**
 

@@ -1,11 +1,11 @@
 ---
 title: "Criar Coleção de Memória "
-openapi: "POST /memory-collections"
+description: "Cria uma nova coleção de memória."
+api: "POST https://api.tess.im/memory-collections"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`POST /memory-collections`
-
-Cria uma nova coleção de memória.
 
 ### **Exemplos de Código**
 
@@ -241,9 +241,9 @@ puts response.read_body
 
 ### **Cabeçalhos**
 
-| **Parâmetro**  | **Tipo** | **Obrigatório** | **Descrição**                                                                                       |
-| :------------- | :------- | :-------------- | :-------------------------------------------------------------------------------------------------- |
-| x-workspace-id | integer  | Não             | ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado. |
+<ParamField header="x-workspace-id" type="integer">
+  ID do espaço de trabalho. Se não fornecido, o espaço de trabalho selecionado do usuário será usado.
+</ParamField>
 
 <Note>
   **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendável configurá-lo agora para garantir a compatibilidade com futuras atualizações.

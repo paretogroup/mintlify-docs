@@ -1,11 +1,11 @@
 ---
 title: "Delete Webhook"
-openapi: "DELETE /webhooks/{id}"
+description: "Deletes a specific webhook by ID."
+api: "DELETE https://api.tess.im/webhooks/{id}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`DELETE /webhooks/{id}`
-
-Deletes a specific webhook by ID.
 
 ### **Code Examples**
 
@@ -188,9 +188,9 @@ puts response.read_body
 
 ### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| id            | integer  | Yes          | The webhook ID  |
+<ParamField path="id" type="integer" required>
+  The webhook ID
+</ParamField>
 
 ### **Response**
 

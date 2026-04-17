@@ -1,11 +1,11 @@
 ---
 title: "Delete Memory Collection"
-openapi: "DELETE /memory-collections/{collectionId}"
+description: "Deletes a memory collection and all associated memories."
+api: "DELETE https://api.tess.im/memory-collections/{collectionId}"
+authMethod: "bearer"
+playground: "interactive"
 ---
 
-`DELETE /memory-collections/{collectionId}`
-
-Deletes a memory collection and all associated memories.
 
 ### **Code Examples**
 
@@ -188,9 +188,9 @@ puts response.read_body
 
 ### **Path Parameters**
 
-| **Parameter** | **Type** | **Required** | **Description** |
-| :------------ | :------- | :----------- | :-------------- |
-| collectionId  | integer  | Yes          | Collection ID   |
+<ParamField path="collectionId" type="integer" required>
+  Collection ID
+</ParamField>
 
 ### **Response**
 

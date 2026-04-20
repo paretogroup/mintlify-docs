@@ -13,21 +13,45 @@ O histórico fica disponível no **painel lateral de versões** no AI Studio, em
 
 ### **Onde encontrar na interface**
 
-1. Abra o **Agent Studio** e selecione o agente.
-2. Localize o **ícone de histórico de versões** na área superior do editor (o painel só aparece para perfis com permissão; veja a seção [Permissões](#permissoes)).
-3. No painel, você pode percorrer a lista de versões, abrir o detalhe de uma versão e usar o fluxo de **rollback** quando permitido.
+Siga o passo a passo abaixo para chegar ao histórico a partir do zero:
 
-**No editor (header)** — o ícone de histórico fica ao lado de Preview e Salvar.
+<Steps>
+  <Step title="Entre no Agent Studio e abra o agente">
+    No menu lateral esquerdo, clique em **Agent Studio**. Na lista de agentes, clique no agente que deseja auditar para abri-lo no editor.
 
-<Frame>
-  ![Cabeçalho do AI Studio com Ver histórico](/images/agent-versioning-ai-studio-header.png)
-</Frame>
+    <Tip>
+      Se você não vê o **Agent Studio** no menu, provavelmente seu perfil não tem permissão de edição de agentes no workspace.
+    </Tip>
+  </Step>
+  <Step title="Localize o ícone de histórico no topo do editor">
+    Com o agente aberto, olhe para o **canto superior direito** do editor. Ao lado dos botões **Preview** e **Save**, há um pequeno **ícone de relógio** — esse é o botão **Ver histórico**.
 
-**Painel de versões** — linha do tempo à esquerda e diff por seção (por exemplo, Instruções com ANTES e DEPOIS).
+    <Frame caption="Cabeçalho do AI Studio. O ícone de relógio (destacado em vermelho) fica à esquerda de Preview e Save.">
+      ![Cabeçalho do AI Studio com Ver histórico](/images/agent-versioning-ai-studio-header-annotated.png)
+    </Frame>
 
-<Frame>
-  ![Painel de histórico com diff entre versões](/images/agent-versioning-history-panel-diff.png)
-</Frame>
+    <Warning>
+      Se o ícone **não aparece**, verifique dois pontos:
+
+      1. Seu perfil tem permissão de **leitura** de versões? (veja [Permissões](#permissoes))
+      2. O agente já tem pelo menos **uma versão registrada**? Em agentes muito novos, o ícone só aparece depois que a primeira versão é criada (salve uma alteração real e recarregue).
+    </Warning>
+  </Step>
+  <Step title="Clique no ícone para abrir o painel de versões">
+    Ao clicar no **ícone de relógio**, abre-se o painel **Histórico de versões** sobre o editor. Ele mostra:
+
+    - À **esquerda**: a **linha do tempo** com todas as versões (a mais recente marcada como **Current**), com autor e data/hora.
+    - À **direita**: o **detalhe** da versão selecionada, com seções retraídas (**Sem Alterações**) e seções expandidas com badge **Changed**.
+    - Em cada seção alterada: um bloco **ANTES** (vermelho) e **DEPOIS** (verde) — o diff do que mudou.
+
+    <Frame caption="Painel de histórico anotado: (1) linha do tempo à esquerda, (2) badge Changed na seção alterada, (3) diff ANTES/DEPOIS.">
+      ![Painel de histórico com diff entre versões (anotado)](/images/agent-versioning-history-panel-diff-annotated.png)
+    </Frame>
+  </Step>
+  <Step title="Navegue, compare e (se permitido) faça rollback">
+    Clique em qualquer item da **linha do tempo** à esquerda para ver o diff dessa versão em relação à anterior. Se seu perfil tem permissão de **escrita** de versões, aparecerá a ação para **restaurar** aquela versão (a restauração é confirmada antes de aplicar e gera uma nova entrada no histórico). Para fechar, use o botão **Fechar** do painel.
+  </Step>
+</Steps>
 
 <Info>
   A **primeira versão** costuma ser criada após a primeira edição relevante pós-disponibilização do recurso para o workspace. Agentes muito antigos podem receber a versão inicial na primeira salvamento que gerar alteração real em relação ao estado anterior.

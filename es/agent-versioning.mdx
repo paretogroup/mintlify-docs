@@ -13,21 +13,45 @@ El historial está en el **panel lateral de versiones** en AI Studio, en forma d
 
 ### **Dónde encontrarlo en la interfaz**
 
-1. Abre **Agent Studio** y selecciona el agente.
-2. Localiza el **icono de historial de versiones** en la cabecera del editor (el panel solo aparece para perfiles con permiso; ver [Permisos](#permisos-versionado)).
-3. En el panel, recorre versiones, abre el detalle y usa **rollback** cuando esté permitido.
+Sigue los pasos para llegar al historial desde cero:
 
-**En la cabecera del editor** — el icono de historial está junto a Vista previa y Guardar.
+<Steps>
+  <Step title="Entra en Agent Studio y abre el agente">
+    Desde el menú lateral izquierdo, pulsa **Agent Studio**. En la lista de agentes, haz clic en el agente que quieras auditar para abrirlo en el editor.
 
-<Frame>
-  ![Cabecera del AI Studio con Ver historial](/images/agent-versioning-ai-studio-header.png)
-</Frame>
+    <Tip>
+      Si no ves **Agent Studio** en el menú, probablemente tu perfil no tiene permiso de edición de agentes en este workspace.
+    </Tip>
+  </Step>
+  <Step title="Localiza el icono de historial en la parte superior del editor">
+    Con el agente abierto, mira la **esquina superior derecha** del editor. Junto a los botones **Vista previa** y **Guardar**, hay un pequeño **icono de reloj** — ese es el botón **Ver historial**.
 
-**Panel de versiones** — línea de tiempo a la izquierda y diff por sección (por ejemplo, Instrucciones con antes y después).
+    <Frame caption="Cabecera del AI Studio. El icono de reloj (destacado en rojo) está justo a la izquierda de Vista previa y Guardar.">
+      ![Cabecera del AI Studio con Ver historial](/images/agent-versioning-ai-studio-header-annotated.png)
+    </Frame>
 
-<Frame>
-  ![Panel de historial con diff entre versiones](/images/agent-versioning-history-panel-diff.png)
-</Frame>
+    <Warning>
+      Si el icono **no aparece**, revisa dos puntos:
+
+      1. ¿Tu perfil tiene permiso de **lectura** de versiones? (ver [Permisos](#permisos-versionado))
+      2. ¿El agente ya tiene **al menos una versión registrada**? En agentes muy nuevos, el icono solo aparece después de crear la primera versión — guarda un cambio real y recarga.
+    </Warning>
+  </Step>
+  <Step title="Pulsa el icono para abrir el panel de versiones">
+    Al pulsar el **icono de reloj** se abre el panel **Historial de versiones** sobre el editor. Verás:
+
+    - A la **izquierda**: la **línea de tiempo** con todas las versiones (la más reciente marcada como **Actual**), con autor y fecha/hora.
+    - A la **derecha**: el **detalle** de la versión seleccionada, con secciones colapsadas (**Sin cambios**) y secciones abiertas con la etiqueta **Modificado**.
+    - En cada sección modificada: un bloque **ANTES** (rojo) y **DESPUÉS** (verde) — el diff de lo que cambió.
+
+    <Frame caption="Panel de historial anotado: (1) línea de tiempo a la izquierda, (2) badge Changed en la sección modificada, (3) diff ANTES/DESPUÉS.">
+      ![Panel de historial con diff entre versiones (anotado)](/images/agent-versioning-history-panel-diff-annotated.png)
+    </Frame>
+  </Step>
+  <Step title="Navega, compara y (si está permitido) haz rollback">
+    Pulsa cualquier elemento de la **línea de tiempo** a la izquierda para ver el diff de esa versión respecto a la anterior. Si tu perfil tiene permiso de **escritura** de versiones, aparecerá la acción para **restaurar** esa versión (la restauración pide confirmación y crea una nueva entrada en el historial). Para cerrar, usa el botón **Cerrar** del panel.
+  </Step>
+</Steps>
 
 <Info>
   La **primera versión** suele crearse tras la primera edición relevante una vez el feature está disponible para el workspace. Agentes muy antiguos pueden recibir la versión inicial en el primer guardado que genere un cambio real respecto al estado anterior.

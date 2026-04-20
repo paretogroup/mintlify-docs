@@ -1,0 +1,106 @@
+---
+title: "Versionamento de agentes"
+description: "Histórico de versões, diff e rollback no Agent Studio — casos de uso e permissões."
+---
+
+O **versionamento de agentes** registra um histórico imutável das alterações feitas no AI Studio. Assim, equipes que operam agentes em produção podem **auditar mudanças**, **comparar versões** e, quando necessário, **restaurar** uma configuração anterior sem perder o rastro do que foi publicado.
+
+### **O que é?**
+
+Cada vez que você **salva** o agente e o conteúdo relevante **mudou** em relação à última versão registrada, a Tess cria automaticamente uma **nova versão** (snapshot) com o estado completo daquele agente naquele momento — prompt, modelo, ferramentas, campos, configurações extras, tipo e visibilidade, conforme aplicável.
+
+O histórico fica disponível no **painel lateral de versões** no AI Studio, em formato de linha do tempo, com resumo das mudanças e comparação (diff) entre versões.
+
+### **Onde encontrar na interface**
+
+1. Abra o **Agent Studio** e selecione o agente.
+2. Localize o **ícone de histórico de versões** na área superior do editor (o painel só aparece para perfis com permissão; veja a seção [Permissões](#permissoes)).
+3. No painel, você pode percorrer a lista de versões, abrir o detalhe de uma versão e usar o fluxo de **rollback** quando permitido.
+
+**No editor (header)** — o ícone de histórico fica ao lado de Preview e Salvar.
+
+<Frame>
+  ![Cabeçalho do AI Studio com Ver histórico](/images/agent-versioning-ai-studio-header.png)
+</Frame>
+
+**Painel de versões** — linha do tempo à esquerda e diff por seção (por exemplo, Instruções com ANTES e DEPOIS).
+
+<Frame>
+  ![Painel de histórico com diff entre versões](/images/agent-versioning-history-panel-diff.png)
+</Frame>
+
+<Info>
+  A **primeira versão** costuma ser criada após a primeira edição relevante pós-disponibilização do recurso para o workspace. Agentes muito antigos podem receber a versão inicial na primeira salvamento que gerar alteração real em relação ao estado anterior.
+</Info>
+
+### **O que você vê em cada versão**
+
+- **Número da versão** e data/hora em que o snapshot foi registrado.
+- **Autor** da alteração que originou aquela versão (quando aplicável).
+- **Resumo das mudanças** (`change_summary`) em linguagem legível, alinhado ao diff entre a versão e a anterior.
+- **Diff campo a campo** entre a versão selecionada e a versão imediatamente anterior, para revisão fina de prompt, modelo, tools e demais campos expostos no contrato do painel.
+
+### **Rollback**
+
+O **rollback** não “apaga” o histórico: ele **cria uma nova versão** cujo conteúdo restaura o snapshot de uma versão escolhida. Assim, a linha do tempo permanece **auditável** — fica claro que houve uma restauração e a partir de qual ponto.
+
+Antes de confirmar, a interface solicita **confirmação explícita**, pois a operação altera o estado atual do agente para refletir a versão selecionada (como nova revisão).
+
+<Warning>
+  **Atenção:** rollback é uma ação de **governança**. Use em acordo com as políticas do seu workspace (mudanças em agentes críticos devem ser comunicadas ao time que consome o agente em chat, API, embed ou agendamentos).
+</Warning>
+
+---
+
+## Casos de uso
+
+<AccordionGroup>
+  <Accordion title="Correção após deploy acidental">
+    Uma alteração no prompt ou nas tools quebrou o comportamento em produção. O time restaura a última versão estável pelo histórico, sem reconstruir o agente manualmente.
+  </Accordion>
+  <Accordion title="Auditoria e compliance">
+    É necessário demonstrar **o que mudou**, **quem alterou** e **quando**, para revisões internas ou requisitos enterprise (por exemplo, SOX, ISO). O histórico centraliza snapshots e diffs.
+  </Accordion>
+  <Accordion title="Experimentação com retorno seguro">
+    O time testa uma nova configuração; se o resultado não for satisfatório, faz rollback para a baseline anterior, mantendo registro das tentativas na linha do tempo.
+  </Accordion>
+  <Accordion title="Suporte e operações">
+    Suporte ou owner investiga um incidente relacionado ao comportamento do agente: compara versões antes/depois do incidente para isolar a mudança que causou o efeito indesejado.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Permissões {#permissoes}
+
+O acesso ao versionamento é controlado por **permissões de workspace** (RBAC) e, quando aplicável, por **flags de recurso** do plano. Em termos práticos:
+
+| Capacidade | Quem costuma ter acesso |
+| :--- | :--- |
+| **Ver o painel de histórico** e abrir diff entre versões | Membros com permissão de **leitura do histórico de versões** do agente (no produto, associada ao recurso de visualização de versões / `agent:version:read` conforme configurado no workspace). |
+| **Executar rollback** (restaurar uma versão anterior) | Usuários com permissão de **escrita de versões** — ou seja, autorizados a criar uma nova versão a partir de um snapshot antigo (equivalente a permissão de rollback / `AGENT_VERSION_WRITE` na camada de API). |
+| **Sem permissão de leitura** | O ícone ou o painel de histórico **não aparece** ou o acesso é negado, alinhado à política do workspace (mesmo que o usuário edite outros aspectos do agente, conforme demais permissões). |
+
+<Note>
+  Papéis como **Owner** e **Admin** do workspace costumam incluir essas capacidades quando o recurso está habilitado para o plano. Em ambientes **Enterprise**, a governança pode **delegar** leitura ou escrita de versões a perfis específicos (compliance, suporte) sem conceder owner completo — conforme a matriz de permissões definida para o workspace.
+</Note>
+
+### **Relação com visibilidade e governança**
+
+- O versionamento trata do **histórico de configuração** do agente (o “como ele foi salvo ao longo do tempo”).
+- A **[Visibilidade](/pt/visibility)** define quem pode **encontrar ou usar** o agente (privado, workspace, público, etc.). Ambos se complementam em cenários enterprise: você pode restringir quem vê o histórico mesmo que o agente seja compartilhado no workspace.
+
+---
+
+## Limitações e roadmap (visão de produto)
+
+- O fluxo atual foca em **snapshot ao salvar** e **histórico + rollback** no AI Studio. Um fluxo explícito **draft / publicar** com botão dedicado pode evoluir em iterações futuras.
+- Em alguns cenários, **execuções** (chat, API, agendador, embed) podem continuar alinhadas ao modelo de **agente ativo** da forma já conhecida pela plataforma; isolar execuções por “versão publicada” é evolução de produto quando aplicável.
+
+<Tip>
+  **Boas práticas**
+
+  - Comunique mudanças relevantes ao time antes de rollback em agentes usados por muitas pessoas.
+  - Use o diff para revisar alterações em **prompt** e **tools** antes de acionar rollback em massa.
+  - Combine com políticas de **[Membros e Permissões](/pt/members-permissions)** para definir quem pode alterar agentes críticos.
+</Tip>

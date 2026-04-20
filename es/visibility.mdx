@@ -9,7 +9,7 @@ La Visibilidad define el nivel de privacidad del agente creado en Agent Studio. 
     Disponible solo para los miembros de tu workspace. Este es el modo ideal para mantener el control de agentes internos.
   </Card>
   <Card title="Privado">
-    Visible solo para ti (y, si aplica, administradores autorizados del workspace).
+    Visible para el creador y, cuando la política del workspace lo permita, para perfiles con **permisos de gobernanza** para auditar agentes privados de otros miembros — ser miembro del workspace no basta para ver el privado de terceros.
   </Card>
   <Card title="Público">
     Disponible para uso por toda la comunidad de usuarios Tess y está listado en el Marketplace.
@@ -36,7 +36,7 @@ La Visibilidad define el nivel de privacidad del agente creado en Agent Studio. 
 </Card>
 
 <Card icon="2" title="Privado">
-  Solo el creador del agente puede verlo. Se usa cuando se trata de agentes en borradores, pruebas o agentes personales.
+  Por defecto, solo el creador ve el agente en el listado. Para **auditar o acceder** al agente privado de **otro miembro**, se requieren **permisos explícitos de gobernanza** en el workspace (ser Owner por sí solo no desbloquea automáticamente el privado ajeno). Sirve para borradores, pruebas o agentes personales.
 </Card>
 
 <Card icon="3" title="Público">
@@ -46,6 +46,19 @@ La Visibilidad define el nivel de privacidad del agente creado en Agent Studio. 
 <Card icon="4" title="No listado">
   No se puede localizar en el Marketplace y solo las personas con el link directo pueden abrirlo. Se usa cuando quieres compartir con clientes específicos, partners, o en fases beta para pruebas por otras personas.
 </Card>
+
+### **Gobernanza y contenido privado en el workspace**
+
+La plataforma refuerza que la **visibilidad** (público, workspace, privado, no listado) no es el único control: para **agentes y resultados privados de otros miembros** en el mismo workspace aplica un modelo explícito de **gobernanza**:
+
+- **Mismas reglas en todos los flujos:** Agent Studio, chat, historial de uso, documentos vinculados y **APIs de templates/ejecución** aplican la misma autorización. No hay atajo en la API que exponga contenido privado de otro usuario sin el permiso adecuado.
+- **Sin bypass por rol:** ser Owner o administrador **no sustituye** por sí mismo el permiso de gobernanza para **leer o auditar** agentes privados y **sesiones/resultados privados** de terceros cuando la política exige permiso explícito; el acceso se niega de forma clara.
+- **Experiencia de denegación:** los intentos no autorizados muestran la experiencia de **contenido privado** (acceso denegado) en lugar de mensajes ambiguos.
+- **Historial de uso:** los ítems que no puedes abrir aparecen como **restringidos**, sin enlaces engañosos.
+
+<Note>
+  Quién puede auditar contenido privado depende de los **permisos del workspace** y de las **funciones de gobernanza** de tu plan (a menudo en **Enterprise**). Consulta también [Miembros y permisos](/es/members-permissions).
+</Note>
 
 ### **Cómo ajustar la visibilidad del agente**
 
@@ -67,9 +80,7 @@ Además, siempre puedes ajustar el nivel de visibilidad en Agent Studio:
   Si eliges hacer público tu agente, revisa el nombre, la descripción y el contenido antes de exponerlo en el Marketplace. Nuestro equipo analizará y probará tu agente antes de hacerlo definitivamente público. Si es rechazado, te señalarán los motivos para ajustar y volver a verificar.
 </Warning>
 
-### \*\*\\
-
-Información detallada del Agente (para hacerlo público)\*\*
+### **Información detallada del Agente (para hacerlo público)**
 
 Para acceder, solo pasa el mouse al lado del status y haz clic en el lápiz.
 

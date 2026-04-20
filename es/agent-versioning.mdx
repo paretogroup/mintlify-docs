@@ -1,0 +1,106 @@
+---
+title: "Versiones de agentes"
+description: "Historial de versiones, diff y rollback en Agent Studio — casos de uso y permisos."
+---
+
+El **versionado de agentes** conserva un historial inmutable de los cambios hechos en AI Studio. Los equipos que operan agentes en producción pueden **auditar cambios**, **comparar versiones** y, cuando haga falta, **restaurar** una configuración anterior sin perder el rastro.
+
+### **Qué es**
+
+Cada vez que **guardas** el agente y el contenido relevante **cambió** respecto a la última versión registrada, Tess crea automáticamente una **nueva versión** (snapshot) con el estado completo del agente en ese momento: prompt, modelo, herramientas, campos, configuración adicional, tipo y visibilidad, según corresponda.
+
+El historial está en el **panel lateral de versiones** en AI Studio, en forma de línea de tiempo, con resúmenes de cambios y **diff** entre versiones.
+
+### **Dónde encontrarlo en la interfaz**
+
+1. Abre **Agent Studio** y selecciona el agente.
+2. Localiza el **icono de historial de versiones** en la cabecera del editor (el panel solo aparece para perfiles con permiso; ver [Permisos](#permisos-versionado)).
+3. En el panel, recorre versiones, abre el detalle y usa **rollback** cuando esté permitido.
+
+**En la cabecera del editor** — el icono de historial está junto a Vista previa y Guardar.
+
+<Frame>
+  ![Cabecera del AI Studio con Ver historial](/images/agent-versioning-ai-studio-header.png)
+</Frame>
+
+**Panel de versiones** — línea de tiempo a la izquierda y diff por sección (por ejemplo, Instrucciones con antes y después).
+
+<Frame>
+  ![Panel de historial con diff entre versiones](/images/agent-versioning-history-panel-diff.png)
+</Frame>
+
+<Info>
+  La **primera versión** suele crearse tras la primera edición relevante una vez el feature está disponible para el workspace. Agentes muy antiguos pueden recibir la versión inicial en el primer guardado que genere un cambio real respecto al estado anterior.
+</Info>
+
+### **Qué verás en cada versión**
+
+- **Número de versión** y fecha/hora del snapshot.
+- **Autor** del cambio que originó esa versión (cuando aplique).
+- **Resumen de cambios** legible, alineado con el diff respecto a la versión anterior.
+- **Diff campo a campo** entre la versión seleccionada y la inmediatamente anterior.
+
+### **Rollback**
+
+El **rollback** no borra el historial: **crea una nueva versión** que restaura el snapshot elegido. La línea de tiempo sigue siendo **auditable**.
+
+La interfaz pide **confirmación explícita** antes de aplicar el rollback.
+
+<Warning>
+  **Atención:** el rollback es una acción de **gobernanza**. Respeta las políticas de tu workspace (agentes usados en chat, API, embed o programaciones).
+</Warning>
+
+---
+
+## Casos de uso
+
+<AccordionGroup>
+  <Accordion title="Corrección tras un cambio accidental">
+    Un cambio en el prompt o en las tools rompió el comportamiento en producción. El equipo restaura la última versión estable desde el historial.
+  </Accordion>
+  <Accordion title="Auditoría y cumplimiento">
+    Necesitas mostrar **qué cambió**, **quién lo cambió** y **cuándo**. Los snapshots y diffs centralizados lo respaldan.
+  </Accordion>
+  <Accordion title="Experimentación con retorno seguro">
+    Se prueba una nueva configuración; si no funciona, se hace rollback manteniendo los intentos visibles en la línea de tiempo.
+  </Accordion>
+  <Accordion title="Soporte y operaciones">
+    Soporte u owner investiga un incidente comparando versiones antes y después para aislar el cambio problemático.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Permisos {#permisos-versionado}
+
+El acceso se controla con **RBAC del workspace** y, si aplica, **flags del plan**:
+
+| Capacidad | Quién suele tener acceso |
+| :--- | :--- |
+| **Ver el panel de historial** y diffs | Miembros con permiso de **lectura** del historial de versiones (`agent:version:read` según configuración). |
+| **Ejecutar rollback** | Usuarios con permiso de **escritura** de versiones / rollback (`AGENT_VERSION_WRITE` en la capa de API). |
+| **Sin permiso de lectura** | El icono o panel **no se muestra** o el acceso se deniega según política del workspace. |
+
+<Note>
+  Roles como **Owner** y **Admin** suelen incluir estas capacidades cuando el feature está habilitado. En **Enterprise**, la gobernanza puede **delegar** lectura o escritura de versiones a roles específicos.
+</Note>
+
+### **Relación con visibilidad**
+
+- El versionado cubre el **historial de configuración**.
+- La **[visibilidad](/es/visibility)** define quién puede **encontrar o usar** el agente. Ambos se complementan en escenarios enterprise.
+
+---
+
+## Limitaciones y roadmap
+
+- El flujo actual se centra en **snapshots al guardar** e **historial + rollback** en Agent Studio. Un flujo explícito **borrador / publicar** puede evolucionar después.
+- En algunos casos, las **ejecuciones** pueden seguir el modelo de **agente activo** ya conocido en la plataforma.
+
+<Tip>
+  **Buenas prácticas**
+
+  - Comunica cambios importantes antes de un rollback en agentes muy usados.
+  - Usa el diff para revisar **prompt** y **tools** antes de restaurar.
+  - Alinea con **[Miembros y permisos](/es/members-permissions)** quién puede tocar agentes críticos.
+</Tip>

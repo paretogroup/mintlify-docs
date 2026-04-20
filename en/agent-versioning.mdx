@@ -1,0 +1,106 @@
+---
+title: "Agent versioning"
+description: "Version history, diff, and rollback in Agent Studio — use cases and permissions."
+---
+
+**Agent versioning** keeps an immutable history of changes made in AI Studio. Teams running production agents can **audit changes**, **compare versions**, and when needed **restore** a previous configuration while preserving a clear timeline.
+
+### **What it is**
+
+Each time you **save** the agent and the relevant content **changed** compared to the last recorded version, Tess automatically creates a **new version** (snapshot) with the full state of that agent at that moment — prompt, model, tools, fields, extra configuration, type, and visibility, as applicable.
+
+History is available in the **version history side panel** in AI Studio, as a timeline with change summaries and a **diff** between versions.
+
+### **Where to find it in the UI**
+
+1. Open **Agent Studio** and select the agent.
+2. Find the **version history** icon in the editor header (the panel only appears for profiles with permission; see [Permissions](#permissions-versioning)).
+3. In the panel, browse versions, open a version’s details, and use **rollback** when allowed.
+
+**In the editor header** — the version history icon sits next to Preview and Save.
+
+<Frame>
+  ![AI Studio header with View history](/images/agent-versioning-ai-studio-header.png)
+</Frame>
+
+**Version history panel** — timeline on the left and a section-by-section diff (for example, Instructions with before and after).
+
+<Frame>
+  ![Version history panel with diff between versions](/images/agent-versioning-history-panel-diff.png)
+</Frame>
+
+<Info>
+  The **first version** is usually created after the first meaningful edit once the feature is available for the workspace. Very old agents may get their initial version on the first save that produces a real change compared to the prior state.
+</Info>
+
+### **What you see per version**
+
+- **Version number** and timestamp when the snapshot was recorded.
+- **Author** of the change that produced that version (when applicable).
+- A readable **change summary**, aligned with the diff from the previous version.
+- **Field-by-field diff** between the selected version and the one before it (prompt, model, tools, and other fields exposed in the panel contract).
+
+### **Rollback**
+
+**Rollback** does not erase history: it **creates a new version** whose content restores the snapshot you chose. The timeline stays **auditable** — it is clear that a restore happened and from which point.
+
+The UI asks for **explicit confirmation** before applying rollback, because it updates the agent’s current state to match the selected version (as a new revision).
+
+<Warning>
+  **Caution:** Rollback is a **governance** action. Follow your workspace policy (especially for agents used in chat, API, embed, or schedulers).
+</Warning>
+
+---
+
+## Use cases
+
+<AccordionGroup>
+  <Accordion title="Fix after an accidental change">
+    A prompt or tool change broke production behavior. The team restores the last stable version from history without rebuilding the agent manually.
+  </Accordion>
+  <Accordion title="Audit and compliance">
+    You need to show **what changed**, **who changed it**, and **when** — for internal review or enterprise requirements. Centralized snapshots and diffs support that.
+  </Accordion>
+  <Accordion title="Safe experimentation">
+    The team tries a new configuration; if results are poor, they roll back to the prior baseline while keeping attempts visible on the timeline.
+  </Accordion>
+  <Accordion title="Support and operations">
+    Support or an owner investigates an incident by comparing versions before and after the event to isolate the change that caused unwanted behavior.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Permissions {#permissions-versioning}
+
+Access is controlled by **workspace RBAC** and, when relevant, **plan feature flags**. In practice:
+
+| Capability | Who typically has access |
+| :--- | :--- |
+| **Open the history panel** and view diffs between versions | Members with **read** permission for agent version history (in the product, tied to the version history feature / `agent:version:read` as configured for the workspace). |
+| **Run rollback** (restore from an older snapshot) | Users with **version write** permission — authorized to create a new version from an older snapshot (equivalent to rollback / `AGENT_VERSION_WRITE` at the API layer). |
+| **Without read permission** | The history icon or panel **is hidden** or access is denied per workspace policy (even if the user can edit other aspects of the agent under separate permissions). |
+
+<Note>
+  Roles such as **Owner** and **Admin** usually include these capabilities when the feature is enabled for the plan. In **Enterprise** environments, governance may **delegate** version read or write to specific roles (compliance, support) without full owner access — per the workspace permission matrix.
+</Note>
+
+### **Relationship to visibility and governance**
+
+- Versioning covers **configuration history** (how the agent was saved over time).
+- **[Visibility](/en/visibility)** controls who can **find or use** the agent (private, workspace, public, etc.). Together they support enterprise scenarios: you can restrict who sees history even when the agent is shared in the workspace.
+
+---
+
+## Limitations and product roadmap
+
+- The current experience focuses on **save-time snapshots** and **history + rollback** in Agent Studio. An explicit **draft / publish** flow may evolve in future iterations.
+- In some cases, **executions** (chat, API, scheduler, embed) may still follow the platform’s existing **active agent** model; pinning executions to a “published version” is a product evolution where applicable.
+
+<Tip>
+  **Best practices**
+
+  - Communicate material changes to stakeholders before rolling back widely used agents.
+  - Use the diff to review **prompt** and **tool** changes before bulk rollback.
+  - Align with **[Members and permissions](/en/members-permissions)** for who may change critical agents.
+</Tip>

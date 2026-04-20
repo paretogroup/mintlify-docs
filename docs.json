@@ -100,7 +100,8 @@
                   "en/dynamic-training",
                   "en/agents/kb",
                   "en/advanced-settings",
-                  "en/visibility"
+                  "en/visibility",
+                  "en/agent-versioning"
                 ]
               },
               {
@@ -415,7 +416,8 @@
                   "pt/dynamic-training",
                   "pt/agents/kb",
                   "pt/advanced-settings",
-                  "pt/visibility"
+                  "pt/visibility",
+                  "pt/agent-versioning"
                 ]
               },
               {
@@ -727,7 +729,8 @@
                   "es/static-training",
                   "es/agents/kb",
                   "es/advanced-settings",
-                  "es/visibility"
+                  "es/visibility",
+                  "es/versionamiento-de-agentes"
                 ]
               },
               {

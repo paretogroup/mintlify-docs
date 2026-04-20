@@ -1,6 +1,6 @@
 ---
-title: "List workspace execution pages"
-description: "List Tess Pages (published execution pages) for a workspace with optional status filter, creator filter for managers, and pagination."
+title: "List workspace pages"
+description: "List Tess Pages published in a workspace with optional status filter, creator filter for managers, and pagination."
 api: "GET https://api.tess.im/api/executions/pages/workspace"
 authMethod: "bearer"
 playground: "interactive"
@@ -103,7 +103,7 @@ response.json()
 }
 ```
 
-The **`creator`** object appears when the effective permissions include **manage** (see server rules in `ExecutionPagesController::workspacePages`).
+The **`creator`** object appears when the effective permissions include **manage** (enforced in the Tess AI platform for this route).
 
 ### **Common errors**
 

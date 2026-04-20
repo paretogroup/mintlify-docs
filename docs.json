@@ -262,8 +262,8 @@
                     "icon": "network-wired",
                     "pages": [
                       "en/workspace-usage",
-                      "en/list-workspace-execution-pages",
-                      "en/publish-execution-page"
+                      "en/list-workspace-pages",
+                      "en/publish-workspace-page"
                     ]
                   }
                 ]
@@ -577,8 +577,8 @@
                     "icon": "network-wired",
                     "pages": [
                       "pt/workspace-usage",
-                      "pt/list-workspace-execution-pages",
-                      "pt/publish-execution-page"
+                      "pt/list-workspace-pages",
+                      "pt/publish-workspace-page"
                     ]
                   }
                 ]
@@ -892,8 +892,8 @@
                     "icon": "network-wired",
                     "pages": [
                       "es/workspace-usage",
-                      "es/list-workspace-execution-pages",
-                      "es/publish-execution-page"
+                      "es/list-workspace-pages",
+                      "es/publish-workspace-page"
                     ]
                   }
                 ]

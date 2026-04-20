@@ -47,7 +47,7 @@
 
 ### E — Chat
 
-- Quando `execution_id` > 0, link “abrir chat” deve apontar para rota interna com `_chat_id`.
+- Quando a página tem **chat de origem** associado (id raiz > 0), o link “abrir chat” deve apontar para a rota interna com `_chat_id`.
 
 ### F — Negativo / produto
 
@@ -56,7 +56,7 @@
 
 ### G — Regressão Tess Pages
 
-- Fluxo existente de publicação a partir do chat (`ToolDropdown` / execução) continua funcionando.
+- Fluxo existente de publicação a partir do chat (`ToolDropdown`) continua funcionando.
 - `GET .../pages/status` não inclui `index_document`.
 
 ## 4. Roteiro de demo (5–8 min)

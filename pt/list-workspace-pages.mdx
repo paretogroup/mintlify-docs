@@ -1,16 +1,16 @@
 ---
-title: "Listar páginas de ejecución del workspace"
-description: "Lista Tess Pages (páginas publicadas de ejecuciones) de un workspace con filtro de estado, filtro por creador para gestores y paginación."
+title: "Listar páginas do workspace"
+description: "Liste Tess Pages publicadas em um workspace com filtro de status, filtro por criador para gestores e paginação."
 api: "GET https://api.tess.im/api/executions/pages/workspace"
 authMethod: "bearer"
 playground: "interactive"
 ---
 
-Devuelve las Tess Pages del workspace indicado en **`x-workspace-id`**: subdominio, estado del ciclo de vida y marcas de tiempo. Si el llamador tiene permiso de **gestión** (`workspace:pages:manage`), los elementos pueden incluir **`creator`** y el query **`user_id`** aplica; si no, solo ve sus propias filas.
+Retorna as Tess Pages do workspace indicado pelo cabeçalho **`x-workspace-id`**: cada item traz subdomínio, status do ciclo de vida e timestamps. Quem tem permissão de **gestão** (`workspace:pages:manage`) pode receber o objeto **`creator`** e usar o parâmetro **`user_id`** na query; caso contrário, a lista fica restrita às páginas do próprio usuário autenticado.
 
-El token debe poder **usar agentes** (`use_agents`) y cumplir las mismas comprobaciones de acceso al workspace que el resto de rutas de Tess Pages (`authApiKey` + `checkApiWorkspaceAccess`).
+O token precisa poder **usar agentes** (`use_agents`) e passar pelas mesmas validações de acesso ao workspace das outras rotas de Tess Pages (`authApiKey` + `checkApiWorkspaceAccess`).
 
-### **Ejemplos de código**
+### **Exemplos de código**
 
 <CodeGroup>
 
@@ -56,34 +56,34 @@ response.json()
 
 </CodeGroup>
 
-### **Cabeceras**
+### **Cabeçalhos**
 
 <ParamField header="x-workspace-id" type="integer" required>
-  ID numérico del workspace. Si falta → **400** con cuerpo traducido.
+  ID numérico do workspace. Se estiver ausente, a API responde **400** com mensagem traduzida.
 </ParamField>
 
-### **Parámetros de query**
+### **Parâmetros de query**
 
 <ParamField query="status" type="string">
-  Con **`active`** o **`inactive`**, filtra por ese estado. Cualquier otro valor (o vacío) significa **sin filtro de estado**.
+  Com valor **`active`** ou **`inactive`**, retorna só páginas nesse status. Qualquer outro valor (incluindo vazio) significa **sem filtro de status**.
 </ParamField>
 
 <ParamField query="user_id" type="integer">
-  Con permiso de **gestión**, limita al creador indicado. Sin gestión, se ignora.
+  Com permissão de **gestão**, restringe aos artefatos do usuário criador. Sem gestão, o parâmetro é ignorado (sempre apenas os próprios registros).
 </ParamField>
 
 <ParamField query="per_page" type="integer">
-  Tamaño de página entre **1** y **50**. Por defecto **15**.
+  Tamanho da página entre **1** e **50**. Padrão **15**.
 </ParamField>
 
-### **Respuesta correcta**
+### **Resposta de sucesso**
 
 ```json
 {
   "data": [
     {
       "id": 120391,
-      "subdomain": "mi-pagina",
+      "subdomain": "minha-pagina",
       "status": "active",
       "updated_at": "2026-04-18T12:34:56.000000Z",
       "last_deployed_at": "2026-04-18T12:30:00.000000Z",
@@ -103,16 +103,16 @@ response.json()
 }
 ```
 
-El objeto **`creator`** aparece cuando las reglas del servidor incluyen **gestión** (`ExecutionPagesController::workspacePages`).
+O objeto **`creator`** aparece quando as permissões efetivas incluem **gestão** (regra aplicada na plataforma Tess AI para esta rota).
 
-### **Errores frecuentes**
+### **Erros comuns**
 
 | Status | Significado |
 |--------|-------------|
 | **400** | Falta **`x-workspace-id`**. |
-| **403** | Sin **read** ni **manage**, o workspace inaccesible. |
-| **401** | Token inválido o ausente. |
+| **403** | Sem **read** e sem **manage** em páginas do workspace, ou workspace inacessível. |
+| **401** | Token ausente ou inválido. |
 
-### **Paridad con el panel**
+### **Paridade com o painel**
 
-Los usuarios autenticados pueden usar **`GET /backend-api/pages/workspace`** con la misma sesión y parámetros (la UI del panel usa esa ruta).
+Usuários autenticados podem usar **`GET /backend-api/pages/workspace`** com a sessão e os mesmos parâmetros de query (a UI do painel usa essa rota).

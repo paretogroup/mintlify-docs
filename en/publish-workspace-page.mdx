@@ -1,12 +1,12 @@
 ---
-title: "Publish or unpublish execution page"
+title: "Publish or unpublish workspace page"
 description: "Trigger publish or unpublish for a Tess Page by numeric page id, scoped to the workspace sent in x-workspace-id."
 api: "POST https://api.tess.im/api/pages/{page_id}/publish"
 authMethod: "bearer"
 playground: "interactive"
 ---
 
-Starts the publish or unpublish workflow for an existing **`AgentExecutionPage`** row. The page must belong to the workspace sent in **`x-workspace-id`**; the execution behind the page is resolved server-side to build storage paths and RPA payload.
+Starts the publish or unpublish workflow for an existing **Tess Page** record. The page must belong to the workspace sent in **`x-workspace-id`**; the platform resolves the source chat and storage paths server-side to build the RPA payload.
 
 Callers need **`workspace:pages:write`** or **`workspace:pages:manage`** (or the API-key fast path implemented in the controller). Otherwise the API returns **403** with a permission message.
 
@@ -63,13 +63,13 @@ response.status_code, response.json()
 ### **Path parameters**
 
 <ParamField path="page_id" type="integer" required>
-  Database id of the **`agent_execution_pages`** row. Unknown ids return **404** (`Page not found.`).
+  Numeric **page** id used in this route (`/api/pages/{page_id}/publish`). Unknown ids return **404** (`Page not found.`).
 </ParamField>
 
 ### **Headers**
 
 <ParamField header="x-workspace-id" type="integer" required>
-  Must match the workspace that owns the execution behind the page. Wrong workspace → **403** (`You do not have access to this workspace or it does not exist`). Missing header → **400**.
+  Must match the workspace that owns the page. Wrong workspace → **403** (`You do not have access to this workspace or it does not exist`). Missing header → **400**.
 </ParamField>
 
 ### **Body**
@@ -100,9 +100,9 @@ After **`unpublish: true`**, **`status`** becomes **`inactive`** when RPA comple
 |--------|---------|
 | **400** | Missing **`x-workspace-id`**. |
 | **403** | Workspace mismatch or missing **write/manage** permission. |
-| **404** | Unknown **`page_id`**, missing execution, or **no `index.html`** in the resolved workspace storage path when publishing. |
+| **404** | Unknown **`page_id`**, missing source data, or **no `index.html`** in the resolved workspace storage path when publishing. |
 | **500** | RPA/workflow dispatch failed; retry later. |
 
 ### **Panel parity**
 
-Interactive users still call **`POST /backend-api/executions/{execution_id_or_slug}/pages/publish`** from the UI; that route now answers with **200** and the same style of JSON payload instead of **202** `queued`.
+Interactive users still call **`POST /backend-api/executions/{id_or_slug}/pages/publish`** from the UI; that route now answers with **200** and the same style of JSON payload instead of **202** `queued`.

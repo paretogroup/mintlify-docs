@@ -1,12 +1,12 @@
 ---
-title: "Publicar o despublicar página de ejecución"
+title: "Publicar o despublicar página del workspace"
 description: "Activa publicación o despublicación de una Tess Page por id numérico de página, en el workspace indicado en x-workspace-id."
 api: "POST https://api.tess.im/api/pages/{page_id}/publish"
 authMethod: "bearer"
 playground: "interactive"
 ---
 
-Encadena el flujo de publicación o despublicación sobre una fila existente de **`AgentExecutionPage`**. El **`x-workspace-id`** debe coincidir con el workspace propietario de la ejecución vinculada; el backend resuelve rutas de almacenamiento y el payload de RPA.
+Encadena el flujo de publicación o despublicación sobre un registro existente de **Tess Page**. El **`x-workspace-id`** debe coincidir con el workspace propietario de la página; el backend resuelve el chat de origen, el almacenamiento y el payload de RPA.
 
 Se requiere **`workspace:pages:write`** o **`workspace:pages:manage`** (o la ruta rápida para claves API del controlador). Si no, **403** con mensaje de permiso.
 
@@ -63,13 +63,13 @@ response.status_code, response.json()
 ### **Parámetros de ruta**
 
 <ParamField path="page_id" type="integer" required>
-  ID de **`agent_execution_pages`**. Desconocido → **404** (`Page not found.`).
+  **Id numérico de la página** usado en esta ruta (`/api/pages/{page_id}/publish`). Desconocido → **404** (`Page not found.`).
 </ParamField>
 
 ### **Cabeceras**
 
 <ParamField header="x-workspace-id" type="integer" required>
-  Debe coincidir con el workspace de la ejecución. Distinto → **403**. Ausente → **400**.
+  Debe coincidir con el workspace propietario de la página. Distinto → **403**. Ausente → **400**.
 </ParamField>
 
 ### **Cuerpo**
@@ -100,7 +100,7 @@ Con **`unpublish: true`**, tras la RPA el **`status`** pasa a **`inactive`** (mi
 |--------|-------------|
 | **400** | Falta **`x-workspace-id`**. |
 | **403** | Workspace incorrecto o sin **write/manage**. |
-| **404** | Página/ejecución inexistente o sin **`index.html`** al publicar. |
+| **404** | Página inexistente, datos de origen ausentes o sin **`index.html`** al publicar. |
 | **500** | Fallo al lanzar la RPA; reintenta más tarde. |
 
 ### **Paridad con el panel**

@@ -261,7 +261,9 @@
                     "group": "Workspaces",
                     "icon": "network-wired",
                     "pages": [
-                      "en/workspace-usage"
+                      "en/workspace-usage",
+                      "en/list-workspace-execution-pages",
+                      "en/publish-execution-page"
                     ]
                   }
                 ]
@@ -306,6 +308,7 @@
                 "pages": [
                   "en/account",
                   "en/workspace",
+                  "en/workspace-artifacts",
                   "en/preferences",
                   "en/subscription-page",
                   "en/upgrade-downgrade",
@@ -573,7 +576,9 @@
                     "group": "Workspaces",
                     "icon": "network-wired",
                     "pages": [
-                      "pt/workspace-usage"
+                      "pt/workspace-usage",
+                      "pt/list-workspace-execution-pages",
+                      "pt/publish-execution-page"
                     ]
                   }
                 ]
@@ -618,6 +623,7 @@
                 "pages": [
                   "pt/account",
                   "pt/workspace",
+                  "pt/workspace-artifacts",
                   "pt/preferences",
                   "pt/subscription-page",
                   "pt/upgrade-downgrade",
@@ -885,7 +891,9 @@
                     "group": "Workspaces",
                     "icon": "network-wired",
                     "pages": [
-                      "es/workspace-usage"
+                      "es/workspace-usage",
+                      "es/list-workspace-execution-pages",
+                      "es/publish-execution-page"
                     ]
                   }
                 ]
@@ -931,6 +939,7 @@
                   "es/account",
                   "es/preferences",
                   "es/workspace",
+                  "es/workspace-artifacts",
                   "es/subscription-page",
                   "es/upgrade-downgrade",
                   "es/members-permissions",

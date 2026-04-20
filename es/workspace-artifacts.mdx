@@ -1,0 +1,49 @@
+---
+title: "Artefactos del workspace"
+description: "Lista, filtra y publica o despublica Tess Pages de tu workspace desde la configuración personal, con acceso basado en roles."
+---
+
+Los **artefactos** del workspace son las Tess Pages (sitios publicados) vinculadas a tu workspace: cada fila es una página alojada con subdominio, estado y, cuando existe, un acceso al chat que la generó.
+
+### **Dónde encontrarlo**
+
+<Steps>
+  <Step title="Abrir Configuración">
+    Haz clic en tu **perfil** (esquina inferior izquierda) y elige **Settings** / **Configuración**.
+  </Step>
+  <Step title="Abrir Artefactos">
+    En la barra lateral, selecciona **Artifacts**. Verás el subtítulo que indica que estás administrando los artefactos publicados del workspace.
+  </Step>
+</Steps>
+
+### **Qué puedes hacer**
+
+- **Explorar** las páginas publicadas del workspace con paginación.
+- **Filtrar** por estado: activas, inactivas o todas (cuando el filtro está vacío).
+- **Abrir** la URL pública de la Tess Page en cada fila.
+- **Ir al chat** cuando se conoce la ejecución de origen (control localizado equivalente a “Open chat”).
+- **Publicar** o **despublicar** con las acciones de la fila. Despublicar pide confirmación porque el enlace público deja de funcionar y el subdominio puede reutilizarse.
+
+### **Quién ve qué**
+
+El acceso depende de los permisos del workspace sobre Tess Pages:
+
+| Permiso | Efecto típico |
+|---------|----------------|
+| **Lectura** (`workspace:pages:read`) | Ves solo **tus** artefactos en el workspace. |
+| **Escritura** (`workspace:pages:write`) | Puedes publicar o despublicar páginas que el producto te permita (junto con las reglas de manage). |
+| **Gestión** (`workspace:pages:manage`) | Ves los artefactos **de todos**, columna opcional de **creador** y puedes filtrar por **creador** (`user_id`). |
+
+Si **no** tienes permiso de artefactos pero **sí** puedes gestionar la facturación del workspace, la interfaz puede mostrar una ruta de mejora en lugar de la tabla. Sin uno ni otro, verás un mensaje claro de **sin permiso**.
+
+### **API para automatización**
+
+Las integraciones pueden usar los mismos datos y acciones por HTTPS:
+
+- [Listar páginas de ejecución del workspace](/es/list-workspace-execution-pages)
+- [Publicar o despublicar una página](/es/publish-execution-page)
+
+### **Relacionado**
+
+- [Tess Pages](/es/tess-pages) — cómo funciona Instant Cloud desde el chat.
+- [Workspace](/es/workspace) — marca e información del perfil del workspace.

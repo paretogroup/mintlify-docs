@@ -1,0 +1,118 @@
+---
+title: "Listar páginas de ejecución del workspace"
+description: "Lista Tess Pages (páginas publicadas de ejecuciones) de un workspace con filtro de estado, filtro por creador para gestores y paginación."
+api: "GET https://api.tess.im/api/executions/pages/workspace"
+authMethod: "bearer"
+playground: "interactive"
+---
+
+Devuelve las Tess Pages del workspace indicado en **`x-workspace-id`**: subdominio, estado del ciclo de vida y marcas de tiempo. Si el llamador tiene permiso de **gestión** (`workspace:pages:manage`), los elementos pueden incluir **`creator`** y el query **`user_id`** aplica; si no, solo ve sus propias filas.
+
+El token debe poder **usar agentes** (`use_agents`) y cumplir las mismas comprobaciones de acceso al workspace que el resto de rutas de Tess Pages (`authApiKey` + `checkApiWorkspaceAccess`).
+
+### **Ejemplos de código**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/api/executions/pages/workspace?per_page=15&status=active' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Accept: application/json' \
+  --header 'x-workspace-id: YOUR_WORKSPACE_ID'
+```
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/api/executions/pages/workspace',
+  params: { per_page: 15, status: 'active' },
+  headers: {
+    Authorization: 'Bearer YOUR_API_KEY',
+    Accept: 'application/json',
+    'x-workspace-id': 'YOUR_WORKSPACE_ID'
+  }
+};
+
+axios(config).then((response) => response.data);
+```
+
+```python Python
+import requests
+
+url = "https://api.tess.im/api/executions/pages/workspace"
+params = {"per_page": 15, "status": "active"}
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Accept": "application/json",
+    "x-workspace-id": "YOUR_WORKSPACE_ID",
+}
+
+response = requests.get(url, params=params, headers=headers)
+response.json()
+```
+
+</CodeGroup>
+
+### **Cabeceras**
+
+<ParamField header="x-workspace-id" type="integer" required>
+  ID numérico del workspace. Si falta → **400** con cuerpo traducido.
+</ParamField>
+
+### **Parámetros de query**
+
+<ParamField query="status" type="string">
+  Con **`active`** o **`inactive`**, filtra por ese estado. Cualquier otro valor (o vacío) significa **sin filtro de estado**.
+</ParamField>
+
+<ParamField query="user_id" type="integer">
+  Con permiso de **gestión**, limita al creador indicado. Sin gestión, se ignora.
+</ParamField>
+
+<ParamField query="per_page" type="integer">
+  Tamaño de página entre **1** y **50**. Por defecto **15**.
+</ParamField>
+
+### **Respuesta correcta**
+
+```json
+{
+  "data": [
+    {
+      "id": 120391,
+      "subdomain": "mi-pagina",
+      "status": "active",
+      "updated_at": "2026-04-18T12:34:56.000000Z",
+      "last_deployed_at": "2026-04-18T12:30:00.000000Z",
+      "creator": {
+        "id": 501,
+        "name": "Ada Lovelace",
+        "email": "ada@example.com"
+      }
+    }
+  ],
+  "meta": {
+    "current_page": 1,
+    "last_page": 1,
+    "per_page": 15,
+    "total": 1
+  }
+}
+```
+
+El objeto **`creator`** aparece cuando las reglas del servidor incluyen **gestión** (`ExecutionPagesController::workspacePages`).
+
+### **Errores frecuentes**
+
+| Status | Significado |
+|--------|-------------|
+| **400** | Falta **`x-workspace-id`**. |
+| **403** | Sin **read** ni **manage**, o workspace inaccesible. |
+| **401** | Token inválido o ausente. |
+
+### **Paridad con el panel**
+
+Los usuarios autenticados pueden usar **`GET /backend-api/pages/workspace`** con la misma sesión y parámetros (la UI del panel usa esa ruta).

@@ -1,0 +1,49 @@
+---
+title: "Workspace artifacts"
+description: "List, filter, and publish or unpublish Tess Pages for your workspace from personal settings, with role-based access."
+---
+
+Workspace **artifacts** are the Tess Pages (published sites) tied to your workspace: each row is a hosted page with a subdomain, status, and link back to the chat that produced it when that information exists.
+
+### **Where to find it**
+
+<Steps>
+  <Step title="Open Settings">
+    Click your **profile** icon in the lower-left corner, then choose **Settings**.
+  </Step>
+  <Step title="Open Artifacts">
+    In the sidebar, select **Artifacts**. You will see the workspace subtitle explaining that you are managing published workspace artifacts.
+  </Step>
+</Steps>
+
+### **What you can do**
+
+- **Browse** published pages for the current workspace with pagination.
+- **Filter** by status: active, inactive, or all (when the filter is cleared).
+- **Open** the public Tess Page URL for each row.
+- **Jump to chat** when the originating execution is known (`Open chat` / equivalent localized control).
+- **Publish** or **unpublish** using the row actions. Unpublishing asks for confirmation because the public link stops working and the subdomain may be reused.
+
+### **Who sees what**
+
+Access is driven by workspace permissions on Tess Pages:
+
+| Permission | Typical effect |
+|------------|----------------|
+| **Read** (`workspace:pages:read`) | You see **your** artifacts in the workspace. |
+| **Write** (`workspace:pages:write`) | You can publish or unpublish pages you are allowed to change (combined with manage rules in the product). |
+| **Manage** (`workspace:pages:manage`) | You see **everyone’s** artifacts in the workspace, optional **creator** column, and you can filter the list by **creator** (`user_id`). |
+
+If you have **no** artifact permission but **can** manage workspace billing, the UI may surface an upgrade path instead of the table. If you lack both, you will see a clear **no permission** message.
+
+### **API for automation**
+
+Integrations can use the same data and actions over HTTPS:
+
+- [List workspace execution pages](/en/list-workspace-execution-pages)
+- [Publish or unpublish a page](/en/publish-execution-page)
+
+### **Related**
+
+- [Tess Pages](/en/tess-pages) — how Instant Cloud publishing works from chat.
+- [Workspace](/en/workspace) — branding and workspace profile settings.

@@ -1,0 +1,108 @@
+---
+title: "Publicar o despublicar página de ejecución"
+description: "Activa publicación o despublicación de una Tess Page por id numérico de página, en el workspace indicado en x-workspace-id."
+api: "POST https://api.tess.im/api/pages/{page_id}/publish"
+authMethod: "bearer"
+playground: "interactive"
+---
+
+Encadena el flujo de publicación o despublicación sobre una fila existente de **`AgentExecutionPage`**. El **`x-workspace-id`** debe coincidir con el workspace propietario de la ejecución vinculada; el backend resuelve rutas de almacenamiento y el payload de RPA.
+
+Se requiere **`workspace:pages:write`** o **`workspace:pages:manage`** (o la ruta rápida para claves API del controlador). Si no, **403** con mensaje de permiso.
+
+### **Ejemplos de código**
+
+<CodeGroup>
+
+```http cURL
+curl --request POST \
+  --url 'https://api.tess.im/api/pages/120391/publish' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --header 'x-workspace-id: YOUR_WORKSPACE_ID' \
+  --data '{"unpublish":false}'
+```
+
+```json Node.js
+const axios = require('axios');
+
+axios
+  .post(
+    'https://api.tess.im/api/pages/120391/publish',
+    { unpublish: false },
+    {
+      headers: {
+        Authorization: 'Bearer YOUR_API_KEY',
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-workspace-id': 'YOUR_WORKSPACE_ID'
+      }
+    }
+  )
+  .then((response) => response.data);
+```
+
+```python Python
+import requests
+
+url = "https://api.tess.im/api/pages/120391/publish"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "x-workspace-id": "YOUR_WORKSPACE_ID",
+}
+
+response = requests.post(url, json={"unpublish": False}, headers=headers)
+response.status_code, response.json()
+```
+
+</CodeGroup>
+
+### **Parámetros de ruta**
+
+<ParamField path="page_id" type="integer" required>
+  ID de **`agent_execution_pages`**. Desconocido → **404** (`Page not found.`).
+</ParamField>
+
+### **Cabeceras**
+
+<ParamField header="x-workspace-id" type="integer" required>
+  Debe coincidir con el workspace de la ejecución. Distinto → **403**. Ausente → **400**.
+</ParamField>
+
+### **Cuerpo**
+
+<ParamField body="unpublish" type="boolean">
+  **`true`** para despublicar; omite o **`false`** para publicar.
+</ParamField>
+
+### **Respuesta correcta**
+
+HTTP **200** con la página refrescada:
+
+```json
+{
+  "id": 120391,
+  "subdomain": "mi-pagina",
+  "status": "active",
+  "url": "https://mi-pagina.pages.tess.im",
+  "updated_at": "2026-04-18T12:40:00.000000Z"
+}
+```
+
+Con **`unpublish: true`**, tras la RPA el **`status`** pasa a **`inactive`** (mismo esquema JSON).
+
+### **Errores frecuentes**
+
+| Status | Significado |
+|--------|-------------|
+| **400** | Falta **`x-workspace-id`**. |
+| **403** | Workspace incorrecto o sin **write/manage**. |
+| **404** | Página/ejecución inexistente o sin **`index.html`** al publicar. |
+| **500** | Fallo al lanzar la RPA; reintenta más tarde. |
+
+### **Paridad con el panel**
+
+La UI sigue llamando **`POST /backend-api/executions/{id_o_slug}/pages/publish`**, ahora con **200** y cuerpo de estado en lugar de **202** `queued`.

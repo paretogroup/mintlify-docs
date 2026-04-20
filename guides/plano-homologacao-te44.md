@@ -94,4 +94,5 @@ curl -sS -X POST \
 
 ## 6. Screenshots (Mintlify)
 
-Capturar no ambiente acordado (homolog/staging) e salvar em `images/` com prefixo `te44-` após merge do PR na plataforma, referenciando os arquivos nas páginas `workspace-artifacts` (EN/PT/ES). Se o ambiente não estiver disponível, marcar checklist como pendente.
+Já capturados em **https://s4-tech.tess.im/** (home e tela de login) e referenciados em `workspace-artifacts` (EN/PT/ES): `images/te44-s4-home.png`, `images/te44-s4-login.png`.  
+Para a **lista Artifacts** autenticada, repetir a captura após login com usuário que tenha `workspace:pages:read` (ou manage) e anexar PNGs adicionais com prefixo `te44-` se necessário.

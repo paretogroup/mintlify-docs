@@ -211,6 +211,15 @@
                     ]
                   },
                   {
+                    "group": "Agent Versions",
+                    "icon": "clock-rotate-left",
+                    "pages": [
+                      "en/list-agent-versions",
+                      "en/get-agent-version",
+                      "en/rollback-agent-version"
+                    ]
+                  },
+                  {
                     "group": "Agent Webhooks",
                     "icon": "tower-broadcast",
                     "pages": [

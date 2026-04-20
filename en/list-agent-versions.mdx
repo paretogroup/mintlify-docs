@@ -1,0 +1,284 @@
+---
+title: "List Agent Versions"
+description: "Returns a paginated list of all saved versions for a specific agent, including a field-level diff and `change_summary` for each version relative to the previous one. Requires the `agent:version:read` permission."
+api: "GET https://api.tess.im/agents/{id}/versions"
+authMethod: "bearer"
+playground: "interactive"
+---
+
+
+### **Code Examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/agents/8794/versions' \
+  --header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/agents/8794/versions',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/agents/8794/versions"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/agents/8794/versions",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Error: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/agents/8794/versions"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .GET()
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    client := &http.Client{}
+    req, err := http.NewRequest("GET", "https://api.tess.im/agents/8794/versions", nil)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+
+            try
+            {
+                var response = await client.GetAsync("https://api.tess.im/agents/8794/versions");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch(HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/agents/8794/versions')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Headers**
+
+<ParamField header="x-workspace-id" type="integer">
+  ID of the workspace. If not provided, the user's selected workspace will be used.
+</ParamField>
+
+<Note>
+  **Note:** This field will be required in a future release of the API. It is highly recommended to set it now to ensure compatibility with future updates.
+</Note>
+
+### **Path Parameters**
+
+<ParamField path="id" type="integer" required>
+  The agent ID
+</ParamField>
+
+### **Query Parameters**
+
+<ParamField query="page" type="integer">
+  Current page (default: 1)
+</ParamField>
+<ParamField query="per_page" type="integer">
+  Number of items per page (default: 20)
+</ParamField>
+
+### **Response**
+
+```json
+{
+  "versions": [
+    {
+      "version_id": 9,
+      "published_at": "2026-04-09T14:30:00+00:00",
+      "published_by": "user@example.com",
+      "rollback_from_version": 5,
+      "change_summary": "",
+      "diff": []
+    },
+    {
+      "version_id": 7,
+      "published_at": "2026-04-06T13:52:19+00:00",
+      "published_by": "user@example.com",
+      "rollback_from_version": 2,
+      "change_summary": "instructions, ask_user_questions",
+      "diff": {
+        "instructions": {
+          "previous_version": "You are a helpful assistant.",
+          "current_version": "You are a helpful customer support assistant."
+        },
+        "ask_user_questions": {
+          "previous_version": [],
+          "current_version": [
+            {
+              "name": "topic",
+              "type": "text",
+              "description": "What topic do you need help with?",
+              "required": true,
+              "tooltip": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "version_id": 1,
+      "published_at": "2026-04-02T17:52:17+00:00",
+      "published_by": "user@example.com",
+      "rollback_from_version": null,
+      "change_summary": "",
+      "diff": []
+    }
+  ],
+  "current_version_number": 9,
+  "meta": {
+    "total": 9,
+    "page": 1,
+    "per_page": 20
+  }
+}
+```
+
+### **Response Fields**
+
+| **Field**               | **Type**         | **Description**                                                                                   |
+| :---------------------- | :--------------- | :------------------------------------------------------------------------------------------------ |
+| versions                | array            | List of version entries for this agent                                                            |
+| current_version_number  | integer          | The `version_id` of the currently active version                                                  |
+| meta.total              | integer          | Total number of versions                                                                          |
+| meta.page               | integer          | Current page number                                                                               |
+| meta.per_page           | integer          | Number of items per page                                                                          |
+| version_id              | integer          | Unique sequential identifier for this version                                                     |
+| published_by            | string           | Email of the user who saved this version                                                          |
+| published_at            | string (ISO8601) | Timestamp when this version was created                                                           |
+| rollback_from_version   | integer \| null  | If this version was created by a rollback, the source `version_id`; otherwise `null`             |
+| change_summary          | string           | Comma-separated list of field names that changed relative to the previous version. Empty string when nothing changed |
+| diff                    | object \| array  | Field-level diff vs. the previous version. Each key contains `previous_version` and `current_version`. Returns an empty array `[]` when there are no changes |

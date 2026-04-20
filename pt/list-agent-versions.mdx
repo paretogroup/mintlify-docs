@@ -1,0 +1,282 @@
+---
+title: "Listar Versões do Agente"
+description: "Retorna uma lista paginada de todas as versões salvas de um agente específico, incluindo o diff campo a campo e o `change_summary` de cada versão em relação à anterior. Requer a permissão `agent:version:read`."
+api: "GET https://api.tess.im/agents/{id}/versions"
+authMethod: "bearer"
+playground: "interactive"
+---
+
+
+### **Exemplos de Código**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/agents/8794/versions' \
+  --header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/agents/8794/versions',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+};
+
+try {
+  const response = await axios(config);
+  console.log(response.data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+
+```python Python
+import requests
+
+url = "https://api.tess.im/agents/8794/versions"
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())
+```
+
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.tess.im/agents/8794/versions",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer YOUR_API_KEY"
+  ]
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "Erro: " . $err;
+} else {
+  echo $response;
+}
+```
+
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+    .uri(URI.create("https://api.tess.im/agents/8794/versions"))
+    .header("Authorization", "Bearer YOUR_API_KEY")
+    .GET()
+    .build();
+
+HttpResponse<String> response = client.send(request,
+    HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    client := &http.Client{}
+    req, err := http.NewRequest("GET", "https://api.tess.im/agents/8794/versions", nil)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    req.Header.Add("Authorization", "Bearer YOUR_API_KEY")
+
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println(string(body))
+}
+```
+
+
+```jsonnet .NET
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
+
+            try
+            {
+                var response = await client.GetAsync("https://api.tess.im/agents/8794/versions");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch(HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+            }
+        }
+    }
+}
+```
+
+
+```ruby Ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.tess.im/agents/8794/versions')
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri)
+request['Authorization'] = 'Bearer YOUR_API_KEY'
+
+response = http.request(request)
+puts response.read_body
+```
+
+</CodeGroup>
+
+### **Headers**
+
+<ParamField header="x-workspace-id" type="integer">
+  ID do workspace. Se não fornecido, o workspace selecionado pelo usuário será utilizado.
+</ParamField>
+
+<Note>
+  **Nota:** Este campo será obrigatório em uma versão futura da API. É altamente recomendado defini-lo agora para garantir compatibilidade com atualizações futuras.
+</Note>
+
+### **Parâmetros de Caminho**
+
+<ParamField path="id" type="integer" required>
+  O ID do agente
+</ParamField>
+
+### **Parâmetros de Query**
+
+| **Parâmetro** | **Tipo** | **Obrigatório** | **Descrição**                              |
+| :------------ | :------- | :-------------- | :----------------------------------------- |
+| page          | integer  | Não             | Página atual (padrão: 1)                   |
+| per_page      | integer  | Não             | Número de itens por página (padrão: 20)    |
+
+### **Resposta**
+
+```json
+{
+  "versions": [
+    {
+      "version_id": 9,
+      "published_at": "2026-04-09T14:30:00+00:00",
+      "published_by": "usuario@exemplo.com",
+      "rollback_from_version": 5,
+      "change_summary": "",
+      "diff": []
+    },
+    {
+      "version_id": 7,
+      "published_at": "2026-04-06T13:52:19+00:00",
+      "published_by": "usuario@exemplo.com",
+      "rollback_from_version": 2,
+      "change_summary": "instructions, ask_user_questions",
+      "diff": {
+        "instructions": {
+          "previous_version": "Você é um assistente útil.",
+          "current_version": "Você é um assistente de suporte ao cliente."
+        },
+        "ask_user_questions": {
+          "previous_version": [],
+          "current_version": [
+            {
+              "name": "topico",
+              "type": "text",
+              "description": "Sobre qual assunto você precisa de ajuda?",
+              "required": true,
+              "tooltip": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "version_id": 1,
+      "published_at": "2026-04-02T17:52:17+00:00",
+      "published_by": "usuario@exemplo.com",
+      "rollback_from_version": null,
+      "change_summary": "",
+      "diff": []
+    }
+  ],
+  "current_version_number": 9,
+  "meta": {
+    "total": 9,
+    "page": 1,
+    "per_page": 20
+  }
+}
+```
+
+### **Campos da Resposta**
+
+| **Campo**               | **Tipo**         | **Descrição**                                                                                            |
+| :---------------------- | :--------------- | :------------------------------------------------------------------------------------------------------- |
+| versions                | array            | Lista de versões do agente                                                                               |
+| current_version_number  | integer          | O `version_id` da versão atualmente ativa                                                                |
+| meta.total              | integer          | Total de versões                                                                                         |
+| meta.page               | integer          | Página atual                                                                                             |
+| meta.per_page           | integer          | Número de itens por página                                                                               |
+| version_id              | integer          | Identificador sequencial único desta versão                                                              |
+| published_by            | string           | E-mail do usuário que salvou esta versão                                                                 |
+| published_at            | string (ISO8601) | Timestamp de quando esta versão foi criada                                                               |
+| rollback_from_version   | integer \| null  | Se esta versão foi criada por um rollback, o `version_id` de origem; caso contrário `null`              |
+| change_summary          | string           | Lista separada por vírgulas dos campos alterados em relação à versão anterior. String vazia quando não há alterações |
+| diff                    | object \| array  | Diff campo a campo em relação à versão anterior. Cada chave contém `previous_version` e `current_version`. Retorna array vazio `[]` quando não há alterações |

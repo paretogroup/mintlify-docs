@@ -1,0 +1,130 @@
+---
+title: "Versiones de agentes"
+description: "Historial de versiones, diff y rollback en Agent Studio — casos de uso y permisos."
+---
+
+El **versionado de agentes** conserva un historial inmutable de los cambios hechos en AI Studio. Los equipos que operan agentes en producción pueden **auditar cambios**, **comparar versiones** y, cuando haga falta, **restaurar** una configuración anterior sin perder el rastro.
+
+### **Qué es**
+
+Cada vez que **guardas** el agente y el contenido relevante **cambió** respecto a la última versión registrada, Tess crea automáticamente una **nueva versión** (snapshot) con el estado completo del agente en ese momento: prompt, modelo, herramientas, campos, configuración adicional, tipo y visibilidad, según corresponda.
+
+El historial está en el **panel lateral de versiones** en AI Studio, en forma de línea de tiempo, con resúmenes de cambios y **diff** entre versiones.
+
+### **Dónde encontrarlo en la interfaz**
+
+Sigue los pasos para llegar al historial desde cero:
+
+<Steps>
+  <Step title="Entra en Agent Studio y abre el agente">
+    Desde el menú lateral izquierdo, pulsa **Agent Studio**. En la lista de agentes, haz clic en el agente que quieras auditar para abrirlo en el editor.
+
+    <Tip>
+      Si no ves **Agent Studio** en el menú, probablemente tu perfil no tiene permiso de edición de agentes en este workspace.
+    </Tip>
+  </Step>
+  <Step title="Localiza el icono de historial en la parte superior del editor">
+    Con el agente abierto, mira la **esquina superior derecha** del editor. Junto a los botones **Vista previa** y **Guardar**, hay un pequeño **icono de reloj** — ese es el botón **Ver historial**.
+
+    <Frame caption="Cabecera del AI Studio. El icono de reloj (destacado en rojo) está justo a la izquierda de Vista previa y Guardar.">
+      ![Cabecera del AI Studio con Ver historial](/images/agent-versioning-ai-studio-header-annotated.png)
+    </Frame>
+
+    <Warning>
+      Si el icono **no aparece**, revisa dos puntos:
+
+      1. ¿Tu perfil tiene permiso de **lectura** de versiones? (ver [Permisos](#permisos-versionado))
+      2. ¿El agente ya tiene **al menos una versión registrada**? En agentes muy nuevos, el icono solo aparece después de crear la primera versión — guarda un cambio real y recarga.
+    </Warning>
+  </Step>
+  <Step title="Pulsa el icono para abrir el panel de versiones">
+    Al pulsar el **icono de reloj** se abre el panel **Historial de versiones** sobre el editor. Verás:
+
+    - A la **izquierda**: la **línea de tiempo** con todas las versiones (la más reciente marcada como **Actual**), con autor y fecha/hora.
+    - A la **derecha**: el **detalle** de la versión seleccionada, con secciones colapsadas (**Sin cambios**) y secciones abiertas con la etiqueta **Modificado**.
+    - En cada sección modificada: un bloque **ANTES** (rojo) y **DESPUÉS** (verde) — el diff de lo que cambió.
+
+    <Frame caption="Panel de historial anotado: (1) línea de tiempo a la izquierda, (2) badge Changed en la sección modificada, (3) diff ANTES/DESPUÉS.">
+      ![Panel de historial con diff entre versiones (anotado)](/images/agent-versioning-history-panel-diff-annotated.png)
+    </Frame>
+  </Step>
+  <Step title="Navega, compara y (si está permitido) haz rollback">
+    Pulsa cualquier elemento de la **línea de tiempo** a la izquierda para ver el diff de esa versión respecto a la anterior. Si tu perfil tiene permiso de **escritura** de versiones, aparecerá la acción para **restaurar** esa versión (la restauración pide confirmación y crea una nueva entrada en el historial). Para cerrar, usa el botón **Cerrar** del panel.
+  </Step>
+</Steps>
+
+<Info>
+  La **primera versión** suele crearse tras la primera edición relevante una vez el feature está disponible para el workspace. Agentes muy antiguos pueden recibir la versión inicial en el primer guardado que genere un cambio real respecto al estado anterior.
+</Info>
+
+### **Qué verás en cada versión**
+
+- **Número de versión** y fecha/hora del snapshot.
+- **Autor** del cambio que originó esa versión (cuando aplique).
+- **Resumen de cambios** legible, alineado con el diff respecto a la versión anterior.
+- **Diff campo a campo** entre la versión seleccionada y la inmediatamente anterior.
+
+### **Rollback**
+
+El **rollback** no borra el historial: **crea una nueva versión** que restaura el snapshot elegido. La línea de tiempo sigue siendo **auditable**.
+
+La interfaz pide **confirmación explícita** antes de aplicar el rollback.
+
+<Warning>
+  **Atención:** el rollback es una acción de **gobernanza**. Respeta las políticas de tu workspace (agentes usados en chat, API, embed o programaciones).
+</Warning>
+
+---
+
+## Casos de uso
+
+<AccordionGroup>
+  <Accordion title="Corrección tras un cambio accidental">
+    Un cambio en el prompt o en las tools rompió el comportamiento en producción. El equipo restaura la última versión estable desde el historial.
+  </Accordion>
+  <Accordion title="Auditoría y cumplimiento">
+    Necesitas mostrar **qué cambió**, **quién lo cambió** y **cuándo**. Los snapshots y diffs centralizados lo respaldan.
+  </Accordion>
+  <Accordion title="Experimentación con retorno seguro">
+    Se prueba una nueva configuración; si no funciona, se hace rollback manteniendo los intentos visibles en la línea de tiempo.
+  </Accordion>
+  <Accordion title="Soporte y operaciones">
+    Soporte u owner investiga un incidente comparando versiones antes y después para aislar el cambio problemático.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Permisos {#permisos-versionado}
+
+El acceso se controla con **RBAC del workspace** y, si aplica, **flags del plan**:
+
+| Capacidad | Quién suele tener acceso |
+| :--- | :--- |
+| **Ver el panel de historial** y diffs | Miembros con permiso de **lectura** del historial de versiones (`agent:version:read` según configuración). |
+| **Ejecutar rollback** | Usuarios con permiso de **escritura** de versiones / rollback (`AGENT_VERSION_WRITE` en la capa de API). |
+| **Sin permiso de lectura** | El icono o panel **no se muestra** o el acceso se deniega según política del workspace. |
+
+<Note>
+  Roles como **Owner** y **Admin** suelen incluir estas capacidades cuando el feature está habilitado. En **Enterprise**, la gobernanza puede **delegar** lectura o escritura de versiones a roles específicos.
+</Note>
+
+### **Relación con visibilidad**
+
+- El versionado cubre el **historial de configuración**.
+- La **[visibilidad](/es/visibility)** define quién puede **encontrar o usar** el agente. Ambos se complementan en escenarios enterprise.
+
+---
+
+## Limitaciones y roadmap
+
+- El flujo actual se centra en **snapshots al guardar** e **historial + rollback** en Agent Studio. Un flujo explícito **borrador / publicar** puede evolucionar después.
+- En algunos casos, las **ejecuciones** pueden seguir el modelo de **agente activo** ya conocido en la plataforma.
+
+<Tip>
+  **Buenas prácticas**
+
+  - Comunica cambios importantes antes de un rollback en agentes muy usados.
+  - Usa el diff para revisar **prompt** y **tools** antes de restaurar.
+  - Alinea con **[Miembros y permisos](/es/members-permissions)** quién puede tocar agentes críticos.
+</Tip>

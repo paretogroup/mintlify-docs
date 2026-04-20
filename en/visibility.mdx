@@ -9,7 +9,7 @@ Visibility defines the privacy level of the agent created in Agent Studio. You c
     Available only to members of your workspace. This is the ideal mode to keep control of internal agents.
   </Card>
   <Card title="Private">
-    Visible only to you (and, if applicable, authorized workspace administrators).
+    Visible to the creator and, when workspace policy allows, to roles with **governance permissions** to audit other members’ private agents — workspace membership alone does not grant access to someone else’s private agent.
   </Card>
   <Card title="Public">
     Available for use by the entire Tess user community and is listed in the Marketplace.
@@ -36,7 +36,7 @@ Visibility defines the privacy level of the agent created in Agent Studio. You c
 </Card>
 
 <Card icon="2" title="Private">
-  Only the agent creator can see it. Used for draft agents, tests, or personal agents.
+  By default, only the creator sees the agent in listings. To **audit or access** another member’s **private** agent, the workspace must grant **explicit governance permissions** (being Owner alone does not automatically unlock others’ private agents). Use for drafts, tests, or personal agents.
 </Card>
 
 <Card icon="3" title="Public">
@@ -46,6 +46,19 @@ Visibility defines the privacy level of the agent created in Agent Studio. You c
 <Card icon="4" title="Unlisted">
   It can’t be found in the Marketplace, and only people with the direct link can open it. It’s used when you want to share with specific clients, partners, or in beta phases for testing by other people.
 </Card>
+
+### **Governance and private content in the workspace**
+
+Visibility (public, workspace, private, unlisted) is not the only control. For **other members’ private agents and private results** in the same workspace, Tess applies an explicit **governance** model:
+
+- **Same rules everywhere:** Agent Studio, chat, usage history, linked documents, and **external template/execution APIs** share the same authorization rules. There is no API-side shortcut that exposes another user’s private assets without the right permission.
+- **No role bypass:** Being Owner or admin **does not by itself** replace governance permission to **read or audit** others’ private agents and **private sessions/results** when policy requires explicit grants — unauthorized access is clearly denied.
+- **Clear denial UX:** Unauthorized attempts surface the **private content** experience (access denied) instead of ambiguous “not found” behavior.
+- **Usage history:** Items you can’t open show as **restricted**, without misleading clickable links.
+
+<Note>
+  Who may audit private content and under what terms depends on **workspace permissions** and **governance features** for your plan (often in **Enterprise** scenarios). See also [Members and permissions](/en/members-permissions).
+</Note>
 
 ### **How to adjust an agent’s visibility**
 

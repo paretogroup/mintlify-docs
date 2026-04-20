@@ -1,0 +1,130 @@
+---
+title: "Agent versioning"
+description: "Version history, diff, and rollback in Agent Studio — use cases and permissions."
+---
+
+**Agent versioning** keeps an immutable history of changes made in AI Studio. Teams running production agents can **audit changes**, **compare versions**, and when needed **restore** a previous configuration while preserving a clear timeline.
+
+### **What it is**
+
+Each time you **save** the agent and the relevant content **changed** compared to the last recorded version, Tess automatically creates a **new version** (snapshot) with the full state of that agent at that moment — prompt, model, tools, fields, extra configuration, type, and visibility, as applicable.
+
+History is available in the **version history side panel** in AI Studio, as a timeline with change summaries and a **diff** between versions.
+
+### **Where to find it in the UI**
+
+Follow these steps to reach the history from scratch:
+
+<Steps>
+  <Step title="Open Agent Studio and pick the agent">
+    From the left sidebar, click **Agent Studio**. In the agent list, click the agent you want to audit to open it in the editor.
+
+    <Tip>
+      If you do not see **Agent Studio** in the sidebar, your profile likely does not have agent-editing permission in this workspace.
+    </Tip>
+  </Step>
+  <Step title="Locate the history icon at the top of the editor">
+    With the agent open, look at the **top-right corner** of the editor. Next to the **Preview** and **Save** buttons, there is a small **clock icon** — that is the **View history** button.
+
+    <Frame caption="AI Studio header. The clock icon (highlighted in red) sits just to the left of Preview and Save.">
+      ![AI Studio header with View history](/images/agent-versioning-ai-studio-header-annotated.png)
+    </Frame>
+
+    <Warning>
+      If the icon is **missing**, check two things:
+
+      1. Does your profile have **version read** permission? (see [Permissions](#permissions-versioning))
+      2. Does the agent already have **at least one recorded version**? For brand-new agents, the icon only appears after the first version is created — save a real change and reload.
+    </Warning>
+  </Step>
+  <Step title="Click the icon to open the version panel">
+    Clicking the **clock icon** opens the **Version history** panel on top of the editor. You will see:
+
+    - On the **left**: the **timeline** with every version (the latest one flagged **Current**), with author and timestamp.
+    - On the **right**: the **details** of the selected version, with collapsed sections (**No changes**) and expanded sections marked **Changed**.
+    - In every changed section: a **BEFORE** block (red) and an **AFTER** block (green) — the diff of what changed.
+
+    <Frame caption="Annotated version history panel: (1) timeline on the left, (2) Changed badge for the section that changed, (3) BEFORE/AFTER diff.">
+      ![Version history panel with diff between versions (annotated)](/images/agent-versioning-history-panel-diff-annotated.png)
+    </Frame>
+  </Step>
+  <Step title="Browse, compare and (if allowed) roll back">
+    Click any item in the **timeline** on the left to see the diff of that version against the previous one. If your profile has **version write** permission, the action to **restore** that version is available (restore asks for confirmation and creates a new history entry). Use the panel **Close** button to dismiss it.
+  </Step>
+</Steps>
+
+<Info>
+  The **first version** is usually created after the first meaningful edit once the feature is available for the workspace. Very old agents may get their initial version on the first save that produces a real change compared to the prior state.
+</Info>
+
+### **What you see per version**
+
+- **Version number** and timestamp when the snapshot was recorded.
+- **Author** of the change that produced that version (when applicable).
+- A readable **change summary**, aligned with the diff from the previous version.
+- **Field-by-field diff** between the selected version and the one before it (prompt, model, tools, and other fields exposed in the panel contract).
+
+### **Rollback**
+
+**Rollback** does not erase history: it **creates a new version** whose content restores the snapshot you chose. The timeline stays **auditable** — it is clear that a restore happened and from which point.
+
+The UI asks for **explicit confirmation** before applying rollback, because it updates the agent’s current state to match the selected version (as a new revision).
+
+<Warning>
+  **Caution:** Rollback is a **governance** action. Follow your workspace policy (especially for agents used in chat, API, embed, or schedulers).
+</Warning>
+
+---
+
+## Use cases
+
+<AccordionGroup>
+  <Accordion title="Fix after an accidental change">
+    A prompt or tool change broke production behavior. The team restores the last stable version from history without rebuilding the agent manually.
+  </Accordion>
+  <Accordion title="Audit and compliance">
+    You need to show **what changed**, **who changed it**, and **when** — for internal review or enterprise requirements. Centralized snapshots and diffs support that.
+  </Accordion>
+  <Accordion title="Safe experimentation">
+    The team tries a new configuration; if results are poor, they roll back to the prior baseline while keeping attempts visible on the timeline.
+  </Accordion>
+  <Accordion title="Support and operations">
+    Support or an owner investigates an incident by comparing versions before and after the event to isolate the change that caused unwanted behavior.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Permissions {#permissions-versioning}
+
+Access is controlled by **workspace RBAC** and, when relevant, **plan feature flags**. In practice:
+
+| Capability | Who typically has access |
+| :--- | :--- |
+| **Open the history panel** and view diffs between versions | Members with **read** permission for agent version history (in the product, tied to the version history feature / `agent:version:read` as configured for the workspace). |
+| **Run rollback** (restore from an older snapshot) | Users with **version write** permission — authorized to create a new version from an older snapshot (equivalent to rollback / `AGENT_VERSION_WRITE` at the API layer). |
+| **Without read permission** | The history icon or panel **is hidden** or access is denied per workspace policy (even if the user can edit other aspects of the agent under separate permissions). |
+
+<Note>
+  Roles such as **Owner** and **Admin** usually include these capabilities when the feature is enabled for the plan. In **Enterprise** environments, governance may **delegate** version read or write to specific roles (compliance, support) without full owner access — per the workspace permission matrix.
+</Note>
+
+### **Relationship to visibility and governance**
+
+- Versioning covers **configuration history** (how the agent was saved over time).
+- **[Visibility](/en/visibility)** controls who can **find or use** the agent (private, workspace, public, etc.). Together they support enterprise scenarios: you can restrict who sees history even when the agent is shared in the workspace.
+
+---
+
+## Limitations and product roadmap
+
+- The current experience focuses on **save-time snapshots** and **history + rollback** in Agent Studio. An explicit **draft / publish** flow may evolve in future iterations.
+- In some cases, **executions** (chat, API, scheduler, embed) may still follow the platform’s existing **active agent** model; pinning executions to a “published version” is a product evolution where applicable.
+
+<Tip>
+  **Best practices**
+
+  - Communicate material changes to stakeholders before rolling back widely used agents.
+  - Use the diff to review **prompt** and **tool** changes before bulk rollback.
+  - Align with **[Members and permissions](/en/members-permissions)** for who may change critical agents.
+</Tip>

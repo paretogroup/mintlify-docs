@@ -94,5 +94,10 @@ curl -sS -X POST \
 
 ## 6. Screenshots (Mintlify)
 
-Já capturados em **https://s4-tech.tess.im/** (home e tela de login) e referenciados em `workspace-artifacts` (EN/PT/ES): `images/te44-s4-home.png`, `images/te44-s4-login.png`.  
-Para a **lista Artifacts** autenticada, repetir a captura após login com usuário que tenha `workspace:pages:read` (ou manage) e anexar PNGs adicionais com prefixo `te44-` se necessário.
+Capturas feitas em **https://s4-tech.tess.im/** (Cursor IDE Browser MCP, sem Playwright), salvas em `images/` com prefixo `te44-s4-` e referenciadas em `en/pt/es/workspace-artifacts.mdx`:
+
+- `te44-s4-settings-modal.png` — modal de Settings com **Workspace → Artifacts** visível na barra lateral.
+- `te44-s4-workspace-artifacts.png` — painel **Artifacts** com CTA de upgrade (plano sem acesso à lista).
+- `te44-s4-chat-overview.png` — visão do chat antes de abrir o menu (opcional para runbooks).
+
+Regravar após mudanças de UI ou quando houver conta com permissão de lista publicada.

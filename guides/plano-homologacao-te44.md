@@ -94,10 +94,11 @@ curl -sS -X POST \
 
 ## 6. Screenshots (Mintlify)
 
-Capturas feitas em **https://s4-tech.tess.im/** (Cursor IDE Browser MCP, sem Playwright), salvas em `images/` com prefixo `te44-s4-` e referenciadas em `en/pt/es/workspace-artifacts.mdx`:
+Capturas feitas em **https://s4-tech.tess.im/** (Cursor IDE Browser MCP, sem Playwright), salvas em `images/` com prefixo `te44-s4-` e referenciadas em `en/pt/es/workspace-artifacts.mdx`. Cobrem a navegação (B), o *happy path* de listagem (C) e o *gated* (F) quando ainda houver ficheiro dedicado.
 
-- `te44-s4-settings-modal.png` — modal de Settings com **Workspace → Artifacts** visível na barra lateral.
-- `te44-s4-workspace-artifacts.png` — painel **Artifacts** com CTA de upgrade (plano sem acesso à lista).
-- `te44-s4-chat-overview.png` — visão do chat antes de abrir o menu (opcional para runbooks).
+- `te44-s4-settings-modal.png` — modal de Settings: **Workspace → Artifacts** na barra lateral e, com permissão de leitura de páginas, **tabela** (filtros “all statuses / all users”, colunas, paginação, ações *Publish* / *Unpublish*, *Open chat*).
+- `te44-s4-workspace-artifacts.png` — painel **Artifacts** com **CTA de upgrade** (utilizador com `workspace:billing:write` mas sem acesso a Tess Pages; fase F, secção 3).
+- `te44-s4-chat-overview.png` — visão do **chat** (agente) antes de abrir **Settings** pelo menu do perfil (fase B, secção 3; opcional para runbooks).
+- (Opcional) Caso de **sem permissão e sem billing write** (só mensagem, fase F, secção 3): regravar um `te44-s4-workspace-artifacts-denied.png` ou reutilizar texto, se quiserem ilustrar os três desfechos (lista / CTA / sem permissão).
 
-Regravar após mudanças de UI ou quando houver conta com permissão de lista publicada.
+**Regravação:** após alterações de UI, ou trocar de combinação de plano/roles, ou trocar de conta no browser MCP.

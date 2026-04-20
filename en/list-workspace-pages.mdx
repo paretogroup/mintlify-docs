@@ -1,0 +1,118 @@
+---
+title: "List workspace pages"
+description: "List Tess Pages published in a workspace with optional status filter, creator filter for managers, and pagination."
+api: "GET https://api.tess.im/api/executions/pages/workspace"
+authMethod: "bearer"
+playground: "interactive"
+---
+
+Returns Tess Pages that belong to the workspace identified by **`x-workspace-id`**: rows include subdomain, lifecycle status, and timestamps. When the caller has **manage** permission on workspace pages, each item can include **creator** metadata and the **`user_id`** query filter is honored; otherwise results are limited to the authenticated user’s own pages.
+
+Your API token must be allowed to **use agents** (`use_agents`), and the same workspace access checks as other Tess Pages routes apply (`authApiKey` + `checkApiWorkspaceAccess`).
+
+### **Code examples**
+
+<CodeGroup>
+
+```http cURL
+curl --request GET \
+  --url 'https://api.tess.im/api/executions/pages/workspace?per_page=15&status=active' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Accept: application/json' \
+  --header 'x-workspace-id: YOUR_WORKSPACE_ID'
+```
+
+```json Node.js
+const axios = require('axios');
+
+const config = {
+  method: 'get',
+  url: 'https://api.tess.im/api/executions/pages/workspace',
+  params: { per_page: 15, status: 'active' },
+  headers: {
+    Authorization: 'Bearer YOUR_API_KEY',
+    Accept: 'application/json',
+    'x-workspace-id': 'YOUR_WORKSPACE_ID'
+  }
+};
+
+axios(config).then((response) => response.data);
+```
+
+```python Python
+import requests
+
+url = "https://api.tess.im/api/executions/pages/workspace"
+params = {"per_page": 15, "status": "active"}
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Accept": "application/json",
+    "x-workspace-id": "YOUR_WORKSPACE_ID",
+}
+
+response = requests.get(url, params=params, headers=headers)
+response.json()
+```
+
+</CodeGroup>
+
+### **Headers**
+
+<ParamField header="x-workspace-id" type="integer" required>
+  Workspace id. If missing, the API responds with **400** and a translated error body.
+</ParamField>
+
+### **Query parameters**
+
+<ParamField query="status" type="string">
+  When set to **`active`** or **`inactive`**, only pages in that status are returned. Any other value (including empty) means **no status filter**.
+</ParamField>
+
+<ParamField query="user_id" type="integer">
+  When the caller has **manage** permission, filters artifacts to the creator’s user id. Ignored for callers without manage (they always see only their own rows).
+</ParamField>
+
+<ParamField query="per_page" type="integer">
+  Page size between **1** and **50**. Default **15**.
+</ParamField>
+
+### **Successful response**
+
+```json
+{
+  "data": [
+    {
+      "id": 120391,
+      "subdomain": "my-demo-page",
+      "status": "active",
+      "updated_at": "2026-04-18T12:34:56.000000Z",
+      "last_deployed_at": "2026-04-18T12:30:00.000000Z",
+      "creator": {
+        "id": 501,
+        "name": "Ada Lovelace",
+        "email": "ada@example.com"
+      }
+    }
+  ],
+  "meta": {
+    "current_page": 1,
+    "last_page": 1,
+    "per_page": 15,
+    "total": 1
+  }
+}
+```
+
+The **`creator`** object appears when the effective permissions include **manage** (enforced in the Tess AI platform for this route).
+
+### **Common errors**
+
+| Status | Meaning |
+|--------|---------|
+| **400** | Missing **`x-workspace-id`**. |
+| **403** | No **read** and no **manage** on workspace pages, or workspace access denied. |
+| **401** | Invalid or missing bearer token. |
+
+### **Panel parity**
+
+Authenticated users can call the same handler through **`GET /backend-api/pages/workspace`** with session cookies and the same query parameters (the browser UI uses this route).

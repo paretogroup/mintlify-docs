@@ -1,0 +1,57 @@
+---
+title: "Artefactos del workspace"
+description: "Lista, filtra y publica o despublica Tess Pages de tu workspace desde la configuración personal, con acceso basado en roles."
+---
+
+Los **artefactos** del workspace son las Tess Pages (sitios publicados) vinculadas a tu workspace: cada fila es una página alojada con subdominio, estado y, cuando existe, un acceso al chat que la generó.
+
+### **Dónde encontrarlo**
+
+<Steps>
+  <Step title="Abrir Configuración">
+    Si la barra lateral está colapsada, abre el **menú** (icono arriba a la izquierda), haz clic en tu **nombre y correo** abajo en la barra lateral y elige **Settings**. Se abre el modal de configuración personal.
+  </Step>
+  <Step title="Abrir Artefactos">
+    En **Workspace** en la barra lateral, selecciona **Artifacts**. El panel muestra el título **Artifacts** y el subtítulo sobre administrar artefactos publicados del workspace.
+  </Step>
+</Steps>
+
+<Frame caption="Ajustes personales: abre **Workspace → Artifacts** en la barra lateral. Con `workspace:pages:read` (s4-tech), se muestran la tabla, filtros y acciones por fila.">
+  ![Modal, Artifacts seleccionado, tabla y filtros](/images/te44-s4-settings-modal.png)
+</Frame>
+
+<Frame caption="Bloqueo por plan/roles: con permiso de **facturación** pero sin Tess Pages, aparece un CTA de mejora en lugar de la tabla (s4-tech; fase F del plan de homologación).">
+  ![CTA de mejora en Artifacts](/images/te44-s4-workspace-artifacts.png)
+</Frame>
+
+### **Qué puedes hacer**
+
+- **Explorar** las páginas publicadas del workspace con paginación.
+- **Filtrar** por estado: activas, inactivas o todas (cuando el filtro está vacío).
+- **Abrir** la URL pública de la Tess Page en cada fila.
+- **Ir al chat** cuando se conoce el chat de origen (control localizado equivalente a “Open chat”).
+- **Publicar** o **despublicar** con las acciones de la fila. Despublicar pide confirmación porque el enlace público deja de funcionar y el subdominio puede reutilizarse.
+
+### **Quién ve qué**
+
+El acceso depende de los permisos del workspace sobre Tess Pages:
+
+| Permiso | Efecto típico |
+|---------|----------------|
+| **Lectura** (`workspace:pages:read`) | Ves solo **tus** artefactos en el workspace. |
+| **Escritura** (`workspace:pages:write`) | Puedes publicar o despublicar páginas que el producto te permita (junto con las reglas de manage). |
+| **Gestión** (`workspace:pages:manage`) | Ves los artefactos **de todos**, columna opcional de **creador** y puedes filtrar por **creador** (`user_id`). |
+
+Si **no** tienes permiso de artefactos pero **sí** puedes gestionar la facturación del workspace, la interfaz puede mostrar una ruta de mejora en lugar de la tabla. Sin uno ni otro, verás un mensaje claro de **sin permiso**.
+
+### **API para automatización**
+
+Las integraciones pueden usar los mismos datos y acciones por HTTPS:
+
+- [Listar páginas del workspace](/es/list-workspace-pages)
+- [Publicar o despublicar una página](/es/publish-workspace-page)
+
+### **Relacionado**
+
+- [Tess Pages](/es/tess-pages) — cómo funciona Instant Cloud desde el chat.
+- [Workspace](/es/workspace) — marca e información del perfil del workspace.

@@ -951,7 +951,8 @@
                   "es/usage",
                   "es/workspace/kb",
                   "es/monetization",
-                  "es/data-control"
+                  "es/data-control",
+                  "es/control-de-contexto"
                 ]
               },
               {

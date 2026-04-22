@@ -1,0 +1,159 @@
+---
+title: "Control de Ventana de Contexto"
+---
+
+La ventana de contexto define cuánto del historial de la conversación considera la IA en cada respuesta. En Tess, este control se hace mediante el Memory Economy Mode, que permite equilibrar la calidad frente al consumo de créditos.
+
+Este control de contexto te permite definir cuántos tokens Tess AI puede considerar en cada conversación de chat que se abra. Esto impacta directamente en la memoria del chat, la calidad de las respuestas y el consumo de créditos.
+
+### ¿Qué es?
+
+Es la configuración que define el “tamaño de la memoria activa” del modelo en cada ejecución.
+
+En la práctica, cuanto mayor es el contexto:
+
+- Más historial considera el modelo
+- Mayor es el costo por ejecución
+
+<Info>
+  El Memory Economy Mode permite ajustar esto dinámicamente, priorizando economía o profundidad.
+</Info>
+
+### **Antes de usar: lo que necesitas saber**
+
+Antes de cambiar esta configuración, vale la pena entender algunos puntos importantes:
+
+1. Es una configuración por usuario: Cada usuario define su propia preferencia y tu elección no altera automáticamente la experiencia de otros miembros del Workspace
+2. Es una configuración global de tu experiencia en Tess: No aplica solo a un único chat, el ajuste pasa a influir en tus conversaciones en la plataforma de forma general, ni se convierte en una configuración por Prompt.
+3. No necesitas redefinir esto en cada nueva conversación: Una vez ajustada, la preferencia continúa activa hasta que la cambies de nuevo, el objetivo principal es equilibrar calidad y costo
+   <Info>
+     Más contexto mejora la retención del historial. Menos contexto reduce el gasto de tokens, especialmente en chats largos
+   </Info>
+
+### **¿Dónde encontrarlo?**
+
+<Steps>
+  <Step title="Accede a Preferencias">
+    En la esquina inferior izquierda, haz clic en tu ícono de usuario y accede a la opción de configuraciones \> preferencias.
+  </Step>
+  <Step title="Encuentra el Memory Economy Mode">
+    Baja hasta la opción de configuración de economía de memoria.
+
+    <Frame>
+      ![Captura De Tela 2026 04 17 Às 17 16 45](/images/Captura-de-Tela-2026-04-17-às-17.16.45.png)
+    </Frame>
+  </Step>
+  <Step title="Ajusta el Slider">
+    - Más a la derecha → más economía
+    - Más a la izquierda → más contexto (ej: el predeterminado y la ventana de 32K tokens)
+  </Step>
+  <Step title="Sigue usando Tess">
+    <Frame>
+      ![Image](/images/image-205.png)
+    </Frame>
+  </Step>
+</Steps>
+
+### **Cómo interpretar el Memory Economy Mode**
+
+El Memory Economy Mode funciona como un control entre la economía y la profundidad de contexto.
+
+<Card title="Cuando el slider está más orientado a la economía (derecha)">
+  Tess limita más fuertemente la cantidad de tokens por mensaje. En la práctica, el costo tiende a caer, el historial útil que utilizará el LLM de la conversación se hace menor, los chats largos pueden perder continuidad más temprano. La configuración predeterminada es de 32K tokens, 43% de ahorro de créditos.
+
+  <Frame>
+    ![Image](/images/image-209.png)
+  </Frame>
+</Card>
+
+<Card title="Cuando el slider está más orientado al contexto (izquierda)">
+  Tess amplía el límite disponible por mensaje. En la práctica, más historial puede ser considerado por el LLM, la continuidad tiende a mejorar y el costo de entrada (input token) tiende a subir, después de todo, es mucho más contenido siendo revisado por el modelo de texto para componer su memoria.
+
+  En la propia interfaz, verás indicadores como:
+
+  - porcentaje estimado de ahorro de créditos
+  - límite de contexto aproximado, como 32K tokens
+
+  <Frame>
+    ![Image](/images/image-206.png)
+  </Frame>
+
+  Estos números ayudan a entender el trade-off entre economía y profundidad.
+</Card>
+
+### **Cómo funciona esto en la práctica**
+
+En general, esta configuración es más relevante en conversaciones largas. En un chat corto, la diferencia puede ser pequeña. Sin embargo, en un chat que acumula mucho historial, el límite de contexto pasa a importar más, porque el modelo no puede considerar todo indefinidamente.
+
+Esto significa que, en conversaciones extensas:
+
+- con un contexto menor, las partes antiguas pueden dejar de ser consideradas
+- con un contexto mayor, la continuidad tiende a ser mejor
+- con el Memory Boost activo, Tess puede recuperar fragmentos relevantes del historial incluso manteniendo un límite más económico
+  <Frame>
+    ![Image](/images/image-210.png)
+  </Frame>
+
+<Info>
+  La ventana de contexto no es solo una configuración técnica. Cambia el comportamiento real de la IA a lo largo del uso.
+</Info>
+
+En Tess, el Memory Economy Mode limita la cantidad de tokens de contexto por mensaje.
+
+<Note>
+  Esto significa que la plataforma controla cuánto historial se enviará efectivamente al modelo en cada nueva interacción.
+</Note>
+
+Este punto es importante porque muchos usuarios asumen que el modelo siempre “recuerda todo” dentro del chat. En la práctica, no es así: existe un límite técnico de contexto por ejecución.
+
+> **Por eso, el ajuste del Memory Economy Mode funciona como una política individual de uso:** _tú decides priorizar más economía o priorizar más retención del historial. Este control es especialmente útil para quienes quieren escalar el uso de Tess con más previsibilidad de costo._
+
+Además, el límite definido impacta todos los mensajes del chat y los modelos que se utilicen para conversar. Sin embargo, al activar el Max Mode, el modelo ignora esta configuración y usa el límite máximo nativo de cada modelo.
+
+### **Ejemplos prácticos de contexto y configuraciones**
+
+**<u>Ejemplo 1: uso rápido y operativo</u>**
+
+Si usas Tess para tareas como revisar textos cortos, responder dudas objetivas o generar pequeñas variaciones de contenido, por ejemplo, un modo más económico suele ser suficiente.
+
+> Ejemplo de Prompt:\
+> _"Reescribe este párrafo en un tono más profesional."_
+>
+> En este caso, no hay necesidad de mantener mucho historial de la conversación.
+
+**<u>Ejemplo 2: conversación estratégica y continua</u>**
+
+Si estás usando Tess para construir un plan a lo largo de varias interacciones
+
+madurar un análisis o trabajar en un proyecto con contexto acumulado, un contexto mayor tiende a funcionar mejor.
+
+> Ejemplo de Prompt: _"Considera todo lo que hemos discutido hasta aquí y organiza una propuesta final en temas."_
+>
+> Aquí, la continuidad hace la diferencia en el resultado, puede ser importante revisar tu límite máximo.
+
+<Tip>
+  **Buenas prácticas**
+
+  - Usa economía alta para: tareas repetitivas, Prompts cortos
+  - Usa más contexto para: análisis complejos, conversaciones largas
+  - Combina con Memory Boost para optimizar el costo
+  - Revisa esta configuración si notas: respuestas que “olvidan el contexto” o un costo demasiado alto
+</Tip>
+
+**Observaciones importantes**
+
+- Más contexto = mayor consumo de créditos
+- Menos contexto puede hacer que la IA “olvide” partes de la conversación
+- El impacto es mayor en chats largos
+- El valor exhibido (ej: 32K tokens) es un límite aproximado
+
+### **Errores comunes**
+
+1. Dejar el contexto alto para todo: Esto aumenta el costo incluso en tareas simples que no necesitan de un historial largo.
+2. Dejar el contexto muy bajo en chats estratégicos: Esto puede perjudicar la continuidad y generar respuestas menos consistentes a lo largo de la conversación.
+3. Tratar esta configuración como algo por chat: El ajuste se realiza en las preferencias del usuario e influye ampliamente en la experiencia en la plataforma.
+4. Ignorar el impacto en los créditos: Cuanto más contexto se use por mensaje, mayor tiende a ser el costo de entrada en conversaciones largas.
+
+La ventana de contexto es una de las configuraciones más importantes para equilibrar la calidad de la respuesta, la continuidad de la conversación y el consumo de créditos en Tess AI.
+
+Como está definida por usuario y afecta tu experiencia en la plataforma en su conjunto, vale la pena ajustar esta preferencia de forma consciente — principalmente si usas Tess con frecuencia o en conversaciones largas. Ajustando correctamente, logras equilibrar la calidad de respuesta y el costo operativo de forma simple.

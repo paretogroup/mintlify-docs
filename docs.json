@@ -638,7 +638,8 @@
                   "pt/workspace/kb",
                   "pt/monetization",
                   "pt/data-control",
-                  "pt/context-window-control"
+                  "pt/context-window-control",
+                  "pt/memory-boost"
                 ]
               },
               {

@@ -1,0 +1,176 @@
+---
+title: "Memory Boost"
+---
+
+Memory Boost es una función que ayuda a Tess a recuperar partes relevantes del historial de la conversación cuando el contexto de tu mensaje actual ya no abarca todo. En la práctica, mejora la continuidad de los chats largos sin exigirte que mantengas una ventana de contexto alta todo el tiempo.
+
+En Tess, Memory Boost se configura en Preferences. Es una configuración individual, hecha por usuario, e influye en tu experiencia en la plataforma como un todo.
+
+### **¿Qué es?**
+
+Memory Boost es un agente de apoyo que se ejecuta en segundo plano para analizar el historial completo de la conversación y traer de vuelta solo lo que sea más relevante para el mensaje actual.
+
+En lugar de enviar siempre un contexto mayor al modelo principal, Tess puede usar esta función para hacer una búsqueda inteligente en el historial y complementar la respuesta con fragmentos importantes de lo que ya se ha dicho.
+
+En la práctica, te ayuda cuando:
+
+- la conversación ya es larga
+- partes antiguas del historial dejarían de entrar en el contexto normal
+- quieres ahorrar créditos sin perder continuidad
+
+Una vez configurada, la función opera automáticamente en segundo plano. No necesitas escribir un prompt específico para “llamar” a Memory Boost.
+
+### **¿Dónde encontrarlo?**
+
+Para activar la función:
+
+- En el menú lateral, haz clic en tu ícono de usuario, luego en Configuración y Preferencias
+- Desplázate hasta encontrar la opción de Memory Boost
+
+<Frame>
+  ![Image](/images/image-212.png)
+</Frame>
+
+- Activa el interruptor de habilitación y, si quieres, haz clic en Change model para elegir el modelo usado en la función:
+
+<Frame>
+  ![Image](/images/image-213.png)
+</Frame>
+
+### **Antes de usar: lo que necesitas saber**
+
+Antes de activar Memory Boost, vale la pena entender algunos puntos importantes:
+
+- **Es una configuración por usuario:** Cada usuario define su propia preferencia y la activación de la función no altera automáticamente la experiencia de los demás miembros del workspace. Es una configuración global de tu experiencia en Tess.
+- **No es algo que se activa por chat individualmente:** Una vez encendido, pasa a formar parte de tu uso en la plataforma hasta que lo desactives. Memory Boost es complementario al contexto.
+- **No sustituye a la ventana de contexto:** Ayuda a recuperar el historial relevante cuando la conversación crece.
+- **La función utiliza un modelo separado:** Este modelo se ejecuta en segundo plano para buscar en el historial. Por eso, Memory Boost puede generar un consumo adicional de créditos.
+- **No necesitas mantener el contexto siempre al máximo:** El sistema busca en el historial solo lo que sea útil para esa interacción
+
+### **Cómo funciona en la práctica**
+
+Siempre que envías un nuevo mensaje, Tess puede activar Memory Boost para analizar el historial completo de la conversación e identificar lo que tiene sentido recuperar en ese momento.
+
+En lugar de traer todo de vuelta, el sistema intenta seleccionar solo los fragmentos más útiles para la nueva respuesta.
+
+En la práctica, el flujo es este:
+
+1. envías un mensaje
+2. Memory Boost evalúa el historial
+3. encuentra información relacionada con tu solicitud actual
+4. esa información ayuda a componer la respuesta final
+
+<Tip>
+  Esto es especialmente útil cuando la conversación ya ha pasado por muchos temas; se dieron instrucciones importantes al inicio del chat; necesitas retomar un tema antiguo varios mensajes después.
+</Tip>
+
+### **Relación con el Memory Economy Mode**
+
+Memory Boost fue pensado para funcionar junto con el Memory Economy Mode. Esta relación es importante porque el Memory Economy Mode limita el contexto por mensaje para reducir costos. En chats largos, esto puede hacer que partes antiguas de la conversación dejen de ser consideradas en el flujo normal.
+
+Cuando Memory Boost está activo, Tess gana una capa extra de recuperación de contexto. En lugar de mantener una ventana alta todo el tiempo, busca en el historial solo lo que importa para esa pregunta.
+
+Por ejemplo, esta combinación suele funcionar bien con el Memory Economy Mode más económico y el Memory Boost activado. Así, reduces el costo fijo de contexto sin renunciar a la continuidad en conversaciones más largas.
+
+_¡No por casualidad, decimos que él es el Economy Mode’s Best Friend!_
+
+### **Cuándo tiene sentido activarlo**
+
+<Columns cols={2}>
+  <Column>
+    <Card title="Memory Boost tiende a ser más útil cuando:">
+      - mantienes chats largos por bastante tiempo
+      - trabajas temas que evolucionan a lo largo de varias interacciones
+      - sueles retomar puntos discutidos al inicio de la conversación
+      - quieres ahorrar tokens sin perder coherencia
+      - usas Tess para análisis, planificación o construcción iterativa
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Este escenario es relativamente común en casos como:">
+      - proyectos en curso
+      - producción de contenido por etapas
+      - agentes de trabajo con contexto acumulado
+      - conversaciones estratégicas o consultivas
+    </Card>
+  </Column>
+</Columns>
+
+### **Cuándo puede no ser necesario**
+
+En chats cortos o tareas muy objetivas, Memory Boost puede no hacer tanta diferencia.
+
+Por ejemplo:
+
+- preguntas rápidas
+- ajustes de texto puntuales
+- prompts independientes entre sí
+- interacciones en las que el historial casi no importa
+
+En estos casos, que la función esté apagada no molesta y, si está activa, no impactará negativamente el resultado obtenido en la conversación.
+
+### **Ejemplos prácticos**
+
+<u>Ejemplo 1: retomando una instrucción antigua</u>
+
+Pasaste varias orientaciones al comienzo del chat y, después de muchos mensajes, escribes:
+
+> _“Rehaz la propuesta siguiendo ese posicionamiento que definimos al inicio.”_\
+> \
+> En este caso, Memory Boost ayuda a recuperar ese posicionamiento anterior para sustentar la respuesta.
+
+<u>Ejemplo 2: chat largo de planificación</u>
+
+A lo largo de una conversación extensa, construyes una estrategia por etapas y quieres pedir:
+
+> “Ahora consolida todo esto en un plan final.”\
+> Aunque el contexto normal ya no abarque todo el historial, Memory Boost puede traer partes relevantes de lo que se discutió antes.
+
+<u>Ejemplo 3: ahorro con continuidad</u>
+
+Mantienes el Memory Economy Mode en un nivel más económico, pero activas Memory Boost para evitar la pérdida de contexto en conversaciones largas.
+
+En este escenario:
+
+- el costo fijo de contexto es menor
+- el historial relevante todavía se puede recuperar cuando sea necesario\\
+
+### **Cómo elegir el modelo de Memory Boost**
+
+Memory Boost te permite elegir qué modelo se usará para buscar en el historial. En la práctica, este paso tiende a funcionar bien con modelos más ligeros, porque:
+
+- el trabajo se centra en recuperar contexto
+- no siempre es necesario usar un modelo más caro
+- esto ayuda a mantener el costo bajo control
+
+En general, la recomendación es empezar con un modelo ligero y solo probar algo más robusto si hay un motivo claro para ello.
+
+<Tip>
+  **Buenas prácticas**
+
+  - Activa Memory Boost principalmente en chats largos
+  - Combina la función con Memory Economy Mode para equilibrar costo y continuidad
+  - Prefiere modelos más ligeros para esta función
+  - Revisa tu uso si notas un aumento de costo sin ganancia práctica
+  - Usa la función cuando el historial realmente importe para la calidad de la respuesta
+  - Orienta a los equipos y usuarios a no confundir Memory Boost con “memoria infinita”
+</Tip>
+
+### **Errores comunes**
+
+1. Activar la función sin necesidad: En tareas rápidas e independientes, la ganancia puede ser pequeña y el costo extra puede no compensar.
+2. Usar un modelo pesado en el Boost sin necesidad: Como la función se ejecuta en segundo plano, elegir un modelo más caro puede elevar el costo sin traer un beneficio proporcional.
+3. Creer que Memory Boost sustituye totalmente al contexto. Ayuda a recuperar partes relevantes del historial, pero no elimina la importancia de una configuración adecuada de contexto.
+4. Esperar que recupere todo todo el tiempo: El objetivo de la función es buscar lo que parece más relevante para la interacción actual, no reinyectar íntegramente toda la conversación anterior.
+5. Confundir la función con una configuración por chat
+
+### **Observaciones importantes**
+
+- La función influye en tu experiencia en Tess de forma amplia, y no solo en un chat aislado
+- Utiliza un modelo separado para analizar el historial, esto puede generar un consumo adicional de créditos
+- La ganancia principal de la función aparece en chats más largos
+- Cuando se combina con Memory Economy Mode, ayuda a mantener el ahorro sin perder tanto contexto
+
+Memory Boost es la función ideal para quienes necesitan mantener continuidad en conversaciones largas, pero no quieren depender de una ventana de contexto siempre alta.
+
+Cuando la usas correctamente, mejora la recuperación del historial, reduce la necesidad de un contexto fijo elevado y te ayuda a hacer que el uso de Tess sea más eficiente en el día a día.

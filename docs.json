@@ -636,7 +636,8 @@
                   "pt/members-permissions",
                   "pt/workspace/kb",
                   "pt/monetization",
-                  "pt/data-control"
+                  "pt/data-control",
+                  "pt/controle-de-janela-de-contexto"
                 ]
               },
               {

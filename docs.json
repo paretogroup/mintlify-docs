@@ -323,7 +323,8 @@
                   "en/members-permissions",
                   "en/workspace/kb",
                   "en/monetization",
-                  "en/data-control"
+                  "en/data-control",
+                  "en/context-window-control"
                 ]
               },
               {
@@ -637,7 +638,7 @@
                   "pt/workspace/kb",
                   "pt/monetization",
                   "pt/data-control",
-                  "pt/setting-context-window"
+                  "pt/context-window-control"
                 ]
               },
               {

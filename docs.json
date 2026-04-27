@@ -1009,5 +1009,11 @@
   },
   "seo": {
     "indexing": "all"
-  }
+  },
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en/welcome"
+    }
+  ]
 }

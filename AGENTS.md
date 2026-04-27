@@ -43,3 +43,11 @@ Use Mintlify's built-in components for consistent formatting. See https://www.mi
 - Don't remove existing pages without checking for inbound links
 - Don't use HTML when an MDX component exists for the same purpose
 - Don't add pages to navigation that don't exist yet
+
+## Cursor Cloud specific instructions
+
+- The Mintlify CLI (`mint`) is installed globally via `npm i -g mint`. The update script handles this automatically.
+- To preview docs locally, run `mint dev` from the workspace root (where `docs.json` lives). The server starts at `http://localhost:3000`.
+- To check for broken links, run `mint broken-links`. Note: the starter template has 3 pre-existing broken links in `essentials/images.mdx` and `essentials/settings.mdx` that reference external Mintlify documentation paths (`/writing-content/embed`, `/api-playground/demo`).
+- There is no build step, no package.json, no test framework, and no linter beyond `mint broken-links`. The only "lint" check available is the broken links checker.
+- If `mint dev` fails to start, run `mint update` to refresh the CLI's internal assets.
